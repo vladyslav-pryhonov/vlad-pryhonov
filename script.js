@@ -447,6 +447,16 @@ document.getElementById('stickyClose').addEventListener('click', () => {
   stickyBar.classList.remove('show');
 });
 
+// клік-трекінг: телефон, Telegram, CTA в хіро – одна подія на будь-який елемент з data-track
+// (спрацьовує лише якщо є згода на cookie і трекери вже завантажені – інакше просто нічого не шле)
+document.querySelectorAll('[data-track]').forEach(function(el){
+  el.addEventListener('click', function(){
+    var name = el.getAttribute('data-track');
+    if (window.gtag) window.gtag('event', name);
+    if (window.fbq) window.fbq('trackCustom', name);
+  });
+});
+
 // cookie consent – GA4 і Meta Pixel вантажаться ТІЛЬКИ після згоди, вибір запам'ятовується
 window.cookieBannerPending = true;
 (function initCookieConsent(){
