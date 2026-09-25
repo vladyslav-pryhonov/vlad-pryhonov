@@ -148,6 +148,46 @@ function showTariff(key){
   document.addEventListener('keydown', e => { if (e.key === 'Escape') close(); });
 })();
 
+// відео-попап у блоці "Хто робить сайт"
+// ЩОБ УВІМКНУТИ: впишіть посилання в VIDEO_SRC нижче – кнопка плей з'явиться на фото автоматично.
+// VIDEO_TYPE: 'youtube' (вставте ID відео з посилання, напр. з youtu.be/ABC123 -> 'ABC123') або 'mp4' (пряме посилання на файл .mp4)
+(function initVideoPopup(){
+  const VIDEO_SRC = ''; // <-- сюди: ID з YouTube або посилання на .mp4
+  const VIDEO_TYPE = 'youtube'; // 'youtube' або 'mp4'
+
+  const trigger = document.getElementById('videoTrigger');
+  const overlay = document.getElementById('videoModalOverlay');
+  const box = document.getElementById('videoModalBox');
+  const closeBtn = document.getElementById('videoModalClose');
+  if (!trigger || !overlay || !box || !closeBtn) return;
+  if (!VIDEO_SRC) return; // без посилання кнопка лишається прихованою (display:none за замовчуванням у CSS)
+
+  trigger.style.display = 'flex';
+
+  function playerHTML(){
+    if (VIDEO_TYPE === 'youtube') {
+      return `<iframe src="https://www.youtube-nocookie.com/embed/${VIDEO_SRC}?rel=0" title="Відео" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`;
+    }
+    return `<video src="${VIDEO_SRC}" controls playsinline></video>`;
+  }
+
+  function open(){
+    box.innerHTML = playerHTML();
+    overlay.classList.add('show');
+    document.body.style.overflow = 'hidden';
+  }
+  function close(){
+    overlay.classList.remove('show');
+    document.body.style.overflow = '';
+    box.innerHTML = ''; // прибирає iframe/video з DOM - це і зупиняє відтворення при закритті
+  }
+
+  trigger.addEventListener('click', open);
+  overlay.addEventListener('click', e => { if (e.target === overlay) close(); });
+  closeBtn.addEventListener('click', close);
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') close(); });
+})();
+
 // мобільне меню
 const burgerBtn = document.getElementById('burgerBtn');
 const mobileMenu = document.getElementById('mobileMenu');

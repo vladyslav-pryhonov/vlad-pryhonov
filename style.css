@@ -616,6 +616,28 @@ header.scrolled{border-bottom-color:var(--line);}
 .screenshot-wrap:hover .zoom-hint{opacity:1;background:rgba(8,12,8,.32);}
 .screenshot-wrap:hover .zoom-hint svg{transform:scale(1);}
 .lightbox-overlay{position:fixed;inset:0;background:rgba(8,12,8,.92);z-index:500;display:none;align-items:center;justify-content:center;padding:24px;cursor:zoom-out;}
+
+/* VIDEO POPUP (хто робить сайт) */
+.video-trigger{
+  display:none; /* показується лише коли в script.js задано VIDEO_SRC */
+  position:absolute;inset:0;align-items:center;justify-content:center;cursor:pointer;
+  background:rgba(8,12,8,0);transition:background .2s ease;border-radius:inherit;
+}
+.video-trigger:hover{background:rgba(8,12,8,.22);}
+.video-trigger .play-ic{
+  width:72px;height:72px;border-radius:50%;background:rgba(255,255,255,.92);
+  display:flex;align-items:center;justify-content:center;box-shadow:0 10px 30px -6px rgba(0,0,0,.5);
+  transition:transform .2s ease;
+}
+.video-trigger:hover .play-ic{transform:scale(1.08);}
+.video-trigger .play-ic svg{width:26px;height:26px;fill:var(--accent-dark);margin-left:4px;}
+.video-modal-overlay{position:fixed;inset:0;background:rgba(8,12,8,.92);z-index:520;display:none;align-items:center;justify-content:center;padding:24px;}
+.video-modal-overlay.show{display:flex;}
+.video-modal-box{width:100%;max-width:860px;aspect-ratio:16/9;background:#000;border-radius:12px;overflow:hidden;position:relative;box-shadow:0 30px 80px -10px rgba(0,0,0,.6);}
+.video-modal-box iframe,.video-modal-box video{width:100%;height:100%;display:block;border:0;}
+.video-modal-close{position:fixed;top:18px;right:22px;width:44px;height:44px;border-radius:50%;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.2);color:var(--paper);font-size:20px;cursor:pointer;z-index:521;display:flex;align-items:center;justify-content:center;transition:background .15s ease;}
+.video-modal-close:hover{background:rgba(255,255,255,.16);}
+@media(max-width:640px){.video-modal-close{top:12px;right:12px;width:40px;height:40px;}.video-trigger .play-ic{width:58px;height:58px;}.video-trigger .play-ic svg{width:20px;height:20px;}}
 .lightbox-overlay.show{display:flex;}
 .lightbox-overlay img{max-width:min(70vw,500px);max-height:min(74vh,620px);border-radius:12px;box-shadow:0 30px 80px -10px rgba(0,0,0,.6);cursor:default;}
 .lightbox-close{position:fixed;top:18px;right:22px;width:44px;height:44px;border-radius:50%;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.2);color:var(--paper);font-size:20px;cursor:pointer;z-index:501;display:flex;align-items:center;justify-content:center;transition:background .15s ease;}

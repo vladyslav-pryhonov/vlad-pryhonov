@@ -500,13 +500,11 @@
     <div class="hero-bg-grid" style="opacity:.4;"></div>
     <div class="wrap who-grid" style="position:relative;z-index:1;">
       <div class="reveal who-photo-wrap">
-        <div class="who-photo">
+        <div class="who-photo" style="position:relative;">
           <img src="images/vlad-portrait.jpg" alt="Vlad Pryhonov, веб-розробник" loading="lazy">
-          <!--
-            ВІДЕО: фото тут залишається без змін (desktop і mobile).
-            Відео буде показуватись через попап, який зʼявляється при доскролюванні
-            до цього блоку – реалізується на Кроці 3, коли зʼявиться готовий відеофайл.
-          -->
+          <div class="video-trigger" id="videoTrigger">
+            <div class="play-ic"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+          </div>
         </div>
       </div>
       <div class="who-copy reveal">
@@ -755,6 +753,12 @@
 <div class="lightbox-overlay" id="lightboxOverlay">
   <button class="lightbox-close" id="lightboxClose" aria-label="Закрити">✕</button>
   <img id="lightboxImg" src="" alt="Збільшений скріншот">
+</div>
+
+<!-- VIDEO MODAL -->
+<div class="video-modal-overlay" id="videoModalOverlay">
+  <button class="video-modal-close" id="videoModalClose" aria-label="Закрити">✕</button>
+  <div class="video-modal-box" id="videoModalBox"></div>
 </div>
 
 <!-- PRIVACY MODAL -->
