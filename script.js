@@ -1,7 +1,7 @@
 // ===== ЗАМІНІТЬ на ваш реальний юзернейм Telegram =====
 const TELEGRAM_USERNAME = "vvladdos_ik";
 // Google Apps Script Web App URL – інструкція внизу чату, як отримати цей URL.
-const GOOGLE_SHEET_URL = "https://script.google.com/macros/s/AKfycbxvADnyHIDhS3rH3TJK4eck-l9Vn7z7pefN9lXNY4-gKVdYQ9t61Dn16hX3YDrsXsp4/exec";
+const GOOGLE_SHEET_URL = "https://script.google.com/macros/s/AKfycbzF9lsNCDppQI-03AsQU4n56pEgTUqyR02T31PdS9VlZsVa7Yj5fvM1t9A9e_IlVnwW/exec";
 
 // показати більше кейсів
 function toggleMoreCases(){
