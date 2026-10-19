@@ -1,6 +1,6 @@
-// ===== ЗАМІНІТЬ на ваш реальний юзернейм Telegram =====
+// ===== ЗАМІНІТЬ на ваш реальний юзернейм Telegram =====
 const TELEGRAM_USERNAME = "vvladdos_ik";
-// Google Apps Script Web App URL – інструкція внизу чату, як отримати цей URL.
+// Google Apps Script Web App URL – інструкція внизу чату, як отримати цей URL.
 const GOOGLE_SHEET_URL = "https://script.google.com/macros/s/AKfycbxvADnyHIDhS3rH3TJK4eck-l9Vn7z7pefN9lXNY4-gKVdYQ9t61Dn16hX3YDrsXsp4/exec";
 
 // показати більше кейсів
@@ -240,17 +240,17 @@ const statIo = new IntersectionObserver((entries) => {
 }, { threshold: 0.5 });
 statEls.forEach(el => statIo.observe(el));
 
-// hero mockup: циклічна демонстрація різних прикладів бізнесу (доки користувач сам не почне редагувати)
+// hero mockup: циклічна демонстрація різних прикладів бізнесу (доки користувач сам не почне редагувати)
 const demoExamples = [
-  { tag: 'СТУДІЯ РЕМОНТУ', title: 'Ремонт квартир під ключ', titleShort: 'Ремонт квартир', price: 'від $1 200', btn: 'Залишити заявку',
+  { tag: 'СТУДІЯ РЕМОНТУ', title: 'Ремонт квартир під ключ', titleShort: 'Ремонт квартир', price: 'від $1 200', btn: 'Залишити заявку',
     media: 'linear-gradient(135deg,#0d2b2e,#127A46 55%,#0f3b52)', accent: '#E2571C',
     font: 'var(--font-display)', weight: '700', tracking: '-0.01em',
     icon: '<svg viewBox="0 0 100 100"><path d="M10 55 L50 20 L90 55 M20 50 V85 H80 V50 M42 85 V62 H58 V85" stroke-linecap="round" stroke-linejoin="round"/></svg>' },
-  { tag: 'КАВ\'ЯРНЯ', title: 'Кава на винос за 2 хвилини', titleShort: 'Кава на винос', price: 'від 65 грн', btn: 'Замовити каву',
+  { tag: 'КАВ\'ЯРНЯ', title: 'Кава на винос за 2 хвилини', titleShort: 'Кава на винос', price: 'від 65 грн', btn: 'Замовити каву',
     media: 'linear-gradient(135deg,#3a2410,#B9772F 55%,#5c2e12)', accent: '#B9772F',
     font: 'var(--font-sans)', weight: '500', tracking: '0.01em',
     icon: '<svg viewBox="0 0 100 100"><path d="M20 35 H68 V63 A24 24 0 0 1 20 63 Z M68 40 H80 A9 9 0 0 1 80 58 H68 M34 20 Q34 27 39 29 M48 18 Q48 25 53 27" stroke-linecap="round" stroke-linejoin="round"/></svg>' },
-  { tag: 'БАРБЕРШОП', title: 'Стрижка та бритва разом', titleShort: 'Стрижка та бритва', price: 'від 450 грн', btn: 'Записатись',
+  { tag: 'БАРБЕРШОП', title: 'Стрижка та бритва разом', titleShort: 'Стрижка та бритва', price: 'від 450 грн', btn: 'Записатись',
     media: 'linear-gradient(135deg,#1a1a1f,#3E4C6B 55%,#0d0d10)', accent: '#3E4C6B',
     font: 'var(--font-display)', weight: '700', tracking: '-0.02em',
     icon: '<svg viewBox="0 0 100 100"><circle cx="24" cy="24" r="9"/><circle cx="24" cy="76" r="9"/><path d="M31 31 L88 88 M31 69 L88 12" stroke-linecap="round"/></svg>' },
@@ -323,7 +323,7 @@ const demoInterval = setInterval(swapDemo, 5800);
   el.addEventListener('focus', () => { demoEditedByUser = true; clearInterval(demoInterval); });
 });
 
-// hero mockup: легкий паралакс-нахил всієї композиції за рухом миші
+// hero mockup: легкий паралакс-нахил всієї композиції за рухом миші
 const stage = document.querySelector('.mock-stage');
 const tilt = document.querySelector('.mockup-wrap');
 if (stage && tilt && window.matchMedia('(pointer:fine)').matches) {
@@ -336,7 +336,7 @@ if (stage && tilt && window.matchMedia('(pointer:fine)').matches) {
   stage.addEventListener('mouseleave', () => { tilt.style.transform = 'perspective(1400px) rotateY(0) rotateX(0)'; });
 }
 
-// анімована лінія прогресу в блоці "Як проходить робота"
+// анімована лінія прогресу в блоці "Як проходить робота"
 const processList = document.getElementById('processList');
 const processFill = document.getElementById('processFill');
 function updateProcessFill(){
@@ -384,33 +384,33 @@ document.querySelectorAll('.faq-item').forEach(item => {
 
 function validateContact(value) {
   const v = value.trim();
-  if (!v) return 'Вкажіть контакт для зв\'язку';
+  if (!v) return 'Вкажіть контакт для зв\'язку';
 
   const digitsCount = (v.match(/\d/g) || []).length;
 
-  // Схоже на спробу ввести телефон (багато цифр, немає @) – дозволені лише цифри, +, дужки, пробіли, тире
+  // Схоже на спробу ввести телефон (багато цифр, немає @) – дозволені лише цифри, +, дужки, пробіли, тире
   if (!v.includes('@') && digitsCount >= 5) {
     const nonPhoneChars = v.replace(/[\d\s()+\-]/g, '');
     if (nonPhoneChars.length > 0) {
-      return 'Номер телефону має містити лише цифри';
+      return 'Номер телефону має містити лише цифри';
     }
-    return digitsCount < 10 ? 'Перевірте номер – здається, не вистачає цифр' : '';
+    return digitsCount < 10 ? 'Перевірте номер – здається, не вистачає цифр' : '';
   }
 
-  // Містить @ – перевіряємо як email або telegram-юзернейм
+  // Містить @ – перевіряємо як email або telegram-юзернейм
   if (v.includes('@')) {
     const emailLike = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v);
     const telegramLike = /^@[a-zA-Z0-9_]{4,}$/.test(v);
     if (emailLike || telegramLike) return '';
-    return 'Перевірте контакт – здається, він неповний';
+    return 'Перевірте контакт – здається, він неповний';
   }
 
-  // Схоже на спробу ввести email без @ (є літери й крапка, немає жодної кирилиці типу звичайного тексту)
+  // Схоже на спробу ввести email без @ (є літери й крапка, немає жодної кирилиці типу звичайного тексту)
   if (/^[a-zA-Z0-9._-]+\.[a-zA-Z]{2,}$/.test(v)) {
     return 'Email має містити символ @';
   }
 
-  return ''; // telegram-юзернейм без @, ім'я тощо – не блокуємо
+  return ''; // telegram-юзернейм без @, ім'я тощо – не блокуємо
 }
 
 function checkContactField() {
@@ -438,6 +438,13 @@ if (chipOtherEl && fNicheOtherEl) {
   });
 }
 
+// зчитує cookie Meta Pixel (_fbp – завжди, _fbc – лише якщо людина прийшла з рекламного кліку)
+// потрібні для Conversions API, щоб Meta зіставляв серверну подію з браузерною сесією
+function getCookie(name) {
+  const match = document.cookie.match(new RegExp('(^| )' + name + '=([^;]+)'));
+  return match ? match[2] : '';
+}
+
 document.getElementById('leadForm').addEventListener('submit', (e) => {
   e.preventDefault();
   const name = document.getElementById('fName');
@@ -448,19 +455,26 @@ document.getElementById('leadForm').addEventListener('submit', (e) => {
   let biz = Array.from(document.querySelectorAll('.chip.sel')).map(c => c.id === 'chipOther' ? (fNicheOtherEl.value.trim() || 'Інше') : c.textContent).join(', ');
   const msg = '';
 
-  // Записуємо заявку в Google-таблицю (кожна заявка – новий рядок, дату проставляє сам скрипт).
+  // event_id – той самий ID іде і в браузерну подію fbq, і в серверну (Conversions API),
+  // щоб Meta дедублікував один Lead, а не рахував його двічі
+  const eventId = 'lead_' + Date.now() + '_' + Math.random().toString(36).slice(2, 10);
+  const fbp = getCookie('_fbp');
+  const fbc = getCookie('_fbc');
+
+  // Записуємо заявку в Google-таблицю (кожна заявка – новий рядок, дату проставляє сам скрипт).
+  // Та ж сама відправка несе eventId/fbp/fbc – Apps Script звідти вже шле подію Lead в Meta Conversions API.
   if (GOOGLE_SHEET_URL && !GOOGLE_SHEET_URL.includes('ВСТАВТЕ_СЮДИ')) {
     fetch(GOOGLE_SHEET_URL, {
       method: 'POST',
       mode: 'no-cors',
       headers: { 'Content-Type': 'text/plain' },
-      body: JSON.stringify({ name: nameVal, contact, business: biz, message: msg })
+      body: JSON.stringify({ name: nameVal, contact, business: biz, message: msg, eventId, fbp, fbc })
     }).catch(() => {});
   }
 
-  // Готуємо посилання на Telegram з готовим повідомленням – користувач сам натискає кнопку,
-  // без автовідкриття нової вкладки (це блокувалось браузером і показувало помилку).
-  let text = `Нова заявка з сайту%0AІм'я: ${encodeURIComponent(nameVal)}%0AКонтакт: ${encodeURIComponent(contact)}`;
+  // Готуємо посилання на Telegram з готовим повідомленням – користувач сам натискає кнопку,
+  // без автовідкриття нової вкладки (це блокувалось браузером і показувало помилку).
+  let text = `Нова заявка з сайту%0AІм'я: ${encodeURIComponent(nameVal)}%0AКонтакт: ${encodeURIComponent(contact)}`;
   if (biz) text += `%0AТип бізнесу: ${encodeURIComponent(biz)}`;
   if (msg) text += `%0AПро проєкт: ${encodeURIComponent(msg)}`;
   document.getElementById('thankTelegramBtn').href = `https://t.me/${TELEGRAM_USERNAME}?text=${text}`;
@@ -468,11 +482,11 @@ document.getElementById('leadForm').addEventListener('submit', (e) => {
   document.getElementById('leadForm').style.display = 'none';
   document.getElementById('thankState').classList.add('active');
   launchConfetti();
-  if (window.fbq) fbq('track', 'Lead');
+  if (window.fbq) fbq('track', 'Lead', {}, {eventID: eventId});
   if (window.gtag) gtag('event', 'generate_lead');
 });
 
-// sticky bar – один спокійний тригер замість попапів
+// sticky bar – один спокійний тригер замість попапів
 const stickyBar = document.getElementById('stickyBar');
 let stickyDismissed = false;
 window.addEventListener('scroll', () => {
