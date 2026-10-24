@@ -388,7 +388,8 @@ function isValidPhone(value) {
   if (!v) return true; // порожньо – не помилка сама по собі, перевірка "хоча б одне" окремо
   const digitsCount = (v.match(/\d/g) || []).length;
   const nonPhoneChars = v.replace(/[\d\s()+\-]/g, '');
-  return nonPhoneChars.length === 0 && digitsCount >= 9;
+  // код країни тепер окреме поле (select), тож тут достатньо локального номера
+  return nonPhoneChars.length === 0 && digitsCount >= 6;
 }
 
 // telegram-юзернейм валідний, якщо схожий на @username (з @ або без)
@@ -465,7 +466,9 @@ document.getElementById('leadForm').addEventListener('submit', (e) => {
 
   const nameVal = document.getElementById('fName').value.trim();
   const telegramVal = document.getElementById('fTelegram').value.trim();
-  const phoneVal = document.getElementById('fPhone').value.trim();
+  const phoneCodeVal = document.getElementById('fPhoneCode').value;
+  const phoneDigitsVal = document.getElementById('fPhone').value.trim();
+  const phoneVal = phoneDigitsVal ? (phoneCodeVal + phoneDigitsVal.replace(/\D/g, '')) : '';
   let biz = Array.from(document.querySelectorAll('.chip.sel')).map(c => c.id === 'chipOther' ? (fNicheOtherEl.value.trim() || 'Інше') : c.textContent).join(', ');
   const msg = '';
 
@@ -501,21 +504,6 @@ document.getElementById('leadForm').addEventListener('submit', (e) => {
   launchConfetti();
   if (window.fbq) fbq('track', 'Lead', {}, {eventID: eventId});
   if (window.gtag) gtag('event', 'generate_lead');
-});
-
-// sticky bar – один спокійний тригер замість попапів
-const stickyBar = document.getElementById('stickyBar');
-let stickyDismissed = false;
-window.addEventListener('scroll', () => {
-  if (stickyDismissed || window.cookieBannerPending) return;
-  const heroBottom = document.querySelector('.hero').offsetHeight + 200;
-  const contactTop = document.getElementById('contact').offsetTop;
-  const show = window.scrollY > heroBottom && window.scrollY < contactTop - 300;
-  stickyBar.classList.toggle('show', show);
-});
-document.getElementById('stickyClose').addEventListener('click', () => {
-  stickyDismissed = true;
-  stickyBar.classList.remove('show');
 });
 
 // клік-трекінг: телефон, Telegram, CTA в хіро – одна подія на будь-який елемент з data-track
