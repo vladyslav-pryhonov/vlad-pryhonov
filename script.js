@@ -462,13 +462,13 @@ document.getElementById('leadForm').addEventListener('submit', (e) => {
   const fbc = getCookie('_fbc');
 
   // Записуємо заявку в Google-таблицю (кожна заявка – новий рядок, дату проставляє сам скрипт).
-  // Та ж сама відправка несе eventId/fbp/fbc – Apps Script звідти вже шле подію Lead в Meta Conversions API.
+  // Та ж сама відправка несе eventId/fbp/fbc/userAgent – Apps Script звідти вже шле подію Lead в Meta Conversions API.
   if (GOOGLE_SHEET_URL && !GOOGLE_SHEET_URL.includes('ВСТАВТЕ_СЮДИ')) {
     fetch(GOOGLE_SHEET_URL, {
       method: 'POST',
       mode: 'no-cors',
       headers: { 'Content-Type': 'text/plain' },
-      body: JSON.stringify({ name: nameVal, contact, business: biz, message: msg, eventId, fbp, fbc })
+      body: JSON.stringify({ name: nameVal, contact, business: biz, message: msg, eventId, fbp, fbc, userAgent: navigator.userAgent })
     }).catch(() => {});
   }
 
