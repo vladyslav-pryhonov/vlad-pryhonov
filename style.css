@@ -543,6 +543,10 @@ header.scrolled{border-bottom-color:var(--line);}
 .f-group{margin-bottom:16px;}
 .f-group label{display:block;font-size:13px;font-weight:600;margin-bottom:7px;color:var(--ink-soft);}
 .f-group input,.f-group textarea{width:100%;padding:12px 14px;border:1.5px solid var(--line);border-radius:8px;font-family:var(--font-body);font-size:14.5px;background:var(--bg);}
+.f-row{display:flex;gap:12px;}
+.f-row .f-col{flex:1;min-width:0;}
+@media(max-width:420px){.f-row{flex-direction:column;gap:16px;}}
+.f-honeypot{position:absolute;left:-9999px;top:-9999px;width:1px;height:1px;overflow:hidden;}
 .f-group input:focus,.f-group textarea:focus{border-color:var(--accent);}
 .f-group input.err{border-color:#C0392B;background:#FCEEEC;}
 .f-error{
@@ -572,6 +576,15 @@ header.scrolled{border-bottom-color:var(--line);}
 .thank p{color:var(--ink-soft);font-size:14.5px;}
 
 /* STICKY BAR – один спокійний тригер замість кількох попапів */
+.float-telegram{
+  position:fixed;right:20px;bottom:24px;z-index:290;width:56px;height:56px;border-radius:50%;
+  background:linear-gradient(180deg,var(--accent-bright) 0%,var(--accent) 62%,var(--accent-dark) 100%);
+  color:var(--paper);display:flex;align-items:center;justify-content:center;
+  box-shadow:0 10px 24px -6px rgba(13,95,55,.55);transition:transform .18s ease,box-shadow .18s ease;
+}
+.float-telegram:hover{transform:translateY(-2px) scale(1.05);box-shadow:0 14px 28px -6px rgba(13,95,55,.6);}
+@media(max-width:640px){.float-telegram{right:14px;bottom:20px;width:50px;height:50px;}}
+
 .sticky-bar{
   position:fixed;left:0;right:0;bottom:0;z-index:300;background:var(--ink);color:var(--paper);
   padding:14px 20px;display:flex;align-items:center;justify-content:center;gap:18px;

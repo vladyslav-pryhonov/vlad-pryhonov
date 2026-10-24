@@ -382,48 +382,53 @@ document.querySelectorAll('.faq-item').forEach(item => {
   });
 });
 
-function validateContact(value) {
+// телефон валідний, якщо складається лише з цифр/+/дужок/пробілів/тире і містить достатньо цифр
+function isValidPhone(value) {
   const v = value.trim();
-  if (!v) return 'Вкажіть контакт для зв\'язку';
-
+  if (!v) return true; // порожньо – не помилка сама по собі, перевірка "хоча б одне" окремо
   const digitsCount = (v.match(/\d/g) || []).length;
+  const nonPhoneChars = v.replace(/[\d\s()+\-]/g, '');
+  return nonPhoneChars.length === 0 && digitsCount >= 9;
+}
 
-  // Схоже на спробу ввести телефон (багато цифр, немає @) – дозволені лише цифри, +, дужки, пробіли, тире
-  if (!v.includes('@') && digitsCount >= 5) {
-    const nonPhoneChars = v.replace(/[\d\s()+\-]/g, '');
-    if (nonPhoneChars.length > 0) {
-      return 'Номер телефону має містити лише цифри';
-    }
-    return digitsCount < 10 ? 'Перевірте номер – здається, не вистачає цифр' : '';
-  }
-
-  // Містить @ – перевіряємо як email або telegram-юзернейм
-  if (v.includes('@')) {
-    const emailLike = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v);
-    const telegramLike = /^@[a-zA-Z0-9_]{4,}$/.test(v);
-    if (emailLike || telegramLike) return '';
-    return 'Перевірте контакт – здається, він неповний';
-  }
-
-  // Схоже на спробу ввести email без @ (є літери й крапка, немає жодної кирилиці типу звичайного тексту)
-  if (/^[a-zA-Z0-9._-]+\.[a-zA-Z]{2,}$/.test(v)) {
-    return 'Email має містити символ @';
-  }
-
-  return ''; // telegram-юзернейм без @, ім'я тощо – не блокуємо
+// telegram-юзернейм валідний, якщо схожий на @username (з @ або без)
+function isValidTelegram(value) {
+  const v = value.trim();
+  if (!v) return true;
+  return /^@?[a-zA-Z0-9_]{4,}$/.test(v);
 }
 
 function checkContactField() {
-  const contact = document.getElementById('fContact');
+  const tg = document.getElementById('fTelegram');
+  const phone = document.getElementById('fPhone');
   const err = document.getElementById('fContactError');
-  const msg = validateContact(contact.value);
-  contact.classList.toggle('err', !!msg);
+
+  const tgVal = tg.value.trim();
+  const phoneVal = phone.value.trim();
+  const tgInvalid = tgVal !== '' && !isValidTelegram(tgVal);
+  const phoneInvalid = phoneVal !== '' && !isValidPhone(phoneVal);
+
+  let msg = '';
+  if (!tgVal && !phoneVal) {
+    msg = 'Вкажіть Telegram або телефон для зв\'язку';
+  } else if (phoneInvalid) {
+    msg = 'Перевірте номер телефону – мають бути лише цифри';
+  } else if (tgInvalid) {
+    msg = 'Перевірте Telegram – здається, юзернейм неповний';
+  }
+
+  tg.classList.toggle('err', tgInvalid);
+  phone.classList.toggle('err', phoneInvalid);
   err.textContent = msg;
   return !msg;
 }
-document.getElementById('fContact').addEventListener('blur', checkContactField);
-document.getElementById('fContact').addEventListener('input', () => {
-  if (document.getElementById('fContact').classList.contains('err')) checkContactField();
+document.getElementById('fTelegram').addEventListener('blur', checkContactField);
+document.getElementById('fPhone').addEventListener('blur', checkContactField);
+document.getElementById('fTelegram').addEventListener('input', () => {
+  if (document.getElementById('fContactError').textContent) checkContactField();
+});
+document.getElementById('fPhone').addEventListener('input', () => {
+  if (document.getElementById('fContactError').textContent) checkContactField();
 });
 
 document.querySelectorAll('.chip').forEach(chip => {
@@ -447,11 +452,20 @@ function getCookie(name) {
 
 document.getElementById('leadForm').addEventListener('submit', (e) => {
   e.preventDefault();
-  const name = document.getElementById('fName');
-  if (!name.value.trim()) { name.reportValidity(); return; }
+
+  // honeypot: якщо це приховане поле заповнене – це бот. Вдаємо успіх, нічого не відправляємо.
+  const honeypot = document.getElementById('fWebsite');
+  if (honeypot && honeypot.value.trim()) {
+    document.getElementById('leadForm').style.display = 'none';
+    document.getElementById('thankState').classList.add('active');
+    return;
+  }
+
   if (!checkContactField()) { return; }
-  const nameVal = name.value.trim();
-  const contact = document.getElementById('fContact').value.trim();
+
+  const nameVal = document.getElementById('fName').value.trim();
+  const telegramVal = document.getElementById('fTelegram').value.trim();
+  const phoneVal = document.getElementById('fPhone').value.trim();
   let biz = Array.from(document.querySelectorAll('.chip.sel')).map(c => c.id === 'chipOther' ? (fNicheOtherEl.value.trim() || 'Інше') : c.textContent).join(', ');
   const msg = '';
 
@@ -468,13 +482,16 @@ document.getElementById('leadForm').addEventListener('submit', (e) => {
       method: 'POST',
       mode: 'no-cors',
       headers: { 'Content-Type': 'text/plain' },
-      body: JSON.stringify({ name: nameVal, contact, business: biz, message: msg, eventId, fbp, fbc, userAgent: navigator.userAgent })
+      body: JSON.stringify({ name: nameVal, telegram: telegramVal, phone: phoneVal, business: biz, message: msg, eventId, fbp, fbc, userAgent: navigator.userAgent })
     }).catch(() => {});
   }
 
   // Готуємо посилання на Telegram з готовим повідомленням – користувач сам натискає кнопку,
   // без автовідкриття нової вкладки (це блокувалось браузером і показувало помилку).
-  let text = `Нова заявка з сайту%0AІм'я: ${encodeURIComponent(nameVal)}%0AКонтакт: ${encodeURIComponent(contact)}`;
+  let text = `Нова заявка з сайту`;
+  if (nameVal) text += `%0AІм'я: ${encodeURIComponent(nameVal)}`;
+  if (telegramVal) text += `%0ATelegram: ${encodeURIComponent(telegramVal)}`;
+  if (phoneVal) text += `%0AТелефон: ${encodeURIComponent(phoneVal)}`;
   if (biz) text += `%0AТип бізнесу: ${encodeURIComponent(biz)}`;
   if (msg) text += `%0AПро проєкт: ${encodeURIComponent(msg)}`;
   document.getElementById('thankTelegramBtn').href = `https://t.me/${TELEGRAM_USERNAME}?text=${text}`;
