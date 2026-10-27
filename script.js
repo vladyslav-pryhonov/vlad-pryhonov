@@ -617,3 +617,55 @@ function launchConfetti() {
   }
   setTimeout(() => container.remove(), 3000);
 }
+
+
+// ===== Перемикач "Проблема / Рішення" (блок "Без сайту ви щодня втрачаєте клієнтів") =====
+(function(){
+  const psToggle = document.getElementById('psToggle');
+  if (!psToggle) return;
+  const psGrid = document.getElementById('psGrid');
+  psToggle.querySelectorAll('.ps-toggle-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const mode = btn.dataset.ps;
+      psToggle.querySelectorAll('.ps-toggle-btn').forEach(b => {
+        b.classList.toggle('active', b === btn);
+        b.setAttribute('aria-selected', b === btn ? 'true' : 'false');
+      });
+      psToggle.classList.toggle('on-solution', mode === 'solution');
+      psGrid.querySelectorAll('.ps-face').forEach(f => {
+        f.classList.toggle('active', f.classList.contains('ps-face-' + mode));
+      });
+    });
+  });
+})();
+
+// ===== Кастомний дизайнерський дропдаун коду країни (замість нативного select) =====
+(function(){
+  const codeSelect = document.getElementById('fPhoneCodeSelect');
+  if (!codeSelect) return;
+  const codeBtn = document.getElementById('fPhoneCodeBtn');
+  const codeList = document.getElementById('fPhoneCodeList');
+  const codeHidden = document.getElementById('fPhoneCode');
+  codeBtn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    const open = codeSelect.classList.toggle('open');
+    codeBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+  codeList.querySelectorAll('li').forEach(li => {
+    li.addEventListener('click', () => {
+      codeList.querySelectorAll('li').forEach(x => x.classList.remove('sel'));
+      li.classList.add('sel');
+      codeHidden.value = li.dataset.code;
+      codeBtn.querySelector('.f-code-flag').textContent = li.dataset.flag;
+      codeBtn.querySelector('.f-code-val').textContent = li.dataset.code;
+      codeSelect.classList.remove('open');
+      codeBtn.setAttribute('aria-expanded', 'false');
+    });
+  });
+  document.addEventListener('click', (e) => {
+    if (!codeSelect.contains(e.target)) {
+      codeSelect.classList.remove('open');
+      codeBtn.setAttribute('aria-expanded', 'false');
+    }
+  });
+})();

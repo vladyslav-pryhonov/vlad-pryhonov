@@ -195,7 +195,7 @@
       <a href="https://www.instagram.com/vvladdos.ik/" target="_blank" rel="noopener" aria-label="Instagram"><svg class="icon" viewBox="0 0 24 24" width="17" height="17"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.3" cy="6.7" r=".9" fill="currentColor" stroke="none"/></svg></a>
       <a href="https://www.threads.com/@vvladdos.ik" target="_blank" rel="noopener" aria-label="Threads"><svg class="icon" viewBox="0 0 24 24" width="17" height="17"><path d="M19 7.5c-1.333 -3 -3.667 -4.5 -7 -4.5c-5 0 -8 2.5 -8 9s3.5 9 8 9s7 -3 7 -5s-1 -5 -7 -5c-2.5 0 -3 1.25 -3 2.5c0 1.5 1 2.5 2.5 2.5c2.5 0 3.5 -1.5 3.5 -5s-2 -4 -3 -4s-1.833 .333 -2.5 1"/></svg></a>
       <a href="https://www.linkedin.com/in/vlad-prigonov/?locale=uk" target="_blank" rel="noopener" aria-label="LinkedIn"><svg class="icon" viewBox="0 0 24 24" width="17" height="17"><rect x="3" y="3" width="18" height="18" rx="4"/><line x1="8" y1="10" x2="8" y2="17"/><circle cx="8" cy="6.6" r=".6" fill="currentColor" stroke="none"/><path d="M12 17v-4.5a2.5 2.5 0 015 0V17"/><line x1="12" y1="10" x2="12" y2="17"/></svg></a>
-      <a href="https://t.me/vvladdos_ik" target="_blank" rel="noopener" aria-label="Telegram" data-track="telegram_click"><svg class="icon" viewBox="0 0 24 24" width="17" height="17"><path fill="currentColor" stroke="none" d="M17.4 7.3l-2.2 10.4c-.15.7-.6.85-1.2.53l-3.3-2.45-1.6 1.55c-.18.18-.4.33-.74.33l.27-3.5L15.7 8.7c.32-.28-.07-.44-.5-.16L9 13l-3.15-.98c-.68-.22-.7-.68.15-1L16.5 6.7c.57-.2 1.07.14.9 1.6z"/></svg></a>
+      <a href="https://t.me/vvladdos_ik" target="_blank" rel="noopener" aria-label="Telegram" data-track="telegram_click"><svg class="icon" viewBox="0 0 24 24" width="17" height="17"><path fill="currentColor" stroke="none" transform="translate(12 12) scale(1.35) translate(-12 -12)" d="M17.4 7.3l-2.2 10.4c-.15.7-.6.85-1.2.53l-3.3-2.45-1.6 1.55c-.18.18-.4.33-.74.33l.27-3.5L15.7 8.7c.32-.28-.07-.44-.5-.16L9 13l-3.15-.98c-.68-.22-.7-.68.15-1L16.5 6.7c.57-.2 1.07.14.9 1.6z"/></svg></a>
     </div>
   </div>
 </header>
@@ -209,7 +209,7 @@
       <div>
         <div class="eyebrow">ВЕБ-РОЗРОБКА · САЙТИ ДЛЯ БІЗНЕСУ</div>
         <h1>Отримайте <span class="accent-word">безкоштовний перший екран</span> вашого сайту –<br>вже за 24 години</h1>
-        <p class="lead">Оцінюєте підхід ще до оплати. А готовий сайт перетворює відвідувачів з реклами на заявки – і не втрачає їх.</p>
+        <p class="lead">Оцінюєте підхід ще до оплати. Готовий сайт перетворює рекламу в заявки.</p>
         <div class="hero-cta">
           <a href="#contact" class="btn btn-primary" data-track="cta_hero_primary">Отримати перший екран</a>
           <a href="#cases" class="btn btn-outline" data-track="cta_hero_secondary">Подивитись кейси</a>
@@ -284,41 +284,45 @@
         <h2>Без сайту ви щодня втрачаєте клієнтів</h2>
         <p>Instagram чи Viber непогано працюють для перших клієнтів – але з часом починають гальмувати ріст бізнесу. Ось що це вирішує:</p>
       </div>
-      <div class="ps-grid">
+      <div class="ps-toggle-wrap reveal">
+        <div class="ps-toggle" id="psToggle">
+          <button type="button" class="ps-toggle-btn active" data-ps="problem" aria-selected="true">Проблема</button>
+          <button type="button" class="ps-toggle-btn" data-ps="solution" aria-selected="false">Рішення</button>
+          <span class="ps-toggle-thumb"></span>
+        </div>
+      </div>
+      <div class="ps-grid" id="psGrid">
         <div class="ps-card reveal">
-          <div class="ps-problem">
+          <div class="ps-face ps-face-problem active">
             <div class="ic"><svg class="icon" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.35-4.35"/></svg></div>
             <h3>Вас шукають у Google – і не знаходять</h3>
             <p>Частина людей просто гуглить назву чи послугу, а не йде в Instagram. Без сайту вони знаходять конкурента, а не вас.</p>
           </div>
-          <div class="ps-arrow"><svg class="icon" viewBox="0 0 24 24" width="18" height="18"><path d="M12 5v14M5 12l7 7 7-7"/></svg></div>
-          <div class="ps-solution">
+          <div class="ps-face ps-face-solution">
             <div class="ic"><svg class="icon" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.35-4.35"/></svg></div>
             <h3>Сайт, який Google реально показує</h3>
             <p>Окрема сторінка індексується пошуком – на відміну від профілю в соцмережі, який Google практично не показує за запитами на вашу послугу.</p>
           </div>
         </div>
         <div class="ps-card reveal">
-          <div class="ps-problem">
+          <div class="ps-face ps-face-problem active">
             <div class="ic"><svg class="icon" viewBox="0 0 24 24"><path d="M12 3l7 3v5c0 4.5-3 7.7-7 9-4-1.3-7-4.5-7-9V6l7-3z"/></svg></div>
             <h3>Без сайту складніше викликати довіру</h3>
             <p>Коли вся присутність онлайн – це сторінка в соцмережі, частина клієнтів підсвідомо довіряє менше, особливо при більшому чеку.</p>
           </div>
-          <div class="ps-arrow"><svg class="icon" viewBox="0 0 24 24" width="18" height="18"><path d="M12 5v14M5 12l7 7 7-7"/></svg></div>
-          <div class="ps-solution">
+          <div class="ps-face ps-face-solution">
             <div class="ic"><svg class="icon" viewBox="0 0 24 24"><path d="M12 3l7 3v5c0 4.5-3 7.7-7 9-4-1.3-7-4.5-7-9V6l7-3z"/></svg></div>
             <h3>Власний домен = довіра з першої секунди</h3>
             <p>Структура, кейси й гарантії на вашому домені переконують там, де сторінка в Instagram лишає сумнів.</p>
           </div>
         </div>
         <div class="ps-card reveal">
-          <div class="ps-problem">
+          <div class="ps-face ps-face-problem active">
             <div class="ic"><svg class="icon" viewBox="0 0 24 24"><path d="M10 13a5 5 0 007 0l3-3a5 5 0 00-7-7l-1.5 1.5"/><path d="M14 11a5 5 0 00-7 0l-3 3a5 5 0 007 7l1.5-1.5"/></svg></div>
             <h3>Заявки губляться в директі</h3>
             <p>Реклама веде в соцмережі, де частина людей просто не пише перша, а листування легко загубити серед інших повідомлень.</p>
           </div>
-          <div class="ps-arrow"><svg class="icon" viewBox="0 0 24 24" width="18" height="18"><path d="M12 5v14M5 12l7 7 7-7"/></svg></div>
-          <div class="ps-solution">
+          <div class="ps-face ps-face-solution">
             <div class="ic"><svg class="icon" viewBox="0 0 24 24"><path d="M10 13a5 5 0 007 0l3-3a5 5 0 00-7-7l-1.5 1.5"/><path d="M14 11a5 5 0 00-7 0l-3 3a5 5 0 007 7l1.5-1.5"/></svg></div>
             <h3>Форма, яка не губиться в чаті</h3>
             <p>Заявка одразу падає вам у Telegram і в таблицю – без ризику загубити повідомлення серед сотні інших у директі.</p>
@@ -554,9 +558,9 @@
       <div class="who-copy reveal">
         <div class="eyebrow">ХТО РОБИТЬ САЙТ</div>
         <h2 class="h2-match" style="margin-bottom:18px;">Один розробник.<br>Без підрядників.<br>Без відділу продажів.</h2>
-        <p>Я будую сайти для людей, які думають грошима, а не естетикою заради естетики. Кожен елемент на сторінці працює на одну мету – довести відвідувача до заявки. Якщо блок не наближає до цієї мети, я його просто не додаю, яким би красивим він не був. І ви завжди на прямому зв'язку зі мною особисто, а не з менеджером.</p>
+        <p>Я будую сайти для людей, які думають грошима, а не естетикою заради естетики. Кожен елемент працює на одну мету – привести до заявки; зайве я просто не додаю. І ви завжди на прямому зв'язку зі мною особисто, а не з менеджером.</p>
         <a href="https://t.me/vvladdos_ik" target="_blank" rel="noopener" class="who-telegram-link" data-track="telegram_click">
-          <svg class="icon" viewBox="0 0 24 24" width="18" height="18"><path fill="currentColor" stroke="none" d="M17.4 7.3l-2.2 10.4c-.15.7-.6.85-1.2.53l-3.3-2.45-1.6 1.55c-.18.18-.4.33-.74.33l.27-3.5L15.7 8.7c.32-.28-.07-.44-.5-.16L9 13l-3.15-.98c-.68-.22-.7-.68.15-1L16.5 6.7c.57-.2 1.07.14.9 1.6z"/></svg>
+          <svg class="icon" viewBox="0 0 24 24" width="18" height="18"><path fill="currentColor" stroke="none" transform="translate(12 12) scale(1.35) translate(-12 -12)" d="M17.4 7.3l-2.2 10.4c-.15.7-.6.85-1.2.53l-3.3-2.45-1.6 1.55c-.18.18-.4.33-.74.33l.27-3.5L15.7 8.7c.32-.28-.07-.44-.5-.16L9 13l-3.15-.98c-.68-.22-.7-.68.15-1L16.5 6.7c.57-.2 1.07.14.9 1.6z"/></svg>
           <span>Написати мені напряму в Telegram – <b>@vvladdos_ik</b></span>
         </a>
         <div class="constructor-note">
@@ -575,33 +579,49 @@
         <div class="eyebrow">ПОРІВНЯННЯ</div>
         <h2>З ким ви насправді порівнюєте</h2>
       </div>
-      <div class="compare-cards">
-        <div class="cmp-card reveal">
-          <div class="cmp-card-ic"><svg class="icon" viewBox="0 0 24 24" width="20" height="20"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.5-6 8-6s8 2 8 6"/></svg></div>
-          <h4>Знайомий, який "шарить"</h4>
-          <div class="cmp-row no"><svg class="icon cmp-ic" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg><span>Строки "пливуть" – ніхто не гарантує</span></div>
-          <div class="cmp-row no"><svg class="icon cmp-ic" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg><span>Робота на довірі, без брифу й плану</span></div>
-          <div class="cmp-row no"><svg class="icon cmp-ic" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg><span>Правка – знову просити й чекати</span></div>
-          <div class="cmp-row no"><svg class="icon cmp-ic" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg><span>Якщо зникне чи передумає – починаєте спочатку</span></div>
-        </div>
-        <div class="cmp-card reveal">
-          <div class="cmp-card-ic"><svg class="icon" viewBox="0 0 24 24" width="20" height="20"><rect x="5" y="3" width="14" height="18" rx="1"/><path d="M9 21v-3h6v3M9 7h1M14 7h1M9 11h1M14 11h1M9 15h1M14 15h1"/></svg></div>
-          <h4>Агенція</h4>
-          <div class="cmp-row no"><svg class="icon cmp-ic" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg><span>1–2 місяці замість тижнів</span></div>
-          <div class="cmp-row no"><svg class="icon cmp-ic" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg><span>Спілкуєтесь через менеджера, не напряму з виконавцем</span></div>
-          <div class="cmp-row no"><svg class="icon cmp-ic" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg><span>Кошторис росте, і кожна правка – нова оплата</span></div>
-          <div class="cmp-row no"><svg class="icon cmp-ic" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg><span>Ваш проєкт – один з багатьох у черзі</span></div>
-        </div>
-        <div class="cmp-card featured reveal">
-          <span class="cmp-badge">Мій підхід</span>
-          <div class="cmp-card-ic on-dark"><svg class="icon" viewBox="0 0 24 24" width="20" height="20"><path d="M12 2l8 3.5v6c0 5-3.4 8.4-8 10.5-4.6-2.1-8-5.5-8-10.5v-6L12 2z"/><path d="M9 12l2 2 4-4"/></svg></div>
-          <h4>Vlad Pryhonov</h4>
-          <div class="cmp-row yes"><svg class="icon cmp-ic" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg><span><b>Термін фіксується одразу</b> – від 7 днів, без зсувів по ходу роботи</span></div>
-          <div class="cmp-row yes"><svg class="icon cmp-ic" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg><span><b>Один розробник від старту до фінішу</b> – без передач "з рук в руки"</span></div>
-          <div class="cmp-row yes"><svg class="icon cmp-ic" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg><span><b>Ціна фіксується одразу</b> – не змінюється по ходу проєкту</span></div>
-          <div class="cmp-row yes"><svg class="icon cmp-ic" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg><span><b>Редагуєте самі й безкоштовно</b> – на тарифі "Особистий"</span></div>
-          <div class="cmp-row yes"><svg class="icon cmp-ic" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg><span><b>Перший екран безкоштовно</b> – без ризику з вашого боку</span></div>
-        </div>
+      <div class="cmp-table-wrap reveal">
+        <table class="cmp-table">
+          <thead>
+            <tr>
+              <th></th>
+              <th><div class="cmp-th-ic"><svg class="icon" viewBox="0 0 24 24" width="20" height="20"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.5-6 8-6s8 2 8 6"/></svg></div>Знайомий</th>
+              <th><div class="cmp-th-ic"><svg class="icon" viewBox="0 0 24 24" width="20" height="20"><rect x="5" y="3" width="14" height="18" rx="1"/><path d="M9 21v-3h6v3M9 7h1M14 7h1M9 11h1M14 11h1M9 15h1M14 15h1"/></svg></div>Агенція</th>
+              <th class="cmp-th-featured"><span class="cmp-badge-table">Мій підхід</span><div class="cmp-th-ic on-dark"><svg class="icon" viewBox="0 0 24 24" width="20" height="20"><path d="M12 2l8 3.5v6c0 5-3.4 8.4-8 10.5-4.6-2.1-8-5.5-8-10.5v-6L12 2z"/><path d="M9 12l2 2 4-4"/></svg></div>Vlad Pryhonov</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="cmp-crit">Термін</td>
+              <td class="no"><svg class="icon cmp-ic" viewBox="0 0 24 24" width="16" height="16"><path d="M6 6l12 12M18 6L6 18"/></svg>Строки "пливуть" – ніхто не гарантує</td>
+              <td class="no"><svg class="icon cmp-ic" viewBox="0 0 24 24" width="16" height="16"><path d="M6 6l12 12M18 6L6 18"/></svg>1–2 місяці замість тижнів</td>
+              <td class="yes cmp-col-featured"><svg class="icon cmp-ic" viewBox="0 0 24 24" width="16" height="16"><path d="M20 6L9 17l-5-5"/></svg><b>Від 7 днів</b> – фіксується одразу</td>
+            </tr>
+            <tr>
+              <td class="cmp-crit">Процес</td>
+              <td class="no"><svg class="icon cmp-ic" viewBox="0 0 24 24" width="16" height="16"><path d="M6 6l12 12M18 6L6 18"/></svg>На довірі, без брифу й плану</td>
+              <td class="no"><svg class="icon cmp-ic" viewBox="0 0 24 24" width="16" height="16"><path d="M6 6l12 12M18 6L6 18"/></svg>Через менеджера, не напряму з виконавцем</td>
+              <td class="yes cmp-col-featured"><svg class="icon cmp-ic" viewBox="0 0 24 24" width="16" height="16"><path d="M20 6L9 17l-5-5"/></svg><b>Один розробник</b> від старту до фінішу</td>
+            </tr>
+            <tr>
+              <td class="cmp-crit">Ціна</td>
+              <td class="no"><svg class="icon cmp-ic" viewBox="0 0 24 24" width="16" height="16"><path d="M6 6l12 12M18 6L6 18"/></svg>На словах, без фіксації</td>
+              <td class="no"><svg class="icon cmp-ic" viewBox="0 0 24 24" width="16" height="16"><path d="M6 6l12 12M18 6L6 18"/></svg>Росте, кожна правка – нова оплата</td>
+              <td class="yes cmp-col-featured"><svg class="icon cmp-ic" viewBox="0 0 24 24" width="16" height="16"><path d="M20 6L9 17l-5-5"/></svg><b>Фіксується одразу</b>, без сюрпризів</td>
+            </tr>
+            <tr>
+              <td class="cmp-crit">Правки</td>
+              <td class="no"><svg class="icon cmp-ic" viewBox="0 0 24 24" width="16" height="16"><path d="M6 6l12 12M18 6L6 18"/></svg>Знову просити й чекати</td>
+              <td class="no"><svg class="icon cmp-ic" viewBox="0 0 24 24" width="16" height="16"><path d="M6 6l12 12M18 6L6 18"/></svg>Платно і по заявці</td>
+              <td class="yes cmp-col-featured"><svg class="icon cmp-ic" viewBox="0 0 24 24" width="16" height="16"><path d="M20 6L9 17l-5-5"/></svg><b>Самі й безкоштовно</b> – тариф "Особистий"</td>
+            </tr>
+            <tr>
+              <td class="cmp-crit">Надійність</td>
+              <td class="no"><svg class="icon cmp-ic" viewBox="0 0 24 24" width="16" height="16"><path d="M6 6l12 12M18 6L6 18"/></svg>Зникне чи передумає – починаєте спочатку</td>
+              <td class="no"><svg class="icon cmp-ic" viewBox="0 0 24 24" width="16" height="16"><path d="M6 6l12 12M18 6L6 18"/></svg>Ваш проєкт – один з багатьох у черзі</td>
+              <td class="yes cmp-col-featured"><svg class="icon cmp-ic" viewBox="0 0 24 24" width="16" height="16"><path d="M20 6L9 17l-5-5"/></svg><b>Перший екран безкоштовно</b> – без ризику</td>
+            </tr>
+          </tbody>
+        </table>
       </div>
     </div>
   </section>
@@ -627,7 +647,7 @@
               <a href="https://www.instagram.com/vvladdos.ik/" target="_blank" rel="noopener" aria-label="Instagram"><svg class="icon" viewBox="0 0 24 24" width="22" height="22"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.3" cy="6.7" r=".9" fill="currentColor" stroke="none"/></svg></a>
               <a href="https://www.threads.com/@vvladdos.ik" target="_blank" rel="noopener" aria-label="Threads"><svg class="icon" viewBox="0 0 24 24" width="22" height="22"><path d="M19 7.5c-1.333 -3 -3.667 -4.5 -7 -4.5c-5 0 -8 2.5 -8 9s3.5 9 8 9s7 -3 7 -5s-1 -5 -7 -5c-2.5 0 -3 1.25 -3 2.5c0 1.5 1 2.5 2.5 2.5c2.5 0 3.5 -1.5 3.5 -5s-2 -4 -3 -4s-1.833 .333 -2.5 1"/></svg></a>
               <a href="https://www.linkedin.com/in/vlad-prigonov/?locale=uk" target="_blank" rel="noopener" aria-label="LinkedIn"><svg class="icon" viewBox="0 0 24 24" width="22" height="22"><rect x="3" y="3" width="18" height="18" rx="4"/><line x1="8" y1="10" x2="8" y2="17"/><circle cx="8" cy="6.6" r=".6" fill="currentColor" stroke="none"/><path d="M12 17v-4.5a2.5 2.5 0 015 0V17"/><line x1="12" y1="10" x2="12" y2="17"/></svg></a>
-              <a href="https://t.me/vvladdos_ik" target="_blank" rel="noopener" aria-label="Telegram" data-track="telegram_click"><svg class="icon" viewBox="0 0 24 24" width="22" height="22"><path fill="currentColor" stroke="none" d="M17.4 7.3l-2.2 10.4c-.15.7-.6.85-1.2.53l-3.3-2.45-1.6 1.55c-.18.18-.4.33-.74.33l.27-3.5L15.7 8.7c.32-.28-.07-.44-.5-.16L9 13l-3.15-.98c-.68-.22-.7-.68.15-1L16.5 6.7c.57-.2 1.07.14.9 1.6z"/></svg></a>
+              <a href="https://t.me/vvladdos_ik" target="_blank" rel="noopener" aria-label="Telegram" data-track="telegram_click"><svg class="icon" viewBox="0 0 24 24" width="22" height="22"><path fill="currentColor" stroke="none" transform="translate(12 12) scale(1.35) translate(-12 -12)" d="M17.4 7.3l-2.2 10.4c-.15.7-.6.85-1.2.53l-3.3-2.45-1.6 1.55c-.18.18-.4.33-.74.33l.27-3.5L15.7 8.7c.32-.28-.07-.44-.5-.16L9 13l-3.15-.98c-.68-.22-.7-.68.15-1L16.5 6.7c.57-.2 1.07.14.9 1.6z"/></svg></a>
             </div>
             <p style="color:var(--dark-soft);font-size:14px;margin-top:16px;max-width:380px;line-height:1.55;">Пишу і відповідаю в цих каналах особисто, без менеджерів і чат-ботів.</p>
           </div>
@@ -749,14 +769,21 @@
             <div class="f-col">
               <label for="fPhone">Телефон</label>
               <div class="f-phone-group">
-                <select id="fPhoneCode" aria-label="Код країни">
-                  <option value="+380" selected>UA +380</option>
-                  <option value="+48">PL +48</option>
-                  <option value="+34">ES +34</option>
-                  <option value="+1">US +1</option>
-                  <option value="+44">GB +44</option>
-                  <option value="+49">DE +49</option>
-                </select>
+                <div class="f-code-select" id="fPhoneCodeSelect">
+                  <button type="button" class="f-code-btn" id="fPhoneCodeBtn" aria-haspopup="listbox" aria-expanded="false">
+                    <span class="f-code-flag">🇺🇦</span><span class="f-code-val">+380</span>
+                    <svg class="f-code-arrow" viewBox="0 0 24 24" width="12" height="12"><path d="M6 9l6 6 6-6"/></svg>
+                  </button>
+                  <ul class="f-code-list" id="fPhoneCodeList" role="listbox">
+                    <li role="option" data-code="+380" data-flag="🇺🇦" class="sel">🇺🇦 Україна +380</li>
+                    <li role="option" data-code="+48" data-flag="🇵🇱">🇵🇱 Польща +48</li>
+                    <li role="option" data-code="+34" data-flag="🇪🇸">🇪🇸 Іспанія +34</li>
+                    <li role="option" data-code="+1" data-flag="🇺🇸">🇺🇸 США +1</li>
+                    <li role="option" data-code="+44" data-flag="🇬🇧">🇬🇧 Великобританія +44</li>
+                    <li role="option" data-code="+49" data-flag="🇩🇪">🇩🇪 Німеччина +49</li>
+                  </ul>
+                  <input type="hidden" id="fPhoneCode" value="+380">
+                </div>
                 <input id="fPhone" placeholder="971234567">
               </div>
             </div>
@@ -803,7 +830,7 @@
         <a href="https://www.instagram.com/vvladdos.ik/" target="_blank" rel="noopener" aria-label="Instagram"><svg class="icon" viewBox="0 0 24 24" width="17" height="17"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.3" cy="6.7" r=".9" fill="currentColor" stroke="none"/></svg></a>
         <a href="https://www.threads.com/@vvladdos.ik" target="_blank" rel="noopener" aria-label="Threads"><svg class="icon" viewBox="0 0 24 24" width="17" height="17"><path d="M19 7.5c-1.333 -3 -3.667 -4.5 -7 -4.5c-5 0 -8 2.5 -8 9s3.5 9 8 9s7 -3 7 -5s-1 -5 -7 -5c-2.5 0 -3 1.25 -3 2.5c0 1.5 1 2.5 2.5 2.5c2.5 0 3.5 -1.5 3.5 -5s-2 -4 -3 -4s-1.833 .333 -2.5 1"/></svg></a>
         <a href="https://www.linkedin.com/in/vlad-prigonov/?locale=uk" target="_blank" rel="noopener" aria-label="LinkedIn"><svg class="icon" viewBox="0 0 24 24" width="17" height="17"><rect x="3" y="3" width="18" height="18" rx="4"/><line x1="8" y1="10" x2="8" y2="17"/><circle cx="8" cy="6.6" r=".6" fill="currentColor" stroke="none"/><path d="M12 17v-4.5a2.5 2.5 0 015 0V17"/><line x1="12" y1="10" x2="12" y2="17"/></svg></a>
-        <a href="https://t.me/vvladdos_ik" target="_blank" rel="noopener" aria-label="Telegram" data-track="telegram_click"><svg class="icon" viewBox="0 0 24 24" width="17" height="17"><path fill="currentColor" stroke="none" d="M17.4 7.3l-2.2 10.4c-.15.7-.6.85-1.2.53l-3.3-2.45-1.6 1.55c-.18.18-.4.33-.74.33l.27-3.5L15.7 8.7c.32-.28-.07-.44-.5-.16L9 13l-3.15-.98c-.68-.22-.7-.68.15-1L16.5 6.7c.57-.2 1.07.14.9 1.6z"/></svg></a>
+        <a href="https://t.me/vvladdos_ik" target="_blank" rel="noopener" aria-label="Telegram" data-track="telegram_click"><svg class="icon" viewBox="0 0 24 24" width="17" height="17"><path fill="currentColor" stroke="none" transform="translate(12 12) scale(1.35) translate(-12 -12)" d="M17.4 7.3l-2.2 10.4c-.15.7-.6.85-1.2.53l-3.3-2.45-1.6 1.55c-.18.18-.4.33-.74.33l.27-3.5L15.7 8.7c.32-.28-.07-.44-.5-.16L9 13l-3.15-.98c-.68-.22-.7-.68.15-1L16.5 6.7c.57-.2 1.07.14.9 1.6z"/></svg></a>
       </div>
     </div>
     <div class="foot-fine">© 2026 Vlad Pryhonov · сайти для малого бізнесу</div>
@@ -812,7 +839,7 @@
 
 <!-- FLOATING TELEGRAM BUTTON -->
 <a href="https://t.me/vvladdos_ik" target="_blank" rel="noopener" class="float-telegram" id="floatTelegram" aria-label="Написати в Telegram" data-track="telegram_click">
-  <svg class="icon" viewBox="0 0 24 24" width="36" height="36"><path fill="currentColor" stroke="none" d="M17.4 7.3l-2.2 10.4c-.15.7-.6.85-1.2.53l-3.3-2.45-1.6 1.55c-.18.18-.4.33-.74.33l.27-3.5L15.7 8.7c.32-.28-.07-.44-.5-.16L9 13l-3.15-.98c-.68-.22-.7-.68.15-1L16.5 6.7c.57-.2 1.07.14.9 1.6z"/></svg>
+  <svg class="icon" viewBox="0 0 24 24" width="44" height="44"><path fill="currentColor" stroke="none" transform="translate(12 12) scale(1.35) translate(-12 -12)" d="M17.4 7.3l-2.2 10.4c-.15.7-.6.85-1.2.53l-3.3-2.45-1.6 1.55c-.18.18-.4.33-.74.33l.27-3.5L15.7 8.7c.32-.28-.07-.44-.5-.16L9 13l-3.15-.98c-.68-.22-.7-.68.15-1L16.5 6.7c.57-.2 1.07.14.9 1.6z"/></svg>
 </a>
 
 <!-- COOKIE CONSENT -->
