@@ -1,0 +1,22 @@
+/* ==========================================================================
+   legal.css – сторінка політики конфіденційності (privacy.html)
+   ========================================================================== */
+body { background: var(--forest); }
+.legalbar { position: sticky; top: 0; z-index: var(--z-header); background: color-mix(in srgb, var(--forest) 90%, transparent); -webkit-backdrop-filter: blur(14px); backdrop-filter: blur(14px); box-shadow: 0 1px 0 var(--line); }
+.legalbar__row { display: flex; align-items: center; justify-content: space-between; gap: var(--sp-4); height: var(--header-h, 72px); }
+.legalbar img { display: block; height: 32px; width: auto; }
+.legalbar a.back { display: inline-flex; align-items: center; min-height: var(--tap); color: var(--ink-soft); }
+.legal { padding-block: var(--sp-9) var(--section); }
+.legal__inner { max-width: 46rem; display: grid; gap: var(--sp-4); }
+.legal h1 { font-size: clamp(1.75rem, 1.2rem + 2vw, 2.5rem); line-height: var(--lh-head); letter-spacing: var(--tracking-head); font-weight: 700; margin: 0; }
+.legal h2 { margin: var(--sp-6) 0 0; font-size: var(--fs-h3); line-height: var(--lh-head); font-weight: 650; }
+.legal p, .legal li { margin: 0; color: var(--ink-soft); line-height: 1.6; }
+.legal ul { margin: 0; padding-left: 1.25rem; display: grid; gap: var(--sp-2); }
+.legal a { color: var(--jungle); text-decoration: underline; text-underline-offset: 3px; }
+@media (hover: hover) { .legal a:hover, .legalbar a.back:hover { color: var(--ink); } }
+.legal__updated { color: var(--ink-mute) !important; font-size: var(--fs-small); }
+.legal b { color: var(--ink); font-weight: 600; }
+.legal .legal__table { display: grid; gap: var(--sp-3); margin: 0; padding: 0; list-style: none; }
+.legal__table li { display: grid; gap: 2px; padding: var(--sp-4); background: var(--forest-raised); }
+.legal__table b { font-family: var(--font-mono); font-weight: 500; color: var(--jungle); }
+.legalfoot { padding-block: var(--sp-6); border-top: 1px solid var(--line); color: var(--ink-mute); font-size: var(--fs-small); }

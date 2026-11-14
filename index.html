@@ -2,165 +2,70 @@
 <html lang="uk">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="facebook-domain-verification" content="iyxxa3kszcasdjvzmhjlq4saymlfek" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Vlad Pryhonov – сайти, які перетворюють відвідувачів на заявки</title>
-<meta name="description" content="Розробка сайтів для малого бізнесу – безкоштовний перший екран за 24 години, ціна від $500, термін від 14 днів.">
-<meta name="robots" content="index, follow">
-<meta name="author" content="Vlad Pryhonov">
+<meta name="description" content="Безкоштовний перший екран вашого сайту за 24 години після брифу. Далі повний сайт під ваш бізнес: від 7 днів, від $600. Оплата тільки після того, як ви побачили результат.">
 <link rel="canonical" href="https://pryhonov.com/">
+<meta name="theme-color" content="#00291B">
+<link rel="icon" type="image/png" href="img/favicon.png">
 
-<!-- Open Graph – для коректного прев'ю у Telegram/Instagram/Facebook при поширенні -->
-<meta property="og:title" content="Vlad Pryhonov – сайти, які перетворюють відвідувачів на заявки">
-<meta property="og:description" content="Розробка сайтів для малого бізнесу – безкоштовний перший екран за 24 години, ціна від $500.">
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://pryhonov.com/">
-<meta property="og:site_name" content="Vlad Pryhonov">
 <meta property="og:locale" content="uk_UA">
-<meta property="og:image" content="https://pryhonov.com/og-cover.jpg">
+<meta property="og:site_name" content="Vlad Pryhonov">
+<meta property="og:title" content="Безкоштовний перший екран вашого сайту за 24 години">
+<meta property="og:description" content="Сайти для малого бізнесу, які перетворюють рекламу на заявки. Спершу перший екран безкоштовно, оплата потім.">
+<meta property="og:url" content="https://pryhonov.com/">
+<meta property="og:image" content="https://pryhonov.com/img/og-cover.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="Vlad Pryhonov – сайти, які перетворюють відвідувачів на заявки">
-
-<!-- Twitter / X Card -->
+<meta property="og:image:alt" content="Безкоштовний перший екран вашого сайту: Влад Пригонов, сайти для малого бізнесу від $600">
+<meta name="twitter:image" content="https://pryhonov.com/img/og-cover.jpg">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Vlad Pryhonov – сайти, які перетворюють відвідувачів на заявки">
-<meta name="twitter:description" content="Розробка сайтів для малого бізнесу – безкоштовний перший екран за 24 години, ціна від $500.">
-<meta name="twitter:image" content="https://pryhonov.com/og-cover.jpg">
+<link rel="preload" as="font" type="font/woff2" href="fonts/onest-400-cyrillic.woff2" crossorigin>
+<link rel="preload" as="font" type="font/woff2" href="fonts/onest-700-cyrillic.woff2" crossorigin>
+<link rel="stylesheet" href="css/fonts.css">
+<link rel="preload" as="image" href="img/vlad-800.webp" imagesrcset="img/vlad-480.webp 480w, img/vlad-800.webp 800w, img/vlad-928.webp 928w" imagesizes="(min-width: 960px) 720px, 92vw" fetchpriority="high">
 
-<meta name="theme-color" content="#12141A">
-<link rel="icon" type="image/png" href="images/favicon.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-
-<!--
-  МІСЦЕ ДЛЯ АНАЛІТИКИ ПЕРЕД ЗАПУСКОМ РЕКЛАМИ:
-  1) Google Analytics (GA4) – вставте стандартний gtag.js сніпет з вашим ID.
-  2) Meta Pixel – вставте стандартний fbq() сніпет з вашим Pixel ID.
-  Без цього ви не побачите, звідки приходять ліди і не зможете налаштувати ретаргетинг.
--->
-
-<link rel="stylesheet" href="style.css">
+<script>
+  /* .js вмикає початкові стани анімацій; .ready знімає їх. Якщо GSAP не завантажився – через 2.5 с усе показується. */
+  document.documentElement.classList.add('js');
+  setTimeout(function () { document.documentElement.classList.add('ready'); }, 2500);
+  /* Якщо js/case.js не завантажився – блоки, що з'являються при прокрутці, показуються через 6 с */
+  setTimeout(function () { document.documentElement.classList.add('reveal-fallback'); }, 6000);
+</script>
+<link rel="stylesheet" href="css/tokens.css">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/components.css">
+<link rel="stylesheet" href="css/header.css">
+<link rel="stylesheet" href="css/hero.css">
+<link rel="stylesheet" href="css/case.css">
+<link rel="stylesheet" href="css/process.css">
+<link rel="stylesheet" href="css/sections.css">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@graph": [
     {
-      "@type": "WebSite",
-      "@id": "https://pryhonov.com/#website",
+      "@type": "ProfessionalService",
+      "@id": "https://pryhonov.com/#service",
+      "name": "Vlad Pryhonov: сайти для малого бізнесу",
       "url": "https://pryhonov.com/",
-      "name": "Vlad Pryhonov",
-      "inLanguage": "uk"
-    },
-    {
-      "@type": "Person",
-      "@id": "https://pryhonov.com/#person",
-      "name": "Vlad Pryhonov",
-      "jobTitle": "Веб-розробник",
-      "url": "https://pryhonov.com/",
-      "telephone": "+380970877657",
-      "sameAs": [
-        "https://www.instagram.com/vvladdos.ik/",
-        "https://www.threads.com/@vvladdos.ik",
-        "https://www.linkedin.com/in/vlad-prigonov/?locale=uk",
-        "https://t.me/vvladdos_ik"
+      "image": "https://pryhonov.com/img/og-cover.jpg",
+      "description": "Розробка сайтів для малого бізнесу. Безкоштовний перший екран за 24 години після брифу, повний сайт від 7 днів.",
+      "areaServed": "UA",
+      "founder": { "@type": "Person", "name": "Влад Пригонов", "sameAs": ["https://t.me/vvladdos_ik", "https://www.instagram.com/vvladdos.ik/", "https://www.threads.com/@vvladdos.ik", "https://www.linkedin.com/in/vlad-prigonov/"] },
+      "makesOffer": [
+        { "@type": "Offer", "name": "Сайт, тариф «Швидкий» (код + AI)", "priceCurrency": "USD", "price": "600", "description": "Лендинг від $600, багатосторінковий сайт від $1000, від 7 днів" },
+        { "@type": "Offer", "name": "Сайт, тариф «Особистий» (вручну)", "priceCurrency": "USD", "price": "800", "description": "Лендинг від $800, багатосторінковий сайт від $1300, від 14 днів" }
       ]
     },
     {
-      "@type": "Service",
-      "@id": "https://pryhonov.com/#service",
-      "serviceType": "Розробка сайтів",
-      "name": "Розробка сайтів для малого бізнесу",
-      "description": "Розробка сайтів для малого бізнесу – безкоштовний перший екран за 24 години, ціна від $500, термін від 14 днів.",
-      "provider": {
-        "@id": "https://pryhonov.com/#person"
-      },
-      "areaServed": "UA",
-      "offers": {
-        "@type": "Offer",
-        "priceCurrency": "USD",
-        "price": "500",
-        "priceValidUntil": "2027-12-31",
-        "availability": "https://schema.org/InStock",
-        "url": "https://pryhonov.com/#price"
-      }
-    },
-    {
       "@type": "FAQPage",
-      "@id": "https://pryhonov.com/#faq",
       "mainEntity": [
-        {
-          "@type": "Question",
-          "name": "Чому перший екран безкоштовний?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Це чесний спосіб показати підхід до роботи ще до того, як ви щось платите. Якщо не сподобається – нічого не втрачаєте."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Скільки коштує сайт?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Залежить від тарифу. \"Особистий\" (конструктор, від 14 днів): від $500 за односторінковий лендинг, від $900 за багатосторінковий сайт. \"Швидкий\" (код + AI, від 7 днів): від $400 і від $700 відповідно. Точну суму озвучую після короткого брифу."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Скільки триває розробка?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Залежить від тарифу. \"Особистий\" – від 14 днів, я збираю сайт вручну на конструкторі, під ваш бізнес. \"Швидкий\" – від 7 днів, з використанням AI-інструментів для частини розробки і моєю особистою перевіркою кожного блоку."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Чим відрізняються тарифи \"Особистий\" і \"Швидкий\"?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "\"Особистий\" – я особисто збираю сайт на платформі-конструкторі з нуля під ваш бізнес: це кастомна структура і дизайн, а не готовий шаблон. \"Швидкий\" – я збираю сайт кодом, і AI-інструменти прискорюють частину розробки, а фінальний результат так само особисто перевіряю й допрацьовую – швидше і дешевше, з тим самим підходом."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Можу подивитись ще приклади робіт?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Так – окрім кейсів на цій сторінці, покажу додаткові приклади структури під час брифу, під ваш тип бізнесу. Я свідомо не беру багато клієнтів одночасно, щоб кожному проєкту приділяти повну увагу."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Чи зможу я сам редагувати сайт після запуску?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "На тарифі \"Особистий\" – так: сайт робиться на конструкторі саме тому, що ви можете змінювати текст, ціни й фото без звернення до розробника. Я покажу, як це робити, при передачі проєкту. На тарифі \"Швидкий\" дрібні правки після здачі роблю особисто я – це компроміс заради швидшого терміну й нижчої ціни."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Сайт буде моїм?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Так. Домен і хостинг оформлюються на ваше ім'я (або прив'язуються до вже наявного у вас домену) – я лише налаштовую їх і передаю повний доступ після здачі проєкту. Залежності від мене для подальшого володіння сайтом немає."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Чи буде сайт видно в Google?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Так, сайт одразу готується так, щоб Google міг його індексувати – правильна структура, мета-теги, швидке завантаження. Потрапляння на перші позиції за конкретні запити – окрема, довша робота з просування, яку можна обговорити додатково, але базова видимість у пошуку є з першого дня."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Що якщо сайт не приносить заявок після запуску?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Розберемо структуру й форму разом і безкоштовно внесу правки, якщо проблема на боці сайту. Кількість і якість трафіку – окрема від сайту змінна, яку я не контролюю."
-          }
-        }
+        { "@type": "Question", "name": "Чому перший екран безкоштовний?", "acceptedAnswer": { "@type": "Answer", "text": "Це чесний спосіб показати підхід до роботи ще до того, як ви щось платите. Якщо не сподобається, нічого не втрачаєте. На етапі першого екрана я враховую 1–2 раунди правок." } },
+        { "@type": "Question", "name": "Скільки коштує сайт?", "acceptedAnswer": { "@type": "Answer", "text": "Залежить від тарифу. «Особистий» (вручну, від 14 днів): від $800 за односторінковий лендинг і від $1300 за багатосторінковий сайт. «Швидкий» (код + AI, від 7 днів): від $600 і від $1000 відповідно. Точну суму називаю після короткого брифу, вона фіксується одразу." } },
+        { "@type": "Question", "name": "Сайт буде моїм?", "acceptedAnswer": { "@type": "Answer", "text": "Так. Домен і хостинг оформлюються на ваше ім'я (або прив'язуються до вже наявного у вас домену). Я лише налаштовую їх і передаю повний доступ після здачі проєкту." } },
+        { "@type": "Question", "name": "Чи буде сайт видно в Google?", "acceptedAnswer": { "@type": "Answer", "text": "Так, сайт одразу готується так, щоб Google міг його індексувати: правильна структура, мета-теги, швидке завантаження. Потрапляння на перші позиції за конкретні запити це окрема, довша робота з просування." } }
       ]
     }
   ]
@@ -168,763 +73,543 @@
 </script>
 </head>
 <body>
+<a class="skip-link" href="#main">Перейти до вмісту</a>
 
-<header id="header">
-  <div class="wrap nav">
-    <a href="#top" class="brand"><img src="images/logo.png" alt="Vlad Pryhonov" style="height:34px;width:auto;display:block;"></a>
-    <nav class="nav-links">
+<header class="site-header" id="header">
+  <div class="wrap site-header__bar">
+    <a class="brand" href="#top" aria-label="Vlad Pryhonov – на початок сторінки">
+      <img src="img/logo.svg" alt="Vlad Pryhonov" width="99" height="34">
+    </a>
+    <nav class="site-nav" aria-label="Основна навігація">
       <a href="#cases">Кейси</a>
       <a href="#process">Процес</a>
       <a href="#price">Ціна</a>
       <a href="#faq">Питання</a>
     </nav>
-    <div class="nav-right">
-      <a href="tel:+380970877657" class="nav-phone mono" data-track="phone_click">+38 (097) 087-76-57</a>
-      <a href="#contact" class="btn btn-primary nav-cta">Обговорити проєкт</a>
-      <button class="burger" id="burgerBtn" aria-label="Меню" aria-expanded="false"><span></span></button>
-    </div>
+    <a class="site-phone" href="tel:+380970877657">+38 (097) 087-76-57</a>
+    <a class="btn btn--outline-orange btn--sm site-cta" id="headerCta" href="#contact" data-track="cta_header" aria-label="Залишити заявку"><span class="site-cta__full">Залишити заявку</span><span class="site-cta__short">Заявка</span></a>
+    <button class="burger" type="button" id="burger" aria-expanded="false" aria-controls="mobileMenu" aria-label="Відкрити меню"><span></span></button>
   </div>
-  <div class="mobile-menu" id="mobileMenu">
+  <div class="mobile-menu" id="mobileMenu" hidden>
     <a href="#cases">Кейси</a>
     <a href="#process">Процес</a>
     <a href="#price">Ціна</a>
     <a href="#faq">Питання</a>
-    <a href="tel:+380970877657" class="mono" style="color:var(--accent-on-dark);font-weight:700;" data-track="phone_click">+38 (097) 087-76-57</a>
-    <a href="#contact" class="btn btn-primary" style="margin-top:6px;">Обговорити проєкт</a>
-    <div class="mobile-menu-social">
-      <a href="https://www.instagram.com/vvladdos.ik/" target="_blank" rel="noopener" aria-label="Instagram"><svg class="icon" viewBox="0 0 24 24" width="17" height="17"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.3" cy="6.7" r=".9" fill="currentColor" stroke="none"/></svg></a>
-      <a href="https://www.threads.com/@vvladdos.ik" target="_blank" rel="noopener" aria-label="Threads"><svg class="icon" viewBox="0 0 24 24" width="17" height="17"><path d="M19 7.5c-1.333 -3 -3.667 -4.5 -7 -4.5c-5 0 -8 2.5 -8 9s3.5 9 8 9s7 -3 7 -5s-1 -5 -7 -5c-2.5 0 -3 1.25 -3 2.5c0 1.5 1 2.5 2.5 2.5c2.5 0 3.5 -1.5 3.5 -5s-2 -4 -3 -4s-1.833 .333 -2.5 1"/></svg></a>
-      <a href="https://www.linkedin.com/in/vlad-prigonov/?locale=uk" target="_blank" rel="noopener" aria-label="LinkedIn"><svg class="icon" viewBox="0 0 24 24" width="17" height="17"><rect x="3" y="3" width="18" height="18" rx="4"/><line x1="8" y1="10" x2="8" y2="17"/><circle cx="8" cy="6.6" r=".6" fill="currentColor" stroke="none"/><path d="M12 17v-4.5a2.5 2.5 0 015 0V17"/><line x1="12" y1="10" x2="12" y2="17"/></svg></a>
-      <a href="https://t.me/vvladdos_ik" target="_blank" rel="noopener" aria-label="Telegram" data-track="telegram_click"><svg class="icon" viewBox="0 0 24 24" width="17" height="17"><path fill="currentColor" stroke="none" transform="translate(12 12) scale(1.35) translate(-12 -12)" d="M17.4 7.3l-2.2 10.4c-.15.7-.6.85-1.2.53l-3.3-2.45-1.6 1.55c-.18.18-.4.33-.74.33l.27-3.5L15.7 8.7c.32-.28-.07-.44-.5-.16L9 13l-3.15-.98c-.68-.22-.7-.68.15-1L16.5 6.7c.57-.2 1.07.14.9 1.6z"/></svg></a>
-    </div>
+    <a class="mobile-menu__phone" href="tel:+380970877657">+38 (097) 087-76-57</a>
   </div>
 </header>
 
-<main id="top">
-  <!-- HERO -->
-  <section class="hero">
-    <div class="hero-bg-grid"></div>
-    <div class="blob3"></div>
-    <div class="wrap hero-grid">
-      <div>
-        <div class="eyebrow">ВЕБ-РОЗРОБКА · САЙТИ ДЛЯ БІЗНЕСУ</div>
-        <h1>Отримайте <span class="accent-word">безкоштовний перший екран</span> вашого сайту –<br>вже за 24 години</h1>
-        <p class="lead">Оцінюєте підхід ще до оплати. Готовий сайт перетворює рекламу в заявки.</p>
-        <div class="hero-cta">
-          <a href="#contact" class="btn btn-primary" data-track="cta_hero_primary">Отримати перший екран</a>
-          <a href="#cases" class="btn btn-outline" data-track="cta_hero_secondary">Подивитись кейси</a>
+<main id="main">
+  <section class="hero" id="top" aria-labelledby="hero-title">
+    <canvas class="hero__veins" aria-hidden="true"></canvas>
+
+    <div class="wrap hero__inner">
+      <div class="hero__copy">
+        <h1 class="hero__title" id="hero-title" data-split data-intro>Отримайте <em>безкоштовний перший екран</em> вашого&nbsp;сайту&nbsp;– вже за&nbsp;24&nbsp;години</h1>
+        <p class="hero__lead" data-intro>Оцінюєте підхід ще до оплати. Далі – повний сайт під ваш бізнес, який перетворює рекламу на заявки.</p>
+
+        <div class="hero__actions" data-intro>
+        <div class="tariff" role="radiogroup" aria-label="Оберіть спосіб розробки сайту">
+          <label class="tariff__opt">
+            <input type="radio" name="tariff" value="personal">
+            <span class="tariff__box chamfer chamfer-sm">
+              <span class="tariff__name">Особистий</span>
+              <span class="tariff__how">Вручну, без AI</span>
+              <span class="tariff__price">від $800</span>
+              <span class="tariff__term">від 14 днів</span>
+            </span>
+          </label>
+          <label class="tariff__opt">
+            <input type="radio" name="tariff" value="fast">
+            <span class="tariff__box chamfer chamfer-sm">
+              <span class="tariff__name">Швидкий</span>
+              <span class="tariff__how">Код + AI</span>
+              <span class="tariff__price">від $600</span>
+              <span class="tariff__term">від 7 днів</span>
+            </span>
+          </label>
+        </div>
+
+        <div class="hero__cta">
+          <span class="cta-glow"><a class="btn btn--primary btn--charge" href="#contact" id="heroCta" data-track="cta_hero">Отримати перший екран</a></span>
+        </div>
         </div>
       </div>
 
-      <div class="mock-stage">
-        <div class="mockup-wrap">
-          <div class="mock-laptop">
-            <div class="laptop-body">
-              <div class="screen">
-                <div class="cam"></div>
-                <div class="screen-cover"></div>
-                <div class="screen-inner" id="demoScreenLaptop">
-                  <div class="demo-media" id="demoMedia"></div>
-                  <div class="demo-screen">
-                    <span class="tag" id="demoTag">СТУДІЯ РЕМОНТУ</span>
-                    <h4 contenteditable="true" spellcheck="false" id="demoTitle">Ремонт квартир під ключ</h4>
-                    <div class="demo-price" contenteditable="true" spellcheck="false" id="demoPrice">від $1 200</div>
-                    <span class="demo-btn" id="demoBtn">Залишити заявку</span>
-                  </div>
-                </div>
-              </div>
-              <div class="keyboard"></div>
-            </div>
-          </div>
-          <div class="mock-phone">
-            <div class="frame">
-              <div class="screen-cover"></div>
-              <div class="screen-inner">
-                <div class="notch"></div>
-                <div class="demo-media small" id="demoMediaPhone"></div>
-                <div class="demo-screen phone-scale">
-                  <span class="tag" id="demoTagPhone">СТУДІЯ РЕМОНТУ</span>
-                  <h4 contenteditable="true" spellcheck="false" id="demoTitlePhone">Ремонт квартир</h4>
-                  <div class="demo-price" contenteditable="true" spellcheck="false" id="demoPricePhone">від $1 200</div>
-                  <span class="demo-btn" id="demoBtnPhone">Залишити заявку</span>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="toast-notify">
-            <span class="tn-dot"></span>
-            <div><b>Нова заявка!</b><small>щойно з сайту</small></div>
-          </div>
-          <div class="cursor-badge" id="cursorBadge">
-            <svg viewBox="0 0 24 24" width="16" height="16" fill="var(--ink)"><path d="M4 2l16 8-6.5 2 3 6-2.5 1.2-3-6L6 17V2z"/></svg>
-          </div>
-        </div>
-        <div class="edit-hint">
-          <svg class="icon pen" viewBox="0 0 24 24" width="16" height="16" style="color:var(--accent-on-dark)"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.1-3.1a5 5 0 01-6.4 6.4L6 21H3v-3l8.4-8.4a5 5 0 016.4-6.4l-3.1 3.1z"/></svg>
-          <span>Клікніть на заголовок або ціну на екрані і спробуйте змінити – так само просто ви редагуватимете свій сайт після запуску, самостійно і без оплати розробнику.</span>
+      <div class="hero__stage" data-intro-photo>
+        <p class="hero__mark" aria-hidden="true" data-intro-mark>PRYHONOV</p>
+        <div class="hero__photo">
+          <img src="img/vlad-800.webp"
+               srcset="img/vlad-480.webp 480w, img/vlad-800.webp 800w, img/vlad-928.webp 928w"
+               sizes="(min-width: 960px) 720px, 92vw"
+               width="928" height="1441" fetchpriority="high"
+               alt="Влад Пригонов, веб-розробник">
         </div>
       </div>
+
+      <ul class="hero__facts" aria-label="Коротко про співпрацю">
+        <li><b>7–14 днів</b><span>до запуску сайту</span></li>
+        <li><b>1</b><span>розробник на зв'язку</span></li>
+      </ul>
     </div>
   </section>
 
-  <!-- STATS -->
-  <div class="stats-bar">
-    <div class="wrap stats-inner">
-      <div class="stat"><div class="num" data-count="100" data-suffix="%">0</div><div class="lbl">ручна розробка, без шаблонів</div></div>
-      <div class="stat"><div class="num" data-count="1">0</div><div class="lbl">розробник, без підрядників</div></div>
-      <div class="stat"><div class="num" data-count="14" data-prefix="від ">0</div><div class="lbl">днів середній термін</div></div>
-      <div class="stat"><div class="num" data-count="500" data-prefix="$" data-str="від ">0</div><div class="lbl">стартова ціна проєкту</div></div>
-    </div>
-      </div>
-
-  <!-- PROBLEM -->
-  <section>
+  <!-- ЗАГЛУШКИ: наступні блоки будуються по черзі; якорі працюють вже зараз -->
+  <!-- КЕЙС: єдиний реальний проєкт – Honor Code. Цифри (замовлення, трафік) додати, коли клієнт їх дасть: вигадувати не можна -->
+  <section class="section section--deep" id="cases" aria-labelledby="case-title">
     <div class="wrap">
-      <div class="section-head reveal">
-        <h2>Без сайту ви щодня втрачаєте клієнтів</h2>
-        <p>Instagram чи Viber непогано працюють для перших клієнтів – але з часом починають гальмувати ріст бізнесу. Ось що це вирішує:</p>
-      </div>
-      <div class="ps-toggle-wrap reveal">
-        <div class="ps-toggle" id="psToggle">
-          <button type="button" class="ps-toggle-btn active" data-ps="problem" aria-selected="true">Проблема</button>
-          <button type="button" class="ps-toggle-btn" data-ps="solution" aria-selected="false">Рішення</button>
-          <span class="ps-toggle-thumb"></span>
-        </div>
-      </div>
-      <div class="ps-grid" id="psGrid">
-        <div class="ps-card reveal">
-          <div class="ps-face ps-face-problem active">
-            <div class="ic"><svg class="icon" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.35-4.35"/></svg></div>
-            <h3>Вас шукають у Google – і не знаходять</h3>
-            <p>Частина людей просто гуглить назву чи послугу, а не йде в Instagram. Без сайту вони знаходять конкурента, а не вас.</p>
-          </div>
-          <div class="ps-face ps-face-solution">
-            <div class="ic"><svg class="icon" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.35-4.35"/></svg></div>
-            <h3>Сайт, який Google реально показує</h3>
-            <p>Окрема сторінка індексується пошуком – на відміну від профілю в соцмережі, який Google практично не показує за запитами на вашу послугу.</p>
-          </div>
-        </div>
-        <div class="ps-card reveal">
-          <div class="ps-face ps-face-problem active">
-            <div class="ic"><svg class="icon" viewBox="0 0 24 24"><path d="M12 3l7 3v5c0 4.5-3 7.7-7 9-4-1.3-7-4.5-7-9V6l7-3z"/></svg></div>
-            <h3>Без сайту складніше викликати довіру</h3>
-            <p>Коли вся присутність онлайн – це сторінка в соцмережі, частина клієнтів підсвідомо довіряє менше, особливо при більшому чеку.</p>
-          </div>
-          <div class="ps-face ps-face-solution">
-            <div class="ic"><svg class="icon" viewBox="0 0 24 24"><path d="M12 3l7 3v5c0 4.5-3 7.7-7 9-4-1.3-7-4.5-7-9V6l7-3z"/></svg></div>
-            <h3>Власний домен = довіра з першої секунди</h3>
-            <p>Структура, кейси й гарантії на вашому домені переконують там, де сторінка в Instagram лишає сумнів.</p>
-          </div>
-        </div>
-        <div class="ps-card reveal">
-          <div class="ps-face ps-face-problem active">
-            <div class="ic"><svg class="icon" viewBox="0 0 24 24"><path d="M10 13a5 5 0 007 0l3-3a5 5 0 00-7-7l-1.5 1.5"/><path d="M14 11a5 5 0 00-7 0l-3 3a5 5 0 007 7l1.5-1.5"/></svg></div>
-            <h3>Заявки губляться в директі</h3>
-            <p>Реклама веде в соцмережі, де частина людей просто не пише перша, а листування легко загубити серед інших повідомлень.</p>
-          </div>
-          <div class="ps-face ps-face-solution">
-            <div class="ic"><svg class="icon" viewBox="0 0 24 24"><path d="M10 13a5 5 0 007 0l3-3a5 5 0 00-7-7l-1.5 1.5"/><path d="M14 11a5 5 0 00-7 0l-3 3a5 5 0 007 7l1.5-1.5"/></svg></div>
-            <h3>Форма, яка не губиться в чаті</h3>
-            <p>Заявка одразу падає вам у Telegram і в таблицю – без ризику загубити повідомлення серед сотні інших у директі.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+      <header class="section-head reveal">
+        <h2 id="case-title">Реальний проєкт, який <em>працює зараз</em></h2>
+        <p class="section-head__lead">Інтернет-магазин українського бренду одягу Honor Code: від безкоштовного першого екрана до перших замовлень.</p>
+      </header>
 
-  <!-- PROCESS -->
-  <section class="process-section" id="process">
-    <div class="wrap">
-      <div class="section-head reveal">
-        <div class="eyebrow on-dark">ЯК ПРОХОДИТЬ РОБОТА</div>
-        <h2 style="color:var(--paper)">4 кроки від заявки до запуску</h2>
-        <p style="color:var(--dark-soft)">Прозорий процес без сюрпризів – на кожному кроці ви бачите, що і навіщо робиться.</p>
-      </div>
-      <div class="process-list" id="processList">
-        <div class="process-track"><div class="process-track-fill" id="processFill"></div></div>
-        <div class="process-item reveal"><div class="process-num">01</div><div><h3>Заявка та бриф</h3><p>Коротко дізнаюсь про ваш бізнес, аудиторію і мету сайту.</p>
-          <button type="button" class="process-more-btn" onclick="toggleProcessDetails(this)"><span class="process-more-label">Детальніше</span><svg class="icon process-more-arrow" viewBox="0 0 24 24" width="14" height="14"><path d="M6 9l6 6 6-6"/></svg></button>
-          <div class="process-details"><ul>
-            <li>Аналізую цільову аудиторію і мінімум 5 конкурентів у вашій ніші</li>
-          </ul></div>
-        </div><div class="process-icon"><svg class="icon" viewBox="0 0 24 24"><path d="M21 15a2 2 0 01-2 2H8l-5 4V5a2 2 0 012-2h14a2 2 0 012 2v10z"/></svg></div></div>
-        <div class="process-item reveal"><div class="process-num">02</div><div><h3>Перший екран – безкоштовно</h3><p>Проєктую перший екран сайту під ваш запит, щоб ви побачили підхід ще до оплати.</p>
-          <button type="button" class="process-more-btn" onclick="toggleProcessDetails(this)"><span class="process-more-label">Детальніше</span><svg class="icon process-more-arrow" viewBox="0 0 24 24" width="14" height="14"><path d="M6 9l6 6 6-6"/></svg></button>
-          <div class="process-details"><ul>
-            <li>Прототип першого екрану на основі брифу й аналізу конкурентів</li>
-            <li>Надсилаю за 24 години, ще до угоди</li>
-            <li>Вносимо правки, поки не сподобається – і тільки тоді угода</li>
-          </ul></div>
-        </div><div class="process-icon"><svg class="icon" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></div></div>
-        <div class="process-item reveal"><div class="process-num">03</div><div><h3>Розробка від 14 днів</h3><p>Збираю сайт вручну: структура, контент, адаптивність, форма, яка справді відправляє заявки.</p>
-          <button type="button" class="process-more-btn" onclick="toggleProcessDetails(this)"><span class="process-more-label">Детальніше</span><svg class="icon process-more-arrow" viewBox="0 0 24 24" width="14" height="14"><path d="M6 9l6 6 6-6"/></svg></button>
-          <div class="process-details"><ul>
-            <li>Прототип сайту: структура блоків без дизайну</li>
-            <li>Все узгоджується з вами на кожному етапі</li>
-            <li>Наповнення дизайном і контентом, верстка</li>
-          </ul></div>
-        </div><div class="process-icon"><svg class="icon" viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.1-3.1a5 5 0 01-6.4 6.4L6 21H3v-3l8.4-8.4a5 5 0 016.4-6.4l-3.1 3.1z"/></svg></div></div>
-        <div class="process-item reveal"><div class="process-num">04</div><div><h3>Запуск і навчання</h3><p>Передаю готовий сайт і показую, як самостійно редагувати текст, ціни й фото – без залежності від розробника.</p>
-          <button type="button" class="process-more-btn" onclick="toggleProcessDetails(this)"><span class="process-more-label">Детальніше</span><svg class="icon process-more-arrow" viewBox="0 0 24 24" width="14" height="14"><path d="M6 9l6 6 6-6"/></svg></button>
-          <div class="process-details"><ul>
-            <li>Публікую на вашому домені, перевіряю форму й адаптивність</li>
-            <li>Показую, як самостійно редагувати сайт (тариф "Особистий")</li>
-            <li>Ви отримуєте готовий сайт і доступи</li>
-          </ul></div>
-        </div><div class="process-icon"><svg class="icon" viewBox="0 0 24 24"><path d="M12 2l2.4 6.6L21 11l-6.6 2.4L12 20l-2.4-6.6L3 11l6.6-2.4z"/></svg></div></div>
-      </div>
-    </div>
-  </section>
+      <div class="case__grid">
+        <!-- Мокап стоїть у DOM першим: на мобільному порядок «заголовок, підзаголовок, мокап, розбір»; на десктопі колонки задано в case.css -->
+        <figure class="case__visual reveal">
+          <img class="case__laptop" src="img/case/honor-laptop.webp" width="1000" height="574" loading="lazy" alt="Сайт Honor Code на ноутбуці: перший екран із заголовком «Носи те, у що віриш»">
+          <img class="case__phone" src="img/case/honor-phone.webp" width="300" height="612" loading="lazy" alt="Сайт Honor Code на телефоні">
+        </figure>
 
-  <!-- CASES -->
-  <div class="cases-intro-band" id="cases">
-    <div class="wrap">
-      <div class="eyebrow">КЕЙСИ</div>
-      <h2 class="h2-match" style="font-size:clamp(24px,3.4vw,32px);margin-bottom:12px;">Від задачі бізнесу до готового сайту</h2>
-      <p style="color:var(--ink-soft);max-width:680px;">Кожен проєкт – окрема бізнес-задача: своя аудиторія, своя структура, свій шлях до заявки. Ось як це виглядає на практиці.</p>
-    </div>
-  </div>
-
-  <section style="padding-top:0;background:var(--bg);position:relative;overflow:hidden;">
-    <div style="position:relative;z-index:1;">
-    <div class="wrap">
-      <div class="case">
-        <div class="case-grid">
-          <div class="case-info reveal">
-            <div class="case-tag-row"><span class="case-badge">Інтернет-магазин</span><span class="mono" style="font-size:12px;color:var(--ink-faint);">Одяг</span></div>
-            <h3>Honor Code</h3>
-            <div class="row"><b>Що було:</b> <span>у бренду одягу не було свого магазину – продавали тільки через соцмережі, і частина людей губилась, не дочекавшись відповіді в директ.</span></div>
-            <div class="row"><b>Що зробив:</b> <span>інтернет-магазин, де людина сама обирає розмір, кладе товар у кошик і оформлює замовлення без переписки з менеджером.</span></div>
-            <div class="row"><b>Результат:</b> <span>магазин працює і зараз приймає реальні замовлення клієнтів.<!-- ДОДАЙТЕ РЕАЛЬНУ ЦИФРУ: кількість замовлень або трафік після запуску, коли отримаєте дані від клієнта --></span></div>
-            <a href="https://honorcode.com.ua" target="_blank" rel="noopener" class="btn btn-outline" style="padding:11px 20px;font-size:13.5px;">Переглянути сайт →</a>
-          </div>
-          <div class="case-visual reveal">
-            <div class="case-mockup">
-              <img class="cm-laptop" src="images/mockup-laptop-honor-code.png" alt="Honor Code – версія для десктопа" loading="lazy">
-              <img class="cm-phone" src="images/mockup-phone-honor-code.png" alt="Honor Code – мобільна версія" loading="lazy">
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="case">
-        <div class="case-grid rev">
-          <div class="case-info reveal">
-            <div class="case-tag-row"><span class="case-badge">Лендинг</span><span class="mono" style="font-size:12px;color:var(--ink-faint);">Фітнес-тренер</span><span class="case-badge" style="background:var(--paper);border:1px solid var(--line);color:var(--ink-faint);">Навчальний проєкт</span></div>
-            <h3>Марта Коваль</h3>
-            <div class="row"><b>Що було:</b> <span>тренери з реабілітаційним підходом рідко можуть довести це на сайті – фраза "індивідуальний підхід" нікого не переконує, особливо людей, які вже мали невдалий досвід і бояться травм.</span></div>
-            <div class="row"><b>Що зробив:</b> <span>перший екран одразу знімає головний страх (травма, біль) і показує конкретну вигоду (5–10 кг), а цифри довіри (8 років, 300+ клієнтів, сертифікація ISSA) – одразу під офером.</span></div>
-            <div class="row"><b>Ціль:</b> <span>показати підхід до ніші, де клієнт вже "обпікся" на невдалому досвіді – тут головна робота тексту не продати тренування, а зняти острах перед ним.</span></div>
-            <a href="https://vladyslav-pryhonov.github.io/marta-koval/" target="_blank" rel="noopener" class="btn btn-outline" style="padding:11px 20px;font-size:13.5px;">Переглянути сайт →</a>
-          </div>
-          <div class="case-visual reveal">
-            <div class="case-mockup">
-              <img class="cm-laptop" src="images/case-marta-koval-laptop.png" alt="Марта Коваль – версія для десктопа" loading="lazy">
-              <img class="cm-phone" src="images/case-marta-koval-phone.png" alt="Марта Коваль – мобільна версія" loading="lazy">
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="case">
-        <div class="case-grid">
-          <div class="case-info reveal">
-            <div class="case-tag-row"><span class="case-badge">Лендинг</span><span class="mono" style="font-size:12px;color:var(--ink-faint);">Барбершоп</span><span class="case-badge" style="background:var(--paper);border:1px solid var(--line);color:var(--ink-faint);">Навчальний проєкт</span></div>
-            <h3>Kronos Barber Club</h3>
-            <div class="row"><b>Що було:</b> <span>барбершопи здебільшого продають "стрижку", а не відчуття – і майже всі сайти в ніші виглядають однаково.</span></div>
-            <div class="row"><b>Що зробив:</b> <span>темний преміальний дизайн і заголовок, який продає емоцію, а не послугу; одразу під офером – конкретні переваги (3 майстри без черги, запис на точний час).</span></div>
-            <div class="row"><b>Ціль:</b> <span>показати, як змінюється тон і структура тексту під преміальну нішу, де рішення ухвалюють емоційно, а не раціонально.</span></div>
-            <a href="https://vladyslav-pryhonov.github.io/kronos-barber/" target="_blank" rel="noopener" class="btn btn-outline" style="padding:11px 20px;font-size:13.5px;">Переглянути сайт →</a>
-          </div>
-          <div class="case-visual reveal">
-            <div class="case-mockup">
-              <img class="cm-laptop" src="images/case-kronos-laptop.png" alt="Kronos Barber Club – версія для десктопа" loading="lazy">
-              <img class="cm-phone" src="images/case-kronos-phone.png" alt="Kronos Barber Club – мобільна версія" loading="lazy">
-            </div>
-          </div>
-        </div>
-      </div>
-      <div id="casesMoreSection">
-      <div class="more-cases" id="moreCasesWrap">
-      <div class="case">
-        <div class="case-grid rev">
-          <div class="case-info reveal">
-            <div class="case-tag-row"><span class="case-badge">Лендинг</span><span class="mono" style="font-size:12px;color:var(--ink-faint);">Ремонт і будівництво</span><span class="case-badge" style="background:var(--paper);border:1px solid var(--line);color:var(--ink-faint);">Навчальний проєкт</span></div>
-            <h3>БудДім</h3>
-            <div class="row"><b>Що було:</b> <span>людина, яка шукає бригаду на ремонт, боїться двох речей: що ціна "попливе" і що результат буде не таким, як обіцяли.</span></div>
-            <div class="row"><b>Що зробив:</b> <span>сторінку, яка одразу знімає ці страхи: фіксована ціна в договорі, гарантія і прозорий кошторис за 24 години.</span></div>
-            <div class="row"><b>Ціль:</b> <span>показати, як я будую структуру для бізнесу, де людина довго вагається перед тим, як залишити заявку.</span></div>
-            <a href="https://vladyslav-pryhonov.github.io/buddim-demo/" target="_blank" rel="noopener" class="btn btn-outline" style="padding:11px 20px;font-size:13.5px;">Переглянути сайт →</a>
-          </div>
-          <div class="case-visual reveal">
-            <div class="case-mockup">
-              <img class="cm-laptop" src="images/case-buddim-laptop.png" alt="БудДім – версія для десктопа" loading="lazy">
-              <img class="cm-phone" src="images/case-buddim-phone.png" alt="БудДім – мобільна версія" loading="lazy">
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="case">
-        <div class="case-grid">
-          <div class="case-info reveal">
-            <div class="case-tag-row"><span class="case-badge">Сайт для бізнесу</span><span class="mono" style="font-size:12px;color:var(--ink-faint);">Відеоспостереження</span><span class="case-badge" style="background:var(--paper);border:1px solid var(--line);color:var(--ink-faint);">Навчальний проєкт</span></div>
-            <h3>MonVision</h3>
-            <div class="row"><b>Що було:</b> <span>компанія встановлює камери відеонагляду – рішення дороге, тому людина довго порівнює й перевіряє, перш ніж довіритись.</span></div>
-            <div class="row"><b>Що зробив:</b> <span>сторінку, що пояснює процес крок за кроком і показує гарантію, щоб зняти сумніви до дзвінка менеджеру.</span></div>
-            <div class="row"><b>Ціль:</b> <span>показати підхід до дорожчих послуг, де рішення ухвалюють не з першого погляду.</span></div>
-            <a href="https://monvision.tilda.ws" target="_blank" rel="noopener" class="btn btn-outline" style="padding:11px 20px;font-size:13.5px;">Переглянути сайт →</a>
-          </div>
-          <div class="case-visual reveal">
-            <div class="case-mockup">
-              <img class="cm-laptop" src="images/case-monvision-laptop.png" alt="MonVision – версія для десктопа" loading="lazy">
-              <img class="cm-phone" src="images/case-monvision-phone.png" alt="MonVision – мобільна версія" loading="lazy">
-            </div>
-          </div>
-        </div>
-      </div>
-      </div>
-      <div class="cases-more-row reveal" id="moreCasesRow">
-        <button type="button" class="btn btn-outline" id="moreCasesBtn" onclick="toggleMoreCases()">
-          <span id="moreCasesLabel">Більше кейсів</span>
-          <svg class="icon" id="moreCasesArrow" viewBox="0 0 24 24" width="16" height="16" style="margin-left:8px;vertical-align:-3px;transition:transform .3s ease;"><path d="M6 9l6 6 6-6"/></svg>
-        </button>
-      </div>
-      </div>
-    </div>
-    </div>
-  </section>
-
-  <!-- TESTIMONIAL -->
-  <section class="testimonial-section" style="background:var(--bg-alt);border-top:1px solid var(--line);border-bottom:1px solid var(--line);position:relative;overflow:hidden;">
-    <div class="wrap" style="position:relative;z-index:1;">
-      <div class="testimonial-wrap reveal">
-        <div class="eyebrow" style="justify-content:center;">ВІДГУК КЛІЄНТА</div>
-        <div class="testimonial-slider-outer" style="position:relative;">
-          <button class="testimonial-arrow prev" id="testimonialPrev" aria-label="Попередній відгук" type="button">
-            <svg viewBox="0 0 24 24" width="20" height="20"><path d="M15 18l-6-6 6-6"/></svg>
-          </button>
-          <button class="testimonial-arrow next" id="testimonialNext" aria-label="Наступний відгук" type="button">
-            <svg viewBox="0 0 24 24" width="20" height="20"><path d="M9 18l6-6-6-6"/></svg>
-          </button>
-        <div class="testimonial-slider">
-          <div class="testimonial-track" id="testimonialTrack">
-            <div class="testimonial-slide-item">
-        <div class="testimonial-card">
-          <svg class="testimonial-quote" viewBox="0 0 24 24" width="34" height="34"><path d="M9.5 8.5C7 8.5 5 10.5 5 13s2 4.5 4.5 4.5c.3 0 .5 0 .8-.1-.4 1.6-1.7 2.9-3.3 3.3v2.1c3.2-.5 5.7-3.2 5.7-6.8V13c0-2.5-2-4.5-4.5-4.5zm10 0c-2.5 0-4.5 2-4.5 4.5s2 4.5 4.5 4.5c.3 0 .5 0 .8-.1-.4 1.6-1.7 2.9-3.3 3.3v2.1c3.2-.5 5.7-3.2 5.7-6.8V13c0-2.5-2-4.5-4.5-4.5z" fill="currentColor" stroke="none"/></svg>
-          <p class="testimonial-text">Працювати з Владом було дуже комфортно й легко. Спочатку він зробив безкоштовний перший екран – я одразу побачив стиль і зрозумів, за що плачу. Сайт для Honor Code вийшов стильним, сучасним і саме таким, як я хотів. Сподобалось, що ціна була зафіксована одразу і жодних доплат "по ходу справи" не виникало. Влад завжди на зв'язку, підказує кращі рішення і все здає вчасно. Тепер із впевненістю запускаю на сайт рекламу!</p>
-          <div class="testimonial-author">
-            <img src="images/testimonial-avatar-bohdan.png" alt="Honor Code" class="testimonial-avatar">
-            <div class="testimonial-who">
-              <div class="testimonial-name-row"><b>Богдан</b><a href="https://honorcode.com.ua" target="_blank" rel="noopener" class="testimonial-site-link">honorcode.com.ua<svg viewBox="0 0 24 24" width="11" height="11"><path d="M7 17L17 7M17 7H8M17 7v9"/></svg></a></div>
-              <span>Засновник Honor Code</span>
-            </div>
-          </div>
-        </div>
-            </div>
-            <div class="testimonial-slide-item">
-              <div class="testimonial-card">
-                <div class="screenshot-wrap"><img class="testimonial-screenshot" src="images/testimonial-screenshot-1.jpg" alt="Переписка з Богданом (Honor Code): 'доля мені послала вас, нереальний обсяг роботи'"><span class="zoom-hint"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></span></div>
-              </div>
-            </div>
-            <div class="testimonial-slide-item">
-              <div class="testimonial-card">
-                <div class="screenshot-wrap"><img class="testimonial-screenshot" src="images/testimonial-screenshot-2.jpg" alt="Переписка з Богданом (Honor Code): реакція на оновлені картки товару"><span class="zoom-hint"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></span></div>
-              </div>
-            </div>
-            <div class="testimonial-slide-item">
-              <div class="testimonial-card">
-                <div class="screenshot-wrap"><img class="testimonial-screenshot" src="images/testimonial-screenshot-3.jpg" alt="Переписка з Богданом (Honor Code): перші реакції клієнтів і замовлення на сайті"><span class="zoom-hint"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></span></div>
-              </div>
-            </div>
-            <!-- Щоб додати новий слайд (наприклад, скрін переписки з клієнтом): скопіюйте блок .testimonial-slide-item вище і замініть вміст .testimonial-card на <img class="testimonial-screenshot" src="..."> -->
-          </div>
-          </div>
-        <div class="testimonial-dots hidden" id="testimonialDots"></div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- WHO -->
-  <section style="background:linear-gradient(160deg,var(--bg-alt) 0%,var(--accent-soft) 130%);border-top:1px solid var(--line);border-bottom:1px solid var(--line);position:relative;overflow:hidden;">
-    <div class="hero-bg-grid" style="opacity:.4;"></div>
-    <div class="wrap who-grid" style="position:relative;z-index:1;">
-      <div class="reveal who-photo-wrap">
-        <div class="who-photo" style="position:relative;">
-          <img src="images/vlad-portrait.jpg" alt="Vlad Pryhonov, веб-розробник" loading="lazy">
-          <div class="video-trigger" id="videoTrigger">
-            <div class="play-ic"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
-          </div>
-        </div>
-      </div>
-      <div class="who-copy reveal">
-        <div class="eyebrow">ХТО РОБИТЬ САЙТ</div>
-        <h2 class="h2-match" style="margin-bottom:18px;">Один розробник.<br>Без підрядників.<br>Без відділу продажів.</h2>
-        <p>Я будую сайти для людей, які думають грошима, а не естетикою заради естетики. Кожен елемент працює на одну мету – привести до заявки; зайве я просто не додаю. І ви завжди на прямому зв'язку зі мною особисто, а не з менеджером.</p>
-        <a href="https://t.me/vvladdos_ik" target="_blank" rel="noopener" class="who-telegram-link" data-track="telegram_click">
-          <svg class="icon" viewBox="0 0 24 24" width="18" height="18"><path fill="currentColor" stroke="none" transform="translate(12 12) scale(1.35) translate(-12 -12)" d="M17.4 7.3l-2.2 10.4c-.15.7-.6.85-1.2.53l-3.3-2.45-1.6 1.55c-.18.18-.4.33-.74.33l.27-3.5L15.7 8.7c.32-.28-.07-.44-.5-.16L9 13l-3.15-.98c-.68-.22-.7-.68.15-1L16.5 6.7c.57-.2 1.07.14.9 1.6z"/></svg>
-          <span>Написати мені напряму в Telegram – <b>@vvladdos_ik</b></span>
-        </a>
-        <div class="constructor-note">
-          <div class="cn-head"><div class="cn-ic"><svg class="icon" viewBox="0 0 24 24" width="18" height="18"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 013 3L7 19l-4 1 1-4L16.5 3.5z"/></svg></div><h4>Два тарифи – оберете під час брифу</h4></div>
-          <p><b>"Особистий"</b> (конструктор Tilda/Weblium/Хорошоп): захотіли змінити ціну, текст чи фото – зробите самі за 2 хвилини, безкоштовно. Від 14 днів.</p>
-          <p style="margin-top:10px;"><b>"Швидкий"</b> (код + AI-інструменти): готовий сайт за 7 днів і дешевше. Дрібні правки після здачі роблю особисто я – це свідомий компроміс заради швидкості й ціни.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- COMPARE -->
-  <section>
-    <div class="wrap">
-      <div class="section-head reveal">
-        <div class="eyebrow">ПОРІВНЯННЯ</div>
-        <h2>З ким ви насправді порівнюєте</h2>
-      </div>
-      <div class="cmp-table-wrap reveal">
-        <table class="cmp-table">
-          <thead>
-            <tr>
-              <th></th>
-              <th><div class="cmp-th-ic"><svg class="icon" viewBox="0 0 24 24" width="20" height="20"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.5-6 8-6s8 2 8 6"/></svg></div>Знайомий</th>
-              <th><div class="cmp-th-ic"><svg class="icon" viewBox="0 0 24 24" width="20" height="20"><rect x="5" y="3" width="14" height="18" rx="1"/><path d="M9 21v-3h6v3M9 7h1M14 7h1M9 11h1M14 11h1M9 15h1M14 15h1"/></svg></div>Агенція</th>
-              <th class="cmp-th-featured"><span class="cmp-badge-table">Мій підхід</span><div class="cmp-th-ic on-dark"><svg class="icon" viewBox="0 0 24 24" width="20" height="20"><path d="M12 2l8 3.5v6c0 5-3.4 8.4-8 10.5-4.6-2.1-8-5.5-8-10.5v-6L12 2z"/><path d="M9 12l2 2 4-4"/></svg></div>Vlad Pryhonov</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td class="cmp-crit">Термін</td>
-              <td class="no"><svg class="icon cmp-ic" viewBox="0 0 24 24" width="16" height="16"><path d="M6 6l12 12M18 6L6 18"/></svg>Строки "пливуть" – ніхто не гарантує</td>
-              <td class="no"><svg class="icon cmp-ic" viewBox="0 0 24 24" width="16" height="16"><path d="M6 6l12 12M18 6L6 18"/></svg>1–2 місяці замість тижнів</td>
-              <td class="yes cmp-col-featured"><svg class="icon cmp-ic" viewBox="0 0 24 24" width="16" height="16"><path d="M20 6L9 17l-5-5"/></svg><b>Від 7 днів</b> – фіксується одразу</td>
-            </tr>
-            <tr>
-              <td class="cmp-crit">Процес</td>
-              <td class="no"><svg class="icon cmp-ic" viewBox="0 0 24 24" width="16" height="16"><path d="M6 6l12 12M18 6L6 18"/></svg>На довірі, без брифу й плану</td>
-              <td class="no"><svg class="icon cmp-ic" viewBox="0 0 24 24" width="16" height="16"><path d="M6 6l12 12M18 6L6 18"/></svg>Через менеджера, не напряму з виконавцем</td>
-              <td class="yes cmp-col-featured"><svg class="icon cmp-ic" viewBox="0 0 24 24" width="16" height="16"><path d="M20 6L9 17l-5-5"/></svg><b>Один розробник</b> від старту до фінішу</td>
-            </tr>
-            <tr>
-              <td class="cmp-crit">Ціна</td>
-              <td class="no"><svg class="icon cmp-ic" viewBox="0 0 24 24" width="16" height="16"><path d="M6 6l12 12M18 6L6 18"/></svg>На словах, без фіксації</td>
-              <td class="no"><svg class="icon cmp-ic" viewBox="0 0 24 24" width="16" height="16"><path d="M6 6l12 12M18 6L6 18"/></svg>Росте, кожна правка – нова оплата</td>
-              <td class="yes cmp-col-featured"><svg class="icon cmp-ic" viewBox="0 0 24 24" width="16" height="16"><path d="M20 6L9 17l-5-5"/></svg><b>Фіксується одразу</b>, без сюрпризів</td>
-            </tr>
-            <tr>
-              <td class="cmp-crit">Правки</td>
-              <td class="no"><svg class="icon cmp-ic" viewBox="0 0 24 24" width="16" height="16"><path d="M6 6l12 12M18 6L6 18"/></svg>Знову просити й чекати</td>
-              <td class="no"><svg class="icon cmp-ic" viewBox="0 0 24 24" width="16" height="16"><path d="M6 6l12 12M18 6L6 18"/></svg>Платно і по заявці</td>
-              <td class="yes cmp-col-featured"><svg class="icon cmp-ic" viewBox="0 0 24 24" width="16" height="16"><path d="M20 6L9 17l-5-5"/></svg><b>Самі й безкоштовно</b> – тариф "Особистий"</td>
-            </tr>
-            <tr>
-              <td class="cmp-crit">Надійність</td>
-              <td class="no"><svg class="icon cmp-ic" viewBox="0 0 24 24" width="16" height="16"><path d="M6 6l12 12M18 6L6 18"/></svg>Зникне чи передумає – починаєте спочатку</td>
-              <td class="no"><svg class="icon cmp-ic" viewBox="0 0 24 24" width="16" height="16"><path d="M6 6l12 12M18 6L6 18"/></svg>Ваш проєкт – один з багатьох у черзі</td>
-              <td class="yes cmp-col-featured"><svg class="icon cmp-ic" viewBox="0 0 24 24" width="16" height="16"><path d="M20 6L9 17l-5-5"/></svg><b>Перший екран безкоштовно</b> – без ризику</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-  </section>
-
-  <!-- PRICE -->
-  <section class="gp-section" id="price">
-    <div class="wrap">
-      <div class="gp-grid">
-        <div class="gp-side reveal">
-          <div class="eyebrow on-dark">ГАРАНТІЇ</div>
-          <h2 class="h2-match" style="color:var(--paper);font-size:clamp(24px,3vw,32px);margin-bottom:26px;">Прозорі умови, без сюрпризів по ходу</h2>
-          <p style="color:var(--dark-soft);font-size:15px;margin-bottom:36px;max-width:420px;">Це не маркетингове гасло, а те, що проговорюємо ще до старту роботи.</p>
-          <ul class="gp-list">
-            <li><svg class="icon check" viewBox="0 0 24 24" width="18" height="18"><path d="M20 6L9 17l-5-5"/></svg><span><b>Безкоштовний перший екран</b> – оцінюєте роботу ще до оплати</span></li>
-            <li><svg class="icon check" viewBox="0 0 24 24" width="18" height="18"><path d="M20 6L9 17l-5-5"/></svg><span><b>Ціна фіксується одразу</b> – не змінюється по ходу проєкту</span></li>
-            <li><svg class="icon check" viewBox="0 0 24 24" width="18" height="18"><path d="M20 6L9 17l-5-5"/></svg><span><b>Правки на етапі здачі</b> – без доплат і нових рахунків</span></li>
-            <li><svg class="icon check" viewBox="0 0 24 24" width="18" height="18"><path d="M20 6L9 17l-5-5"/></svg><span><b>Один розробник від старту до запуску</b> – жодних передач "з рук в руки"</span></li>
-            <li><svg class="icon check" viewBox="0 0 24 24" width="18" height="18"><path d="M20 6L9 17l-5-5"/></svg><span><b>За потреби – офіційний договір</b> – якщо для вас це важливо</span></li>
-            <li><svg class="icon check" viewBox="0 0 24 24" width="18" height="18"><path d="M20 6L9 17l-5-5"/></svg><span><b>Свідомо не беру багато клієнтів одночасно</b> – щоб кожному проєкту приділяти повну увагу</span></li>
+        <div class="case__info reveal">
+          <dl class="case__rows">
+            <div><dt>Що було</dt><dd>У бренду не було свого магазину: продавали тільки через соцмережі, і частина людей губилась, не дочекавшись відповіді в директ.</dd></div>
+            <div><dt>Що зробив</dt><dd>Інтернет-магазин, де людина сама обирає розмір, кладе товар у кошик і оформлює замовлення без переписки з менеджером.</dd></div>
+            <div><dt>Результат</dt><dd><strong>Магазин працює і приймає реальні замовлення клієнтів.</strong> Власник запускає на нього рекламу.</dd></div>
+          </dl>
+          <ul class="case__tags" aria-label="Що є в магазині">
+            <li class="chip">Вибір розміру</li>
+            <li class="chip">Кошик і оформлення</li>
+            <li class="chip">Нова Пошта</li>
+            <li class="chip">Оплата онлайн або при отриманні</li>
+            <li class="chip">Зв'язок у Telegram</li>
           </ul>
-          <div style="margin-top:48px;">
-            <div class="gp-social">
-              <a href="https://www.instagram.com/vvladdos.ik/" target="_blank" rel="noopener" aria-label="Instagram"><svg class="icon" viewBox="0 0 24 24" width="22" height="22"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.3" cy="6.7" r=".9" fill="currentColor" stroke="none"/></svg></a>
-              <a href="https://www.threads.com/@vvladdos.ik" target="_blank" rel="noopener" aria-label="Threads"><svg class="icon" viewBox="0 0 24 24" width="22" height="22"><path d="M19 7.5c-1.333 -3 -3.667 -4.5 -7 -4.5c-5 0 -8 2.5 -8 9s3.5 9 8 9s7 -3 7 -5s-1 -5 -7 -5c-2.5 0 -3 1.25 -3 2.5c0 1.5 1 2.5 2.5 2.5c2.5 0 3.5 -1.5 3.5 -5s-2 -4 -3 -4s-1.833 .333 -2.5 1"/></svg></a>
-              <a href="https://www.linkedin.com/in/vlad-prigonov/?locale=uk" target="_blank" rel="noopener" aria-label="LinkedIn"><svg class="icon" viewBox="0 0 24 24" width="22" height="22"><rect x="3" y="3" width="18" height="18" rx="4"/><line x1="8" y1="10" x2="8" y2="17"/><circle cx="8" cy="6.6" r=".6" fill="currentColor" stroke="none"/><path d="M12 17v-4.5a2.5 2.5 0 015 0V17"/><line x1="12" y1="10" x2="12" y2="17"/></svg></a>
-              <a href="https://t.me/vvladdos_ik" target="_blank" rel="noopener" aria-label="Telegram" data-track="telegram_click"><svg class="icon" viewBox="0 0 24 24" width="22" height="22"><path fill="currentColor" stroke="none" transform="translate(12 12) scale(1.35) translate(-12 -12)" d="M17.4 7.3l-2.2 10.4c-.15.7-.6.85-1.2.53l-3.3-2.45-1.6 1.55c-.18.18-.4.33-.74.33l.27-3.5L15.7 8.7c.32-.28-.07-.44-.5-.16L9 13l-3.15-.98c-.68-.22-.7-.68.15-1L16.5 6.7c.57-.2 1.07.14.9 1.6z"/></svg></a>
-            </div>
-            <p style="color:var(--dark-soft);font-size:14px;margin-top:16px;max-width:380px;line-height:1.55;">Пишу і відповідаю в цих каналах особисто, без менеджерів і чат-ботів.</p>
-          </div>
+          <a class="btn btn--ghost" href="https://honorcode.com.ua" target="_blank" rel="noopener">Переглянути сайт ↗</a>
         </div>
-        <div class="reveal" style="max-width:480px;margin:0 auto;">
-          <div class="eyebrow on-dark">ЦІНА</div>
-          <div class="price-card">
-            <div class="tariff-tabs" role="tablist">
-              <button type="button" class="tariff-tab active" id="tabPersonalBtn" onclick="showTariff('personal')">Особистий</button>
-              <button type="button" class="tariff-tab" id="tabFastBtn" onclick="showTariff('fast')">Швидкий</button>
-            </div>
+      </div>
 
-            <div class="tariff-panel active" id="tariffPersonal">
-              <div class="price-tag">$500 <span>старт</span></div>
-              <p class="tariff-blurb">Вручну, на конструкторі – під ваш бізнес, максимум уваги кожній деталі. Від 14 днів.</p>
-              <div class="price-fork">
-                <div><b>Лендинг на 1 сторінку</b><span class="p">від $500</span></div>
-                <div><b>Багатосторінковий сайт з каталогом</b><span class="p nowrap">від $900</span></div>
-              </div>
-            </div>
+      <div class="proof">
+        <blockquote class="quote chamfer reveal">
+          <p>Працювати з Владом було дуже комфортно й легко. Спочатку він зробив безкоштовний перший екран – я одразу побачив стиль і зрозумів, за що плачу. Сайт для Honor Code вийшов стильним, сучасним і саме таким, як я хотів. Сподобалось, що ціна була зафіксована одразу і жодних доплат «по ходу справи» не виникало. Влад завжди на зв'язку, підказує кращі рішення і все здає вчасно. Тепер із впевненістю запускаю на сайт рекламу!</p>
+          <footer>
+            <img class="chamfer chamfer-sm" src="img/case/avatar-bohdan.webp" width="120" height="120" loading="lazy" alt="">
+            <div><b>Богдан</b><span>Засновник Honor Code</span></div>
+          </footer>
+        </blockquote>
 
-            <div class="tariff-panel" id="tariffFast">
-              <div class="price-tag">$400 <span>старт</span></div>
-              <p class="tariff-blurb">Готовий сайт за 7 днів – код і AI-інструменти прискорюють розробку, кожен блок особисто перевіряю і допрацьовую я. Дрібні правки після здачі роблю сам, без самостійного редагування.</p>
-              <div class="price-fork">
-                <div><b>Лендинг на 1 сторінку</b><span class="p">від $400</span></div>
-                <div><b>Багатосторінковий сайт з каталогом</b><span class="p nowrap">від $700</span></div>
-              </div>
-            </div>
-
-            <div class="payment-split">
-              <svg class="icon" viewBox="0 0 24 24" width="15" height="15"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>
-              <span>Оплата у два етапи: 50% на старті, 50% перед здачею проєкту</span>
-            </div>
-            <p style="color:var(--dark-soft);font-size:13.5px;margin-bottom:8px;">Точну суму скажу після короткого брифу –<br>10–15 хвилин.</p>
-            <p style="color:var(--accent-on-dark);font-size:12.5px;margin-bottom:16px;">Це ціна для перших проєктів – далі вона зростатиме разом із портфоліо.</p>
-            <a href="#contact" class="btn btn-primary btn-block">Дізнатись точну суму</a>
-          </div>
+        <div class="proof__shots reveal">
+        <div class="shots" role="group" aria-label="Скріни переписки з клієнтом">
+          <button class="shot chamfer chamfer-sm" type="button" data-shot="img/case/chat-1.webp" data-alt="Переписка з Богданом: «ви зробили і робите нереальний обсяг роботи»">
+            <img src="img/case/chat-1.webp" width="576" height="730" loading="lazy" alt="Переписка з Богданом (Honor Code): «ви зробили і робите нереальний обсяг роботи». Натисніть, щоб збільшити">
+          </button>
+          <button class="shot chamfer chamfer-sm" type="button" data-shot="img/case/chat-2.webp" data-alt="Переписка з Богданом: реакція на оновлені картки товару">
+            <img src="img/case/chat-2.webp" width="576" height="620" loading="lazy" alt="Переписка з Богданом (Honor Code): реакція на оновлені картки товару. Натисніть, щоб збільшити">
+          </button>
+          <button class="shot chamfer chamfer-sm" type="button" data-shot="img/case/chat-3.webp" data-alt="Переписка з Богданом: перші реакції клієнтів і замовлення на сайті">
+            <img src="img/case/chat-3.webp" width="576" height="580" loading="lazy" alt="Переписка з Богданом (Honor Code): перші реакції клієнтів і замовлення на сайті. Натисніть, щоб збільшити">
+          </button>
+        </div>
+        <p class="shots__note label">Переписка з клієнтом · натисніть, щоб збільшити</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- FAQ -->
-  <section id="faq" style="background:var(--bg-alt);border-top:1px solid var(--line);border-bottom:1px solid var(--line);position:relative;overflow:hidden;">
-    <div class="hero-bg-grid" style="opacity:.35;"></div>
-    <div class="wrap" style="position:relative;z-index:1;">
-      <div class="section-head reveal">
-        <div class="eyebrow">ЗАПИТАННЯ</div>
-        <h2>Відповіді до того, як ви запитали</h2>
-      </div>
-      <div class="faq-list reveal">
-        <div class="faq-item">
-          <div class="faq-q">Чому перший екран безкоштовний?<span class="plus">+</span></div>
-          <div class="faq-a"><p>Це чесний спосіб показати підхід до роботи ще до того, як ви щось платите. Якщо не сподобається – нічого не втрачаєте.</p></div>
-        </div>
-        <div class="faq-item">
-          <div class="faq-q">Скільки коштує сайт?<span class="plus">+</span></div>
-          <div class="faq-a"><p>Залежить від тарифу. "Особистий" (конструктор, від 14 днів): від $500 за односторінковий лендинг, від $900 за багатосторінковий сайт. "Швидкий" (код + AI, від 7 днів): від $400 і від $700 відповідно. Точну суму озвучую після короткого брифу.</p></div>
-        </div>
-        <div class="faq-item">
-          <div class="faq-q">Скільки триває розробка?<span class="plus">+</span></div>
-          <div class="faq-a"><p>Залежить від тарифу. "Особистий" – від 14 днів, я збираю сайт вручну на конструкторі, під ваш бізнес. "Швидкий" – від 7 днів, з використанням AI-інструментів для частини розробки і моєю особистою перевіркою кожного блоку.</p></div>
-        </div>
-        <div class="faq-item">
-          <div class="faq-q">Чим відрізняються тарифи "Особистий" і "Швидкий"?<span class="plus">+</span></div>
-          <div class="faq-a"><p>"Особистий" – я особисто збираю сайт на платформі-конструкторі з нуля під ваш бізнес: це кастомна структура і дизайн, а не готовий шаблон. "Швидкий" – я збираю сайт кодом, і AI-інструменти прискорюють частину розробки, а фінальний результат так само особисто перевіряю й допрацьовую – швидше і дешевше, з тим самим підходом.</p></div>
-        </div>
-        <div class="faq-item">
-          <div class="faq-q">Можу подивитись ще приклади робіт?<span class="plus">+</span></div>
-          <div class="faq-a"><p>Так – окрім кейсів на цій сторінці, покажу додаткові приклади структури під час брифу, під ваш тип бізнесу. Я свідомо не беру багато клієнтів одночасно, щоб кожному проєкту приділяти повну увагу.</p></div>
-        </div>
-        <div class="faq-item">
-          <div class="faq-q">Чи зможу я сам редагувати сайт після запуску?<span class="plus">+</span></div>
-          <div class="faq-a"><p>На тарифі "Особистий" – так: сайт робиться на конструкторі саме тому, що ви можете змінювати текст, ціни й фото без звернення до розробника. Я покажу, як це робити, при передачі проєкту. На тарифі "Швидкий" дрібні правки після здачі роблю особисто я – це компроміс заради швидшого терміну й нижчої ціни.</p></div>
-        </div>
-        <div class="faq-item">
-          <div class="faq-q">Сайт буде моїм?<span class="plus">+</span></div>
-          <div class="faq-a"><p>Так. Домен і хостинг оформлюються на ваше ім'я (або прив'язуються до вже наявного у вас домену) – я лише налаштовую їх і передаю повний доступ після здачі проєкту. Залежності від мене для подальшого володіння сайтом немає.</p></div>
-        </div>
-        <div class="faq-item">
-          <div class="faq-q">Чи буде сайт видно в Google?<span class="plus">+</span></div>
-          <div class="faq-a"><p>Так, сайт одразу готується так, щоб Google міг його індексувати – правильна структура, мета-теги, швидке завантаження. Потрапляння на перші позиції за конкретні запити – окрема, довша робота з просування, яку можна обговорити додатково, але базова видимість у пошуку є з першого дня.</p></div>
-        </div>
-        <div class="faq-item">
-          <div class="faq-q">Що якщо сайт не приносить заявок після запуску?<span class="plus">+</span></div>
-          <div class="faq-a"><p>Розберемо структуру й форму разом і безкоштовно внесу правки, якщо проблема на боці сайту. Кількість і якість трафіку – окрема від сайту змінна, яку я не контролюю.</p></div>
-        </div>
+  <!-- ДЕМО-ПРОЄКТИ: не реальні клієнти, тому подані як «приклади першого екрана» з позначкою «Демо». Без відгуків і цифр -->
+  <section class="section" id="examples" aria-labelledby="examples-title">
+    <div class="wrap">
+      <header class="section-head reveal">
+        <h2 id="examples-title">Так може виглядати <em>ваш перший екран</em></h2>
+        <p class="section-head__lead">Демо-проєкти для різних ніш: показують, як я підлаштовую тон і структуру під аудиторію. Це приклади без клієнта, а не виконані замовлення.</p>
+      </header>
+
+      <ul class="demos">
+        <li class="demo chamfer reveal">
+          <a class="demo__shot" href="https://vladyslav-pryhonov.github.io/marta-koval/" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">
+            <img src="img/case/demo-marta-koval.webp" width="1000" height="574" loading="lazy" alt="">
+          </a>
+          <div class="demo__meta"><span class="demo__tag">Демо</span><span class="label">Фітнес-тренер</span></div>
+          <h3>Марта Коваль</h3>
+          <p>Перший екран знімає головний страх клієнта (травма, біль) і одразу показує вигоду.</p>
+          <a class="demo__link" href="https://vladyslav-pryhonov.github.io/marta-koval/" target="_blank" rel="noopener">Дивитись демо ↗<span class="sr-only"> «Марта Коваль»</span></a>
+        </li>
+        <li class="demo chamfer reveal">
+          <a class="demo__shot" href="https://vladyslav-pryhonov.github.io/kronos-barber/" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">
+            <img src="img/case/demo-kronos.webp" width="1000" height="574" loading="lazy" alt="">
+          </a>
+          <div class="demo__meta"><span class="demo__tag">Демо</span><span class="label">Барбершоп</span></div>
+          <h3>Kronos Barber Club</h3>
+          <p>Темний преміальний тон: заголовок продає емоцію, а не стрижку.</p>
+          <a class="demo__link" href="https://vladyslav-pryhonov.github.io/kronos-barber/" target="_blank" rel="noopener">Дивитись демо ↗<span class="sr-only"> «Kronos Barber Club»</span></a>
+        </li>
+        <li class="demo chamfer reveal">
+          <a class="demo__shot" href="https://vladyslav-pryhonov.github.io/buddim-demo/" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">
+            <img src="img/case/demo-buddim.webp" width="1000" height="575" loading="lazy" alt="">
+          </a>
+          <div class="demo__meta"><span class="demo__tag">Демо</span><span class="label">Ремонт і будівництво</span></div>
+          <h3>БудДім</h3>
+          <p>Фіксована ціна в договорі, гарантія і кошторис за 24 години: знімає страх, що ціна «попливе».</p>
+          <a class="demo__link" href="https://vladyslav-pryhonov.github.io/buddim-demo/" target="_blank" rel="noopener">Дивитись демо ↗<span class="sr-only"> «БудДім»</span></a>
+        </li>
+        <li class="demo chamfer reveal">
+          <a class="demo__shot" href="https://monvision.tilda.ws" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">
+            <img src="img/case/demo-monvision.webp" width="1000" height="576" loading="lazy" alt="">
+          </a>
+          <div class="demo__meta"><span class="demo__tag">Демо</span><span class="label">Відеоспостереження</span></div>
+          <h3>MonVision</h3>
+          <p>Процес крок за кроком і гарантія: знімають сумніви ще до дзвінка менеджеру.</p>
+          <a class="demo__link" href="https://monvision.tilda.ws" target="_blank" rel="noopener">Дивитись демо ↗<span class="sr-only"> «MonVision»</span></a>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ПРОЦЕС: 4 кроки. Терміни відповідають тарифам (Швидкий від 7 днів, Особистий від 14) -->
+  <section class="section section--deep" id="process" aria-labelledby="process-title">
+    <div class="wrap">
+      <header class="section-head reveal">
+        <h2 id="process-title">4 кроки від заявки до <em>запуску</em></h2>
+        <p class="section-head__lead">Перший екран ви бачите до оплати, а ціну й терміни ми фіксуємо одразу. Далі кожен етап узгоджується з вами.</p>
+      </header>
+
+      <ol class="steps reveal">
+        <li class="step">
+          <span class="step__node" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 4h14a2 2 0 012 2v9a2 2 0 01-2 2h-8l-5 4v-4H5a2 2 0 01-2-2V6a2 2 0 012-2z"/><path d="M8 9h8M8 12.5h5"/></svg></span>
+          <h3>Заявка та бриф</h3>
+          <p>Ви залишаєте контакт, я ставлю кілька запитань про бізнес і клієнтів.</p>
+          <p class="step__meta">Аналіз 5 конкурентів та ніші</p>
+        </li>
+        <li class="step step--hook">
+          <span class="step__node" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M9 9v11"/></svg></span>
+          <h3>Перший екран</h3>
+          <span class="step__tag">Безкоштовно · 24 години</span>
+          <p>Через 24 години після брифу ви бачите стиль і підхід ще до оплати та угоди.</p>
+          <p class="step__meta">1–2 раунди правок</p>
+        </li>
+        <li class="step">
+          <span class="step__node" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 7l-5 5 5 5M16 7l5 5-5 5M14 4l-4 16"/></svg></span>
+          <h3>Розробка</h3>
+          <p>Після угоди збираю повний сайт із формою, яка справді відправляє заявки.</p>
+          <p class="step__meta">7–14 днів залежно від тарифу</p>
+        </li>
+        <li class="step">
+          <span class="step__node" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="8" cy="15" r="4"/><path d="M11 12l9-9M17 6l3 3M14 9l2 2"/></svg></span>
+          <h3>Запуск і навчання</h3>
+          <p>Публікую на вашому домені, передаю доступи, показую, як редагувати.</p>
+          <p class="step__meta">Лишаюсь на зв'язку</p>
+        </li>
+      </ol>
+
+      <div class="process__cta reveal">
+        <p>Почніть із першого екрана: безкоштовно, за 24 години, без зобов'язань.</p>
+        <a class="btn btn--primary" href="#contact" data-track="cta_process">Отримати перший екран</a>
       </div>
     </div>
   </section>
 
-  <!-- CONTACT -->
-  <section class="contact-section" id="contact">
-    <div class="wrap contact-grid">
-      <div class="contact-copy reveal">
-        <div class="eyebrow on-dark">ОБГОВОРИТИ ПРОЄКТ</div>
-        <h2>Отримайте свій <span class="accent">перший екран</span> — безкоштовно</h2>
-        <p>Залиште контакт. Протягом 24 годин напишу в Telegram, задам кілька питань про бізнес і надішлю перший екран вашого майбутнього сайту.</p>
-        <p class="mono" style="font-size:13px;color:var(--dark-faint);">Або одразу в Telegram: <a href="https://t.me/vvladdos_ik" id="telegramDirectLink" target="_blank" rel="noopener" style="color:var(--accent-on-dark);text-decoration:underline;" data-track="telegram_click">@vvladdos_ik</a></p>
-      
-        <div class="contact-facts">
-          <div class="cf-item"><b>24 год</b><span>максимум чекати відповідь</span></div>
-          <div class="cf-item"><b>10–15 хв</b><span>займає короткий бриф</span></div>
-          <div class="cf-item"><b>1</b><span>розробник на зв'язку, без менеджерів</span></div>
-        </div>
-
-        <div class="contact-social">
-          <a href="#top" aria-label="Нагору"><img src="images/logo-mark.png" alt="Vlad Pryhonov" class="contact-logo-img"></a>
+  <!-- ПРО МЕНЕ: довіра до людини. Відео-слот вимкнений, доки в data-youtube немає ID ролика (див. js/site.js) -->
+  <section class="section" id="about" aria-labelledby="about-title">
+    <div class="wrap about">
+      <div class="about__media reveal">
+        <div class="about__frame" id="aboutVideo" data-youtube="">
+          <!-- Цей кадр = постер відео-звернення (нове фото не потрібне). Кнопка ▶ з'явиться, коли в data-youtube (або CFG.youtube у js/site.js) буде ID ролика -->
+          <img src="img/vlad-about-1000.webp" srcset="img/vlad-about-600.webp 600w, img/vlad-about-1000.webp 1000w" sizes="(min-width: 960px) 420px, 80vw" width="1000" height="1250" loading="lazy" alt="Влад Пригонов, веб-розробник">
+          <button class="about__play" type="button" hidden aria-label="Дивитись відео-звернення"><span aria-hidden="true">▶</span></button>
         </div>
       </div>
+      <div class="about__copy reveal">
+        <h2 id="about-title">Один розробник <em>від першого екрана до запуску</em></h2>
+        <p class="about__lead">Я Влад Пригонов, веб-розробник. Сам розмовляю з вами, сам роблю сайт і сам лишаюсь на зв'язку після запуску: без менеджерів, посередників і передач між людьми.</p>
+        <ul class="about__points">
+          <li>Пишу й відповідаю особисто, без менеджерів і чат-ботів</li>
+          <li>Свідомо не беру багато клієнтів одночасно, щоб кожному проєкту вистачало уваги</li>
+          <li>Роблю сайти для малого бізнесу: магазини, послуги, особисті бренди</li>
+        </ul>
+        <ul class="social" aria-label="Де мене знайти">
+          <li><a href="https://t.me/vvladdos_ik" target="_blank" rel="noopener" aria-label="Telegram" data-track="telegram_click"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19.5 4L1.5 11l6 2.2L9.5 20l3-4 5 3.8z"/><path d="M7.5 13.2L17.5 6.5"/></svg></a></li>
+          <li><a href="https://www.instagram.com/vvladdos.ik/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.3" cy="6.7" r=".9" fill="currentColor" stroke="none"/></svg></a></li>
+          <li><a href="https://www.threads.com/@vvladdos.ik" target="_blank" rel="noopener" aria-label="Threads"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 7.5c-1.333-3-3.667-4.5-7-4.5-5 0-8 2.5-8 9s3.5 9 8 9 7-3 7-5-1-5-7-5c-2.5 0-3 1.25-3 2.5 0 1.5 1 2.5 2.5 2.5 2.5 0 3.5-1.5 3.5-5s-2-4-3-4-1.833.333-2.5 1"/></svg></a></li>
+          <li><a href="https://www.linkedin.com/in/vlad-prigonov/?locale=uk" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="4"/><path d="M8 10v7M8 6.6v.01M12 17v-4.5a2.5 2.5 0 015 0V17M12 10v7"/></svg></a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
 
-      <div class="form-card reveal">
-        <form id="leadForm">
-          <div class="f-group"><label for="fName">Ім'я (необов'язково)</label><input id="fName" placeholder="Як до вас звертатись"></div>
-          <div class="f-group f-row">
-            <div class="f-col"><label for="fTelegram">Telegram</label><input id="fTelegram" placeholder="@username"></div>
-            <span class="f-or">або</span>
-            <div class="f-col">
-              <label for="fPhone">Телефон</label>
-              <div class="f-phone-group">
-                <div class="f-code-select" id="fPhoneCodeSelect">
-                  <button type="button" class="f-code-btn" id="fPhoneCodeBtn" aria-haspopup="listbox" aria-expanded="false">
-                    <span class="f-code-flag">🇺🇦</span><span class="f-code-val">+380</span>
-                    <svg class="f-code-arrow" viewBox="0 0 24 24" width="12" height="12"><path d="M6 9l6 6 6-6"/></svg>
-                  </button>
-                  <ul class="f-code-list" id="fPhoneCodeList" role="listbox">
-                    <li role="option" data-code="+380" data-flag="🇺🇦" class="sel">🇺🇦 Україна +380</li>
-                    <li role="option" data-code="+48" data-flag="🇵🇱">🇵🇱 Польща +48</li>
-                    <li role="option" data-code="+34" data-flag="🇪🇸">🇪🇸 Іспанія +34</li>
-                    <li role="option" data-code="+1" data-flag="🇺🇸">🇺🇸 США +1</li>
-                    <li role="option" data-code="+44" data-flag="🇬🇧">🇬🇧 Великобританія +44</li>
-                    <li role="option" data-code="+49" data-flag="🇩🇪">🇩🇪 Німеччина +49</li>
-                  </ul>
-                  <input type="hidden" id="fPhoneCode" value="+380">
+  <!-- ЦІНА: спершу цінність і умови, потім два тарифи (вибраний у hero підсвічується, js/site.js). Ціни: Швидкий від $600/$1000, Особистий від $800/$1300 -->
+  <section class="section section--deep" id="price" aria-labelledby="price-title">
+    <div class="wrap">
+      <header class="section-head reveal">
+        <h2 id="price-title">Що ви отримуєте і <em>скільки це коштує</em></h2>
+        <p class="section-head__lead">Спершу умови, які діють для будь-якого проєкту, а далі два тарифи на вибір. Точну суму я називаю після короткого брифу, і вона не змінюється по ходу роботи.</p>
+      </header>
+
+      <ul class="values reveal" aria-label="Що входить у будь-який проєкт">
+        <li><b>Перший екран безкоштовно</b><span>Оцінюєте роботу ще до оплати.</span></li>
+        <li><b>Ціна фіксується одразу</b><span>Не змінюється по ходу проєкту.</span></li>
+        <li><b>Правки на етапі здачі</b><span>Без доплат і нових рахунків.</span></li>
+        <li><b>Один розробник від старту до запуску</b><span>Жодних передач «з рук в руки».</span></li>
+        <li><b>Домен і хостинг на ваше ім'я</b><span>Повний доступ після здачі.</span></li>
+        <li><b>Договір за потреби</b><span>Якщо для вас це важливо.</span></li>
+      </ul>
+
+      <h3 class="plans__title reveal">Оберіть тариф</h3>
+      <div class="plans">
+        <article class="plan chamfer chamfer-sm reveal" data-plan="personal">
+          <h3>Особистий</h3>
+          <p class="plan__how">Вручну, без AI, на конструкторі</p>
+          <dl class="plan__prices">
+            <div><dt>Лендинг на 1 сторінку</dt><dd>від $800</dd></div>
+            <div><dt>Багатосторінковий сайт з каталогом</dt><dd>від $1300</dd></div>
+          </dl>
+          <p class="plan__term">Від 14 днів</p>
+          <ul class="plan__list">
+            <li>Кастомна структура і дизайн, не шаблон</li>
+            <li>Ви самі змінюєте тексти, ціни й фото: я покажу, як</li>
+          </ul>
+          <button type="button" class="btn btn--ghost btn--sm plan__pick" data-pick="personal" aria-pressed="false">Обрати цей тариф</button>
+        </article>
+        <article class="plan chamfer chamfer-sm reveal" data-plan="fast">
+          <h3>Швидкий</h3>
+          <p class="plan__how">Код + AI-інструменти, кожен блок перевіряю я</p>
+          <dl class="plan__prices">
+            <div><dt>Лендинг на 1 сторінку</dt><dd>від $600</dd></div>
+            <div><dt>Багатосторінковий сайт з каталогом</dt><dd>від $1000</dd></div>
+          </dl>
+          <p class="plan__term">Від 7 днів</p>
+          <ul class="plan__list">
+            <li>Швидший запуск і нижча ціна з тим самим підходом</li>
+            <li>Дрібні правки після здачі роблю я</li>
+          </ul>
+          <button type="button" class="btn btn--ghost btn--sm plan__pick" data-pick="fast" aria-pressed="false">Обрати цей тариф</button>
+        </article>
+      </div>
+      <div class="plans__foot reveal">
+        <p>Оплата у два етапи: 50% на старті, 50% перед здачею. Перший екран безкоштовний і з'являється до оплати.</p>
+        <a class="btn btn--primary" href="#contact" data-track="cta_price">Дізнатись точну суму</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ: відповіді на заперечення перед заявкою. <details name="faq"> – без JS, відкрите питання закриває інші -->
+  <section class="section" id="faq" aria-labelledby="faq-title">
+    <div class="wrap faq">
+      <header class="section-head reveal">
+        <h2 id="faq-title">Відповіді, <em>поки ви не запитали</em></h2>
+      </header>
+      <div class="faq__list reveal">
+        <details name="faq" class="qa chamfer chamfer-sm" open>
+          <summary>Чому перший екран безкоштовний?</summary>
+          <p>Це чесний спосіб показати підхід до роботи ще до того, як ви щось платите. Якщо не сподобається, нічого не втрачаєте. На етапі першого екрана я враховую 1–2 раунди правок.</p>
+        </details>
+        <details name="faq" class="qa chamfer chamfer-sm">
+          <summary>Скільки коштує сайт?</summary>
+          <p>Залежить від тарифу. «Особистий» (вручну, від 14 днів): від $800 за односторінковий лендинг і від $1300 за багатосторінковий сайт. «Швидкий» (код + AI, від 7 днів): від $600 і від $1000 відповідно. Точну суму називаю після короткого брифу, вона фіксується одразу.</p>
+        </details>
+        <details name="faq" class="qa chamfer chamfer-sm">
+          <summary>Скільки триває розробка?</summary>
+          <p>Залежить від тарифу. «Особистий» від 14 днів: я особисто збираю сайт під ваш бізнес. «Швидкий» від 7 днів: частину розробки прискорюють AI-інструменти, а кожен блок я перевіряю особисто.</p>
+        </details>
+        <details name="faq" class="qa chamfer chamfer-sm">
+          <summary>Чим відрізняються «Особистий» і «Швидкий»?</summary>
+          <p>«Особистий»: я особисто збираю сайт на платформі-конструкторі з нуля під ваш бізнес. Це кастомна структура й дизайн, а не готовий шаблон, і ви самі можете змінювати зміст. «Швидкий»: я збираю сайт кодом, AI-інструменти прискорюють частину роботи, а результат я так само перевіряю й допрацьовую. Швидше й дешевше, з тим самим підходом.</p>
+        </details>
+        <details name="faq" class="qa chamfer chamfer-sm">
+          <summary>Чи зможу я сам редагувати сайт після запуску?</summary>
+          <p>На тарифі «Особистий» так: сайт робиться на конструкторі саме для того, щоб ви могли змінювати текст, ціни й фото без звернення до розробника. Я покажу, як це робити, при передачі проєкту. На тарифі «Швидкий» дрібні правки після здачі роблю я. Це компроміс заради швидшого терміну й нижчої ціни.</p>
+        </details>
+        <details name="faq" class="qa chamfer chamfer-sm">
+          <summary>Сайт буде моїм?</summary>
+          <p>Так. Домен і хостинг оформлюються на ваше ім'я (або прив'язуються до вже наявного у вас домену). Я лише налаштовую їх і передаю повний доступ після здачі проєкту. Залежності від мене для подальшого володіння сайтом немає.</p>
+        </details>
+        <details name="faq" class="qa chamfer chamfer-sm">
+          <summary>Чи буде сайт видно в Google?</summary>
+          <p>Так, сайт одразу готується так, щоб Google міг його індексувати: правильна структура, мета-теги, швидке завантаження. Потрапляння на перші позиції за конкретні запити це окрема, довша робота з просування, яку можна обговорити додатково.</p>
+        </details>
+        <details name="faq" class="qa chamfer chamfer-sm">
+          <summary>Що якщо сайт не приносить заявок після запуску?</summary>
+          <p>Розберемо структуру й форму разом, і я безкоштовно внесу правки, якщо проблема на боці сайту. Кількість і якість трафіку це окрема від сайту змінна, яку я не контролюю.</p>
+        </details>
+        <details name="faq" class="qa chamfer chamfer-sm">
+          <summary>Можу подивитись ще приклади робіт?</summary>
+          <p>Так. Вище на сторінці є демо-проєкти для різних ніш, а під ваш тип бізнесу я покажу приклади структури ще на брифі.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- ФОРМА: крок 1 – лише контакт (миттєва відправка; чипи ніш свідомо перенесені на крок 2, щоб не знижувати конверсію), крок 2 на екрані подяки -->
+  <section class="section section--deep" id="contact" aria-labelledby="contact-title">
+    <!-- Спільний «грандіозний» фон останнього блоку й підвалу: решітка, концентричні гексагони-«сигнал», світіння -->
+    <div class="finale__bg" aria-hidden="true">
+      <span class="finale__lattice"></span>
+      <svg class="finale__ripples" viewBox="0 0 1000 1000" focusable="false">
+        <polygon points="500,370 612.6,435 612.6,565 500,630 387.4,565 387.4,435"/>
+        <polygon points="500,280 690.5,390 690.5,610 500,720 309.5,610 309.5,390"/>
+        <polygon points="500,180 777.1,340 777.1,660 500,820 222.9,660 222.9,340"/>
+        <polygon points="500,70 872.4,285 872.4,715 500,930 127.6,715 127.6,285"/>
+        <polygon points="500,0 933,250 933,750 500,1000 67,750 67,250"/>
+      </svg>
+      <span class="finale__glow finale__glow--a"></span>
+      <span class="finale__glow finale__glow--b"></span>
+    </div>
+    <div class="wrap contact">
+      <div class="contact__copy reveal">
+        <h2 id="contact-title">Отримайте свій <em>перший екран</em> безкоштовно</h2>
+        <p class="contact__lead">Залиште контакт: я напишу вам або зателефоную, коротко розпитаю про бізнес (10–15 хвилин), і за 24 години після цього ви побачите перший екран.</p>
+        <p class="contact__direct">Або одразу в Telegram: <a href="https://t.me/vvladdos_ik" target="_blank" rel="noopener" data-track="telegram_click">@vvladdos_ik</a></p>
+        <ul class="contact__facts">
+          <li><b>10–15 хв</b><span>короткий бриф, без анкет на 50 питань</span></li>
+          <li><b>24 год</b><span>до першого екрана після брифу</span></li>
+          <li><b>1</b><span>розробник на зв'язку, без менеджерів</span></li>
+        </ul>
+      </div>
+
+      <div class="formwrap reveal">
+        <div class="formcard chamfer">
+          <div class="formcard__head"><span class="formcard__badge">Безкоштовно</span><p>Заявка займає хвилину, без оплати і зобов'язань</p></div>
+          <form id="leadForm" novalidate>
+            <div class="field">
+              <label for="fName">Ім'я <span class="opt">(необов'язково)</span></label>
+              <div class="control">
+                <input id="fName" name="name" autocomplete="given-name" placeholder="Як до вас звертатись">
+              </div>
+            </div>
+            <div class="contact-pair">
+              <div class="field">
+                <label for="fTelegram">Telegram</label>
+                <div class="control">
+                  <input id="fTelegram" name="telegram" autocomplete="off" placeholder="@username">
                 </div>
-                <input id="fPhone" placeholder="971234567">
+              </div>
+              <span class="contact-pair__or" aria-hidden="true">або</span>
+              <div class="field">
+                <label for="fPhone">Телефон</label>
+                <div class="control">
+                  <div class="cc" id="cc">
+                    <button type="button" class="cc__btn" id="ccBtn" aria-haspopup="listbox" aria-expanded="false" aria-controls="ccList" aria-label="Код країни">
+                      <span class="flag flag--ua" id="ccFlag" aria-hidden="true"></span>
+                      <span id="ccCode">+380</span>
+                      <svg class="cc__chev" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 4l4 4 4-4"/></svg>
+                    </button>
+                    <ul class="cc__list" id="ccList" role="listbox" tabindex="-1" hidden aria-label="Країна">
+                      <li role="option" data-code="+380" data-flag="ua" aria-selected="true"><span class="flag flag--ua" aria-hidden="true"></span>Україна<b>+380</b></li>
+                      <li role="option" data-code="+48" data-flag="pl" aria-selected="false"><span class="flag flag--pl" aria-hidden="true"></span>Польща<b>+48</b></li>
+                      <li role="option" data-code="+49" data-flag="de" aria-selected="false"><span class="flag flag--de" aria-hidden="true"></span>Німеччина<b>+49</b></li>
+                      <li role="option" data-code="+34" data-flag="es" aria-selected="false"><span class="flag flag--es" aria-hidden="true"></span>Іспанія<b>+34</b></li>
+                      <li role="option" data-code="+44" data-flag="gb" aria-selected="false"><span class="flag flag--gb" aria-hidden="true"></span>Велика Британія<b>+44</b></li>
+                      <li role="option" data-code="+1" data-flag="us" aria-selected="false"><span class="flag flag--us" aria-hidden="true"></span>США<b>+1</b></li>
+                    </ul>
+                    <input type="hidden" id="fPhoneCode" value="+380">
+                  </div>
+                  <input id="fPhone" name="phone" type="tel" autocomplete="tel-national" inputmode="tel" placeholder="971234567">
+                </div>
               </div>
             </div>
-          </div>
-          <span class="f-error" id="fContactError"></span>
-          <div class="f-group f-honeypot" aria-hidden="true">
-            <label for="fWebsite">Залиште це поле порожнім</label>
-            <input id="fWebsite" name="website" type="text" tabindex="-1" autocomplete="off">
-          </div>
-          <div class="f-group">
-            <label>Тип бізнесу</label>
-            <div class="chips" id="chipGroup">
-              <span class="chip">Інтернет-магазин</span><span class="chip">Послуги</span><span class="chip">Кафе, салон або студія</span><span class="chip">Особистий бренд</span><span class="chip" id="chipOther">Інше</span>
+            <p class="field-error" id="fContactError" role="alert"></p>
+
+            <!-- Тариф: той самий вибір, що в hero і в блоці цін (js/site.js). Без вибору йде «не обрано» -->
+            <fieldset class="tpick">
+              <legend>Тариф <span class="opt">(необов'язково)</span></legend>
+              <button type="button" class="chip tpick__btn" data-pick="personal" aria-pressed="false"><span>Особистий</span><span class="tpick__price">від $800</span></button>
+              <button type="button" class="chip tpick__btn" data-pick="fast" aria-pressed="false"><span>Швидкий</span><span class="tpick__price">від $600</span></button>
+            </fieldset>
+
+            <div class="hp" aria-hidden="true">
+              <label for="fWebsite">Залиште це поле порожнім</label>
+              <input id="fWebsite" name="website" type="text" tabindex="-1" autocomplete="off">
             </div>
-            <input id="fNicheOther" placeholder="Впишіть свою нішу" style="display:none;margin-top:10px;">
+
+            <label class="consent">
+              <input type="checkbox" id="fConsent" required>
+              <span>Погоджуюсь на обробку персональних даних відповідно до <a href="privacy.html" target="_blank" rel="noopener">Політики конфіденційності</a></span>
+            </label>
+            <p class="field-error" id="fConsentError" role="alert"></p>
+
+            <button type="submit" class="btn btn--primary btn--block" data-track="form_submit_click">Отримати перший екран</button>
+            <p class="formcard__fine">Не буду спамити: використаю контакт лише для відповіді щодо проєкту.</p>
+          </form>
+
+          <div class="thanks" id="thanks" hidden tabindex="-1">
+            <h3>Дякую! Заявку отримано</h3>
+            <p>Відповім протягом 24 годин. Хочете швидше, напишіть одразу в Telegram: там я на зв'язку особисто.</p>
+            <a class="btn btn--primary" id="thanksTelegram" href="https://t.me/vvladdos_ik" target="_blank" rel="noopener" data-track="telegram_click_after_lead">Написати в Telegram</a>
+
+            <form id="detailsForm" class="details" novalidate>
+              <h4>Допоможіть підготувати перший екран точніше <span class="opt">(необов'язково)</span></h4>
+              <fieldset class="chips" aria-label="Тип бізнесу">
+                <legend>Тип бізнесу</legend>
+                <button type="button" class="chip" aria-pressed="false">Інтернет-магазин</button>
+                <button type="button" class="chip" aria-pressed="false">Послуги</button>
+                <button type="button" class="chip" aria-pressed="false">Кафе, салон або студія</button>
+                <button type="button" class="chip" aria-pressed="false">Особистий бренд</button>
+                <button type="button" class="chip" aria-pressed="false" id="chipOther">Інше</button>
+              </fieldset>
+              <div class="field" id="nicheOtherWrap" hidden>
+                <label for="fNicheOther">Ваша ніша</label>
+                <div class="control"><input id="fNicheOther" placeholder="Наприклад: ремонт квартир"></div>
+              </div>
+              <fieldset class="chips" aria-label="Чи плануєте рекламу">
+                <legend>Чи плануєте рекламу</legend>
+                <button type="button" class="chip" data-group="ads" aria-pressed="false">Так</button>
+                <button type="button" class="chip" data-group="ads" aria-pressed="false">Ні</button>
+                <button type="button" class="chip" data-group="ads" aria-pressed="false">Ще не знаю</button>
+              </fieldset>
+              <div class="field">
+                <label for="fLink">Сайт або соцмережі</label>
+                <div class="control"><input id="fLink" placeholder="Посилання, якщо є" inputmode="url"></div>
+              </div>
+              <button type="submit" class="btn btn--ghost btn--block">Надіслати уточнення</button>
+            </form>
+            <p class="details__done" id="detailsDone" hidden role="status">Дякую, уточнення отримав.</p>
           </div>
-          <div class="f-consent">
-            <input type="checkbox" id="fConsent" required>
-            <label for="fConsent">Погоджуюсь на обробку персональних даних відповідно до <a href="#" id="privacyLinkForm">Політики конфіденційності</a></label>
-          </div>
-          <button type="submit" class="btn btn-primary btn-block">Отримати перший екран</button>
-          <p class="form-priv">Не буду спамити, використаю контакт лише для відповіді щодо проєкту.</p>
-        </form>
-        <div class="thank" id="thankState">
-          <div class="ic">✓</div>
-          <h3>Дякую! Заявку отримано.</h3>
-          <p>Заявку записано, відповім протягом 24 годин. Хочете швидше – напишіть одразу в Telegram, там я на зв'язку особисто.</p>
-          <a href="#" id="thankTelegramBtn" target="_blank" rel="noopener" class="btn btn-primary" style="margin-top:16px;" data-track="telegram_click_after_lead">Написати в Telegram →</a>
         </div>
       </div>
     </div>
   </section>
 </main>
 
-<footer>
-  <div class="wrap">
-    <div class="foot-row">
-      <div class="foot-brand"><p class="foot-tagline">Сайти, які <span class="accent">перетворюють відвідувачів</span> на заявки, а не просто виглядають красиво.</p><img src="images/logo-mark.png" alt="Vlad Pryhonov" style="height:36px;width:auto;display:block;" class="foot-logo-mobile"></div>
-      <div class="foot-links">
-        <a href="#cases">Кейси</a><a href="#price">Ціна</a><a href="#faq">Питання</a>
-        <a href="#" id="privacyLink">Політика конфіденційності</a>
-      </div>
-      <div class="foot-social">
-        <a href="https://www.instagram.com/vvladdos.ik/" target="_blank" rel="noopener" aria-label="Instagram"><svg class="icon" viewBox="0 0 24 24" width="17" height="17"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.3" cy="6.7" r=".9" fill="currentColor" stroke="none"/></svg></a>
-        <a href="https://www.threads.com/@vvladdos.ik" target="_blank" rel="noopener" aria-label="Threads"><svg class="icon" viewBox="0 0 24 24" width="17" height="17"><path d="M19 7.5c-1.333 -3 -3.667 -4.5 -7 -4.5c-5 0 -8 2.5 -8 9s3.5 9 8 9s7 -3 7 -5s-1 -5 -7 -5c-2.5 0 -3 1.25 -3 2.5c0 1.5 1 2.5 2.5 2.5c2.5 0 3.5 -1.5 3.5 -5s-2 -4 -3 -4s-1.833 .333 -2.5 1"/></svg></a>
-        <a href="https://www.linkedin.com/in/vlad-prigonov/?locale=uk" target="_blank" rel="noopener" aria-label="LinkedIn"><svg class="icon" viewBox="0 0 24 24" width="17" height="17"><rect x="3" y="3" width="18" height="18" rx="4"/><line x1="8" y1="10" x2="8" y2="17"/><circle cx="8" cy="6.6" r=".6" fill="currentColor" stroke="none"/><path d="M12 17v-4.5a2.5 2.5 0 015 0V17"/><line x1="12" y1="10" x2="12" y2="17"/></svg></a>
-        <a href="https://t.me/vvladdos_ik" target="_blank" rel="noopener" aria-label="Telegram" data-track="telegram_click"><svg class="icon" viewBox="0 0 24 24" width="17" height="17"><path fill="currentColor" stroke="none" transform="translate(12 12) scale(1.35) translate(-12 -12)" d="M17.4 7.3l-2.2 10.4c-.15.7-.6.85-1.2.53l-3.3-2.45-1.6 1.55c-.18.18-.4.33-.74.33l.27-3.5L15.7 8.7c.32-.28-.07-.44-.5-.16L9 13l-3.15-.98c-.68-.22-.7-.68.15-1L16.5 6.7c.57-.2 1.07.14.9 1.6z"/></svg></a>
-      </div>
+<footer class="footer">
+  <div class="wrap footer__row">
+    <div>
+      <a class="footer__brand" href="#top" aria-label="Vlad Pryhonov: на початок сторінки"><img src="img/logo.svg" alt="Vlad Pryhonov" width="111" height="38"></a>
+      <p class="footer__tagline">Сайти для малого бізнесу</p>
     </div>
-    <div class="foot-fine">© 2026 Vlad Pryhonov · сайти для малого бізнесу</div>
+    <ul class="social" aria-label="Де мене знайти">
+      <li><a href="https://t.me/vvladdos_ik" target="_blank" rel="noopener" aria-label="Telegram" data-track="telegram_click"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19.5 4L1.5 11l6 2.2L9.5 20l3-4 5 3.8z"/><path d="M7.5 13.2L17.5 6.5"/></svg></a></li>
+      <li><a href="https://www.instagram.com/vvladdos.ik/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.3" cy="6.7" r=".9" fill="currentColor" stroke="none"/></svg></a></li>
+      <li><a href="https://www.threads.com/@vvladdos.ik" target="_blank" rel="noopener" aria-label="Threads"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 7.5c-1.333-3-3.667-4.5-7-4.5-5 0-8 2.5-8 9s3.5 9 8 9 7-3 7-5-1-5-7-5c-2.5 0-3 1.25-3 2.5 0 1.5 1 2.5 2.5 2.5 2.5 0 3.5-1.5 3.5-5s-2-4-3-4-1.833.333-2.5 1"/></svg></a></li>
+      <li><a href="https://www.linkedin.com/in/vlad-prigonov/?locale=uk" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="4"/><path d="M8 10v7M8 6.6v.01M12 17v-4.5a2.5 2.5 0 015 0V17M12 10v7"/></svg></a></li>
+    </ul>
+  </div>
+  <div class="wrap footer__fine">
+    <span>© 2026 Vlad Pryhonov</span>
+    <a href="privacy.html">Політика конфіденційності</a>
   </div>
 </footer>
 
-<!-- FLOATING TELEGRAM BUTTON -->
-<a href="https://t.me/vvladdos_ik" target="_blank" rel="noopener" class="float-telegram" id="floatTelegram" aria-label="Написати в Telegram" data-track="telegram_click">
-  <svg class="icon" viewBox="0 0 24 24" width="44" height="44"><path fill="currentColor" stroke="none" transform="translate(12 12) scale(1.35) translate(-12 -12)" d="M17.4 7.3l-2.2 10.4c-.15.7-.6.85-1.2.53l-3.3-2.45-1.6 1.55c-.18.18-.4.33-.74.33l.27-3.5L15.7 8.7c.32-.28-.07-.44-.5-.16L9 13l-3.15-.98c-.68-.22-.7-.68.15-1L16.5 6.7c.57-.2 1.07.14.9 1.6z"/></svg>
+<!-- Плаваюча кнопка Telegram (js/site.js показує її після hero й ховає біля форми) -->
+<a class="tg-float" id="tgFloat" href="https://t.me/vvladdos_ik" target="_blank" rel="noopener" aria-label="Написати в Telegram" data-track="telegram_click_float">
+  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19.5 4L1.5 11l6 2.2L9.5 20l3-4 5 3.8z"/><path d="M7.5 13.2L17.5 6.5"/></svg>
+  <span class="tg-float__label">Написати в Telegram</span>
 </a>
 
-<!-- COOKIE CONSENT -->
-<div class="cookie-bar" id="cookieBar">
-  <p>Сайт використовує Google Analytics і Meta Pixel. Даних з форми заявки це не стосується – детальніше в <a href="#" id="cookiePolicyLink">Політиці конфіденційності</a>.</p>
-  <div class="cookie-actions">
-    <button type="button" class="btn btn-outline" id="cookieDecline" style="padding:7px 14px;font-size:12.5px;">Відхилити</button>
-    <button type="button" class="btn btn-primary" id="cookieAccept" style="padding:7px 14px;font-size:12.5px;">Прийняти</button>
+<!-- Cookie-згода: GA4 і Meta Pixel вантажаться лише після згоди й лише на бойовому домені (js/site.js). Дві кнопки однакової ваги -->
+<div class="cookie" id="cookieBar" role="region" aria-label="Cookie" hidden>
+  <p>Cookie Google Analytics і Meta Pixel потрібні, щоб оцінювати рекламу. <a href="privacy.html" target="_blank" rel="noopener">Політика конфіденційності</a></p>
+  <div class="cookie__actions">
+    <button type="button" class="btn btn--ghost btn--sm" id="cookieDecline">Відхилити</button>
+    <button type="button" class="btn btn--ghost btn--sm" id="cookieAccept">Прийняти</button>
   </div>
 </div>
 
-<!-- SCREENSHOT LIGHTBOX -->
-<div class="lightbox-overlay" id="lightboxOverlay">
-  <button class="lightbox-close" id="lightboxClose" aria-label="Закрити">✕</button>
-  <img id="lightboxImg" src="" alt="Збільшений скріншот">
-</div>
 
-<!-- VIDEO MODAL -->
-<div class="video-modal-overlay" id="videoModalOverlay">
-  <button class="video-modal-close" id="videoModalClose" aria-label="Закрити">✕</button>
-  <div class="video-modal-box" id="videoModalBox"></div>
-</div>
+<script src="js/vendor/gsap.min.js" defer></script>
+<script src="js/hero.js" defer></script>
+<script src="js/case.js" defer></script>
+<script src="js/site.js" defer></script>
 
-<!-- PRIVACY MODAL -->
-<div class="modal-overlay" id="privacyModal">
-  <div class="modal-box">
-    <h3>Політика конфіденційності</h3>
-    <div class="modal-updated">Останнє оновлення: 2 вересня 2026</div>
-
-    <h4>1. Хто обробляє ваші дані</h4>
-    <p>Володілець цього сайту (pryhonov.com) і контролер персональних даних – Владислав Пригонов (Vlad Pryhonov), фізична особа, що надає послуги веб-розробки. З усіх питань щодо цієї Політики або ваших персональних даних звертайтесь: Telegram <a href="https://t.me/vvladdos_ik" target="_blank" rel="noopener">@vvladdos_ik</a>.</p>
-
-    <h4>2. Які дані збираються</h4>
-    <p>Через форму заявки на сайті збираються лише дані, які ви вводите самі:</p>
-    <ul>
-      <li>ім'я (необов'язково);</li>
-      <li>контакт для зв'язку – Telegram-юзернейм і/або номер телефону;</li>
-      <li>тип бізнесу / ніша (обирається з переліку або вписується вручну);</li>
-      <li>факт згоди на обробку даних (чекбокс).</li>
-    </ul>
-    <p>Технічні дані сервером не логуються окремо і не збираються понад те, що надсилає сама форма. Якщо ви вказали номер телефону, він додатково передається в хешованому вигляді (SHA-256, незворотне шифрування) до Meta Conversions API – щоб оцінити ефективність рекламної кампанії, яка привела вас на сайт; сам номер телефону Meta при цьому не отримує. Сайт не використовує паролі, не вимагає реєстрації облікового запису і не обробляє платіжні дані – оплата послуг обговорюється й проводиться поза сайтом.</p>
-
-    <h4>3. Мета та правова підстава обробки</h4>
-    <p>Дані обробляються з двома цілями: (1) зв'язатись з вами щодо вашого запиту на розробку сайту, обговорити бриф і вартість проєкту; (2) якщо ви вказали номер телефону – оцінити ефективність рекламної кампанії, яка привела вас на сайт, через хешовану передачу номера в Meta Conversions API. Правова підстава для обох цілей – ваша згода (ст. 6(1)(a) GDPR), яку ви надаєте, відмічаючи чекбокс перед відправкою форми, а також вжиття заходів на ваш запит до укладення договору (ст. 6(1)(b) GDPR) щодо першої цілі. Дані не використовуються для розсилок чи будь-яких інших цілей, не пов'язаних із цими двома пунктами, і не продаються третім особам.</p>
-
-    <h4>4. Кому передаються дані</h4>
-    <p>Заявки автоматично потрапляють у приватну Google-таблицю (Google Sheets) та особистий Telegram власника сайту – це технічні інструменти для отримання заявок, а не окремі отримувачі даних у комерційному сенсі. Доступ до обох має лише власник сайту. Google LLC і Telegram FZ-LLC виступають технічними постачальниками інфраструктури (субпроцесорами) і обробляють дані відповідно до власних політик конфіденційності.</p>
-
-    <h4>5. Міжнародна передача даних</h4>
-    <p>Google і Telegram можуть обробляти й зберігати дані на серверах за межами країни, з якої надіслано заявку, зокрема за межами ЄЕЗ. Обидва сервіси є великими міжнародними постачальниками з власними механізмами захисту даних (типові договірні застереження ЄС та подібні гарантії). Якщо для вас критично важливо, де саме фізично зберігаються дані, напишіть про це в Telegram перед відправкою заявки.</p>
-
-    <h4>6. Строк зберігання</h4>
-    <p>Дані заявки зберігаються, поки це потрібно для комунікації щодо проєкту, а після завершення співпраці (або якщо проєкт не відбувся) – ще не довше 12 місяців, якщо інше не потрібно для виконання договірних чи бухгалтерських зобов'язань. Після цього дані видаляються з таблиці й чату або знеособлюються.</p>
-
-    <h4>7. Файли cookie та аналітика</h4>
-    <p>Сайт використовує Google Analytics 4 та Meta Pixel, щоб розуміти, скільки людей заходить на сайт, звідки вони приходять (наприклад, з реклами чи пошуку) і які сторінки переглядають. Ці інструменти встановлюють файли cookie й отримують знеособлені технічні дані (тип пристрою, приблизна локація, поведінка на сайті) – <b>без імені, номера телефону чи інших даних, які ви вводите у формі заявки</b>. Google LLC і Meta Platforms, Inc. обробляють ці дані відповідно до власних політик конфіденційності.</p>
-    <p>Ці cookie завантажуються лише після вашої згоди через банер внизу екрана. Відмовитись можна там само кнопкою "Відхилити" – сайт продовжить працювати повністю, аналітика просто не запуститься. Змінити рішення можна, очистивши cookie сайту в браузері.</p>
-
-    <h4>8. Безпека даних</h4>
-    <p>Доступ до Google-таблиці й Telegram-чату захищено особистим обліковим записом власника сайту з двофакторною автентифікацією. Дані не зберігаються на самому сайті і не потрапляють у публічний доступ.</p>
-
-    <h4>9. Ваші права</h4>
-    <p>Відповідно до GDPR (а для користувачів з України – Закону України «Про захист персональних даних») ви маєте право:</p>
-    <ul>
-      <li>дізнатись, чи обробляються ваші дані, і отримати їх копію;</li>
-      <li>виправити неточні дані;</li>
-      <li>вимагати видалення даних («право бути забутим»);</li>
-      <li>обмежити або заперечити проти обробки;</li>
-      <li>відкликати згоду в будь-який момент – це не впливає на законність обробки до відкликання;</li>
-      <li>подати скаргу до наглядового органу з захисту даних – зокрема, Agencia Española de Protección de Datos (aepd.es), якщо застосовується GDPR.</li>
-    </ul>
-    <p>Щоб скористатись будь-яким із цих прав, напишіть у Telegram <a href="https://t.me/vvladdos_ik" target="_blank" rel="noopener">@vvladdos_ik</a> – відповідь надається протягом 30 днів.</p>
-
-    <h4>10. Діти</h4>
-    <p>Сайт призначений для власників бізнесу і не орієнтований на осіб молодше 18 років. Свідомо персональні дані дітей не збираються.</p>
-
-    <h4>11. Зміни до цієї Політики</h4>
-    <p>Політика може оновлюватись у разі зміни функціоналу сайту (наприклад, додавання аналітики чи реклами) або вимог законодавства. Дата останнього оновлення вказана на початку документа.</p>
-
-    <p style="font-size:12px;color:var(--ink-faint);margin-top:18px;">Цей документ підготовлено як робоча версія політики конфіденційності на основі реального функціоналу сайту станом на дату оновлення.</p>
-
-    <button class="btn btn-outline" id="closeModal">Закрити</button>
-  </div>
-</div>
-
-<script src="script.js"></script>
+<dialog class="lightbox" id="lightbox" aria-label="Скрін переписки">
+  <button class="lightbox__close" type="button" aria-label="Закрити">&times;</button>
+  <img alt="">
+</dialog>
 </body>
 </html>

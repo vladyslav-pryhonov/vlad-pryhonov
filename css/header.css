@@ -1,0 +1,78 @@
+/* ==========================================================================
+   header.css – шапка, навігація, мобільне меню
+   ========================================================================== */
+:root { --header-h: 72px; }
+
+.site-header {
+  position: fixed; inset: 0 0 auto 0; z-index: var(--z-header);
+  transition: background-color var(--t-base) var(--ease-out), box-shadow var(--t-base) var(--ease-out);
+}
+.site-header.is-scrolled,
+.site-header.is-open {
+  background: color-mix(in srgb, var(--forest) 84%, transparent);
+  -webkit-backdrop-filter: blur(14px) saturate(140%);
+  backdrop-filter: blur(14px) saturate(140%);
+  box-shadow: 0 1px 0 var(--line);
+}
+.site-header__bar { display: flex; align-items: center; gap: var(--sp-3); height: var(--header-h); }
+
+.brand { display: inline-flex; align-items: center; min-height: var(--tap); }
+.brand img { height: 32px; width: auto; }
+
+.site-nav { display: none; gap: var(--sp-6); margin-inline: auto; }
+.site-nav a, .site-phone, .mobile-menu a {
+  transition: color var(--t-base) var(--ease-out);
+}
+.site-nav a {
+  display: inline-flex; align-items: center; min-height: var(--tap);
+  font-size: var(--fs-small); font-weight: 500; color: var(--ink-soft);
+}
+.site-phone {
+  display: none; align-items: center; min-height: var(--tap);
+  font-family: var(--font-mono); font-size: 0.875rem; letter-spacing: 0.02em; color: var(--ink);
+}
+@media (hover: hover) {
+  .site-nav a:hover, .site-phone:hover, .mobile-menu a:hover { color: var(--jungle); }
+}
+
+/* Друга кнопка в шапці: завжди під рукою. Контурна, поки видно CTA першого екрана; потім оранжева (hero.js) */
+.site-cta { margin-left: auto; flex: none; white-space: nowrap; }
+.site-cta__full { display: none; }
+@media (min-width: 420px) {
+  .site-cta__full { display: inline; }
+  .site-cta__short { display: none; }
+}
+
+/* Бургер */
+.burger {
+  width: var(--tap); height: var(--tap); flex: none;
+  display: inline-flex; align-items: center; justify-content: center;
+}
+.burger span, .burger span::before, .burger span::after {
+  display: block; width: 22px; height: 2px; background: var(--ink);
+  transition: transform var(--t-base) var(--ease-out), top var(--t-base) var(--ease-out), background-color var(--t-base) var(--ease-out);
+}
+.burger span { position: relative; }
+.burger span::before, .burger span::after { content: ""; position: absolute; left: 0; }
+.burger span::before { top: -7px; }
+.burger span::after  { top: 7px; }
+.burger[aria-expanded="true"] span { background: transparent; }
+.burger[aria-expanded="true"] span::before { top: 0; transform: rotate(45deg); }
+.burger[aria-expanded="true"] span::after { top: 0; transform: rotate(-45deg); }
+
+/* Мобільне меню */
+.mobile-menu { padding: var(--sp-3) var(--gutter) var(--sp-6); border-top: 1px solid var(--line); }
+.mobile-menu[hidden] { display: none; }
+.mobile-menu a {
+  display: flex; align-items: center; min-height: 52px;
+  font-size: 1.125rem; font-weight: 500; color: var(--ink);
+  border-bottom: 1px solid var(--line);
+}
+.mobile-menu a.mobile-menu__phone { font-family: var(--font-mono); font-size: 1rem; color: var(--jungle); border-bottom: 0; }
+
+@media (min-width: 900px) {
+  .site-header__bar { gap: var(--sp-5); }  .site-cta { margin-left: 0; }
+  .site-nav { display: flex; }
+  .site-phone { display: inline-flex; }
+  .burger, .mobile-menu { display: none !important; }
+}

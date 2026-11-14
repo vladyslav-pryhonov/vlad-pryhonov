@@ -1,0 +1,134 @@
+/* ==========================================================================
+   components.css – спільні компоненти. Єдина форма: chamfer (зрізані кути).
+   Hover застосовується лише до клікабельних елементів і однаковий для однотипних.
+   ========================================================================== */
+
+/* ---------- Каркас ---------- */
+.wrap { width: 100%; max-width: calc(var(--wrap) + 2 * var(--gutter)); margin-inline: auto; padding-inline: var(--gutter); }
+.section { padding-block: var(--section); position: relative; }
+.section--deep { background: var(--forest-deep); }
+
+/* ---------- Chamfer-форма (clip-path). Рамка робиться псевдоелементом, бо border обрізається ---------- */
+.chamfer {
+  --c: var(--chamfer);
+  --inner: polygon(calc(var(--c) - 1px) 0, calc(100% - var(--c) + 1px) 0, 100% calc(var(--c) - 1px), 100% calc(100% - var(--c) + 1px), calc(100% - var(--c) + 1px) 100%, calc(var(--c) - 1px) 100%, 0 calc(100% - var(--c) + 1px), 0 calc(var(--c) - 1px));   /* форма внутрішнього шару «рамки» */
+  clip-path: polygon(var(--c) 0, calc(100% - var(--c)) 0, 100% var(--c), 100% calc(100% - var(--c)), calc(100% - var(--c)) 100%, var(--c) 100%, 0 calc(100% - var(--c)), 0 var(--c));
+}
+.chamfer-sm { --c: var(--chamfer-sm); }
+
+/* ---------- Підпис-мітка: Onest, звичайний регістр (моноширинний капс виглядав штучно). Mono лишається лише для цифр ---------- */
+.label {
+  font-family: var(--font-sans);
+  font-size: var(--fs-label);
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  color: var(--ink-mute);
+}
+
+/* ---------- Кнопки ---------- */
+.btn {
+  --c: var(--chamfer);
+  --inner: polygon(calc(var(--c) - 1px) 0, calc(100% - var(--c) + 1px) 0, 100% calc(var(--c) - 1px), 100% calc(100% - var(--c) + 1px), calc(100% - var(--c) + 1px) 100%, calc(var(--c) - 1px) 100%, 0 calc(100% - var(--c) + 1px), 0 calc(var(--c) - 1px));
+  display: inline-flex; align-items: center; justify-content: center; gap: var(--sp-2);
+  min-height: var(--tap);
+  padding: 0.95rem 1.75rem;
+  font-family: var(--font-sans); font-weight: 650; font-size: 1rem; line-height: 1.1;
+  letter-spacing: 0.005em;
+  border: 0; cursor: pointer; text-align: center;
+  clip-path: polygon(var(--c) 0, calc(100% - var(--c)) 0, 100% var(--c), 100% calc(100% - var(--c)), calc(100% - var(--c)) 100%, var(--c) 100%, 0 calc(100% - var(--c)), 0 var(--c));
+  transition: background-color var(--t-base) var(--ease-out), transform var(--t-fast) var(--ease-out), color var(--t-base) var(--ease-out);
+}
+/* Primary – ЄДИНА кнопка CTA на екран */
+.btn--primary { background: var(--orange); color: var(--on-orange); }
+@media (hover: hover) { .btn--primary:hover { background: var(--orange-hover); } }
+.btn--primary:active { background: var(--orange-press); transform: translateY(1px); }
+
+/* Secondary – контурна. Рамка = підкладка кольору лінії + внутрішній шар із тією ж chamfer-формою,
+   бо border/box-shadow обрізаються clip-path на зрізаних кутах. */
+.btn--ghost {
+  position: relative; isolation: isolate;
+  background: var(--line-strong); color: var(--ink);
+  transition: background-color var(--t-base) var(--ease-out), color var(--t-base) var(--ease-out), transform var(--t-fast) var(--ease-out);
+}
+.btn--ghost::before {
+  content: ""; position: absolute; inset: 1.5px; z-index: -1; background: var(--forest);
+  clip-path: var(--inner);
+  transition: opacity var(--t-slow) var(--ease-out);
+}
+@media (hover: hover) { .btn--ghost:hover { background: var(--jungle); color: var(--jungle); } }
+.btn--ghost:active { transform: translateY(1px); }
+/* Другорядна оранжева (кнопка в шапці): контур і текст Orange, при наведенні заливається. Головна оранжева кнопка екрана – .btn--primary.
+   Коли CTA першого екрана поза кадром (.is-hot), контур лишається, але додається легка оранжева заливка – видно, що це доступна дія. */
+.btn--outline-orange { position: relative; isolation: isolate; background: var(--orange); color: var(--orange); }
+.btn--outline-orange::before {
+  content: ""; position: absolute; inset: 1.5px; z-index: -1; background: var(--forest); clip-path: var(--inner);
+  transition: opacity var(--t-slow) var(--ease-out), background-color var(--t-slow) var(--ease-out);
+}
+.btn--outline-orange.is-hot::before { background: color-mix(in srgb, var(--orange) 16%, var(--forest)); }
+.btn--outline-orange.is-hot { color: var(--ink); }
+@media (hover: hover) {
+  .btn--outline-orange:hover { background: var(--orange-hover); color: var(--on-orange); }
+  .btn--outline-orange:hover::before { opacity: 0; }
+}
+.btn--outline-orange:active { transform: translateY(1px); }
+
+/* Компактна кнопка (шапка) */
+.btn--sm { --c: var(--chamfer-sm); padding: 0.5rem 1.1rem; font-size: 0.9375rem; }
+
+/* Primary із «зарядкою»: спершу виглядає як ghost, імпульси гріють рамку (--charge 0→1), далі запалюється.
+   Без JS чи при reduced-motion атрибута data-state немає – кнопка одразу оранжева. */
+@property --charge { syntax: "<number>"; inherits: false; initial-value: 1; }
+.btn--charge {
+  position: relative; isolation: isolate;
+  transition: background-color var(--t-slow) var(--ease-out), color var(--t-slow) var(--ease-out), transform var(--t-fast) var(--ease-out), --charge 650ms var(--ease-out);
+}
+.btn--charge::before {
+  content: ""; position: absolute; inset: 1.5px; z-index: -1; background: var(--forest);
+  clip-path: var(--inner); opacity: 0;
+  transition: opacity var(--t-slow) var(--ease-out);
+}
+.btn--charge[data-state="charging"] {
+  background: color-mix(in srgb, var(--orange) calc(var(--charge) * 100%), var(--line-strong));
+  color: var(--ink);
+}
+.btn--charge[data-state="charging"]::before { opacity: 1; }
+.btn--block { width: 100%; }
+.btn[disabled] { opacity: 0.5; cursor: not-allowed; }
+
+/* Focus: clip-path відсікає outline, тому при фокусі з клавіатури форму знімаємо і показуємо контур */
+.btn:focus-visible, .chip:focus-visible { clip-path: none; outline: 2px solid var(--focus); outline-offset: 3px; }
+
+/* ---------- Чип ---------- */
+.chip {
+  --c: var(--chamfer-sm);
+  display: inline-flex; align-items: center; min-height: 36px; padding: 0.4rem 1rem;
+  font-family: var(--font-sans); font-size: var(--fs-label); font-weight: 500; letter-spacing: 0.01em;
+  color: var(--ink-soft); background: var(--forest-raised);
+  clip-path: polygon(var(--c) 0, calc(100% - var(--c)) 0, 100% var(--c), 100% calc(100% - var(--c)), calc(100% - var(--c)) 100%, var(--c) 100%, 0 calc(100% - var(--c)), 0 var(--c));
+}
+.chip[aria-pressed="true"], .chip.is-active { background: var(--jungle); color: var(--on-jungle); }
+button.chip { cursor: pointer; transition: background-color var(--t-base) var(--ease-out), color var(--t-base) var(--ease-out); }
+@media (hover: hover) { button.chip:hover { background: var(--forest-line); color: var(--ink); } }
+
+/* ---------- Картка ---------- */
+.card {
+  --c: var(--chamfer);
+  padding: var(--sp-6);                    /* однакові відступи від країв по всіх сторонах */
+  background: var(--forest-raised);
+  clip-path: polygon(var(--c) 0, calc(100% - var(--c)) 0, 100% var(--c), 100% calc(100% - var(--c)), calc(100% - var(--c)) 100%, var(--c) 100%, 0 calc(100% - var(--c)), 0 var(--c));
+}
+
+/* ---------- Поле форми ---------- */
+.field { display: grid; gap: var(--sp-2); }
+.field label { font-size: var(--fs-small); color: var(--ink-soft); }
+.field input, .field select, .field textarea {
+  min-height: var(--tap); width: 100%;
+  padding: 0.75rem 1rem;
+  background: var(--forest-deep); border: 1.5px solid var(--forest-line); border-radius: var(--radius);
+  font-size: 1rem;                          /* 16px: iOS не зумить при фокусі */
+  transition: border-color var(--t-base) var(--ease-out);
+}
+.field input::placeholder { color: var(--ink-mute); }
+.field input:focus-visible { outline: none; border-color: var(--jungle); box-shadow: 0 0 0 3px var(--glow-jungle); }
+.field [aria-invalid="true"] { border-color: var(--error); }
+.field-error { color: var(--error); font-size: var(--fs-small); min-height: 1.2em; }

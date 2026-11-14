@@ -1,0 +1,90 @@
+/* ==========================================================================
+   tokens.css – єдине джерело дизайн-рішень для всіх сторінок pryhonov.com v2
+   Палітра: Forest #00291B / Jungle #02B16E / Orange #FC6E00 (зі свотчів референсу)
+   Правила: без чистого #000 / #FFF; Orange – єдиний акцент і колір CTA.
+   ========================================================================== */
+
+:root {
+  /* ---------- Колір: бренд ---------- */
+  --forest:        #00291B;   /* основний фон */
+  --forest-deep:   #001A11;   /* глибші секції, футер */
+  --forest-raised: #063B2A;   /* картки, підняті поверхні */
+  --forest-line:   #0E5238;   /* тонкі лінії-сітка на фоні */
+  --jungle:        #02B16E;   /* вторинний: лінії, іскри, іконки, цифри */
+  --jungle-dim:    #0A8A59;   /* ТІЛЬКИ декор (лінії, заливки): як текст не проходить AA */
+  --orange:        #FC6E00;   /* ЄДИНИЙ акцент: CTA і ключові виділення */
+  --orange-hover:  #FF8330;
+  --orange-press:  #E06000;
+
+  /* ---------- Колір: текст (без чистого білого/чорного) ---------- */
+  --ink:           #EAF2EC;   /* основний текст на Forest */
+  --ink-soft:      #B7C9BD;   /* другорядний текст */
+  --ink-mute:      #8EAA9B;   /* підписи, дрібні мітки (AA ≥4.5 на Forest і Forest raised) */
+  --on-orange:     #00291B;   /* текст на Orange – темний Forest, не світлий */
+  --on-jungle:     #00291B;
+  --paper:         #E4EDE5;   /* світла поверхня (зрідка: форма, відео-рамка) */
+  --on-paper:      #06140E;   /* текст на світлій поверхні */
+
+  /* ---------- Колір: стани ---------- */
+  --error:         #FF8A7A;   /* помилки валідації (AA на Forest) */
+  --focus:         #EAF2EC;   /* focus-ring: світлий контур видно на всьому */
+
+  /* ---------- Прозорі похідні ---------- */
+  --line:          color-mix(in srgb, var(--jungle) 28%, transparent);
+  --line-strong:   color-mix(in srgb, var(--jungle) 55%, transparent);
+  --glow-jungle:   color-mix(in srgb, var(--jungle) 35%, transparent);
+  --glow-orange:   color-mix(in srgb, var(--orange) 45%, transparent);
+
+  /* ---------- Типографіка: рівно два шрифти ---------- */
+  --font-sans: "Onest", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, "SFMono-Regular", Consolas, monospace;
+
+  --fs-micro:  clamp(0.75rem, 0.72rem + 0.12vw, 0.8125rem);   /* 12–13 дрібні мітки */
+  --fs-label:  clamp(0.8125rem, 0.78rem + 0.12vw, 0.875rem);  /* 13–14 підписи й мітки: Onest, звичайний регістр */
+  --fs-small:  0.9375rem;                                      /* 15 */
+  --fs-body:   clamp(1rem, 0.97rem + 0.15vw, 1.0625rem);      /* 16–17, мінімум для мобільного */
+  --fs-lead:   clamp(1.125rem, 1.02rem + 0.5vw, 1.375rem);    /* 18–22 */
+  --fs-h3:     clamp(1.25rem, 1.1rem + 0.7vw, 1.625rem);      /* 20–26 */
+  --fs-h2:     clamp(1.5rem, 1rem + 1.4vw, 2.125rem);         /* 24–34: завжди менший за H1 hero (32 на мобільному, 38–42 на десктопі) */
+  --fs-h1:     clamp(2.25rem, 1.2rem + 4.8vw, 5rem);          /* 36–80 */
+  --fs-mark:   clamp(3.5rem, 1rem + 13vw, min(11rem, 19svh)); /* гігантське слово-марка hero: не вище 19% висоти вікна */
+
+  --lh-tight: 1.04;
+  --lh-head:  1.12;
+  --lh-lead:  1.3;    /* підзаголовки (lead) на всьому сайті */
+  --lh-body:  1.55;
+  --tracking-head: -0.02em;
+  --tracking-mono: 0.08em;
+
+  /* ---------- Простір (крок 4) ---------- */
+  --sp-1: 0.25rem;  --sp-2: 0.5rem;   --sp-3: 0.75rem;  --sp-4: 1rem;
+  --sp-5: 1.5rem;   --sp-6: 2rem;     --sp-7: 3rem;     --sp-8: 4rem;
+  --sp-9: 6rem;     --sp-10: 8rem;
+
+  --gutter:   clamp(1rem, 0.5rem + 2.5vw, 2rem);   /* бокові поля: мінімум 16px */
+  --section:  clamp(4.5rem, 3rem + 7vw, 9rem);     /* ОДИН вертикальний відступ між блоками на всьому сайті */
+  --wrap:     1440px;                                  /* ОДНА ширина контенту для шапки, hero і всіх блоків */
+
+  /* ---------- Форма: ЄДИНА мова – зрізані (chamfer) кути, відлуння hex ---------- */
+  --chamfer:    14px;     /* кнопки, картки, рамки */
+  --chamfer-sm: 8px;      /* чипи, малі елементи */
+  --radius:     2px;      /* мінімальне заокруглення там, де clip-path не підходить (поля вводу) */
+
+  /* ---------- Рух ---------- */
+  --ease-out:   cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-inout: cubic-bezier(0.65, 0, 0.35, 1);
+  --t-fast:  150ms;
+  --t-base:  300ms;
+  --t-slow:  600ms;
+  --t-reveal: 900ms;
+
+  /* ---------- Шари ---------- */
+  --z-header: 100;
+  --z-overlay: 200;
+  --z-toast: 300;
+
+  /* ---------- Мінімальна ціль дотику ---------- */
+  --tap: 44px;
+
+  color-scheme: dark;
+}

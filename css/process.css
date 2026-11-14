@@ -1,0 +1,95 @@
+/* ==========================================================================
+   process.css – блок «Процес»: 4 кроки з живою лінією-таймлайном
+   Мобільний: вертикальна лінія зліва. Від 960px: горизонтальна лінія, вузли над колонками.
+   Тексту мінімум: назва, одне речення, один факт-рядок.
+   ========================================================================== */
+
+.steps { position: relative; isolation: isolate; display: grid; gap: var(--sp-8); margin: 0; padding: 0; list-style: none; }
+
+/* Лінія-таймлайн: малюється при появі блока (::before), далі по ній біжить іскра (::after).
+   Шари: лінія й іскра (z 0) нижче за вузли з іконками (z 1), тому вона ховається за ними, а не пробігає по іконках */
+.steps::before, .steps::after { content: ""; position: absolute; z-index: 0; pointer-events: none; }
+.steps::before {
+  left: 30px; top: 30px; bottom: 30px; width: 1px;
+  background: linear-gradient(to bottom, var(--jungle), var(--line-strong));
+  transform-origin: top; transition: transform 1.4s var(--ease-inout);
+}
+html.js .steps.reveal:not(.is-in)::before { transform: scaleY(0); }
+html.reveal-fallback .steps.reveal::before { transform: none; }
+
+/* Іскра: градієнтна пляма, що рухається зміною background-position (без перерахунку розкладки) */
+.steps::after {
+  left: 30px; top: 30px; bottom: 30px; width: 3px; margin-left: -1px; opacity: 0;
+  background: linear-gradient(to bottom, transparent 38%, color-mix(in srgb, var(--jungle) 70%, transparent) 49%, #C9F7E1 50%, transparent 51%) 0 100% / 100% 300%;
+  filter: drop-shadow(0 0 4px var(--jungle));
+}
+.steps.is-live::after { opacity: 1; animation: sparkY 8s linear infinite; }
+@keyframes sparkY { from { background-position: 0 100%; } to { background-position: 0 0; } }
+
+.step { position: relative; display: grid; gap: var(--sp-3); align-content: start; padding-left: 5.25rem; }
+
+/* Вузол: chamfer-квадрат із рамкою (підкладка + внутрішній шар) та іконкою */
+.step__node {
+  --c: var(--chamfer-sm);
+  position: absolute; z-index: 1; left: 0; top: 0; width: 60px; height: 60px; isolation: isolate;
+  display: inline-flex; align-items: center; justify-content: center;
+  background: var(--line-strong); color: var(--jungle);
+  clip-path: polygon(var(--c) 0, calc(100% - var(--c)) 0, 100% var(--c), 100% calc(100% - var(--c)), calc(100% - var(--c)) 100%, var(--c) 100%, 0 calc(100% - var(--c)), 0 var(--c));
+}
+.step__node::before {
+  content: ""; position: absolute; inset: 1.5px; z-index: -1; background: var(--forest-deep);
+  clip-path: polygon(calc(var(--c) - 1px) 0, calc(100% - var(--c) + 1px) 0, 100% calc(var(--c) - 1px), 100% calc(100% - var(--c) + 1px), calc(100% - var(--c) + 1px) 100%, calc(var(--c) - 1px) 100%, 0 calc(100% - var(--c) + 1px), 0 calc(var(--c) - 1px));
+}
+/* Іконки товстіші й більші, щоб тримали вагу поруч із заголовками */
+.step__node svg { width: 28px; height: 28px; fill: none; stroke: currentColor; stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; }
+
+.step h3 { font-size: var(--fs-h3); line-height: var(--lh-head); letter-spacing: var(--tracking-head); font-weight: 650; margin: 0; padding-top: 0.45rem; }
+.step > p { margin: 0; color: var(--ink-soft); line-height: 1.45; max-width: 24rem; }
+
+/* Єдиний факт-рядок кроку: компактно й однаково в усіх колонках */
+.step > .step__meta {
+  margin-top: var(--sp-2); padding-top: var(--sp-3); border-top: 1px solid var(--line);
+  font-size: var(--fs-label); font-weight: 500; letter-spacing: 0.01em; color: var(--ink-mute);
+}
+
+/* Крок-гачок: безкоштовний перший екран – вузол залитий Jungle, поруч позначка */
+.step--hook .step__node { background: var(--jungle); color: var(--on-jungle); }
+.step--hook .step__node::before { background: var(--jungle); }
+.step__tag { justify-self: start; font-size: var(--fs-label); font-weight: 600; letter-spacing: 0.01em; color: var(--on-jungle); background: var(--jungle); padding: 0.1rem 0.55rem; }
+
+.process__cta { display: flex; flex-wrap: wrap; align-items: center; gap: var(--sp-4) var(--sp-6); margin-top: var(--sp-9); padding-top: var(--sp-6); border-top: 1px solid var(--line); }
+.process__cta p { margin: 0; color: var(--ink-soft); max-width: 34rem; }
+
+@media (prefers-reduced-motion: reduce) {
+  .steps::before { transition: none; }
+  html.js .steps.reveal:not(.is-in)::before { transform: none; }
+  .steps.is-live::after, .step__node { animation: none !important; }
+  .steps::after { display: none; }
+}
+
+/* ---------- Планшет і десктоп ---------- */
+@media (min-width: 960px) {
+  .steps { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: var(--sp-7); }
+  .steps::before { left: 30px; right: 30px; top: 30px; bottom: auto; width: auto; height: 1px; background: linear-gradient(to right, var(--jungle), var(--line-strong)); transform-origin: left; }
+  html.js .steps.reveal:not(.is-in)::before { transform: scaleX(0); }
+  .steps::after {
+    left: 30px; right: 30px; top: 29px; bottom: auto; width: auto; height: 3px; margin: 0;
+    background: linear-gradient(to right, transparent 38%, color-mix(in srgb, var(--jungle) 70%, transparent) 49%, #C9F7E1 50%, transparent 51%) 100% 0 / 300% 100%;
+  }
+  .steps.is-live::after { animation: sparkX 8s linear infinite; }
+  @keyframes sparkX { from { background-position: 100% 0; } to { background-position: 0 0; } }
+
+  .step { padding-left: 0; padding-top: 5.25rem; }
+  .step h3 { padding-top: 0; }
+
+  /* Вузли спалахують, коли їх проходить іскра. Вузли стоять на ≈0, 27%, 53%, 80% довжини лінії;
+     іскра (цикл 8 с) проходить ці точки на 2.0, 3.1, 4.1, 5.2 с, спалах стартує на 0.3 с раніше за пік */
+  .steps.is-live .step__node { animation: nodeLit 8s linear infinite; }
+  .steps.is-live .step:nth-child(1) .step__node { animation-delay: 1.7s; }
+  .steps.is-live .step:nth-child(2) .step__node { animation-delay: 2.8s; }
+  .steps.is-live .step:nth-child(3) .step__node { animation-delay: 3.8s; }
+  .steps.is-live .step:nth-child(4) .step__node { animation-delay: 4.9s; }
+  .steps.is-live .step--hook .step__node { animation-name: nodeLitHook; }
+  @keyframes nodeLit { 0% { background: var(--line-strong); color: var(--jungle); } 4% { background: var(--jungle); color: #C9F7E1; } 16% { background: var(--line-strong); color: var(--jungle); } 100% { background: var(--line-strong); color: var(--jungle); } }
+  @keyframes nodeLitHook { 0% { background: var(--jungle); } 4% { background: #5BE3A9; } 16% { background: var(--jungle); } 100% { background: var(--jungle); } }
+}

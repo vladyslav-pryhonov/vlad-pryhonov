@@ -1,0 +1,107 @@
+/* ==========================================================================
+   case.css – блок «Кейс»: реальний проєкт (Honor Code), відгук клієнта, скріни переписки
+   ========================================================================== */
+
+/* ---------- Заголовок секції (спільний для всіх наступних блоків) ---------- */
+.section-head { display: grid; gap: var(--sp-3); max-width: 46rem; margin-bottom: var(--sp-8); }
+.section-head h2 { font-size: var(--fs-h2); line-height: var(--lh-head); letter-spacing: var(--tracking-head); font-weight: 700; }
+.section-head h2 em { font-style: normal; color: var(--jungle); }
+.section-head__lead { font-size: var(--fs-body); line-height: var(--lh-lead); color: var(--ink-soft); max-width: 38rem; margin-top: var(--sp-1); }   /* вдвічі менший за H2: не зливається із заголовком */
+
+/* ---------- Кейс: опис + мокапи ---------- */
+.case__grid { display: grid; gap: var(--sp-7); align-items: center; }
+.case__rows { display: grid; gap: 0; margin: 0 0 var(--sp-5); }
+.case__rows > div { display: grid; gap: var(--sp-2); padding-block: var(--sp-4); border-top: 1px solid var(--line); }
+.case__rows > div:last-child { border-bottom: 1px solid var(--line); }
+.case__rows dt { font-size: var(--fs-label); font-weight: 600; letter-spacing: 0.01em; color: var(--jungle); }
+.case__rows dd { margin: 0; color: var(--ink-soft); }
+.case__rows dd strong { color: var(--ink); font-weight: 600; }
+
+.case__tags { display: flex; flex-wrap: wrap; gap: var(--sp-2); margin: 0 0 var(--sp-6); padding: 0; list-style: none; }
+
+.case__visual { position: relative; margin: 0; padding-bottom: 6%; }
+/* Підсвітка, як у фото в hero: зелений «софіт» за пристроями + м'яке сяйво по контуру */
+.case__visual::before, .demo__shot::before {
+  content: ""; position: absolute; inset: -22% -16% -12%; z-index: 0; pointer-events: none;
+  background: radial-gradient(closest-side, color-mix(in srgb, var(--jungle) 42%, var(--forest-deep)), transparent 74%);
+}
+.case__visual img { position: relative; z-index: 1; display: block; height: auto; }
+.case__laptop { width: 100%; filter: drop-shadow(0 0 22px color-mix(in srgb, var(--jungle) 40%, transparent)); }
+.case__visual .case__phone { position: absolute; right: -1%; bottom: 0; width: 23%; filter: drop-shadow(0 0 20px color-mix(in srgb, var(--jungle) 40%, transparent)) drop-shadow(0 18px 28px rgba(0, 0, 0, 0.45)); }
+
+/* ---------- Демо-проєкти: приклади першого екрана ---------- */
+.demos { display: grid; gap: var(--sp-5); grid-auto-flow: column; grid-auto-columns: 84%; overflow-x: auto; scroll-snap-type: x mandatory; align-items: stretch; margin: 0; padding: 0; list-style: none; }
+.demo { display: grid; gap: var(--sp-3); align-content: start; padding: var(--sp-5); background: var(--forest-raised); scroll-snap-align: start; }
+.demo__shot { position: relative; display: block; margin-bottom: var(--sp-3); }
+.demo__shot::before { inset: -14% -8% -6%; }
+.demo__shot img { position: relative; z-index: 1; display: block; width: 100%; height: auto; filter: drop-shadow(0 0 16px color-mix(in srgb, var(--jungle) 32%, transparent)); }
+.demo__meta { display: flex; flex-wrap: wrap; align-items: center; gap: var(--sp-3); }
+.demo__tag { font-size: var(--fs-label); font-weight: 600; letter-spacing: 0.01em; color: var(--ink); background: var(--forest); border: 1px solid var(--line-strong); padding: 0.1rem 0.5rem; }   /* не оранжевий: оранжевий – лише CTA */
+.demo h3 { font-size: var(--fs-h3); line-height: var(--lh-head); letter-spacing: var(--tracking-head); font-weight: 650; margin: 0; }
+.demo p { margin: 0; color: var(--ink-soft); }
+.demo__link { justify-self: start; font-weight: 600; color: var(--jungle); padding-block: var(--sp-2); min-height: var(--tap); display: inline-flex; align-items: center; transition: color var(--t-base) var(--ease-out); }
+@media (hover: hover) { .demo__link:hover { color: var(--ink); } }
+.demo__link:focus-visible, .demo__shot:focus-visible { outline: 2px solid var(--focus); outline-offset: 3px; }
+
+/* ---------- Відгук і скріни ---------- */
+.proof { display: grid; gap: var(--sp-6); margin-top: var(--sp-9); align-items: start; }
+.quote { margin: 0; position: relative; padding: var(--sp-8) var(--sp-6) var(--sp-6); background: var(--forest-raised); }
+.quote::before {                              /* велика лапка – декор */
+  content: "\201C"; position: absolute; top: var(--sp-3); left: var(--sp-6);
+  font-family: var(--font-sans); font-weight: 700; font-size: 4.5rem; line-height: 1; color: var(--jungle); opacity: 0.4; pointer-events: none;
+}
+.quote p { margin: 0 0 var(--sp-5); font-size: var(--fs-lead); line-height: 1.5; color: var(--ink); }
+.quote footer { display: flex; align-items: center; gap: var(--sp-4); }
+.quote img { width: 48px; height: 48px; object-fit: cover; flex: none; }
+.quote b { display: block; font-weight: 650; }
+.quote span { font-size: var(--fs-small); color: var(--ink-soft); }
+
+.shots { display: grid; gap: var(--sp-3); grid-auto-flow: column; grid-auto-columns: 72%; align-items: start; overflow-x: auto; scroll-snap-type: x mandatory; }
+
+/* Горизонтальні стрічки на мобільному: смуга прокрутки прихована, замість неї крапки (js/case.js) показують, що можна гортати */
+.demos, .shots { scrollbar-width: none; -ms-overflow-style: none; }
+.demos::-webkit-scrollbar, .shots::-webkit-scrollbar { display: none; }
+.dots { display: flex; justify-content: center; gap: 10px; margin-top: var(--sp-4); }
+.dots[hidden] { display: none; }
+.dots span { width: 8px; height: 8px; border-radius: 50%; background: color-mix(in srgb, var(--ink-mute) 45%, transparent); transition: background-color var(--t-base) var(--ease-out), transform var(--t-base) var(--ease-out); }
+.dots span.is-on { background: var(--jungle); transform: scale(1.3); }
+.shot { padding: 0; border: 0; background: var(--forest-raised); cursor: zoom-in; scroll-snap-align: start; display: block; align-self: start; }
+.shot img { display: block; width: 100%; height: auto; }
+.shot:focus-visible { clip-path: none; outline: 2px solid var(--focus); outline-offset: 3px; }
+@media (hover: hover) { .shot { transition: transform var(--t-base) var(--ease-out); } .shot:hover { transform: translateY(-3px); } }
+.shots__note { margin: var(--sp-2) 0 0; }
+
+/* ---------- Лайтбокс ---------- */
+.lightbox { padding: 0; border: 0; background: transparent; max-width: 94vw; max-height: 94svh; color: var(--ink); overflow: visible; }
+.lightbox::backdrop { background: color-mix(in srgb, var(--forest-deep) 88%, transparent); -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px); }
+.lightbox img { display: block; max-width: 92vw; max-height: 88svh; width: auto; height: auto; margin: 0 auto; }
+.lightbox__close {
+  position: absolute; top: calc(var(--sp-2) * -1); right: calc(var(--sp-2) * -1); z-index: 2;
+  width: var(--tap); height: var(--tap); display: inline-flex; align-items: center; justify-content: center;
+  font-size: 1.5rem; line-height: 1; color: var(--ink); background: var(--forest-raised); border: 1.5px solid var(--line-strong); border-radius: 50%; cursor: pointer;
+}
+.lightbox__close:focus-visible { outline: 2px solid var(--focus); outline-offset: 3px; }
+
+/* ---------- Поява при прокрутці (знімається, якщо JS не завантажився або reduced-motion) ---------- */
+html.js .reveal { opacity: 0; translate: 0 24px; transition: opacity var(--t-reveal) var(--ease-out), translate var(--t-reveal) var(--ease-out); }
+html.js .reveal.is-in, html.reveal-fallback .reveal { opacity: 1; translate: 0 0; }
+@media (prefers-reduced-motion: reduce) { html.js .reveal { opacity: 1; translate: 0 0; transition: none; } }
+
+/* ---------- Планшет і десктоп ---------- */
+@media (min-width: 960px) {
+  .case__grid { grid-template-columns: minmax(0, 5fr) minmax(0, 6fr); gap: var(--sp-9); }
+  .case__info { grid-column: 1; grid-row: 1; }       /* у DOM мокап першим (для мобільного), на десктопі текст ліворуч, мокап праворуч */
+  .case__visual { grid-column: 2; grid-row: 1; }
+  /* Відгук – велика цитата на всю ширину, під нею три скріни в ряд (читабельні, не мініатюри) */
+  .proof { grid-template-columns: minmax(0, 1fr); gap: var(--sp-7); }
+  /* Текст і автор у два стовпці: текст займає всю ширину картки, тож відступи від країв по боках однакові (по --sp-8) */
+  .quote { padding: var(--sp-8); display: grid; grid-template-columns: minmax(0, 1fr) auto; column-gap: var(--sp-8); align-items: end; }
+  .quote footer span { white-space: nowrap; }
+  .quote p { margin: 0; font-size: clamp(1.25rem, 0.8rem + 1vw, 1.625rem); line-height: 1.45; text-wrap: pretty; }
+  .quote footer { padding-left: var(--sp-6); border-left: 1px solid var(--line-strong); }
+  .quote::before { font-size: 6rem; top: var(--sp-4); left: var(--sp-8); }
+  .demos { grid-auto-flow: row; grid-template-columns: repeat(2, minmax(0, 1fr)); grid-auto-columns: auto; overflow: visible; gap: var(--sp-6); padding-bottom: 0; }
+  .demo { padding: var(--sp-6); }
+  .dots { display: none; }                          /* на десктопі стрічок немає: усе видно одразу */
+  .shots { grid-auto-flow: row; grid-template-columns: repeat(3, minmax(0, 1fr)); grid-auto-columns: auto; overflow: visible; gap: var(--sp-5); padding-bottom: 0; }
+}
