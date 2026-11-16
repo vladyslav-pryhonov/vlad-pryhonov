@@ -149,7 +149,7 @@ html.js:not(.ready) .hero [data-intro-mark] { visibility: hidden; }
   .hero__lead, .hero__actions { top: calc(var(--lift, 0px) * -1); }    /* підйом над прізвищем (js/hero.js applyLift) */
   .hero__title {
     grid-area: 1 / 1; align-self: start; justify-self: start; max-width: 30rem;
-    margin-top: clamp(2rem, calc((100svh - 700px) / 2), 5rem); margin-right: -4rem;   /* на низьких екранах (≈720–770) блок з заголовком і тарифами піднімається, щоб кнопка не липла до прізвища; від ≈860 px висоти без змін */   /* трохи заходить на прозорий край фото, щоб «вже за 24 години» лишалось в один рядок */
+    margin-top: clamp(2rem, calc((100svh - 700px) / 2), 5rem); margin-right: -4rem;   /* на низьких екранах (≈720–770) блок з заголовком і тарифами піднімається, щоб кнопка не липла до прізвища; від ≈860 px висоти без змін */   /* трохи заходить на прозорий край фото, щоб рядки заголовка не рвались зайвий раз */
     font-size: clamp(1.75rem, 0.55rem + 2.55vw, 3rem); line-height: 1.1;
   }
   .hero__facts {                                                /* поза сіткою: не впливає на висоту hero; стоїть над прізвищем */

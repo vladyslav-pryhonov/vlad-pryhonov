@@ -156,12 +156,20 @@
     if (!IS_PROD) { console.info('[dev] заявка НЕ відправлена (не бойовий домен):', payload); return; }
     fetch(CFG.sheetUrl, { method: 'POST', mode: 'no-cors', headers: { 'Content-Type': 'text/plain' }, body: JSON.stringify(payload) }).catch(function () { /* без блокування UI */ });
   }
-  function context() { return 'Тариф: ' + tariffName() + '; ' + (read('src') || 'пряме відвідування') + '; сторінка: ' + location.pathname; }
+  function source() { return read('src') || 'пряме відвідування'; }              // utm-мітки першого візиту або «пряме відвідування»
+  function context() { return 'Тариф: ' + tariffName() + '; ' + source() + '; сторінка: ' + location.pathname; }   // те саме одним рядком: для сумісності зі старою версією скрипта (нова бере окремі поля)
 
   /* ---------- Крок 1: контакт ---------- */
   var form = $('leadForm'), lead = null;
   function validTelegram(v) { return /^@?[a-zA-Z0-9_]{4,32}$/.test(v); }           // 32 – максимум юзернейма в Telegram; збігається з перевіркою на сервері
-  function validPhone(v) { var n = (v.match(/\d/g) || []).length; return n >= 6 && n <= 13 && !/[^\d\s()+\-]/.test(v); }
+  var PHONE_MAX = 10;                                                                  // у полі лише національний номер: не більше 10 цифр (097…, 971234567)
+  function validPhone(v) { var n = (v.match(/\d/g) || []).length; return n >= 6 && n <= PHONE_MAX && !/[^\d\s()+\-]/.test(v); }
+  /* Під час введення й вставки лишає тільки цифри, знімає вже вписаний код країни (+380…, 380…) і обрізає до 10 цифр */
+  function cleanPhoneInput(raw, code) {
+    var d = raw.replace(/\D/g, ''), cd = code.replace(/\D/g, '');
+    if (d.indexOf(cd) === 0 && (/^\s*\+/.test(raw) || d.length > PHONE_MAX)) d = d.slice(cd.length);
+    return d.slice(0, PHONE_MAX);
+  }
   /* Міжнародний вигляд: люди пишуть 097…, +380 97… або 380 97… – у всіх випадках має вийти +380971234567, а не +3800971234567 чи +380380971234567 */
   var TRUNK0 = { '+380': 1, '+44': 1, '+49': 1 };       // країни зі стартовим 0 у національному номері
   function normalizePhone(code, raw) {
@@ -183,6 +191,10 @@
     return !msg;
   }
   if (form) {
+    $('fPhone').addEventListener('input', function () {
+      var c = cleanPhoneInput(this.value, $('fPhoneCode').value);
+      if (c !== this.value) this.value = c;
+    });
     ['fTelegram', 'fPhone'].forEach(function (id) {
       $(id).addEventListener('blur', checkContact);
       $(id).addEventListener('input', function () { if ($('fContactError').textContent) checkContact(); });
@@ -207,7 +219,7 @@
       lead = { name: name, telegram: tg, phone: phone, eventId: eventId };
 
       if (!bot) {
-        send({ step: 1, name: name, telegram: tg, phone: phone, business: '', message: context(), eventId: eventId });
+        send({ step: 1, name: name, telegram: tg, phone: phone, tariff: tariffName(), source: source(), message: context(), eventId: eventId });
         if (window.fbq) window.fbq('track', 'Lead', tariff ? { content_name: TARIFFS[tariff] } : {}, { eventID: eventId });
         if (window.gtag) window.gtag('event', 'generate_lead', { tariff: tariff || 'not_selected' });
       }
@@ -238,9 +250,8 @@
         else niche.push(c.id === 'chipOther' ? ($('fNicheOther').value.trim() || 'Інше') : c.textContent);
       });
       var link = $('fLink').value.trim();
-      var msg = 'Уточнення (крок 2). Реклама: ' + (ads || 'не вказано') + '; сайт/соцмережі: ' + (link || 'не вказано') + '; ' + context();
       if (!niche.length && !link && !ads) return;
-      send({ step: 2, name: lead ? lead.name : '', telegram: lead ? lead.telegram : '', phone: lead ? lead.phone : '', business: niche.join(', '), message: msg, eventId: lead ? lead.eventId : '' });
+      send({ step: 2, name: lead ? lead.name : '', telegram: lead ? lead.telegram : '', phone: lead ? lead.phone : '', tariff: tariffName(), source: source(), business: niche.join(', '), ads: ads, link: link, message: 'Уточнення (крок 2). Реклама: ' + (ads || 'не вказано') + '; сайт/соцмережі: ' + (link || 'не вказано') + '; ' + context(), eventId: lead ? lead.eventId : '' });
       track('lead_details');
       details.hidden = true; $('detailsDone').hidden = false;
     });
