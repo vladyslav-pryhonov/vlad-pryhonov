@@ -1,0 +1,16 @@
+{
+  "name": "Vlad Pryhonov: створення сайтів для малого бізнесу",
+  "short_name": "Vlad Pryhonov",
+  "description": "Безкоштовний перший екран сайту за 24 години після брифу. Сайти й лендинги для малого бізнесу від $600.",
+  "lang": "uk",
+  "start_url": "/",
+  "scope": "/",
+  "display": "browser",
+  "background_color": "#00291B",
+  "theme_color": "#00291B",
+  "icons": [
+    { "src": "/img/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "/img/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "/img/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}

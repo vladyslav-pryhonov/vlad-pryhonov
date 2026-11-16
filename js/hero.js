@@ -300,7 +300,6 @@
     burst('is-ignited');
     hitPulse = 1;
     flickStart = performance.now();
-    try { sessionStorage.setItem('charged', '1'); } catch (e) { /* приватний режим */ }
   }
   function onHit(i) {
     cta.style.setProperty('--charge', String(CHARGE[i]));
@@ -313,11 +312,11 @@
       if (!sp.hit && t >= sp.start + sp.dur) { sp.hit = true; onHit(i); }
     }
   }
+  /* Імпульси й запалення кнопки грають при кожному завантаженні сторінки (рішення власника: вона коротка, не всі її помічають,
+     а хто бачив – вона не заважає: кнопка клікабельна весь час). Не граємо лише коли сторінку відкрито вже прокрученою вниз. */
   function canPlaySequence() {
-    var replay = /[?&]replay\b/.test(location.search), done = false;
-    try { done = !!sessionStorage.getItem('charged'); } catch (e) { /* приватний режим */ }
     var r = cta.getBoundingClientRect();
-    return (replay || !done) && window.scrollY < 60 && r.top < window.innerHeight - 60;
+    return window.scrollY < 60 && r.top < window.innerHeight - 60;
   }
   function startSequence(delayMs) {
     seq = { t0: performance.now() + delayMs, sparks: null };

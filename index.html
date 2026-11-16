@@ -2,12 +2,20 @@
 <html lang="uk">
 <head>
 <meta charset="UTF-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' 'sha256-hfVlnF+W+cUyPhD4my9Nh5ljNu9xdp/PG0jrfmcpsr0=' https://www.googletagmanager.com https://connect.facebook.net; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://*.google-analytics.com https://*.googletagmanager.com https://www.facebook.com; font-src 'self'; connect-src 'self' https://script.google.com https://script.googleusercontent.com https://*.google-analytics.com https://*.analytics.google.com https://*.googletagmanager.com https://www.facebook.com https://connect.facebook.net; frame-src https://www.youtube-nocookie.com; manifest-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'">
+<meta name="referrer" content="strict-origin-when-cross-origin">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Vlad Pryhonov – сайти, які перетворюють відвідувачів на заявки</title>
-<meta name="description" content="Безкоштовний перший екран вашого сайту за 24 години після брифу. Далі повний сайт під ваш бізнес: від 7 днів, від $600. Оплата тільки після того, як ви побачили результат.">
+<title>Створення сайтів для малого бізнесу від $600 – Vlad Pryhonov</title>
+<meta name="description" content="Створення сайтів і лендінгів для малого бізнесу: безкоштовний перший екран за 24 години після брифу, запуск від 7 днів, від $600. Оплата після результату.">
 <link rel="canonical" href="https://pryhonov.com/">
 <meta name="theme-color" content="#00291B">
-<link rel="icon" type="image/png" href="img/favicon.png">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+<meta name="author" content="Vlad Pryhonov">
+<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="icon" type="image/png" href="img/favicon.png" sizes="64x64">
+<link rel="icon" type="image/png" href="img/icon-192.png" sizes="192x192">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
 
 <meta property="og:type" content="website">
 <meta property="og:locale" content="uk_UA">
@@ -15,18 +23,23 @@
 <meta property="og:title" content="Безкоштовний перший екран вашого сайту за 24 години">
 <meta property="og:description" content="Сайти для малого бізнесу, які перетворюють рекламу на заявки. Спершу перший екран безкоштовно, оплата потім.">
 <meta property="og:url" content="https://pryhonov.com/">
-<meta property="og:image" content="https://pryhonov.com/img/og-cover.jpg">
+<meta property="og:image" content="https://pryhonov.com/img/og-cover-2.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="Безкоштовний перший екран вашого сайту: Влад Пригонов, сайти для малого бізнесу від $600">
-<meta name="twitter:image" content="https://pryhonov.com/img/og-cover.jpg">
+<meta name="twitter:image" content="https://pryhonov.com/img/og-cover-2.jpg">
+<meta property="og:image:type" content="image/jpeg">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Безкоштовний перший екран вашого сайту за 24 години">
+<meta name="twitter:description" content="Сайти для малого бізнесу, які перетворюють рекламу на заявки. Спершу перший екран безкоштовно, оплата потім.">
 <link rel="preload" as="font" type="font/woff2" href="fonts/onest-400-cyrillic.woff2" crossorigin>
 <link rel="preload" as="font" type="font/woff2" href="fonts/onest-700-cyrillic.woff2" crossorigin>
 <link rel="stylesheet" href="css/fonts.css">
 <link rel="preload" as="image" href="img/vlad-800.webp" imagesrcset="img/vlad-480.webp 480w, img/vlad-800.webp 800w, img/vlad-928.webp 928w" imagesizes="(min-width: 960px) 720px, 92vw" fetchpriority="high">
 
 <script>
+  /* Анти-фреймінг (захист від clickjacking: заголовка X-Frame-Options на GitHub Pages нема) */
+  if (window.top !== window.self) { try { window.top.location.href = window.self.location.href; } catch (e) { document.documentElement.style.display = 'none'; } }
   /* .js вмикає початкові стани анімацій; .ready знімає їх. Якщо GSAP не завантажився – через 2.5 с усе показується. */
   document.documentElement.classList.add('js');
   setTimeout(function () { document.documentElement.classList.add('ready'); }, 2500);
@@ -46,26 +59,214 @@
   "@context": "https://schema.org",
   "@graph": [
     {
+      "@type": "WebSite",
+      "@id": "https://pryhonov.com/#website",
+      "url": "https://pryhonov.com/",
+      "name": "Vlad Pryhonov",
+      "inLanguage": "uk",
+      "publisher": {
+        "@id": "https://pryhonov.com/#person"
+      }
+    },
+    {
+      "@type": "Person",
+      "@id": "https://pryhonov.com/#person",
+      "name": "Влад Пригонов",
+      "alternateName": [
+        "Vlad Pryhonov",
+        "Владислав Пригонов"
+      ],
+      "jobTitle": "Веб-розробник",
+      "url": "https://pryhonov.com/",
+      "image": "https://pryhonov.com/img/vlad-about-1000.webp",
+      "telephone": "+380970877657",
+      "knowsLanguage": "uk",
+      "knowsAbout": [
+        "Створення сайтів",
+        "Лендінги",
+        "Інтернет-магазини",
+        "Сайти для малого бізнесу",
+        "Конверсія сайту"
+      ],
+      "sameAs": [
+        "https://t.me/vvladdos_ik",
+        "https://www.instagram.com/vvladdos.ik/",
+        "https://www.threads.com/@vvladdos.ik",
+        "https://www.linkedin.com/in/vlad-prigonov/"
+      ],
+      "worksFor": {
+        "@id": "https://pryhonov.com/#service"
+      }
+    },
+    {
       "@type": "ProfessionalService",
       "@id": "https://pryhonov.com/#service",
-      "name": "Vlad Pryhonov: сайти для малого бізнесу",
+      "name": "Vlad Pryhonov: створення сайтів для малого бізнесу",
       "url": "https://pryhonov.com/",
-      "image": "https://pryhonov.com/img/og-cover.jpg",
-      "description": "Розробка сайтів для малого бізнесу. Безкоштовний перший екран за 24 години після брифу, повний сайт від 7 днів.",
-      "areaServed": "UA",
-      "founder": { "@type": "Person", "name": "Влад Пригонов", "sameAs": ["https://t.me/vvladdos_ik", "https://www.instagram.com/vvladdos.ik/", "https://www.threads.com/@vvladdos.ik", "https://www.linkedin.com/in/vlad-prigonov/"] },
+      "logo": "https://pryhonov.com/img/icon-512.png",
+      "image": "https://pryhonov.com/img/og-cover-2.jpg",
+      "description": "Створення сайтів і лендінгів для малого бізнесу. Безкоштовний перший екран за 24 години після брифу, повний сайт від 7 днів, оплата після результату.",
+      "serviceType": "Розробка сайтів і лендінгів",
+      "areaServed": {
+        "@type": "Country",
+        "name": "Україна"
+      },
+      "availableLanguage": "uk",
+      "priceRange": "від $600",
+      "telephone": "+380970877657",
+      "founder": {
+        "@id": "https://pryhonov.com/#person"
+      },
+      "sameAs": [
+        "https://t.me/vvladdos_ik",
+        "https://www.instagram.com/vvladdos.ik/",
+        "https://www.threads.com/@vvladdos.ik",
+        "https://www.linkedin.com/in/vlad-prigonov/"
+      ],
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "contactType": "customer support",
+        "telephone": "+380970877657",
+        "url": "https://t.me/vvladdos_ik",
+        "availableLanguage": "uk"
+      },
       "makesOffer": [
-        { "@type": "Offer", "name": "Сайт, тариф «Швидкий» (код + AI)", "priceCurrency": "USD", "price": "600", "description": "Лендинг від $600, багатосторінковий сайт від $1000, від 7 днів" },
-        { "@type": "Offer", "name": "Сайт, тариф «Особистий» (вручну)", "priceCurrency": "USD", "price": "800", "description": "Лендинг від $800, багатосторінковий сайт від $1300, від 14 днів" }
+        {
+          "@type": "Offer",
+          "name": "Сайт, тариф «Швидкий» (код + AI-інструменти)",
+          "url": "https://pryhonov.com/#price",
+          "priceCurrency": "USD",
+          "price": "600",
+          "priceSpecification": {
+            "@type": "PriceSpecification",
+            "priceCurrency": "USD",
+            "minPrice": 600
+          },
+          "description": "Лендінг на 1 сторінку від $600, багатосторінковий сайт з каталогом від $1000, від 7 днів. Кожен блок перевіряє розробник.",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Створення сайту, тариф «Швидкий»"
+          }
+        },
+        {
+          "@type": "Offer",
+          "name": "Сайт, тариф «Особистий» (вручну, без AI)",
+          "url": "https://pryhonov.com/#price",
+          "priceCurrency": "USD",
+          "price": "800",
+          "priceSpecification": {
+            "@type": "PriceSpecification",
+            "priceCurrency": "USD",
+            "minPrice": 800
+          },
+          "description": "Лендінг на 1 сторінку від $800, багатосторінковий сайт з каталогом від $1300, від 14 днів. Замовник сам змінює тексти, ціни й фото.",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Створення сайту, тариф «Особистий»"
+          }
+        }
       ]
     },
     {
+      "@type": "WebPage",
+      "@id": "https://pryhonov.com/#webpage",
+      "url": "https://pryhonov.com/",
+      "name": "Створення сайтів для малого бізнесу від $600 – Vlad Pryhonov",
+      "inLanguage": "uk",
+      "isPartOf": {
+        "@id": "https://pryhonov.com/#website"
+      },
+      "about": {
+        "@id": "https://pryhonov.com/#service"
+      },
+      "primaryImageOfPage": {
+        "@type": "ImageObject",
+        "url": "https://pryhonov.com/img/og-cover-2.jpg",
+        "width": 1200,
+        "height": 630
+      },
+      "dateModified": "2026-11-16"
+    },
+    {
       "@type": "FAQPage",
+      "@id": "https://pryhonov.com/#faq",
+      "isPartOf": {
+        "@id": "https://pryhonov.com/#webpage"
+      },
+      "inLanguage": "uk",
       "mainEntity": [
-        { "@type": "Question", "name": "Чому перший екран безкоштовний?", "acceptedAnswer": { "@type": "Answer", "text": "Це чесний спосіб показати підхід до роботи ще до того, як ви щось платите. Якщо не сподобається, нічого не втрачаєте. На етапі першого екрана я враховую 1–2 раунди правок." } },
-        { "@type": "Question", "name": "Скільки коштує сайт?", "acceptedAnswer": { "@type": "Answer", "text": "Залежить від тарифу. «Особистий» (вручну, від 14 днів): від $800 за односторінковий лендинг і від $1300 за багатосторінковий сайт. «Швидкий» (код + AI, від 7 днів): від $600 і від $1000 відповідно. Точну суму називаю після короткого брифу, вона фіксується одразу." } },
-        { "@type": "Question", "name": "Сайт буде моїм?", "acceptedAnswer": { "@type": "Answer", "text": "Так. Домен і хостинг оформлюються на ваше ім'я (або прив'язуються до вже наявного у вас домену). Я лише налаштовую їх і передаю повний доступ після здачі проєкту." } },
-        { "@type": "Question", "name": "Чи буде сайт видно в Google?", "acceptedAnswer": { "@type": "Answer", "text": "Так, сайт одразу готується так, щоб Google міг його індексувати: правильна структура, мета-теги, швидке завантаження. Потрапляння на перші позиції за конкретні запити це окрема, довша робота з просування." } }
+        {
+          "@type": "Question",
+          "name": "Чому перший екран безкоштовний?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Це чесний спосіб показати підхід до роботи ще до того, як ви щось платите. Якщо не сподобається, нічого не втрачаєте. На етапі першого екрана я враховую 1–2 раунди правок."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Скільки коштує сайт?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Залежить від тарифу. «Особистий» (вручну, від 14 днів): від $800 за односторінковий лендінг і від $1300 за багатосторінковий сайт. «Швидкий» (код + AI, від 7 днів): від $600 і від $1000 відповідно. Точну суму називаю після короткого брифу, вона фіксується одразу."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Скільки триває розробка?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Залежить від тарифу. «Особистий» від 14 днів: я особисто збираю сайт під ваш бізнес. «Швидкий» від 7 днів: частину розробки прискорюють AI-інструменти, а кожен блок я перевіряю особисто."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Чим відрізняються «Особистий» і «Швидкий»?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "«Особистий»: я особисто збираю сайт на платформі-конструкторі з нуля під ваш бізнес. Це кастомна структура й дизайн, а не готовий шаблон, і ви самі можете змінювати зміст. «Швидкий»: я збираю сайт кодом, AI-інструменти прискорюють частину роботи, а результат я так само перевіряю й допрацьовую. Швидше й дешевше, з тим самим підходом."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Чи зможу я сам редагувати сайт після запуску?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "На тарифі «Особистий» так: сайт робиться на конструкторі саме для того, щоб ви могли змінювати текст, ціни й фото без звернення до розробника. Я покажу, як це робити, при передачі проєкту. На тарифі «Швидкий» дрібні правки після здачі роблю я. Це компроміс заради швидшого терміну й нижчої ціни."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Сайт буде моїм?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Так. Домен і хостинг оформлюються на ваше ім'я (або прив'язуються до вже наявного у вас домену). Я лише налаштовую їх і передаю повний доступ після здачі проєкту. Залежності від мене для подальшого володіння сайтом немає."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Чи буде сайт видно в Google?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Так, сайт одразу готується так, щоб Google міг його індексувати: правильна структура, мета-теги, швидке завантаження. Потрапляння на перші позиції за конкретні запити це окрема, довша робота з просування, яку можна обговорити додатково."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Що якщо сайт не приносить заявок після запуску?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Розберемо структуру й форму разом, і я безкоштовно внесу правки, якщо проблема на боці сайту. Кількість і якість трафіку це окрема від сайту змінна, яку я не контролюю."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Можу подивитись ще приклади робіт?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Так. Вище на сторінці є демо-проєкти для різних ніш, а під ваш тип бізнесу я покажу приклади структури ще на брифі."
+          }
+        }
       ]
     }
   ]
@@ -322,7 +523,7 @@
         <ul class="about__points">
           <li>Пишу й відповідаю особисто, без менеджерів і чат-ботів</li>
           <li>Свідомо не беру багато клієнтів одночасно, щоб кожному проєкту вистачало уваги</li>
-          <li>Роблю сайти для малого бізнесу: магазини, послуги, особисті бренди</li>
+          <li>Створюю сайти й лендінги для малого бізнесу: магазини, послуги, особисті бренди</li>
         </ul>
         <ul class="social" aria-label="Де мене знайти">
           <li><a href="https://t.me/vvladdos_ik" target="_blank" rel="noopener" aria-label="Telegram" data-track="telegram_click"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19.5 4L1.5 11l6 2.2L9.5 20l3-4 5 3.8z"/><path d="M7.5 13.2L17.5 6.5"/></svg></a></li>
@@ -357,7 +558,7 @@
           <h3>Особистий</h3>
           <p class="plan__how">Вручну, без AI, на конструкторі</p>
           <dl class="plan__prices">
-            <div><dt>Лендинг на 1 сторінку</dt><dd>від $800</dd></div>
+            <div><dt>Лендінг на 1 сторінку</dt><dd>від $800</dd></div>
             <div><dt>Багатосторінковий сайт з каталогом</dt><dd>від $1300</dd></div>
           </dl>
           <p class="plan__term">Від 14 днів</p>
@@ -371,7 +572,7 @@
           <h3>Швидкий</h3>
           <p class="plan__how">Код + AI-інструменти, кожен блок перевіряю я</p>
           <dl class="plan__prices">
-            <div><dt>Лендинг на 1 сторінку</dt><dd>від $600</dd></div>
+            <div><dt>Лендінг на 1 сторінку</dt><dd>від $600</dd></div>
             <div><dt>Багатосторінковий сайт з каталогом</dt><dd>від $1000</dd></div>
           </dl>
           <p class="plan__term">Від 7 днів</p>
@@ -402,7 +603,7 @@
         </details>
         <details name="faq" class="qa chamfer chamfer-sm">
           <summary>Скільки коштує сайт?</summary>
-          <p>Залежить від тарифу. «Особистий» (вручну, від 14 днів): від $800 за односторінковий лендинг і від $1300 за багатосторінковий сайт. «Швидкий» (код + AI, від 7 днів): від $600 і від $1000 відповідно. Точну суму називаю після короткого брифу, вона фіксується одразу.</p>
+          <p>Залежить від тарифу. «Особистий» (вручну, від 14 днів): від $800 за односторінковий лендінг і від $1300 за багатосторінковий сайт. «Швидкий» (код + AI, від 7 днів): від $600 і від $1000 відповідно. Точну суму називаю після короткого брифу, вона фіксується одразу.</p>
         </details>
         <details name="faq" class="qa chamfer chamfer-sm">
           <summary>Скільки триває розробка?</summary>

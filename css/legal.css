@@ -20,3 +20,7 @@ body { background: var(--forest); }
 .legal__table li { display: grid; gap: 2px; padding: var(--sp-4); background: var(--forest-raised); }
 .legal__table b { font-family: var(--font-mono); font-weight: 500; color: var(--jungle); }
 .legalfoot { padding-block: var(--sp-6); border-top: 1px solid var(--line); color: var(--ink-mute); font-size: var(--fs-small); }
+
+.legalfoot a { color: var(--jungle); text-decoration: underline; text-underline-offset: 3px; }
+
+.legal a.btn { color: var(--on-orange); text-decoration: none; }

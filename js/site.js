@@ -152,6 +152,7 @@
   function send(payload) {
     payload.userAgent = navigator.userAgent;
     payload.fbp = cookie('_fbp'); payload.fbc = cookie('_fbc');
+    try { payload.analytics = localStorage.getItem('cookieConsent') === 'accepted'; } catch (e) { payload.analytics = false; }   // згода на рекламну аналітику: сервер за нею вирішує, чи слати Lead у Meta CAPI
     if (!IS_PROD) { console.info('[dev] заявка НЕ відправлена (не бойовий домен):', payload); return; }
     fetch(CFG.sheetUrl, { method: 'POST', mode: 'no-cors', headers: { 'Content-Type': 'text/plain' }, body: JSON.stringify(payload) }).catch(function () { /* без блокування UI */ });
   }
@@ -159,8 +160,8 @@
 
   /* ---------- Крок 1: контакт ---------- */
   var form = $('leadForm'), lead = null;
-  function validTelegram(v) { return /^@?[a-zA-Z0-9_]{4,}$/.test(v); }
-  function validPhone(v) { return (v.match(/\d/g) || []).length >= 6 && !/[^\d\s()+\-]/.test(v); }
+  function validTelegram(v) { return /^@?[a-zA-Z0-9_]{4,32}$/.test(v); }           // 32 – максимум юзернейма в Telegram; збігається з перевіркою на сервері
+  function validPhone(v) { var n = (v.match(/\d/g) || []).length; return n >= 6 && n <= 13 && !/[^\d\s()+\-]/.test(v); }
   /* Міжнародний вигляд: люди пишуть 097…, +380 97… або 380 97… – у всіх випадках має вийти +380971234567, а не +3800971234567 чи +380380971234567 */
   var TRUNK0 = { '+380': 1, '+44': 1, '+49': 1 };       // країни зі стартовим 0 у національному номері
   function normalizePhone(code, raw) {
@@ -175,7 +176,7 @@
     var tv = tg.value.trim(), pv = ph.value.trim(), msg = '';
     var tgBad = tv && !validTelegram(tv), phBad = pv && !validPhone(pv);
     if (!tv && !pv) msg = 'Вкажіть Telegram або телефон для зв\'язку';
-    else if (phBad) msg = /[^\d\s()+\-]/.test(pv) ? 'Перевірте номер телефону: мають бути лише цифри' : 'Номер занадто короткий: перевірте, чи всі цифри вписані';
+    else if (phBad) msg = /[^\d\s()+\-]/.test(pv) ? 'Перевірте номер телефону: мають бути лише цифри' : ((pv.match(/\d/g) || []).length > 13 ? 'Номер занадто довгий: перевірте, чи немає зайвих цифр' : 'Номер занадто короткий: перевірте, чи всі цифри вписані');
     else if (tgBad) msg = 'Перевірте Telegram: схоже, юзернейм неповний';
     tg.setAttribute('aria-invalid', (tgBad || (!tv && !pv)) ? 'true' : 'false'); ph.setAttribute('aria-invalid', (phBad || (!tv && !pv)) ? 'true' : 'false');
     err.textContent = msg;

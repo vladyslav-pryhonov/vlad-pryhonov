@@ -1,4 +1,31 @@
+# pryhonov.com: сайт відкритий для пошуку й для AI-асистентів, які рекомендують виконавців.
 User-agent: *
+Allow: /
+
+# AI-пошук і асистенти (цитують сайт у відповідях): дозволено
+User-agent: OAI-SearchBot
+Allow: /
+User-agent: ChatGPT-User
+Allow: /
+User-agent: PerplexityBot
+Allow: /
+User-agent: Perplexity-User
+Allow: /
+User-agent: Claude-SearchBot
+Allow: /
+User-agent: Claude-User
+Allow: /
+User-agent: Google-Extended
+Allow: /
+User-agent: Applebot-Extended
+Allow: /
+
+# Навчальні краулери: також дозволено (щоб моделі знали про сайт). Щоб заборонити, замініть Allow на Disallow
+User-agent: GPTBot
+Allow: /
+User-agent: ClaudeBot
+Allow: /
+User-agent: CCBot
 Allow: /
 
 Sitemap: https://pryhonov.com/sitemap.xml
