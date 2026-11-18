@@ -307,6 +307,19 @@
 .chip.tpick__btn[aria-pressed="true"], .chip.tpick__btn[aria-pressed="true"]:hover { background: var(--jungle); color: var(--on-jungle); }
 .tpick__price { font-family: var(--font-mono); font-weight: 500; color: var(--ink-soft); }
 .tpick__btn[aria-pressed="true"] .tpick__price { color: var(--on-jungle); }
+/* Видно, що це вибір: радіо-індикатор зліва (як у тарифах hero; працює й на телефоні, де ховера нема) + помітний ховер і натискання */
+.chip.tpick__btn { position: relative; padding-left: 2.25rem; }
+.chip.tpick__btn::after {
+  content: ""; position: absolute; left: var(--sp-3); top: 50%; width: 14px; height: 14px; margin-top: -7px; border-radius: 50%;
+  border: 1.5px solid var(--ink-mute); transition: border-color var(--t-base) var(--ease-out), background-color var(--t-base) var(--ease-out), box-shadow var(--t-base) var(--ease-out);
+}
+.chip.tpick__btn[aria-pressed="true"]::after { border-color: var(--on-jungle); background: var(--on-jungle); box-shadow: inset 0 0 0 2.5px var(--jungle); }
+@media (hover: hover) {
+  .chip.tpick__btn[aria-pressed="false"]:hover { background: color-mix(in srgb, var(--jungle) 30%, var(--forest-line)); color: var(--ink); }
+  .chip.tpick__btn[aria-pressed="false"]:hover::after { border-color: var(--jungle); }
+  .cswitch__btn[aria-pressed="false"]:hover { background: color-mix(in srgb, var(--jungle) 30%, var(--forest-line)); }
+}
+.chip.tpick__btn[aria-pressed="false"]:active, .cswitch__btn[aria-pressed="false"]:active { background: color-mix(in srgb, var(--jungle) 30%, var(--forest-line)); }
 /* Перемикач контакту «Telegram | Телефон» (показується лише на мобільному; від 760 px обидва поля стоять поруч з «або») */
 .cswitch { display: grid; gap: var(--sp-2); }
 .cswitch__lbl { font-size: var(--fs-label); color: var(--ink-soft); }
@@ -320,7 +333,6 @@
 }
 .cswitch__btn[aria-pressed="true"] { background: var(--jungle); color: var(--on-jungle); }
 .cswitch__btn:focus-visible { clip-path: none; outline: 2px solid var(--focus); outline-offset: 3px; }
-@media (hover: hover) { .cswitch__btn[aria-pressed="false"]:hover { background: var(--forest-raised); } }
 @media (min-width: 760px) { .cswitch { display: none; } }
 
 /* Мобільна форма: коротша на вигляд. Підписи полів лишаються для скрінрідерів (візуально ховаємо, роль виконують плейсхолдери й перемикач),
@@ -351,7 +363,7 @@
   .formcard .field-error:empty { display: none; }
   .tpick { gap: var(--sp-2); }
   .tpick legend { margin-bottom: var(--sp-1); }
-  .chip.tpick__btn { flex-direction: column; align-items: center; justify-content: center; gap: 0; min-height: 52px; padding: 0.4rem var(--sp-3); line-height: 1.25; text-align: center; }
+  .chip.tpick__btn { flex-direction: column; align-items: center; justify-content: center; gap: 0; min-height: 52px; padding: 0.4rem var(--sp-3) 0.4rem 2.25rem; line-height: 1.25; text-align: center; }
   .tpick__price { white-space: nowrap; font-size: var(--fs-label); }
   .consent { font-size: var(--fs-label); line-height: 1.4; gap: var(--sp-2); }
   .formcard__fine { font-size: var(--fs-label); }
