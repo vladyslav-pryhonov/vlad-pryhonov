@@ -17,6 +17,21 @@
     items.forEach(function (el, i) { el.style.transitionDelay = (i % 3) * 80 + 'ms'; io.observe(el); });
   }
 
+  /* ---------- Картки «Що ви отримуєте» (мобільний вигляд, css/sections.css): кожна з'являється окремо, коли доходить до екрана ---------- */
+  var valueCards = document.querySelectorAll('.values li');
+  if (valueCards.length) {
+    if (!('IntersectionObserver' in window) || window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      valueCards.forEach(function (el) { el.classList.add('is-in'); });
+    } else {
+      var vio = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          if (e.isIntersecting) { e.target.classList.add('is-in'); vio.unobserve(e.target); }
+        });
+      }, { rootMargin: '0px 0px -12% 0px', threshold: 0.15 });
+      valueCards.forEach(function (el) { vio.observe(el); });
+    }
+  }
+
   /* ---------- Жива лінія процесу: іскра й спалахи вузлів грають, лише поки блок у кадрі ---------- */
   var steps = document.querySelector('.steps');
   if (steps && 'IntersectionObserver' in window) {
