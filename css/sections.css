@@ -86,6 +86,33 @@
 .values li::before { content: ""; position: absolute; left: 0; top: 0.55em; width: 10px; height: 10px; background: var(--jungle); clip-path: polygon(50% 0, 100% 50%, 50% 100%, 0 50%); }
 .values b { font-size: var(--fs-lead); line-height: 1.25; font-weight: 600; color: var(--ink); }
 .values span { color: var(--ink-soft); }
+/* Мобільний: пункти – стопка карток. Кожна «прилипає» під шапкою з власним зсувом (--i), тож нова картка наїжджає на попередню,
+   а зверху лишається смужка з номером кожної. Тексту багато, тому подаємо його по одній картці, а не суцільним списком.
+   sticky працює, бо в предках лише overflow-x: clip (він не створює контейнер прокрутки). */
+@media (max-width: 759px) {
+  .values { gap: 0; counter-reset: val; margin-bottom: calc(var(--sp-9) + var(--sp-5)); }
+  .values li {
+    --c: var(--chamfer);
+    position: sticky; top: calc(var(--header-h) + var(--sp-4) + var(--i, 0) * 1.25rem);
+    margin-bottom: var(--sp-4); padding: var(--sp-4) var(--sp-5) var(--sp-4);
+    isolation: isolate; background: var(--forest-line); counter-increment: val;
+    clip-path: polygon(var(--c) 0, calc(100% - var(--c)) 0, 100% var(--c), 100% calc(100% - var(--c)), calc(100% - var(--c)) 100%, var(--c) 100%, 0 calc(100% - var(--c)), 0 var(--c));
+  }
+  .values li:last-child { margin-bottom: 0; }
+  .values li::before {                       /* внутрішній шар: непрозорий, щоб картка повністю закривала попередні */
+    left: 0; top: 0; width: auto; height: auto; inset: 1.5px; z-index: -1;
+    background: var(--forest-raised); clip-path: var(--inner);
+  }
+  .values li::after {                        /* номер у верхньому правому куті: саме він видно зі смужки під наступною карткою */
+    content: counter(val, decimal-leading-zero) " / 09";
+    position: absolute; top: 0.4rem; right: calc(var(--c) + 0.25rem);
+    font-family: var(--font-mono); font-size: 0.75rem; line-height: 1; color: var(--jungle);
+  }
+  .values li:nth-child(1) { --i: 0; } .values li:nth-child(2) { --i: 1; } .values li:nth-child(3) { --i: 2; }
+  .values li:nth-child(4) { --i: 3; } .values li:nth-child(5) { --i: 4; } .values li:nth-child(6) { --i: 5; }
+  .values li:nth-child(7) { --i: 6; } .values li:nth-child(8) { --i: 7; } .values li:nth-child(9) { --i: 8; }
+  .values b { padding-top: var(--sp-2); }    /* місце під номер, щоб заголовок не наїжджав на смужку */
+}
 /* Швидкість: цифри цього сайту (PageSpeed); картки в мові тарифів: підкладка + внутрішній шар */
 .speed { margin: 0 0 var(--sp-9); }
 .speed__lead { margin: 0 0 var(--sp-5); max-width: 46rem; color: var(--ink-soft); }
@@ -269,7 +296,35 @@
 .chip.tpick__btn[aria-pressed="true"], .chip.tpick__btn[aria-pressed="true"]:hover { background: var(--jungle); color: var(--on-jungle); }
 .tpick__price { font-family: var(--font-mono); font-weight: 500; color: var(--ink-soft); }
 .tpick__btn[aria-pressed="true"] .tpick__price { color: var(--on-jungle); }
-@media (max-width: 380px) { .chip.tpick__btn { flex-direction: column; align-items: flex-start; justify-content: center; gap: 0; } }
+/* Перемикач контакту «Telegram | Телефон» (показується лише на мобільному; від 760 px обидва поля стоять поруч з «або») */
+.cswitch { display: grid; gap: var(--sp-2); }
+.cswitch__lbl { font-size: var(--fs-small); color: var(--ink-soft); }
+.cswitch__track { display: grid; grid-template-columns: 1fr 1fr; gap: 3px; padding: 3px; background: var(--forest-deep); border: 1.5px solid var(--forest-line); border-radius: var(--radius); }
+.cswitch__btn { min-height: 42px; padding: 0 var(--sp-3); border-radius: calc(var(--radius) - 2px); font-size: var(--fs-small); font-weight: 600; color: var(--ink-soft); transition: background-color var(--t-base) var(--ease-out), color var(--t-base) var(--ease-out); }
+.cswitch__btn[aria-pressed="true"] { background: var(--jungle); color: var(--on-jungle); }
+.cswitch__btn:focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; }
+@media (hover: hover) { .cswitch__btn[aria-pressed="false"]:hover { color: var(--ink); } }
+@media (min-width: 760px) { .cswitch { display: none; } }
+
+/* Мобільна форма: коротша на вигляд. Підписи полів лишаються для скрінрідерів (візуально ховаємо, роль виконують плейсхолдери й перемикач),
+   відступи менші, тарифи – ціна під назвою (раніше «від» і «$800» розʼїжджались на два рядки). */
+@media (max-width: 759px) {
+  .formcard { padding: var(--sp-5) var(--sp-4); }
+  .formcard__head { margin-bottom: var(--sp-4); padding-bottom: var(--sp-3); gap: var(--sp-2) var(--sp-3); }
+  .formcard form { gap: var(--sp-3); }
+  .formcard .field > label { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+  .contact-pair { gap: var(--sp-3); }
+  .contact-pair__or { display: none; }
+  .contact-pair[data-mode="tg"] .field--ph, .contact-pair[data-mode="ph"] .field--tg { display: none; }
+  .control { min-height: 48px; }
+  .formcard .field-error:empty { display: none; }
+  .tpick { gap: var(--sp-2); }
+  .tpick legend { margin-bottom: var(--sp-1); }
+  .chip.tpick__btn { flex-direction: column; align-items: flex-start; justify-content: center; gap: 0; min-height: 54px; padding: 0.4rem var(--sp-4); line-height: 1.25; }
+  .tpick__price { white-space: nowrap; font-size: var(--fs-label); }
+  .consent { font-size: var(--fs-label); line-height: 1.4; gap: var(--sp-2); }
+  .formcard__fine { font-size: var(--fs-label); }
+}
 .details__done { margin: 0; color: var(--jungle); font-weight: 600; }
 
 /* ---------- Підвал ---------- */

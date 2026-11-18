@@ -201,12 +201,29 @@
     });
     $('fConsent').addEventListener('change', function () { $('fConsentError').textContent = ''; });
 
+    /* Мобільний перемикач контакту «Telegram | Телефон»: показує одне поле, друге при перемиканні очищається
+       (щоб у прихованому полі не лишилось значення, яке користувач не бачить). Від 760 px CSS показує обидва поля. */
+    var cpair = $('contactPair');
+    if (cpair) {
+      cpair.querySelectorAll('[data-cmode]').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          var mode = btn.getAttribute('data-cmode');
+          if (cpair.getAttribute('data-mode') === mode) return;
+          cpair.setAttribute('data-mode', mode);
+          cpair.querySelectorAll('[data-cmode]').forEach(function (b) { b.setAttribute('aria-pressed', b === btn ? 'true' : 'false'); });
+          var other = $(mode === 'tg' ? 'fPhone' : 'fTelegram'), shown = $(mode === 'tg' ? 'fTelegram' : 'fPhone');
+          other.value = ''; other.setAttribute('aria-invalid', 'false'); $('fContactError').textContent = '';
+          shown.focus();
+        });
+      });
+    }
+
     form.addEventListener('submit', function (e) {
       e.preventDefault();
       var okContact = checkContact();
       var okConsent = $('fConsent').checked;
       $('fConsentError').textContent = okConsent ? '' : 'Потрібна згода на обробку даних, щоб відправити заявку';
-      if (!okContact) { $('fTelegram').focus(); return; }
+      if (!okContact) { ($('fTelegram').offsetParent === null ? $('fPhone') : $('fTelegram')).focus(); return; }   // на мобільному Telegram-поле може бути сховане перемикачем
       if (!okConsent) { $('fConsent').focus(); return; }
 
       var tooFast = Date.now() - loadedAt < 3000, tries = +(read('leadTries') || 0);

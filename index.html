@@ -142,7 +142,7 @@
             "priceCurrency": "USD",
             "minPrice": 600
           },
-          "description": "Лендінг на 1 сторінку від $600, багатосторінковий сайт з каталогом від $1000, від 7 днів. Кожен блок перевіряє розробник.",
+          "description": "Лендінг на 1 сторінку від $600, багатосторінковий сайт до 5 сторінок від $1000, від 7 днів. Кожен блок перевіряє розробник.",
           "itemOffered": {
             "@type": "Service",
             "name": "Створення сайту, тариф «Швидкий»"
@@ -159,7 +159,7 @@
             "priceCurrency": "USD",
             "minPrice": 800
           },
-          "description": "Лендінг на 1 сторінку від $800, багатосторінковий сайт з каталогом від $1300, від 14 днів. Замовник сам змінює тексти, ціни й фото.",
+          "description": "Лендінг на 1 сторінку від $800, багатосторінковий сайт до 5 сторінок від $1300, від 14 днів. Замовник сам змінює тексти, ціни й фото.",
           "itemOffered": {
             "@type": "Service",
             "name": "Створення сайту, тариф «Особистий»"
@@ -306,7 +306,8 @@
 
     <div class="wrap hero__inner">
       <div class="hero__copy">
-        <h1 class="hero__title" id="hero-title" data-split data-intro>Отримайте <em>безкоштовний перший екран</em> вашого&nbsp;сайту за&nbsp;24&nbsp;години після&nbsp;брифу</h1>
+        <p class="queue-badge" id="queueBadge" role="status" data-intro hidden></p>
+        <h1 class="hero__title" id="hero-title" data-split data-intro>Отримайте <em>безкоштовний перший екран</em> вашого&nbsp;сайту <span data-queue-text="за&nbsp;{days} після&nbsp;брифу">за&nbsp;24&nbsp;години після&nbsp;брифу</span></h1>
         <p class="hero__lead" data-intro>Оцінюєте підхід ще до оплати. Далі – повний сайт під ваш бізнес, який перетворює рекламу на заявки.</p>
 
         <div class="hero__actions" data-intro>
@@ -451,15 +452,6 @@
           <p>Фіксована ціна в договорі, гарантія і кошторис за 24 години: знімає страх, що ціна «попливе».</p>
           <a class="demo__link" href="https://vladyslav-pryhonov.github.io/buddim-demo/" target="_blank" rel="noopener">Дивитись демо ↗<span class="sr-only"> «БудДім»</span></a>
         </li>
-        <li class="demo chamfer reveal">
-          <a class="demo__shot" href="https://monvision.tilda.ws" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">
-            <img src="img/case/demo-monvision.webp" width="1000" height="576" loading="lazy" alt="">
-          </a>
-          <div class="demo__meta"><span class="demo__tag">Демо</span><span class="label">Відеоспостереження</span></div>
-          <h3>MonVision</h3>
-          <p>Процес крок за кроком і гарантія: знімають сумніви ще до дзвінка менеджеру.</p>
-          <a class="demo__link" href="https://monvision.tilda.ws" target="_blank" rel="noopener">Дивитись демо ↗<span class="sr-only"> «MonVision»</span></a>
-        </li>
       </ul>
     </div>
   </section>
@@ -482,8 +474,8 @@
         <li class="step step--hook">
           <span class="step__node" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M9 9v11"/></svg></span>
           <h3>Перший екран</h3>
-          <span class="step__tag">Безкоштовно · 24 години</span>
-          <p>Через 24 години після брифу ви бачите стиль і підхід ще до оплати та угоди.</p>
+          <span class="step__tag" data-queue-text="Безкоштовно · {days}">Безкоштовно · 24 години</span>
+          <p data-queue-text="Через {days} після брифу ви бачите стиль і підхід ще до оплати та угоди.">Через 24 години після брифу ви бачите стиль і підхід ще до оплати та угоди.</p>
           <p class="step__meta">1–2 раунди правок</p>
         </li>
         <li class="step">
@@ -501,7 +493,7 @@
       </ol>
 
       <div class="process__cta reveal">
-        <p>Почніть із першого екрана: безкоштовно, за 24 години після брифу, без зобов'язань.</p>
+        <p data-queue-text="Почніть із першого екрана: безкоштовно, за {days} після брифу, без зобов'язань.">Почніть із першого екрана: безкоштовно, за 24 години після брифу, без зобов'язань.</p>
         <a class="btn btn--primary" href="#contact" data-track="cta_process">Отримати перший екран</a>
       </div>
     </div>
@@ -576,12 +568,13 @@
           <p class="plan__how">Вручну, без AI, на конструкторі</p>
           <dl class="plan__prices">
             <div><dt>Лендінг на 1 сторінку</dt><dd>від $800</dd></div>
-            <div><dt>Багатосторінковий сайт з каталогом</dt><dd>від $1300</dd></div>
+            <div><dt>Багатосторінковий сайт (до 5 сторінок)</dt><dd>від $1300</dd></div>
           </dl>
           <p class="plan__term">Від 14 днів</p>
           <ul class="plan__list">
             <li>Кастомна структура і дизайн, не шаблон</li>
             <li>Ви самі змінюєте тексти, ціни й фото: я покажу, як</li>
+            <li>Платформу підбираємо під задачу: Weblium, WordPress, Shopify, Wix, Framer, Horoshop та інші</li>
           </ul>
           <button type="button" class="btn btn--ghost btn--sm plan__pick" data-pick="personal" aria-pressed="false">Обрати цей тариф</button>
         </article>
@@ -590,7 +583,7 @@
           <p class="plan__how">Код + AI-інструменти, кожен блок перевіряю я</p>
           <dl class="plan__prices">
             <div><dt>Лендінг на 1 сторінку</dt><dd>від $600</dd></div>
-            <div><dt>Багатосторінковий сайт з каталогом</dt><dd>від $1000</dd></div>
+            <div><dt>Багатосторінковий сайт (до 5 сторінок)</dt><dd>від $1000</dd></div>
           </dl>
           <p class="plan__term">Від 7 днів</p>
           <ul class="plan__list">
@@ -672,11 +665,11 @@
     <div class="wrap contact">
       <div class="contact__copy reveal">
         <h2 id="contact-title">Отримайте свій <em>перший екран</em> безкоштовно</h2>
-        <p class="contact__lead">Залиште контакт: я напишу вам або зателефоную, коротко розпитаю про бізнес (10–15 хвилин), і за 24 години після цього ви побачите перший екран.</p>
+        <p class="contact__lead" data-queue-text="Залиште контакт: я напишу вам або зателефоную, коротко розпитаю про бізнес (10–15 хвилин), і за {days} після цього ви побачите перший екран. Зараз у мене черга: нові проєкти беру з {from}.">Залиште контакт: я напишу вам або зателефоную, коротко розпитаю про бізнес (10–15 хвилин), і за 24 години після цього ви побачите перший екран.</p>
         <p class="contact__direct">Або одразу в Telegram: <a href="https://t.me/vvladdos_ik" target="_blank" rel="noopener" data-track="telegram_click">@vvladdos_ik</a></p>
         <ul class="contact__facts">
           <li><b>10–15 хв</b><span>короткий бриф, без анкет на 50 питань</span></li>
-          <li><b>24 год</b><span>до першого екрана після брифу</span></li>
+          <li><b data-queue-text="{days}">24 год</b><span>до першого екрана після брифу</span></li>
           <li><b>1</b><span>розробник на зв'язку, без менеджерів</span></li>
         </ul>
       </div>
@@ -686,20 +679,28 @@
           <div class="formcard__head"><span class="formcard__badge">Безкоштовно</span><p>Заявка займає хвилину, без оплати і зобов'язань</p></div>
           <form id="leadForm" novalidate>
             <div class="field">
-              <label for="fName">Ім'я <span class="opt">(необов'язково)</span></label>
+              <label for="fName">Ім'я</label>
               <div class="control">
-                <input id="fName" name="name" autocomplete="given-name" placeholder="Як до вас звертатись">
+                <input id="fName" name="name" autocomplete="given-name" placeholder="Ваше ім'я (необов'язково)">
               </div>
             </div>
-            <div class="contact-pair">
-              <div class="field">
+            <!-- Контакт: на мобільному перемикач «Telegram | Телефон» показує одне поле (js/site.js, data-mode); від 760 px обидва поля поруч з «або» -->
+            <div class="contact-pair" id="contactPair" data-mode="tg">
+              <div class="cswitch" role="group" aria-label="Як з вами зв'язатись">
+                <span class="cswitch__lbl">Як з вами зв'язатись?</span>
+                <div class="cswitch__track">
+                  <button type="button" class="cswitch__btn" data-cmode="tg" aria-pressed="true">Telegram</button>
+                  <button type="button" class="cswitch__btn" data-cmode="ph" aria-pressed="false">Телефон</button>
+                </div>
+              </div>
+              <div class="field field--tg">
                 <label for="fTelegram">Telegram</label>
                 <div class="control">
                   <input id="fTelegram" name="telegram" autocomplete="off" placeholder="@username">
                 </div>
               </div>
               <span class="contact-pair__or" aria-hidden="true">або</span>
-              <div class="field">
+              <div class="field field--ph">
                 <label for="fPhone">Телефон</label>
                 <div class="control">
                   <div class="cc" id="cc">
@@ -821,6 +822,7 @@
 
 
 <script src="js/vendor/gsap.min.js" defer></script>
+<script src="js/queue.js" defer></script>
 <script src="js/hero.js" defer></script>
 <script src="js/case.js" defer></script>
 <script src="js/site.js" defer></script>
