@@ -21,7 +21,7 @@
 <meta property="og:locale" content="uk_UA">
 <meta property="og:site_name" content="Vlad Pryhonov">
 <meta property="og:title" content="Безкоштовний перший екран вашого сайту за 24 години після брифу">
-<meta property="og:description" content="Сайти для малого бізнесу, які перетворюють рекламу на заявки. Спершу перший екран безкоштовно, оплата потім.">
+<meta property="og:description" content="Створюю сайти й лендінги для малого бізнесу. Перший екран безкоштовно за 24 години, оплата після результату. Лендінг від $600, запуск від 7 днів.">
 <meta property="og:url" content="https://pryhonov.com/">
 <meta property="og:image" content="https://pryhonov.com/img/og-cover-2.jpg">
 <meta property="og:image:width" content="1200">
@@ -31,9 +31,9 @@
 <meta property="og:image:type" content="image/jpeg">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Безкоштовний перший екран вашого сайту за 24 години після брифу">
-<meta name="twitter:description" content="Сайти для малого бізнесу, які перетворюють рекламу на заявки. Спершу перший екран безкоштовно, оплата потім.">
+<meta name="twitter:description" content="Створюю сайти й лендінги для малого бізнесу. Перший екран безкоштовно за 24 години, оплата після результату. Лендінг від $600, запуск від 7 днів.">
 <link rel="preload" as="font" type="font/woff2" href="fonts/onest-400-cyrillic.woff2" crossorigin>
-<link rel="stylesheet" href="css/fonts.css?v=20261119d">
+<link rel="stylesheet" href="css/fonts.css?v=20261120a">
 <link rel="preload" as="image" href="img/vlad-800.webp" imagesrcset="img/vlad-480.webp 480w, img/vlad-800.webp 800w, img/vlad-928.webp 928w" imagesizes="(min-width: 960px) 720px, 92vw" fetchpriority="high">
 
 <script>
@@ -45,14 +45,14 @@
   /* Якщо js/case.js не завантажився – блоки, що з'являються при прокрутці, показуються через 6 с */
   setTimeout(function () { document.documentElement.classList.add('reveal-fallback'); }, 6000);
 </script>
-<link rel="stylesheet" href="css/tokens.css?v=20261119d">
-<link rel="stylesheet" href="css/base.css?v=20261119d">
-<link rel="stylesheet" href="css/components.css?v=20261119d">
-<link rel="stylesheet" href="css/header.css?v=20261119d">
-<link rel="stylesheet" href="css/hero.css?v=20261119d">
-<link rel="stylesheet" href="css/case.css?v=20261119d">
-<link rel="stylesheet" href="css/process.css?v=20261119d">
-<link rel="stylesheet" href="css/sections.css?v=20261119d">
+<link rel="stylesheet" href="css/tokens.css?v=20261120a">
+<link rel="stylesheet" href="css/base.css?v=20261120a">
+<link rel="stylesheet" href="css/components.css?v=20261120a">
+<link rel="stylesheet" href="css/header.css?v=20261120a">
+<link rel="stylesheet" href="css/hero.css?v=20261120a">
+<link rel="stylesheet" href="css/case.css?v=20261120a">
+<link rel="stylesheet" href="css/process.css?v=20261120a">
+<link rel="stylesheet" href="css/sections.css?v=20261120a">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -133,7 +133,7 @@
         {
           "@type": "Offer",
           "name": "Сайт, тариф «Швидкий» (код + AI-інструменти)",
-          "url": "https://pryhonov.com/#price",
+          "url": "https://pryhonov.com/shvydkyi-tarif/",
           "priceCurrency": "USD",
           "price": "600",
           "priceSpecification": {
@@ -150,7 +150,7 @@
         {
           "@type": "Offer",
           "name": "Сайт, тариф «Особистий» (вручну, без AI)",
-          "url": "https://pryhonov.com/#price",
+          "url": "https://pryhonov.com/osobystyi-tarif/",
           "priceCurrency": "USD",
           "price": "800",
           "priceSpecification": {
@@ -584,7 +584,10 @@
             <li>Ви самі змінюєте тексти, ціни й фото: я покажу, як</li>
             <li>Платформу підбираємо під задачу: Weblium, WordPress, Shopify, Wix, Framer, Horoshop та інші</li>
           </ul>
-          <button type="button" class="btn btn--ghost btn--sm plan__pick" data-pick="personal" aria-pressed="false">Обрати цей тариф</button>
+          <div class="plan__actions">
+            <button type="button" class="btn btn--ghost btn--sm plan__pick" data-pick="personal" aria-pressed="false">Обрати цей тариф</button>
+            <a class="btn btn--ghost btn--sm plan__more" href="osobystyi-tarif/" data-track="plan_more_personal">Докладніше<span class="sr-only"> про тариф «Особистий»</span></a>
+          </div>
         </article>
         <article class="plan chamfer chamfer-sm reveal" data-plan="fast">
           <h3>Швидкий</h3>
@@ -598,7 +601,10 @@
             <li>Швидший запуск і нижча ціна з тим самим підходом</li>
             <li>Дрібні правки після здачі роблю я</li>
           </ul>
-          <button type="button" class="btn btn--ghost btn--sm plan__pick" data-pick="fast" aria-pressed="false">Обрати цей тариф</button>
+          <div class="plan__actions">
+            <button type="button" class="btn btn--ghost btn--sm plan__pick" data-pick="fast" aria-pressed="false">Обрати цей тариф</button>
+            <a class="btn btn--ghost btn--sm plan__more" href="shvydkyi-tarif/" data-track="plan_more_fast">Докладніше<span class="sr-only"> про тариф «Швидкий»</span></a>
+          </div>
         </article>
       </div>
       <div class="plans__foot reveal">
@@ -799,6 +805,9 @@
     <div>
       <a class="footer__brand" href="#top" aria-label="Vlad Pryhonov: на початок сторінки"><img src="img/logo.svg" alt="Vlad Pryhonov" width="111" height="38"></a>
       <p class="footer__tagline">Сайти для малого бізнесу</p>
+      <nav class="footer__pages" aria-label="Сторінки сайту">
+        <a href="shvydkyi-tarif/">Тариф «Швидкий»</a><a href="osobystyi-tarif/">Тариф «Особистий»</a><a href="pershyi-ekran/">Безкоштовний перший екран</a><a href="skilky-koshtuye-sait/">Скільки коштує сайт</a>
+      </nav>
     </div>
     <ul class="social" aria-label="Де мене знайти">
       <li><a href="https://t.me/vvladdos_ik" target="_blank" rel="noopener" aria-label="Telegram" data-track="telegram_click"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19.5 4L1.5 11l6 2.2L9.5 20l3-4 5 3.8z"/><path d="M7.5 13.2L17.5 6.5"/></svg></a></li>
@@ -830,10 +839,10 @@
 
 
 <script src="js/vendor/gsap.min.js" defer></script>
-<script src="js/queue.js?v=20261119d" defer></script>
-<script src="js/hero.js?v=20261119d" defer></script>
-<script src="js/case.js?v=20261119d" defer></script>
-<script src="js/site.js?v=20261119d" defer></script>
+<script src="js/queue.js?v=20261120a" defer></script>
+<script src="js/hero.js?v=20261120a" defer></script>
+<script src="js/case.js?v=20261120a" defer></script>
+<script src="js/site.js?v=20261120a" defer></script>
 
 <dialog class="lightbox" id="lightbox" aria-label="Скрін переписки">
   <button class="lightbox__close" type="button" aria-label="Закрити">&times;</button>

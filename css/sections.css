@@ -174,6 +174,11 @@
 .plan__list { display: grid; gap: var(--sp-2); margin: var(--sp-2) 0 0; padding: 0; list-style: none; font-size: var(--fs-small); }
 /* «Обрати цей тариф»: ghost-кнопка внизу картки; обраний стан – заливка Jungle (оранжевий лишається за CTA) */
 .plan__pick { justify-self: start; margin-top: var(--sp-3); }
+.plan__actions { display: flex; flex-wrap: wrap; align-items: center; gap: var(--sp-3); margin-top: var(--sp-3); }   /* «Обрати» + «Докладніше» (сторінка тарифу) */
+.plan__actions .plan__pick { margin-top: 0; }
+.footer__pages { display: flex; flex-wrap: wrap; gap: var(--sp-1) var(--sp-5); margin-top: var(--sp-4); }
+.footer__pages a { display: inline-flex; align-items: center; min-height: 36px; font-size: var(--fs-small); color: var(--ink-soft); }
+@media (hover: hover) { .footer__pages a:hover { color: var(--jungle); } }
 .plan__pick[aria-pressed="true"], .plan__pick[aria-pressed="true"]:hover { background: var(--jungle); color: var(--on-jungle); }
 .plan__pick[aria-pressed="true"]::before { opacity: 0; }
 .plans__foot { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: var(--sp-4) var(--sp-6); margin-top: var(--sp-6); }

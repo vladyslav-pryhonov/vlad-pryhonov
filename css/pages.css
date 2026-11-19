@@ -1,0 +1,248 @@
+/* ==========================================================================
+   pages.css – внутрішні сторінки: тарифи «Швидкий» і «Особистий», «Безкоштовний перший екран», «Скільки коштує сайт».
+   Використовує ті самі токени й компоненти, що й головна (chamfer-форма, Forest/Jungle/Orange, Onest + Mono для цифр).
+   Нового тут: hero сторінки зі «специфікацією», картки з решіткою, лінія процесу, таблиця порівняння, схема першого екрана, тест вибору тарифу.
+   ========================================================================== */
+
+/* ---------- Шапка внутрішніх сторінок ---------- */
+.site-header.is-scrolled { background: color-mix(in srgb, var(--forest) 84%, transparent); }
+.site-nav a[aria-current="page"], .mobile-menu a[aria-current="page"] { color: var(--jungle); }
+.site-nav { gap: var(--sp-5); }
+
+/* ---------- Хлібні крихти ---------- */
+.crumbs { display: flex; flex-wrap: wrap; gap: 0.25rem 0.5rem; margin: 0 0 var(--sp-5); font-size: var(--fs-label); color: var(--ink-mute); }
+.crumbs li + li::before { content: "›"; margin-right: 0.5rem; color: var(--ink-mute); }
+.crumbs a { display: inline-flex; align-items: center; min-height: 28px; }
+@media (hover: hover) { .crumbs a:hover { color: var(--jungle); } }
+.crumbs [aria-current] { color: var(--ink-soft); }
+
+/* ---------- Hero сторінки ---------- */
+.phero {
+  position: relative; isolation: isolate; overflow-x: clip;
+  padding-top: calc(var(--header-h) + var(--sp-7)); padding-bottom: var(--section);
+  background: radial-gradient(60% 75% at 82% 32%, color-mix(in srgb, var(--jungle) 22%, var(--forest)) 0%, transparent 70%), var(--forest);
+}
+.phero .hexbg { --hx: 80%; --hy: 30%; }
+.phero__grid { position: relative; z-index: 1; display: grid; gap: var(--sp-7); align-items: center; }
+@media (min-width: 980px) { .phero__grid { grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr); gap: var(--sp-8); } }
+.kicker { display: inline-flex; align-items: center; gap: 0.6rem; margin-bottom: var(--sp-4); font-size: var(--fs-label); font-weight: 600; color: var(--jungle); }
+.kicker::before { content: ""; flex: none; width: 9px; height: 9px; background: var(--jungle); clip-path: polygon(50% 0, 100% 50%, 50% 100%, 0 50%); }
+.ptitle { margin: 0; font-size: clamp(2rem, 1.1rem + 3.4vw, 3.5rem); line-height: 1.06; letter-spacing: -0.025em; font-weight: 700; }
+.ptitle em { font-style: normal; color: var(--jungle); }
+.plead { margin: var(--sp-5) 0 0; max-width: 38rem; font-size: var(--fs-lead); line-height: var(--lh-lead); color: var(--ink-soft); }
+.pactions { display: flex; flex-wrap: wrap; align-items: center; gap: var(--sp-3) var(--sp-4); margin-top: var(--sp-6); }
+.pfacts { display: flex; flex-wrap: wrap; gap: var(--sp-4) var(--sp-6); margin: var(--sp-7) 0 0; padding: 0; list-style: none; }
+.pfacts li { display: grid; gap: 2px; padding-left: var(--sp-4); border-left: 1px solid var(--line-strong); }
+.pfacts b { font-family: var(--font-mono); font-weight: 500; font-size: 1.25rem; color: var(--jungle); }
+.pfacts span { font-size: var(--fs-label); color: var(--ink-soft); }
+
+/* Специфікація тарифу: картка з підкладкою-рамкою, решіткою й світінням (та сама мова, що в картках «Що ви отримуєте») */
+.spec { --c: var(--chamfer); position: relative; isolation: isolate; padding: var(--sp-6) var(--sp-5); background: var(--forest-line);
+  clip-path: polygon(var(--c) 0, calc(100% - var(--c)) 0, 100% var(--c), 100% calc(100% - var(--c)), calc(100% - var(--c)) 100%, var(--c) 100%, 0 calc(100% - var(--c)), 0 var(--c)); }
+.spec::before, .pcard::before, .ptile::before, .cta-panel::before, .fscreen::before {
+  content: ""; position: absolute; inset: 1.5px; z-index: -1; clip-path: var(--inner);
+  background:
+    linear-gradient(90deg, transparent, color-mix(in srgb, var(--jungle) 60%, transparent) 50%, transparent) 0 0 / 100% 1.5px no-repeat,
+    radial-gradient(90% 80% at 100% 0%, color-mix(in srgb, var(--jungle) 20%, transparent) 0%, transparent 70%),
+    linear-gradient(200deg, transparent 0%, color-mix(in srgb, var(--forest-raised) 82%, transparent) 62%, var(--forest-raised) 100%),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='168' height='291' viewBox='0 0 168 291'%3E%3Cpath d='M84 0L168 48.5V145.5L84 194L0 145.5V48.5L84 0M84 194V291' fill='none' stroke='%2302B16E' stroke-opacity='.5' stroke-width='1.8'/%3E%3C/svg%3E") 0 0 / 84px 146px,
+    var(--forest-raised);
+}
+.spec__head { display: flex; align-items: baseline; justify-content: space-between; gap: var(--sp-3); margin-bottom: var(--sp-4); padding-bottom: var(--sp-4); border-bottom: 1px solid var(--line); }
+.spec__head b { font-size: 1.25rem; font-weight: 650; }
+.spec__head span { font-size: var(--fs-label); color: var(--ink-mute); }
+.spec__rows { display: grid; margin: 0; }
+.spec__rows > div { display: flex; align-items: baseline; justify-content: space-between; gap: var(--sp-4); padding-block: 0.7rem; border-bottom: 1px solid color-mix(in srgb, var(--jungle) 14%, transparent); }
+.spec__rows > div:last-child { border-bottom: 0; }
+.spec__rows dt { color: var(--ink-soft); font-size: var(--fs-small); }
+.spec__rows dd { margin: 0; font-family: var(--font-mono); font-weight: 500; font-size: 1.0625rem; text-align: right; color: var(--ink); }
+.spec__rows dd.is-price { color: var(--orange-hover); font-size: 1.375rem; }
+.spec__rows dd.is-text { font-family: var(--font-sans); font-weight: 600; font-size: var(--fs-small); }
+.spec__note { margin: var(--sp-4) 0 0; font-size: var(--fs-label); color: var(--ink-mute); }
+
+/* ---------- Спільні блоки ---------- */
+.psec { padding-block: var(--section); }
+.section--deep { --seam: var(--forest); }
+.psec:not(.section--deep) { --seam: var(--forest-deep); }
+.psec .section-head { margin-bottom: var(--sp-7); }
+
+/* Картка (мова тарифів: підкладка + внутрішній шар) */
+.pcard { --c: var(--chamfer); position: relative; isolation: isolate; display: grid; align-content: start; gap: var(--sp-3); padding: var(--sp-6) var(--sp-5); background: var(--forest-line);
+  clip-path: polygon(var(--c) 0, calc(100% - var(--c)) 0, 100% var(--c), 100% calc(100% - var(--c)), calc(100% - var(--c)) 100%, var(--c) 100%, 0 calc(100% - var(--c)), 0 var(--c)); }
+.pcard h3 { font-size: 1.1875rem; line-height: 1.25; font-weight: 600; }
+.pcard p { color: var(--ink-soft); }
+.pgrid { display: grid; gap: var(--sp-4); }
+@media (min-width: 720px) { .pgrid--3 { grid-template-columns: repeat(3, minmax(0, 1fr)); } .pgrid--2 { grid-template-columns: repeat(2, minmax(0, 1fr)); } .pgrid--4 { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (min-width: 1080px) { .pgrid--4 { grid-template-columns: repeat(4, minmax(0, 1fr)); } .pgrid--6 { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+@media (min-width: 720px) { .pgrid--6 { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+
+/* Іконка в рамці-чамфері */
+.ico { --c: var(--chamfer-sm); width: 48px; height: 48px; display: inline-flex; align-items: center; justify-content: center; flex: none; color: var(--jungle); background: var(--line-strong);
+  clip-path: polygon(var(--c) 0, calc(100% - var(--c)) 0, 100% var(--c), 100% calc(100% - var(--c)), calc(100% - var(--c)) 100%, var(--c) 100%, 0 calc(100% - var(--c)), 0 var(--c)); position: relative; isolation: isolate; }
+.ico::before { content: ""; position: absolute; inset: 1.5px; z-index: -1; background: var(--forest); clip-path: polygon(calc(var(--c) - 1px) 0, calc(100% - var(--c) + 1px) 0, 100% calc(var(--c) - 1px), 100% calc(100% - var(--c) + 1px), calc(100% - var(--c) + 1px) 100%, calc(var(--c) - 1px) 100%, 0 calc(100% - var(--c) + 1px), 0 calc(var(--c) - 1px)); }
+.ico svg { width: 24px; height: 24px; fill: none; stroke: currentColor; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
+
+/* «Кому не підійде»: чесний блок, знімає зайві заявки й підвищує довіру */
+.notfor { margin-top: var(--sp-5); padding: var(--sp-5); background: color-mix(in srgb, var(--forest-deep) 70%, transparent); border: 1px dashed var(--line-strong); display: grid; gap: var(--sp-3); }
+.notfor b { font-size: var(--fs-body); font-weight: 650; }
+.notfor ul { display: grid; gap: var(--sp-2); }
+.notfor li { position: relative; padding-left: 1.5rem; color: var(--ink-soft); line-height: 1.45; }
+.notfor li::before { content: ""; position: absolute; left: 0; top: 0.62em; width: 10px; height: 2px; background: var(--ink-mute); }
+.notfor a, .plink { color: var(--jungle); text-decoration: underline; text-underline-offset: 3px; }
+@media (hover: hover) { .notfor a:hover, .plink:hover { color: var(--ink); } }
+
+/* ---------- Лінія процесу (терміни) ---------- */
+.flow { position: relative; display: grid; gap: var(--sp-6); margin: 0; padding: 0; list-style: none; counter-reset: fl; }
+.flow::before { content: ""; position: absolute; left: 19px; top: 8px; bottom: 8px; width: 2px; background: linear-gradient(to bottom, var(--jungle), color-mix(in srgb, var(--jungle) 15%, transparent)); transform-origin: top; }
+html.js .flow.reveal:not(.is-in)::before { transform: scaleY(0); }
+.flow::before { transition: transform 1.3s var(--ease-out); }
+.flow__step { position: relative; display: grid; gap: var(--sp-2); align-content: start; padding-left: 4rem; }
+.flow__node { position: absolute; left: 0; top: 0; width: 40px; height: 40px; display: grid; place-items: center; font-family: var(--font-mono); font-size: 0.95rem; font-weight: 500; color: var(--on-jungle); background: var(--jungle);
+  clip-path: polygon(50% 0, 100% 50%, 50% 100%, 0 50%); }
+.flow__step:not(.is-first) .flow__node { background: var(--forest-line); color: var(--jungle); }
+.flow__when { font-family: var(--font-mono); font-size: var(--fs-label); letter-spacing: 0.04em; color: var(--jungle); padding-top: 0.4rem; }
+.flow__step h3 { font-size: 1.1875rem; line-height: 1.25; font-weight: 650; }
+.flow__step p { color: var(--ink-soft); max-width: 24rem; }
+.flow__tag { justify-self: start; padding: 0.1rem 0.6rem; font-size: var(--fs-label); font-weight: 600; color: var(--on-jungle); background: var(--jungle); }
+@media (min-width: 900px) {
+  .flow { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: var(--sp-5); }
+  .flow::before { left: 20px; right: 20px; top: 19px; bottom: auto; width: auto; height: 2px; background: linear-gradient(to right, var(--jungle), color-mix(in srgb, var(--jungle) 15%, transparent)); transform-origin: left; }
+  html.js .flow.reveal:not(.is-in)::before { transform: scaleX(0); }
+  .flow__step { padding: 3.6rem 0 0; }
+}
+
+/* ---------- Плитки «що входить» ---------- */
+.tile { --c: var(--chamfer-sm); display: grid; align-content: start; gap: var(--sp-3); padding: var(--sp-5); background: var(--forest-raised); border: 0;
+  clip-path: polygon(var(--c) 0, calc(100% - var(--c)) 0, 100% var(--c), 100% calc(100% - var(--c)), calc(100% - var(--c)) 100%, var(--c) 100%, 0 calc(100% - var(--c)), 0 var(--c)); }
+.tile b { font-size: 1.0625rem; font-weight: 600; line-height: 1.25; }
+.tile p { font-size: var(--fs-small); color: var(--ink-soft); line-height: 1.45; }
+
+/* ---------- Ціна ---------- */
+.ptile { --c: var(--chamfer); position: relative; isolation: isolate; display: grid; align-content: start; gap: var(--sp-4); padding: var(--sp-6) var(--sp-5); background: var(--forest-line);
+  clip-path: polygon(var(--c) 0, calc(100% - var(--c)) 0, 100% var(--c), 100% calc(100% - var(--c)), calc(100% - var(--c)) 100%, var(--c) 100%, 0 calc(100% - var(--c)), 0 var(--c)); }
+.ptile__label { font-size: var(--fs-label); font-weight: 600; color: var(--ink-soft); }
+.ptile__price { display: flex; align-items: baseline; gap: var(--sp-3); flex-wrap: wrap; }
+.ptile__price b { font-family: var(--font-mono); font-weight: 500; font-size: clamp(2.25rem, 1.6rem + 2vw, 3rem); line-height: 1; color: var(--orange-hover); }
+.ptile__price span { font-family: var(--font-mono); font-size: var(--fs-small); color: var(--ink-soft); }
+.ptile ul { display: grid; gap: var(--sp-2); }
+.ptile li, .checks li { position: relative; padding-left: 1.5rem; color: var(--ink-soft); line-height: 1.45; }
+.ptile li::before, .checks li::before { content: ""; position: absolute; left: 0; top: 0.5em; width: 8px; height: 8px; background: var(--jungle); clip-path: polygon(50% 0, 100% 50%, 50% 100%, 0 50%); }
+.chips-row { display: flex; flex-wrap: wrap; gap: var(--sp-2); }
+.chips-row li { padding: 0.4rem 0.9rem; font-size: var(--fs-label); font-weight: 500; color: var(--ink); background: var(--forest-line); clip-path: polygon(8px 0, calc(100% - 8px) 0, 100% 8px, 100% calc(100% - 8px), calc(100% - 8px) 100%, 8px 100%, 0 calc(100% - 8px), 0 8px); }
+.pay { display: grid; gap: var(--sp-3); margin-top: var(--sp-6); }
+.pay__row { display: grid; gap: var(--sp-3); }
+@media (min-width: 760px) { .pay__row { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+.pay__item { display: grid; gap: 2px; padding: var(--sp-4) var(--sp-5); background: var(--forest-raised); border-left: 2px solid var(--jungle); }
+.pay__item b { font-family: var(--font-mono); font-weight: 500; font-size: 1.5rem; color: var(--jungle); }
+.pay__item span { color: var(--ink-soft); font-size: var(--fs-small); }
+.notin { margin-top: var(--sp-6); padding: var(--sp-5); border: 1px dashed var(--line-strong); display: grid; gap: var(--sp-3); }
+.notin h3 { font-size: 1.0625rem; font-weight: 650; }
+.notin ul { display: grid; gap: var(--sp-2) var(--sp-6); }
+@media (min-width: 760px) { .notin ul { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+.notin li { position: relative; padding-left: 1.5rem; color: var(--ink-soft); line-height: 1.45; }
+.notin li::before { content: ""; position: absolute; left: 0; top: 0.62em; width: 10px; height: 2px; background: var(--ink-mute); }
+.notin p { color: var(--ink-mute); font-size: var(--fs-small); }
+
+/* ---------- Таблиця порівняння тарифів ---------- */
+.cmp { width: 100%; border-collapse: collapse; }
+.cmp th, .cmp td { padding: 0.95rem var(--sp-4); text-align: left; vertical-align: top; border-bottom: 1px solid color-mix(in srgb, var(--jungle) 16%, transparent); }
+.cmp thead th { font-size: 1.0625rem; font-weight: 650; border-bottom: 2px solid var(--line-strong); }
+.cmp tbody th { width: 28%; font-weight: 500; color: var(--ink-soft); font-size: var(--fs-small); }
+.cmp td { font-size: var(--fs-small); color: var(--ink); }
+.cmp .is-cur { background: color-mix(in srgb, var(--jungle) 9%, transparent); }
+.cmp thead .is-cur { border-bottom-color: var(--jungle); color: var(--jungle); }
+.cmp .num { font-family: var(--font-mono); font-weight: 500; color: var(--orange-hover); }
+@media (max-width: 719px) {
+  .cmp, .cmp tbody, .cmp tr, .cmp th, .cmp td { display: block; }
+  .cmp thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+  .cmp tr { margin-bottom: var(--sp-3); padding: var(--sp-3) 0; background: var(--forest-raised); }
+  .cmp tbody th { width: auto; padding: 0.4rem var(--sp-4); border: 0; font-weight: 600; color: var(--ink); }
+  .cmp td { display: flex; justify-content: space-between; gap: var(--sp-4); padding: 0.45rem var(--sp-4); border: 0; }
+  .cmp td::before { content: attr(data-label); color: var(--ink-mute); }
+  .cmp .is-cur { background: color-mix(in srgb, var(--jungle) 12%, transparent); }
+}
+
+/* ---------- Платформи (чипи) і «як редагувати» ---------- */
+.edit { display: grid; gap: var(--sp-4); margin-top: var(--sp-6); }
+@media (min-width: 720px) { .edit { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+.edit__step { position: relative; display: grid; gap: var(--sp-2); padding: var(--sp-5); background: var(--forest-raised); }
+.edit__step b { font-family: var(--font-mono); font-weight: 500; font-size: 1.75rem; color: var(--jungle); line-height: 1; }
+.edit__step h3 { font-size: 1.0625rem; font-weight: 600; }
+.edit__step p { font-size: var(--fs-small); color: var(--ink-soft); }
+
+/* ---------- Схема першого екрана ---------- */
+.fscreen-wrap { display: grid; gap: var(--sp-6); align-items: center; }
+@media (min-width: 900px) { .fscreen-wrap { grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr); gap: var(--sp-8); } }
+.fscreen { --c: var(--chamfer); position: relative; isolation: isolate; padding: var(--sp-3); background: var(--forest-line);
+  clip-path: polygon(var(--c) 0, calc(100% - var(--c)) 0, 100% var(--c), 100% calc(100% - var(--c)), calc(100% - var(--c)) 100%, var(--c) 100%, 0 calc(100% - var(--c)), 0 var(--c)); }
+.fscreen__bar { display: flex; gap: 6px; padding: 0.45rem 0.6rem 0.6rem; }
+.fscreen__bar i { width: 8px; height: 8px; border-radius: 50%; background: var(--ink-mute); opacity: 0.6; }
+.fscreen__body { position: relative; display: grid; grid-template-columns: 1.3fr 0.7fr; gap: var(--sp-5); min-height: 15rem; padding: var(--sp-5) var(--sp-5) var(--sp-5) 3.4rem; background: var(--forest-deep); }
+.fscreen__nav { grid-column: 1 / -1; display: flex; gap: var(--sp-3); align-items: center; }
+.fscreen__nav i { height: 6px; border-radius: 3px; background: var(--forest-line); } .fscreen__nav i:nth-child(1) { width: 14%; background: var(--jungle-dim); } .fscreen__nav i:nth-child(2) { width: 10%; } .fscreen__nav i:nth-child(3) { width: 10%; } .fscreen__nav i:nth-child(4) { width: 10%; }
+.fscreen__copy { display: grid; gap: var(--sp-3); align-content: center; }
+.fscreen__copy .h { height: 16px; border-radius: 3px; background: var(--ink); opacity: 0.9; } .fscreen__copy .h:nth-child(1) { width: 92%; } .fscreen__copy .h:nth-child(2) { width: 64%; background: var(--jungle); }
+.fscreen__copy .p { height: 7px; border-radius: 3px; background: var(--ink-mute); opacity: 0.55; } .fscreen__copy .p:nth-child(4) { width: 78%; }
+.fscreen__copy .b { width: 46%; height: 26px; margin-top: var(--sp-2); background: var(--orange); clip-path: polygon(7px 0, calc(100% - 7px) 0, 100% 7px, 100% calc(100% - 7px), calc(100% - 7px) 100%, 7px 100%, 0 calc(100% - 7px), 0 7px); }
+.fscreen__copy .f { display: flex; gap: var(--sp-2); margin-top: var(--sp-2); } .fscreen__copy .f i { width: 28%; height: 18px; background: var(--forest-line); }
+.fscreen__pic { background: linear-gradient(160deg, color-mix(in srgb, var(--jungle) 30%, var(--forest-deep)), var(--forest-raised)); clip-path: polygon(12px 0, 100% 0, 100% calc(100% - 12px), calc(100% - 12px) 100%, 0 100%, 0 12px); }
+.fscreen .pin { position: absolute; z-index: 2; width: 26px; height: 26px; display: grid; place-items: center; font-family: var(--font-mono); font-size: 0.8125rem; font-weight: 500; color: var(--on-jungle); background: var(--jungle); clip-path: polygon(50% 0, 100% 50%, 50% 100%, 0 50%); }
+.pin--1 { left: 14px; top: 33%; } .pin--2 { left: 14px; top: 51%; } .pin--3 { left: 14px; top: 67%; } .pin--4 { left: 14px; top: 83%; } .pin--5 { right: 12px; top: 14px; }
+.legend { display: grid; gap: var(--sp-4); counter-reset: lg; }
+.legend li { display: grid; grid-template-columns: 34px 1fr; gap: var(--sp-3); align-items: start; }
+.legend li::before { content: counter(lg); counter-increment: lg; display: grid; place-items: center; width: 30px; height: 30px; margin-top: 2px; font-family: var(--font-mono); font-size: 0.875rem; font-weight: 500; color: var(--on-jungle); background: var(--jungle); clip-path: polygon(50% 0, 100% 50%, 50% 100%, 0 50%); }
+.legend b { display: block; font-weight: 650; }
+.legend span { color: var(--ink-soft); font-size: var(--fs-small); line-height: 1.45; }
+
+/* ---------- Тест «який тариф підходить» ---------- */
+.quiz { --c: var(--chamfer); position: relative; isolation: isolate; display: grid; gap: var(--sp-5); padding: var(--sp-6) var(--sp-5); background: var(--forest-line);
+  clip-path: polygon(var(--c) 0, calc(100% - var(--c)) 0, 100% var(--c), 100% calc(100% - var(--c)), calc(100% - var(--c)) 100%, var(--c) 100%, 0 calc(100% - var(--c)), 0 var(--c)); }
+.quiz::before { content: ""; position: absolute; inset: 1.5px; z-index: -1; clip-path: var(--inner); background: var(--forest-raised); }
+.quiz fieldset { display: grid; gap: var(--sp-2); margin: 0; padding: 0; border: 0; min-width: 0; }
+.quiz legend { padding: 0; margin-bottom: var(--sp-2); font-weight: 600; }
+.quiz__opts { display: flex; flex-wrap: wrap; gap: var(--sp-2); }
+.quiz .chip { min-height: var(--tap); background: var(--forest-line); color: var(--ink); font-size: var(--fs-small); font-weight: 600; padding: 0.5rem 1.1rem; }
+.quiz .chip[aria-pressed="true"] { background: var(--jungle); color: var(--on-jungle); }
+@media (hover: hover) { .quiz .chip[aria-pressed="false"]:hover { background: color-mix(in srgb, var(--jungle) 30%, var(--forest-line)); } }
+.quiz__result { display: grid; gap: var(--sp-3); padding: var(--sp-5); background: var(--forest-deep); border-left: 2px solid var(--jungle); }
+.quiz__result[hidden] { display: none; }
+.quiz__result b { font-size: 1.25rem; font-weight: 650; }
+.quiz__result p { color: var(--ink-soft); }
+.quiz__result .pactions { margin-top: var(--sp-2); }
+
+/* ---------- Чекліст ---------- */
+.checks { display: grid; gap: var(--sp-3); }
+@media (min-width: 760px) { .checks { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--sp-3) var(--sp-7); } }
+.checks li { padding: var(--sp-4) var(--sp-4) var(--sp-4) 2.4rem; background: var(--forest-raised); color: var(--ink); }
+.checks li::before { left: var(--sp-4); top: 1.45rem; }
+
+/* ---------- Пов'язані сторінки ---------- */
+.related { display: grid; gap: var(--sp-4); }
+@media (min-width: 760px) { .related { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+.related a { --c: var(--chamfer-sm); display: grid; gap: var(--sp-2); padding: var(--sp-5); background: var(--forest-raised); transition: background-color var(--t-base) var(--ease-out);
+  clip-path: polygon(var(--c) 0, calc(100% - var(--c)) 0, 100% var(--c), 100% calc(100% - var(--c)), calc(100% - var(--c)) 100%, var(--c) 100%, 0 calc(100% - var(--c)), 0 var(--c)); }
+.related a:focus-visible { clip-path: none; outline: 2px solid var(--focus); outline-offset: 3px; }
+@media (hover: hover) { .related a:hover { background: color-mix(in srgb, var(--jungle) 14%, var(--forest-raised)); } }
+.related b { font-size: 1.125rem; font-weight: 650; }
+.related span { color: var(--ink-soft); font-size: var(--fs-small); }
+.related em { font-style: normal; font-weight: 600; color: var(--jungle); }
+
+/* ---------- Фінальний заклик ---------- */
+.cta-panel { --c: var(--chamfer); position: relative; isolation: isolate; display: grid; gap: var(--sp-4); justify-items: start; padding: var(--sp-7) var(--sp-5); background: var(--forest-line);
+  clip-path: polygon(var(--c) 0, calc(100% - var(--c)) 0, 100% var(--c), 100% calc(100% - var(--c)), calc(100% - var(--c)) 100%, var(--c) 100%, 0 calc(100% - var(--c)), 0 var(--c)); }
+@media (min-width: 760px) { .cta-panel { padding: var(--sp-8) var(--sp-8); } }
+.cta-panel h2 { max-width: 28ch; }
+.cta-panel h2 em { font-style: normal; color: var(--jungle); }
+.cta-panel p { max-width: 38rem; color: var(--ink-soft); font-size: var(--fs-lead); line-height: var(--lh-lead); }
+
+.pbreak { height: 0; }
+
+.related--2 { grid-template-columns: 1fr; }
+@media (min-width: 760px) { .related--2 { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+.quiz__price { font-family: var(--font-mono); color: var(--orange-hover); font-size: 1rem; }
+
+/* Шапка: п'ять пунктів меню + телефон + кнопка не вміщаються на 900–1160 px, телефон ховаємо (він є в мобільному меню й у підвалі) */
+@media (min-width: 900px) and (max-width: 1159px) { .site-phone { display: none; } }
+/* Підвал без спільного hex-фону форми (на головній він лежить під підвалом): власний фон і нормальна висота */
+body > .footer { min-height: 0; background: var(--forest-deep); padding-block: var(--sp-8) var(--sp-6); }
+body > .footer .footer__row { align-items: start; }

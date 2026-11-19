@@ -54,6 +54,11 @@
   heroRadios.forEach(function (r) { r.addEventListener('click', function () { setTariff(tariff === r.value ? null : r.value); }); });   // radio сам не знімається: повторний клік знімає вибір вручну
   picks.forEach(function (b) { b.addEventListener('click', function () { setTariff(tariff === b.dataset.pick ? null : b.dataset.pick); }); });
   setTariff(read('tariff'));
+  /* Перехід зі сторінок тарифів (/?tariff=fast#contact): тариф уже обрано, у формі й заявці він збережеться */
+  (function tariffFromUrl() {
+    var q = new URLSearchParams(location.search).get('tariff');
+    if (q && TARIFFS[q]) setTariff(q);
+  })();
   function tariffName() { return tariff ? TARIFFS[tariff] : 'не обрано'; }
 
   /* ---------- Відео-звернення (вмикається, коли з'явиться ролик) ---------- */
