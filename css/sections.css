@@ -80,50 +80,54 @@
 @media (hover: hover) { .social a:hover { color: var(--jungle); } }
 
 /* ---------- Ціна ---------- */
-/* Цінність і умови – ДО тарифів: спершу що отримує клієнт, потім ціна */
-.values { display: grid; gap: var(--sp-5); margin: 0 0 var(--sp-9); padding: 0; list-style: none; }
-.values li { position: relative; display: grid; gap: 2px; align-content: start; padding-left: 1.75rem; }
-.values li::before { content: ""; position: absolute; left: 0; top: 0.55em; width: 10px; height: 10px; background: var(--jungle); clip-path: polygon(50% 0, 100% 50%, 50% 100%, 0 50%); }
-.values b { font-size: var(--fs-lead); line-height: 1.25; font-weight: 600; color: var(--ink); }
-.values span { color: var(--ink-soft); }
-/* Мобільний: кожен пункт – окрема висока картка (як тарифи: підкладка Forest-line + внутрішній шар), на тлі тонких ліній решітки з hero,
-   з великим номером 1, 2, … Тексту багато, тому подаємо його по одній картці. Поява при прокрутці (js/case.js додає .is-in кожній картці):
-   вона виїжджає з боку (непарні зліва, парні справа), різкість повертається з розмиття, а по рамці один раз пробігає світловий промінь.
-   Тривалості 450–700 мс, easing out; без руху при prefers-reduced-motion. Кінцевий стан задано напряму (не залежить від transitionend). */
-@media (max-width: 759px) {
-  .values { gap: var(--sp-4); counter-reset: val; margin-bottom: var(--sp-9); }
-  .values li {
-    --c: var(--chamfer);
-    position: relative; isolation: isolate; display: grid; align-content: center; gap: var(--sp-2);
-    min-height: 11rem; padding: var(--sp-6) var(--sp-5); counter-increment: val;
-    background: linear-gradient(105deg, var(--forest-line) 38%, var(--jungle) 50%, var(--forest-line) 62%) 100% 0 / 320% 100%;
-    clip-path: polygon(var(--c) 0, calc(100% - var(--c)) 0, 100% var(--c), 100% calc(100% - var(--c)), calc(100% - var(--c)) 100%, var(--c) 100%, 0 calc(100% - var(--c)), 0 var(--c));
-  }
-  .values li::before {                       /* внутрішній шар: світіння справа вгорі, лінії решітки (затухають до лівого низу), основний фон */
-    width: auto; height: auto; inset: 1.5px; z-index: -1; clip-path: var(--inner);
-    background:
-      radial-gradient(90% 80% at 100% 0%, color-mix(in srgb, var(--jungle) 20%, transparent) 0%, transparent 70%),
-      linear-gradient(200deg, transparent 0%, color-mix(in srgb, var(--forest-raised) 82%, transparent) 62%, var(--forest-raised) 100%),
-      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='168' height='291' viewBox='0 0 168 291'%3E%3Cpath d='M84 0L168 48.5V145.5L84 194L0 145.5V48.5L84 0M84 194V291' fill='none' stroke='%2302B16E' stroke-opacity='.5' stroke-width='1.8'/%3E%3C/svg%3E") 0 0 / 84px 146px,
-      var(--forest-raised);
-  }
-  .values li::after {                        /* номер: просто 1, 2, …; градієнт від Jungle до прозорого */
-    content: counter(val); order: -1; justify-self: start;
-    font-family: var(--font-mono); font-weight: 500; font-size: 2.75rem; line-height: 1; letter-spacing: -0.02em;
-    background: linear-gradient(180deg, var(--jungle) 20%, color-mix(in srgb, var(--jungle) 25%, transparent) 100%);
-    -webkit-background-clip: text; background-clip: text; color: transparent; -webkit-text-fill-color: transparent;
-  }
-  .values b { font-size: 1.1875rem; }
-  .values span { max-width: 28ch; }
+/* Цінність і умови – ДО тарифів: спершу що отримує клієнт, потім ціна.
+   Кожен пункт – окрема висока картка (мова тарифів: підкладка Forest-line + внутрішній шар) на тлі тонких ліній решітки з hero
+   і з великим номером 1, 2, … Однаковий вигляд на всіх екранах: на десктопі сітка 3 колонки, на мобільному стопка (нижче). */
+.values { display: grid; gap: var(--sp-4); counter-reset: val; margin: 0 0 var(--sp-9); padding: 0; list-style: none; }
+.values li {
+  --c: var(--chamfer);
+  position: relative; isolation: isolate; display: grid; align-content: center; gap: var(--sp-2);
+  min-height: 11rem; padding: var(--sp-6) var(--sp-5); counter-increment: val;
+  background: linear-gradient(105deg, var(--forest-line) 38%, var(--jungle) 50%, var(--forest-line) 62%) 100% 0 / 320% 100%;
+  clip-path: polygon(var(--c) 0, calc(100% - var(--c)) 0, 100% var(--c), 100% calc(100% - var(--c)), calc(100% - var(--c)) 100%, var(--c) 100%, 0 calc(100% - var(--c)), 0 var(--c));
 }
-@media (max-width: 759px) and (prefers-reduced-motion: no-preference) {
-  html.js .values li:not(.is-in) { opacity: 0; filter: blur(8px); scale: 0.97; translate: -26px 30px; }
-  html.js .values li:nth-child(even):not(.is-in) { translate: 26px 30px; }
-  html.js .values li { transition: opacity 600ms var(--ease-out), filter 700ms var(--ease-out), scale 700ms var(--ease-out), translate 700ms var(--ease-out); }
+.values li::before {                         /* внутрішній шар: світла кромка зверху (видно зі стопки), світіння справа вгорі, лінії решітки (затухають до лівого низу), основний фон */
+  content: ""; position: absolute; width: auto; height: auto; inset: 1.5px; z-index: -1; clip-path: var(--inner);
+  background:
+    linear-gradient(90deg, transparent, color-mix(in srgb, var(--jungle) 60%, transparent) 50%, transparent) 0 0 / 100% 1.5px no-repeat,
+    radial-gradient(90% 80% at 100% 0%, color-mix(in srgb, var(--jungle) 20%, transparent) 0%, transparent 70%),
+    linear-gradient(200deg, transparent 0%, color-mix(in srgb, var(--forest-raised) 82%, transparent) 62%, var(--forest-raised) 100%),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='168' height='291' viewBox='0 0 168 291'%3E%3Cpath d='M84 0L168 48.5V145.5L84 194L0 145.5V48.5L84 0M84 194V291' fill='none' stroke='%2302B16E' stroke-opacity='.5' stroke-width='1.8'/%3E%3C/svg%3E") 0 0 / 84px 146px,
+    var(--forest-raised);
+}
+.values li::after {                          /* номер: просто 1, 2, …; градієнт від Jungle до прозорого */
+  content: counter(val); order: -1; justify-self: start;
+  font-family: var(--font-mono); font-weight: 500; font-size: 2.75rem; line-height: 1; letter-spacing: -0.02em;
+  background: linear-gradient(180deg, var(--jungle) 20%, color-mix(in srgb, var(--jungle) 25%, transparent) 100%);
+  -webkit-background-clip: text; background-clip: text; color: transparent; -webkit-text-fill-color: transparent;
+}
+.values b { font-size: 1.1875rem; line-height: 1.25; font-weight: 600; color: var(--ink); }
+.values span { max-width: 28ch; color: var(--ink-soft); }
+.values li:nth-child(3n + 1) { --col: 0; } .values li:nth-child(3n + 2) { --col: 1; } .values li:nth-child(3n) { --col: 2; }
+.values li:nth-child(1) { --i: 0; } .values li:nth-child(2) { --i: 1; } .values li:nth-child(3) { --i: 2; }
+.values li:nth-child(4) { --i: 3; } .values li:nth-child(5) { --i: 4; } .values li:nth-child(6) { --i: 5; }
+.values li:nth-child(7) { --i: 6; } .values li:nth-child(8) { --i: 7; } .values li:nth-child(9) { --i: 8; }
+@media (prefers-reduced-motion: no-preference) {
+  /* Поява без стопки (десктоп): картки по черзі виринають знизу з легким розмиттям; по рамці один раз пробігає світловий промінь.
+     У режимі стопки (.is-stack, мобільний) станом керує js/case.js за прокруткою, тому тут його не задаємо. */
+  html.js .values:not(.is-stack) li:not(.is-in) { opacity: 0; filter: blur(6px); translate: 0 28px; }
+  html.js .values:not(.is-stack) li { transition: opacity 600ms var(--ease-out) calc(var(--col, 0) * 90ms), filter 700ms var(--ease-out) calc(var(--col, 0) * 90ms), translate 700ms var(--ease-out) calc(var(--col, 0) * 90ms); }
   html.js .values li.is-in { animation: valSweep 1400ms 250ms var(--ease-out) 1 both; }
-  html.reveal-fallback .values li:not(.is-in), html.reveal-fallback .values li:nth-child(even):not(.is-in) { opacity: 1; filter: none; scale: 1; translate: 0 0; }
+  html.reveal-fallback .values li:not(.is-in) { opacity: 1; filter: none; translate: 0 0; }
   @keyframes valSweep { from { background-position: 100% 0; } to { background-position: 0% 0; } }
 }
+/* Мобільна стопка (клас .is-stack ставить js/case.js, коли екран вузький і рух дозволено): кожна картка «прилипає» під шапкою
+   з власним зсувом (--i), наступна наїжджає на неї, зверху лишається світла кромка кожної. Зменшення масштабу на 5% і затемнення
+   покритих карток, а також виїзд з різних боків (непарні зліва, парні справа) рахує js/case.js за позицією картки на екрані.
+   sticky працює, бо в предках лише overflow-x: clip (він не створює контейнер прокрутки). */
+.values.is-stack { gap: var(--sp-4); }
+.values.is-stack li { position: sticky; top: calc(var(--header-h) + var(--sp-3) + var(--i, 0) * 0.875rem); transform-origin: 50% 0; }
+.values.is-stack li:last-child { margin-bottom: 8rem; }     /* стопка ще трохи лишається на екрані, перш ніж піти вгору разом із блоком */
 /* Швидкість: цифри цього сайту (PageSpeed); картки в мові тарифів: підкладка + внутрішній шар */
 .speed { margin: 0 0 var(--sp-9); }
 .speed__lead { margin: 0 0 var(--sp-5); max-width: 46rem; color: var(--ink-soft); }
@@ -253,6 +257,37 @@
 .control:has([aria-invalid="true"]) { border-color: var(--error); }
 .field .control input { flex: 1; min-width: 0; min-height: 48px; padding: 0 var(--sp-4); background: transparent; border: 0; border-radius: 0; box-shadow: none; }
 .field .control input:focus-visible { border: 0; box-shadow: none; outline: none; }
+/* Поля на всіх екранах – у фасковій формі, як чипи, кнопки й тарифи. Рамка = підкладка (::before) + внутрішній шар (::after) як псевдоелементи,
+   а не clip-path на самому .control, бо інакше список кодів країни (.cc__list) обрізався б. Без isolation: інакше цей список (z-index 30) опинився б
+   під тарифами й CTA; псевдошари z-index -1 лягають на рівень .formcard (він isolation: isolate). Фокус і помилка міняють колір підкладки. */
+.control {
+  --c: var(--chamfer-sm);
+  --inner: polygon(calc(var(--c) - 1px) 0, calc(100% - var(--c) + 1px) 0, 100% calc(var(--c) - 1px), 100% calc(100% - var(--c) + 1px), calc(100% - var(--c) + 1px) 100%, calc(var(--c) - 1px) 100%, 0 calc(100% - var(--c) + 1px), 0 calc(var(--c) - 1px));
+  background: none; border: 0; border-radius: 0; box-shadow: none;
+}
+.control::before, .control::after { content: ""; position: absolute; z-index: -1; pointer-events: none; }
+.control::before {                                             /* підкладка-рамка; по ній повільно пробігає світловий імпульс, як по лініях у hero */
+  inset: 0; transition: background-color var(--t-base) var(--ease-out);
+  background: linear-gradient(100deg, var(--forest-line) 40%, color-mix(in srgb, var(--jungle) 80%, var(--forest-line)) 50%, var(--forest-line) 60%) 100% 0 / 300% 100%;
+  clip-path: polygon(var(--c) 0, calc(100% - var(--c)) 0, 100% var(--c), 100% calc(100% - var(--c)), calc(100% - var(--c)) 100%, var(--c) 100%, 0 calc(100% - var(--c)), 0 var(--c));
+  animation: ctlPulse 8s ease-in-out infinite; animation-play-state: paused;
+}
+.control::after {                                              /* внутрішній шар: ледь помітна решітка hex-ліній праворуч (текст зліва лишається на чистому фоні) */
+  inset: 1.5px; clip-path: var(--inner);
+  background:
+    linear-gradient(90deg, var(--forest-deep) 0%, var(--forest-deep) 52%, color-mix(in srgb, var(--forest-deep) 45%, transparent) 100%),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='168' height='291' viewBox='0 0 168 291'%3E%3Cpath d='M84 0L168 48.5V145.5L84 194L0 145.5V48.5L84 0M84 194V291' fill='none' stroke='%2302B16E' stroke-opacity='.32' stroke-width='1.8'/%3E%3C/svg%3E") 0 0 / 56px 97px,
+    var(--forest-deep);
+}
+.control:focus-within { border: 0; box-shadow: none; }
+.control:focus-within::before { background: var(--jungle); }
+.control:has([aria-invalid="true"])::before { background: var(--error); }
+/* Імпульс 8 с: більшу частину циклу рамка спокійна, потім світла смуга проходить зліва направо. Різні поля зсунуті, щоб не блимали разом. Грає лише коли форма в кадрі */
+@keyframes ctlPulse { 0%, 58% { background-position: 100% 0; } 100% { background-position: 0% 0; } }
+#contact.is-live .control::before { animation-play-state: running; }
+.formcard .field:nth-of-type(2) .control::before, .contact-pair .field--ph .control::before { animation-delay: -2.6s; }
+.formcard .contact-pair .field--tg .control::before { animation-delay: -5.2s; }
+@media (prefers-reduced-motion: reduce) { .control::before { animation: none; } }
 
 .contact-pair { display: grid; gap: var(--sp-3); }
 .contact-pair__or { display: flex; align-items: center; justify-content: center; gap: var(--sp-3); color: var(--ink-mute); font-size: var(--fs-small); }
@@ -346,20 +381,7 @@
   .contact-pair { gap: var(--sp-3); }
   .contact-pair__or { display: none; }
   .contact-pair[data-mode="tg"] .field--ph, .contact-pair[data-mode="ph"] .field--tg { display: none; }
-  /* Поля в тій самій фасковій формі, що чипи й кнопки: рамка = підкладка (::before) + внутрішній шар (::after) як псевдоелементи,
-     а не clip-path на самому .control, бо інакше список кодів країни (.cc__list) обрізався б. Фокус і помилка міняють колір підкладки. */
-  .control {
-    --c: var(--chamfer-sm);
-    --inner: polygon(calc(var(--c) - 1px) 0, calc(100% - var(--c) + 1px) 0, 100% calc(var(--c) - 1px), 100% calc(100% - var(--c) + 1px), calc(100% - var(--c) + 1px) 100%, calc(var(--c) - 1px) 100%, 0 calc(100% - var(--c) + 1px), 0 calc(var(--c) - 1px));
-    min-height: var(--tap); background: none; border: 0; border-radius: 0; box-shadow: none;   /* без isolation: інакше список кодів країни (z-index 30) опинився б під тарифами й CTA; псевдошари z-index -1 лягають на рівень .formcard (він isolation: isolate) */
-  }
-  .control::before, .control::after { content: ""; position: absolute; z-index: -1; pointer-events: none; }
-  .control::before { inset: 0; background: var(--forest-line); transition: background-color var(--t-base) var(--ease-out);
-    clip-path: polygon(var(--c) 0, calc(100% - var(--c)) 0, 100% var(--c), 100% calc(100% - var(--c)), calc(100% - var(--c)) 100%, var(--c) 100%, 0 calc(100% - var(--c)), 0 var(--c)); }
-  .control::after { inset: 1.5px; background: var(--forest-deep); clip-path: var(--inner); }
-  .control:focus-within { border: 0; box-shadow: none; }
-  .control:focus-within::before { background: var(--jungle); }
-  .control:has([aria-invalid="true"])::before { background: var(--error); }
+  .control { min-height: var(--tap); }
   .formcard .field-error:empty { display: none; }
   .tpick { gap: var(--sp-2); }
   .tpick legend { margin-bottom: var(--sp-1); }
@@ -418,7 +440,7 @@
   .cookie { padding: var(--sp-4) var(--sp-5); }
   .cookie__actions { display: flex; align-items: center; justify-content: flex-end; }
   .plans { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--sp-6); }
-  .values { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--sp-6) var(--sp-8); }
+  .values { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--sp-5); }
   .speed__grid { grid-template-columns: repeat(5, minmax(0, 1fr)); gap: var(--sp-4); }
   .speed__item:last-child { grid-column: auto; }
   .contact-pair { grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr); align-items: end; }

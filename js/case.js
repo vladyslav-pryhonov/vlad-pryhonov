@@ -32,6 +32,52 @@
     }
   }
 
+  /* ---------- Мобільна стопка карток «Що ви отримуєте» ----------
+     На вузькому екрані (і якщо рух дозволено) .values отримує клас .is-stack: CSS робить кожну картку sticky зі зсувом, тож картки
+     по черзі «прилипають» зверху й лишаються стопкою. Тут за позицією на екрані рахується решта:
+     1) виїзд: поки картка заходить знизу, вона з'їжджається з боку (непарні зліва, парні справа) і проявляється;
+     2) прогортування: коли наступна картка наїжджає, попередня трохи зменшується (до 95%) і затемнюється.
+     Значення пишуться inline щокадру (rAF, passive scroll); при розширенні вікна чи вимкненні руху все скидається. */
+  var stackList = document.querySelector('.values');
+  if (stackList && window.matchMedia) {
+    var mqNarrow = window.matchMedia('(max-width: 759px)'), mqReduce = window.matchMedia('(prefers-reduced-motion: reduce)');
+    var stackCards = Array.prototype.slice.call(stackList.children), stuckTop = [], stackOn = false, queued = false, PEEK = 14;
+    var clamp = function (v, a, b) { return v < a ? a : (v > b ? b : v); };
+    var measure = function () { stuckTop = stackCards.map(function (el) { return parseFloat(getComputedStyle(el).top) || 0; }); };
+    var resetCards = function () { stackCards.forEach(function (el) { el.style.opacity = ''; el.style.translate = ''; el.style.scale = ''; el.style.filter = ''; }); };
+    var paint = function () {
+      queued = false;
+      var vh = window.innerHeight, box = stackList.getBoundingClientRect();
+      if (box.bottom < -300 || box.top > vh + 300) return;                  // блок далеко від екрана: нічого не малюємо
+      for (var i = 0; i < stackCards.length; i++) {
+        var el = stackCards[i], r = el.getBoundingClientRect();
+        var e = clamp((vh * 0.96 - r.top) / (vh * 0.4), 0, 1);               // 0 – картка щойно показалась знизу, 1 – зайшла
+        var k = 1 - Math.pow(1 - e, 3);                                       // easing out
+        var p = 0;
+        if (i < stackCards.length - 1) {                                      // наскільки наступна картка вже наїхала на цю
+          var next = stackCards[i + 1].getBoundingClientRect().top;
+          p = clamp(1 - (next - (stuckTop[i] + PEEK)) / (r.height * 0.9), 0, 1);
+        }
+        el.style.opacity = (0.12 + 0.88 * k).toFixed(3);
+        el.style.translate = ((i % 2 === 0 ? -1 : 1) * (1 - k) * 80).toFixed(1) + 'px 0';
+        el.style.scale = (1 - 0.05 * p).toFixed(4);
+        el.style.filter = p > 0.01 ? 'brightness(' + (1 - 0.42 * p).toFixed(3) + ')' : '';
+      }
+    };
+    var schedule = function () { if (stackOn && !queued) { queued = true; requestAnimationFrame(paint); } };
+    var sync = function () {
+      var want = mqNarrow.matches && !mqReduce.matches;
+      if (want === stackOn) { if (stackOn) { measure(); schedule(); } return; }
+      stackOn = want;
+      stackList.classList.toggle('is-stack', stackOn);
+      if (stackOn) { measure(); paint(); } else { resetCards(); }
+    };
+    window.addEventListener('scroll', schedule, { passive: true });
+    window.addEventListener('resize', sync);
+    if (mqNarrow.addEventListener) { mqNarrow.addEventListener('change', sync); mqReduce.addEventListener('change', sync); }
+    sync();
+  }
+
   /* ---------- Жива лінія процесу: іскра й спалахи вузлів грають, лише поки блок у кадрі ---------- */
   var steps = document.querySelector('.steps');
   if (steps && 'IntersectionObserver' in window) {

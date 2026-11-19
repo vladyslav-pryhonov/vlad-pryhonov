@@ -42,16 +42,15 @@
 .demo__link { justify-self: start; font-weight: 600; color: var(--jungle); padding-block: var(--sp-2); min-height: var(--tap); display: inline-flex; align-items: center; transition: color var(--t-base) var(--ease-out); }
 @media (hover: hover) { .demo__link:hover { color: var(--ink); } }
 .demo__link:focus-visible, .demo__shot:focus-visible { outline: 2px solid var(--focus); outline-offset: 3px; }
-/* Мобільний: акцент на екрані демо. Картка без внутрішніх відступів навколо мокапа, а мокап «приближений» так, що екран ноутбука
-   (разом з тонкою рамкою) заповнює всю ширину картки. Вирізається ділянка 780×486 із 1000×574 (x 108, y 37): однакова для всіх мокапів,
-   бо рамка в них спільна. Текст картки отримує власні бічні відступи. */
+/* Мобільний: мокап ноутбука більший. Картка без внутрішніх відступів навколо мокапа, сам мокап трохи збільшений (112%, обрізається лише
+   прозорий край і кінчики основи ноутбука; кришка й екран цілі), картка ширша (92%). Текст картки отримує власні бічні відступи. */
 @media (max-width: 759px) {
-  .demos { grid-auto-columns: 90%; gap: var(--sp-4); }
-  .demo { padding: 0 0 var(--sp-5); gap: var(--sp-3); }
+  .demos { grid-auto-columns: 92%; gap: var(--sp-3); }
+  .demo { padding: var(--sp-4) 0 var(--sp-5); gap: var(--sp-3); }
   .demo > :not(.demo__shot) { margin-inline: var(--sp-5); }
-  .demo__shot { margin: 0 0 var(--sp-1); aspect-ratio: 780 / 486; overflow: hidden; background: var(--forest-deep); }
+  .demo__shot { margin: 0 0 var(--sp-1); overflow: hidden; }
   .demo__shot::before { display: none; }
-  .demo__shot img { position: absolute; z-index: 1; width: 128.205%; max-width: none; height: auto; left: -13.846%; top: -7.613%; filter: none; }
+  .demo__shot img { width: 112%; max-width: none; margin-left: -6%; filter: none; }
 }
 
 /* ---------- Відгук і скріни ---------- */
