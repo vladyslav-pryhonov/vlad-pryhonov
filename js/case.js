@@ -32,36 +32,67 @@
     }
   }
 
-  /* ---------- Мобільна стопка карток «Що ви отримуєте» ----------
-     На вузькому екрані (і якщо рух дозволено) .values отримує клас .is-stack: CSS робить кожну картку sticky зі зсувом, тож картки
-     по черзі «прилипають» зверху й лишаються стопкою. Тут за позицією на екрані рахується решта:
+  /* ---------- Картки «Що ви отримуєте» (css/sections.css, блок .values) ----------
+     Десктоп: .values.is-live вмикає безперервні ефекти (промінь по рамці, блиск) лише поки блок у кадрі; під курсором картка
+     отримує світловий прожектор (позиція пишеться в --mx/--my).
+     Мобільний (вузький екран і рух дозволено): .values.is-stack. CSS закріплює всі картки в ОДНІЙ точці (sticky з однаковим top),
+     тому наприкінці блока вони відпускаються разом. Решту рахуємо тут за позицією карток:
      1) виїзд: поки картка заходить знизу, вона з'їжджається з боку (непарні зліва, парні справа) і проявляється;
-     2) прогортування: коли наступна картка наїжджає, попередня трохи зменшується (до 95%) і затемнюється.
+     2) глибина: коли наступна картка наїжджає, попередня зсувається вгору на крок STEP (лишається смужка з назвою), трохи зменшується
+        й темнішає; чим глибше в стопці, тим менша й темніша, тож кожну картку видно окремо.
      Значення пишуться inline щокадру (rAF, passive scroll); при розширенні вікна чи вимкненні руху все скидається. */
   var stackList = document.querySelector('.values');
   if (stackList && window.matchMedia) {
+    var stackCards = Array.prototype.slice.call(stackList.children);
+    stackCards.forEach(function (el) { var b = el.querySelector('b'); if (b) b.setAttribute('data-t', b.textContent.trim()); });   // назва для смужки покритої картки
+
+    if ('IntersectionObserver' in window) {                                   // безперервні ефекти лише поки блок видно
+      new IntersectionObserver(function (e) { stackList.classList.toggle('is-live', e[0].isIntersecting); }, { rootMargin: '80px 0px' }).observe(stackList);
+    } else { stackList.classList.add('is-live'); }
+
+    if (window.matchMedia('(hover: hover) and (pointer: fine)').matches) {     // прожектор під курсором
+      stackCards.forEach(function (el) {
+        el.addEventListener('pointermove', function (ev) {
+          var r = el.getBoundingClientRect();
+          el.style.setProperty('--mx', (ev.clientX - r.left).toFixed(0) + 'px');
+          el.style.setProperty('--my', (ev.clientY - r.top).toFixed(0) + 'px');
+        }, { passive: true });
+      });
+    }
+
     var mqNarrow = window.matchMedia('(max-width: 759px)'), mqReduce = window.matchMedia('(prefers-reduced-motion: reduce)');
-    var stackCards = Array.prototype.slice.call(stackList.children), stuckTop = [], stackOn = false, queued = false, PEEK = 14;
+    var stackOn = false, queued = false, STEP = 26, pinTop = 0, shiftNow = [];
     var clamp = function (v, a, b) { return v < a ? a : (v > b ? b : v); };
-    var measure = function () { stuckTop = stackCards.map(function (el) { return parseFloat(getComputedStyle(el).top) || 0; }); };
-    var resetCards = function () { stackCards.forEach(function (el) { el.style.opacity = ''; el.style.translate = ''; el.style.scale = ''; el.style.filter = ''; }); };
+    var measure = function () { pinTop = parseFloat(getComputedStyle(stackCards[0]).top) || 0; };
+    var resetCards = function () {
+      stackCards.forEach(function (el) { el.style.opacity = ''; el.style.translate = ''; el.style.scale = ''; el.style.filter = ''; el.style.removeProperty('--cov'); });
+      shiftNow = [];
+    };
     var paint = function () {
       queued = false;
-      var vh = window.innerHeight, box = stackList.getBoundingClientRect();
-      if (box.bottom < -300 || box.top > vh + 300) return;                  // блок далеко від екрана: нічого не малюємо
-      for (var i = 0; i < stackCards.length; i++) {
-        var el = stackCards[i], r = el.getBoundingClientRect();
-        var e = clamp((vh * 0.96 - r.top) / (vh * 0.4), 0, 1);               // 0 – картка щойно показалась знизу, 1 – зайшла
+      var vh = window.innerHeight, box = stackList.getBoundingClientRect(), n = stackCards.length, i;
+      if (box.bottom < -400 || box.top > vh + 400) return;                    // блок далеко від екрана: нічого не малюємо
+      var top = [], h = [], p = [], depth = [];
+      for (i = 0; i < n; i++) {                                               // «природна» верхня межа без нашого зсуву по вертикалі
+        top[i] = stackCards[i].getBoundingClientRect().top - (shiftNow[i] || 0);
+        h[i] = stackCards[i].offsetHeight;
+      }
+      for (i = 0; i < n - 1; i++) {                                           // наскільки наступна картка вже наїхала на цю (0…1)
+        p[i] = clamp((pinTop + 0.9 * h[i] - top[i + 1]) / (0.9 * h[i]), 0, 1);
+      }
+      p[n - 1] = 0; depth[n - 1] = 0;
+      for (i = n - 2; i >= 0; i--) { depth[i] = depth[i + 1] + p[i]; }        // скільки карток лежить поверх цієї
+      for (i = 0; i < n; i++) {
+        var el = stackCards[i];
+        var e = clamp((vh * 0.96 - top[i]) / (vh * 0.4), 0, 1);               // 0 – картка щойно показалась знизу, 1 – зайшла
         var k = 1 - Math.pow(1 - e, 3);                                       // easing out
-        var p = 0;
-        if (i < stackCards.length - 1) {                                      // наскільки наступна картка вже наїхала на цю
-          var next = stackCards[i + 1].getBoundingClientRect().top;
-          p = clamp(1 - (next - (stuckTop[i] + PEEK)) / (r.height * 0.9), 0, 1);
-        }
+        var shift = -STEP * depth[i];
+        shiftNow[i] = shift;
         el.style.opacity = (0.12 + 0.88 * k).toFixed(3);
-        el.style.translate = ((i % 2 === 0 ? -1 : 1) * (1 - k) * 80).toFixed(1) + 'px 0';
-        el.style.scale = (1 - 0.05 * p).toFixed(4);
-        el.style.filter = p > 0.01 ? 'brightness(' + (1 - 0.42 * p).toFixed(3) + ')' : '';
+        el.style.translate = ((i % 2 === 0 ? -1 : 1) * (1 - k) * 80).toFixed(1) + 'px ' + shift.toFixed(1) + 'px';
+        el.style.scale = Math.max(0.88, 1 - 0.02 * depth[i]).toFixed(4);
+        el.style.filter = depth[i] > 0.01 ? 'brightness(' + Math.max(0.55, 1 - 0.075 * depth[i]).toFixed(3) + ')' : '';
+        el.style.setProperty('--cov', p[i].toFixed(3));
       }
     };
     var schedule = function () { if (stackOn && !queued) { queued = true; requestAnimationFrame(paint); } };

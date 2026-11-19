@@ -82,23 +82,30 @@
 /* ---------- Ціна ---------- */
 /* Цінність і умови – ДО тарифів: спершу що отримує клієнт, потім ціна.
    Кожен пункт – окрема висока картка (мова тарифів: підкладка Forest-line + внутрішній шар) на тлі тонких ліній решітки з hero
-   і з великим номером 1, 2, … Однаковий вигляд на всіх екранах: на десктопі сітка 3 колонки, на мобільному стопка (нижче). */
+   і з великим номером 1, 2, … Однаковий вигляд на всіх екранах: на десктопі сітка 3 колонки з ефектами, на мобільному стопка (нижче). */
+@property --sa { syntax: '<number>'; inherits: false; initial-value: 0; }      /* сила світла-прожектора під курсором (переходить плавно) */
 .values { display: grid; gap: var(--sp-4); counter-reset: val; margin: 0 0 var(--sp-9); padding: 0; list-style: none; }
 .values li {
   --c: var(--chamfer);
   position: relative; isolation: isolate; display: grid; align-content: center; gap: var(--sp-2);
   min-height: 11rem; padding: var(--sp-6) var(--sp-5); counter-increment: val;
-  background: linear-gradient(105deg, var(--forest-line) 38%, var(--jungle) 50%, var(--forest-line) 62%) 100% 0 / 320% 100%;
+  background: linear-gradient(105deg, var(--forest-line) 40%, color-mix(in srgb, var(--jungle) 90%, var(--forest-line)) 50%, var(--forest-line) 60%) 100% 0 / 320% 100%;
   clip-path: polygon(var(--c) 0, calc(100% - var(--c)) 0, 100% var(--c), 100% calc(100% - var(--c)), calc(100% - var(--c)) 100%, var(--c) 100%, 0 calc(100% - var(--c)), 0 var(--c));
+  transition: transform 300ms var(--ease-out), --sa 300ms linear;
 }
-.values li::before {                         /* внутрішній шар: світла кромка зверху (видно зі стопки), світіння справа вгорі, лінії решітки (затухають до лівого низу), основний фон */
+.values li::before {                         /* внутрішній шар (шари згори вниз): прожектор під курсором, діагональний блиск, світла кромка зверху, світіння справа вгорі, затухання, решітка hex-ліній, основний фон */
   content: ""; position: absolute; width: auto; height: auto; inset: 1.5px; z-index: -1; clip-path: var(--inner);
-  background:
-    linear-gradient(90deg, transparent, color-mix(in srgb, var(--jungle) 60%, transparent) 50%, transparent) 0 0 / 100% 1.5px no-repeat,
+  background-color: var(--forest-raised);
+  background-image:
+    radial-gradient(circle 190px at var(--mx, 75%) var(--my, 0%), color-mix(in srgb, var(--jungle) calc(var(--sa, 0) * 1%), transparent), transparent 72%),
+    linear-gradient(115deg, transparent 42%, color-mix(in srgb, var(--jungle) 16%, transparent) 50%, transparent 58%),
+    linear-gradient(90deg, transparent, color-mix(in srgb, var(--jungle) 60%, transparent) 50%, transparent),
     radial-gradient(90% 80% at 100% 0%, color-mix(in srgb, var(--jungle) 20%, transparent) 0%, transparent 70%),
     linear-gradient(200deg, transparent 0%, color-mix(in srgb, var(--forest-raised) 82%, transparent) 62%, var(--forest-raised) 100%),
-    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='168' height='291' viewBox='0 0 168 291'%3E%3Cpath d='M84 0L168 48.5V145.5L84 194L0 145.5V48.5L84 0M84 194V291' fill='none' stroke='%2302B16E' stroke-opacity='.5' stroke-width='1.8'/%3E%3C/svg%3E") 0 0 / 84px 146px,
-    var(--forest-raised);
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='168' height='291' viewBox='0 0 168 291'%3E%3Cpath d='M84 0L168 48.5V145.5L84 194L0 145.5V48.5L84 0M84 194V291' fill='none' stroke='%2302B16E' stroke-opacity='.5' stroke-width='1.8'/%3E%3C/svg%3E");
+  background-size: 100% 100%, 300% 100%, 100% 1.5px, 100% 100%, 100% 100%, 84px 146px;
+  background-position: 0 0, 100% 0, 0 0, 0 0, 0 0, 0 0;
+  background-repeat: no-repeat, no-repeat, no-repeat, no-repeat, no-repeat, repeat;
 }
 .values li::after {                          /* номер: просто 1, 2, …; градієнт від Jungle до прозорого */
   content: counter(val); order: -1; justify-self: start;
@@ -113,21 +120,39 @@
 .values li:nth-child(4) { --i: 3; } .values li:nth-child(5) { --i: 4; } .values li:nth-child(6) { --i: 5; }
 .values li:nth-child(7) { --i: 6; } .values li:nth-child(8) { --i: 7; } .values li:nth-child(9) { --i: 8; }
 @media (prefers-reduced-motion: no-preference) {
-  /* Поява без стопки (десктоп): картки по черзі виринають знизу з легким розмиттям; по рамці один раз пробігає світловий промінь.
-     У режимі стопки (.is-stack, мобільний) станом керує js/case.js за прокруткою, тому тут його не задаємо. */
+  /* Поява без стопки (десктоп): картки по черзі виринають знизу з легким розмиттям */
   html.js .values:not(.is-stack) li:not(.is-in) { opacity: 0; filter: blur(6px); translate: 0 28px; }
-  html.js .values:not(.is-stack) li { transition: opacity 600ms var(--ease-out) calc(var(--col, 0) * 90ms), filter 700ms var(--ease-out) calc(var(--col, 0) * 90ms), translate 700ms var(--ease-out) calc(var(--col, 0) * 90ms); }
-  html.js .values li.is-in { animation: valSweep 1400ms 250ms var(--ease-out) 1 both; }
+  html.js .values:not(.is-stack) li {
+    transition: opacity 600ms var(--ease-out) calc(var(--col, 0) * 90ms), filter 700ms var(--ease-out) calc(var(--col, 0) * 90ms),
+                translate 700ms var(--ease-out) calc(var(--col, 0) * 90ms), transform 300ms var(--ease-out), --sa 300ms linear;
+  }
   html.reveal-fallback .values li:not(.is-in) { opacity: 1; filter: none; translate: 0 0; }
-  @keyframes valSweep { from { background-position: 100% 0; } to { background-position: 0% 0; } }
 }
-/* Мобільна стопка (клас .is-stack ставить js/case.js, коли екран вузький і рух дозволено): кожна картка «прилипає» під шапкою
-   з власним зсувом (--i), наступна наїжджає на неї, зверху лишається світла кромка кожної. Зменшення масштабу на 5% і затемнення
-   покритих карток, а також виїзд з різних боків (непарні зліва, парні справа) рахує js/case.js за позицією картки на екрані.
+/* Десктопні ефекти (видно одразу, без наведення): кожні 9 с по рамці картки пробігає світловий промінь, а всередині – діагональний блиск;
+   у кожної картки своя фаза, тому вони «дихають» по черзі. Грає лише коли блок у кадрі (js/case.js ставить .is-live). */
+@keyframes valSweep { 0%, 58% { background-position: 100% 0; } 100% { background-position: 0% 0; } }
+@keyframes valShine { 0%, 58% { background-position: 0 0, 100% 0, 0 0, 0 0, 0 0, 0 0; } 100% { background-position: 0 0, 0% 0, 0 0, 0 0, 0 0, 0 0; } }
+@media (min-width: 760px) and (prefers-reduced-motion: no-preference) {
+  .values.is-live li { animation: valSweep 9s ease-in-out infinite; animation-delay: calc(var(--i) * -1.1s); }
+  .values.is-live li::before { animation: valShine 9s ease-in-out infinite; animation-delay: calc(var(--i) * -1.1s); }
+}
+/* Наведення курсора: картка трохи піднімається, рамка яскравішає, під курсором – плавний світловий прожектор (позицію пише js/case.js у --mx/--my) */
+@media (hover: hover) and (pointer: fine) {
+  .values li:hover { --sa: 32; transform: translateY(-5px); background: color-mix(in srgb, var(--jungle) 62%, var(--forest-line)); animation: none; }
+}
+/* Мобільна стопка (клас .is-stack ставить js/case.js, коли екран вузький і рух дозволено).
+   Усі картки закріплюються в ОДНІЙ точці під шапкою (`top` однаковий), тому в кінці блока вони відпускаються разом, а не по черзі.
+   Зсув угору (кожна покрита картка вище на крок 26 px, щоб лишалась смужка з назвою), виїзд з різних боків, зменшення й затемнення
+   за глибиною рахує js/case.js за позицією карток. Назва картки видна на її смужці (b::before з data-t, прозорість --cov).
    sticky працює, бо в предках лише overflow-x: clip (він не створює контейнер прокрутки). */
-.values.is-stack { gap: var(--sp-4); }
-.values.is-stack li { position: sticky; top: calc(var(--header-h) + var(--sp-3) + var(--i, 0) * 0.875rem); transform-origin: 50% 0; }
-.values.is-stack li:last-child { margin-bottom: 8rem; }     /* стопка ще трохи лишається на екрані, перш ніж піти вгору разом із блоком */
+.values.is-stack { gap: var(--sp-4); grid-auto-rows: 1fr; }    /* однакова висота карток: інакше вищі відпускаються раніше й картки розʼїжджаються */
+.values.is-stack li { position: sticky; top: calc(var(--header-h) + var(--sp-3) + 8 * 1.625rem); transform-origin: 50% 0; min-height: 12rem; transition: none; }
+.values.is-stack::after { content: ""; display: block; }       /* розпірка в кінці списку (спільна для всіх карток): стопка ще лишається на екрані, перш ніж піти вгору разом. Не margin останньої картки: тоді вона відпускалась би раніше й наїжджала на інші */
+.values.is-stack b::before {
+  content: counter(val) "  ·  " attr(data-t); position: absolute; left: var(--sp-5); right: var(--sp-5); top: 0.4rem;
+  display: block; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; pointer-events: none;
+  font-family: var(--font-sans); font-size: 0.8125rem; font-weight: 600; line-height: 1.2; color: var(--ink-soft); opacity: var(--cov, 0);
+}
 /* Швидкість: цифри цього сайту (PageSpeed); картки в мові тарифів: підкладка + внутрішній шар */
 .speed { margin: 0 0 var(--sp-9); }
 .speed__lead { margin: 0 0 var(--sp-5); max-width: 46rem; color: var(--ink-soft); }
