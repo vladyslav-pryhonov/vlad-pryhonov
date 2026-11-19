@@ -26,6 +26,21 @@
     }
   }
 
+  /* ---------- Живий фон hero: анімація (решітка, хвилі, промінь по специфікації) грає, лише поки hero у кадрі ---------- */
+  var phero = document.querySelector('.phero');
+  if (phero) {
+    if ('IntersectionObserver' in window) {
+      new IntersectionObserver(function (e) { phero.classList.toggle('is-live', e[0].isIntersecting); }, { threshold: 0.05 }).observe(phero);
+    } else { phero.classList.add('is-live'); }
+  }
+
+  /* ---------- Тариф за замовчуванням у формі: сторінка тарифу → її тариф (site.js читає sessionStorage.tariff при старті) ---------- */
+  var contactEl = document.getElementById('contact');
+  var defTariff = contactEl && contactEl.getAttribute('data-tariff-default');
+  if (defTariff === 'fast' || defTariff === 'personal') {
+    try { sessionStorage.setItem('tariff', defTariff); } catch (e) { /* приватний режим */ }
+  }
+
   /* ---------- Тест вибору тарифу (сторінка «Скільки коштує сайт») ----------
      Три питання. Магазин із оплатою → «Особистий» (його збираю на готовій платформі). Інакше більшість відповідей, а при рівності вирішує пріоритет. */
   var quiz = document.getElementById('quiz');
@@ -49,7 +64,11 @@
       var p = document.createElement('p'); p.textContent = t.text; result.appendChild(p);
       if (note) { var n = document.createElement('p'); n.textContent = note; result.appendChild(n); }
       var act = document.createElement('div'); act.className = 'pactions';
-      var a1 = document.createElement('a'); a1.className = 'btn btn--primary'; a1.href = '/?tariff=' + t.q + '#contact'; a1.textContent = 'Отримати перший екран'; a1.setAttribute('data-track', 'quiz_cta');
+      var a1 = document.createElement('a'); a1.className = 'btn btn--primary'; a1.href = '#contact'; a1.textContent = 'Отримати перший екран'; a1.setAttribute('data-track', 'quiz_cta');
+      a1.addEventListener('click', function () {                      // форма на цій самій сторінці: вмикаємо рекомендований тариф у перемикачі форми
+        var btn = document.querySelector('.tpick [data-pick="' + t.q + '"]');
+        if (btn && btn.getAttribute('aria-pressed') !== 'true') btn.click();
+      });
       var a2 = document.createElement('a'); a2.className = 'plink'; a2.href = t.href; a2.textContent = 'Докладніше про тариф';
       act.appendChild(a1); act.appendChild(a2); result.appendChild(act);
       result.hidden = false;

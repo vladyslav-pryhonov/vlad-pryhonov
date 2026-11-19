@@ -476,3 +476,7 @@
   .cookie { grid-template-columns: 1fr auto; align-items: center; }
   :root { --footer-h: 17rem; }
 }
+
+/* ---------- Підтримка після запуску (блок у «Ціні» на головній): три плани в ряд ---------- */
+.support { margin-top: var(--sp-9); }
+@media (min-width: 960px) { .plans--3 { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--sp-5); } }
