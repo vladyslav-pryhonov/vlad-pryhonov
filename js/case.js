@@ -33,8 +33,7 @@
   }
 
   /* ---------- Картки «Що ви отримуєте» (css/sections.css, блок .values) ----------
-     Десктоп: .values.is-live вмикає безперервні ефекти (промінь по рамці, блиск) лише поки блок у кадрі; під курсором картка
-     отримує світловий прожектор (позиція пишеться в --mx/--my).
+     Десктоп: .values.is-live вмикає мигання країв карток (промінь по рамці) лише поки блок у кадрі.
      Мобільний (вузький екран і рух дозволено): .values.is-stack. CSS закріплює всі картки в ОДНІЙ точці (sticky з однаковим top),
      тому наприкінці блока вони відпускаються разом. Решту рахуємо тут за позицією карток:
      1) виїзд: поки картка заходить знизу, вона з'їжджається з боку (непарні зліва, парні справа) і проявляється;
@@ -50,15 +49,6 @@
       new IntersectionObserver(function (e) { stackList.classList.toggle('is-live', e[0].isIntersecting); }, { rootMargin: '80px 0px' }).observe(stackList);
     } else { stackList.classList.add('is-live'); }
 
-    if (window.matchMedia('(hover: hover) and (pointer: fine)').matches) {     // прожектор під курсором
-      stackCards.forEach(function (el) {
-        el.addEventListener('pointermove', function (ev) {
-          var r = el.getBoundingClientRect();
-          el.style.setProperty('--mx', (ev.clientX - r.left).toFixed(0) + 'px');
-          el.style.setProperty('--my', (ev.clientY - r.top).toFixed(0) + 'px');
-        }, { passive: true });
-      });
-    }
 
     var mqNarrow = window.matchMedia('(max-width: 759px)'), mqReduce = window.matchMedia('(prefers-reduced-motion: reduce)');
     var stackOn = false, queued = false, STEP = 26, pinTop = 0, shiftNow = [];
@@ -91,7 +81,7 @@
         el.style.opacity = (0.12 + 0.88 * k).toFixed(3);
         el.style.translate = ((i % 2 === 0 ? -1 : 1) * (1 - k) * 80).toFixed(1) + 'px ' + shift.toFixed(1) + 'px';
         el.style.scale = Math.max(0.88, 1 - 0.02 * depth[i]).toFixed(4);
-        el.style.filter = depth[i] > 0.01 ? 'brightness(' + Math.max(0.55, 1 - 0.075 * depth[i]).toFixed(3) + ')' : '';
+        el.style.filter = depth[i] > 0.01 ? 'brightness(' + Math.max(0.7, 1 - 0.05 * depth[i]).toFixed(3) + ')' : '';
         el.style.setProperty('--cov', p[i].toFixed(3));
       }
     };
