@@ -185,7 +185,25 @@
 .plans__foot p { margin: 0; color: var(--ink-soft); max-width: 40rem; }
 
 /* ---------- Питання ---------- */
-.faq__list { display: grid; gap: var(--sp-3); }               /* картки на всю ширину контенту; текст усередині не змінюється */
+.faq__list { display: grid; gap: var(--sp-3); }               /* текст усередині карток не змінюється; ширину колонки задає .faq__layout */
+/* Головна: вузька колонка питань + липкий блок корисних посилань праворуч (від 960 px); на мобільному блок іде під списком */
+.faq__layout { display: grid; gap: var(--sp-7); }
+.faqside { display: grid; gap: var(--sp-4); align-content: start; }
+.faqside h3 { margin: 0; font-size: var(--fs-h3); line-height: var(--lh-head); font-weight: 650; }
+.faqlinks { display: grid; border-top: 1px solid var(--line); }
+.faqlinks a { position: relative; display: grid; gap: 2px; padding: var(--sp-4) var(--sp-6) var(--sp-4) 0; border-bottom: 1px solid var(--line); transition: padding-left var(--t-base) var(--ease-out); }
+.faqlinks a::after { content: "→"; position: absolute; right: 0; top: 50%; translate: 0 -50%; color: var(--jungle); font-weight: 600; }
+.faqlinks b { font-size: 1.0625rem; line-height: 1.25; font-weight: 650; }
+.faqlinks span { color: var(--ink-soft); font-size: var(--fs-small); line-height: 1.4; }
+.faqlinks a:focus-visible { outline: 2px solid var(--focus); outline-offset: 3px; }
+@media (hover: hover) { .faqlinks a:hover { padding-left: var(--sp-3); } .faqlinks a:hover b { color: var(--jungle); } }
+.faqside__ask { margin: 0; color: var(--ink-soft); font-size: var(--fs-small); }
+.faqside__ask a { color: var(--jungle); text-decoration: underline; text-underline-offset: 3px; }
+@media (hover: hover) { .faqside__ask a:hover { color: var(--ink); } }
+@media (min-width: 960px) {
+  .faq__layout { grid-template-columns: minmax(0, 52rem) minmax(0, 24rem); justify-content: space-between; gap: var(--sp-8); align-items: start; }
+  .faqside { position: sticky; top: calc(var(--header-h) + var(--sp-6)); }
+}
 .qa { background: var(--forest-raised); }
 .qa summary {
   display: flex; align-items: center; justify-content: space-between; gap: var(--sp-4); min-height: 56px; padding: var(--sp-3) var(--sp-5);

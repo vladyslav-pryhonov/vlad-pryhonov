@@ -33,7 +33,7 @@
 <meta name="twitter:title" content="Безкоштовний перший екран вашого сайту за 24 години після брифу">
 <meta name="twitter:description" content="Створюю сайти й лендінги для малого бізнесу. Перший екран безкоштовно за 24 години, оплата після результату. Лендінг від $600, запуск від 7 днів.">
 <link rel="preload" as="font" type="font/woff2" href="fonts/onest-400-cyrillic.woff2" crossorigin>
-<link rel="stylesheet" href="css/fonts.css?v=20261120d">
+<link rel="stylesheet" href="css/fonts.css?v=20261120e">
 <link rel="preload" as="image" href="img/vlad-800.webp" imagesrcset="img/vlad-480.webp 480w, img/vlad-800.webp 800w, img/vlad-928.webp 928w" imagesizes="(min-width: 960px) 720px, 92vw" fetchpriority="high">
 
 <script>
@@ -45,14 +45,14 @@
   /* Якщо js/case.js не завантажився – блоки, що з'являються при прокрутці, показуються через 6 с */
   setTimeout(function () { document.documentElement.classList.add('reveal-fallback'); }, 6000);
 </script>
-<link rel="stylesheet" href="css/tokens.css?v=20261120d">
-<link rel="stylesheet" href="css/base.css?v=20261120d">
-<link rel="stylesheet" href="css/components.css?v=20261120d">
-<link rel="stylesheet" href="css/header.css?v=20261120d">
-<link rel="stylesheet" href="css/hero.css?v=20261120d">
-<link rel="stylesheet" href="css/case.css?v=20261120d">
-<link rel="stylesheet" href="css/process.css?v=20261120d">
-<link rel="stylesheet" href="css/sections.css?v=20261120d">
+<link rel="stylesheet" href="css/tokens.css?v=20261120e">
+<link rel="stylesheet" href="css/base.css?v=20261120e">
+<link rel="stylesheet" href="css/components.css?v=20261120e">
+<link rel="stylesheet" href="css/header.css?v=20261120e">
+<link rel="stylesheet" href="css/hero.css?v=20261120e">
+<link rel="stylesheet" href="css/case.css?v=20261120e">
+<link rel="stylesheet" href="css/process.css?v=20261120e">
+<link rel="stylesheet" href="css/sections.css?v=20261120e">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -654,6 +654,7 @@
       <header class="section-head reveal">
         <h2 id="faq-title">Відповіді, <em>поки ви не запитали</em></h2>
       </header>
+      <div class="faq__layout">
       <div class="faq__list reveal">
         <details name="faq" class="qa chamfer chamfer-sm" open>
           <summary>Чому перший екран безкоштовний?</summary>
@@ -695,6 +696,20 @@
           <summary>Скільки коштує підтримка сайту після запуску?</summary>
           <p>Правки після здачі платні: разово $35 за годину, мінімум година. Якщо вони потрібні регулярно, є місячний абонемент: $50 на місяць (1 година правок, моніторинг, нагадування про домен і хостинг), $100 на місяць (3 години й щомісячний звіт про заявки) або $150 на місяць (5 годин і щомісячна розмова з розбором). Без довгого контракту: скасувати можна, повідомивши за 14 днів. Ціни в доларах США.</p>
         </details>
+      </div>
+
+      <!-- Корисні сторінки: заповнює праву частину поруч із вузькою колонкою питань (липкий блок; на мобільному йде під списком) -->
+      <aside class="faqside reveal" aria-labelledby="faqside-title">
+        <h3 id="faqside-title">Корисні сторінки</h3>
+        <nav class="faqlinks" aria-label="Корисні сторінки">
+          <a href="skilky-koshtuye-sait/" data-track="faq_link_cost"><b>Скільки коштує сайт</b><span>Що впливає на ціну й що не забути врахувати</span></a>
+          <a href="pershyi-ekran/" data-track="faq_link_first"><b>Безкоштовний перший екран</b><span>Як це працює: бриф, 24 години, правки</span></a>
+          <a href="pidtrymka-saitu/" data-track="faq_link_support"><b>Підтримка сайту</b><span>Абонемент від $50 на місяць</span></a>
+          <a href="shvydkyi-tarif/" data-track="faq_link_fast"><b>Тариф «Швидкий»</b><span>Код + AI-інструменти, від 7 днів</span></a>
+          <a href="osobystyi-tarif/" data-track="faq_link_personal"><b>Тариф «Особистий»</b><span>Редагуєте сайт самі, від 14 днів</span></a>
+        </nav>
+        <p class="faqside__ask">Не знайшли відповідь? <a href="https://t.me/vvladdos_ik" target="_blank" rel="noopener" data-track="telegram_click">Напишіть у Telegram</a></p>
+      </aside>
       </div>
     </div>
   </section>
@@ -877,10 +892,10 @@
 
 
 <script src="js/vendor/gsap.min.js" defer></script>
-<script src="js/queue.js?v=20261120d" defer></script>
-<script src="js/hero.js?v=20261120d" defer></script>
-<script src="js/case.js?v=20261120d" defer></script>
-<script src="js/site.js?v=20261120d" defer></script>
+<script src="js/queue.js?v=20261120e" defer></script>
+<script src="js/hero.js?v=20261120e" defer></script>
+<script src="js/case.js?v=20261120e" defer></script>
+<script src="js/site.js?v=20261120e" defer></script>
 
 <dialog class="lightbox" id="lightbox" aria-label="Скрін переписки">
   <button class="lightbox__close" type="button" aria-label="Закрити">&times;</button>
