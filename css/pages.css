@@ -206,3 +206,28 @@
 .related em { grid-column: 2; grid-row: 1 / span 2; font-style: normal; font-weight: 600; color: var(--jungle); white-space: nowrap; }
 @media (hover: hover) { .related a:hover { padding-left: var(--sp-3); } .related a:hover b { color: var(--jungle); } }
 @media (max-width: 559px) { .related a { grid-template-columns: 1fr; } .related em { grid-column: 1; grid-row: auto; } }
+
+/* ---------- Сторінки етапу 2 ---------- */
+.demos.demos--one { grid-auto-flow: row; grid-auto-columns: 100%; overflow: visible; }
+@media (min-width: 760px) { .demos.demos--one { grid-template-columns: minmax(0, 46rem); } }
+.cmp--pairs tbody th { width: 34%; color: var(--ink); font-weight: 600; font-size: var(--fs-body); }
+.cmp--pairs td { font-size: var(--fs-body); color: var(--ink-soft); }
+.related--wide { max-width: none; }
+.case-wrap { display: grid; gap: var(--sp-8); }
+.phero .about__media { justify-self: center; width: min(100%, 24rem); }
+@media (min-width: 980px) { .phero .about__media { justify-self: end; width: min(100%, 26rem); } }
+.demo-split { display: grid; gap: var(--sp-7); }
+.demo-points__h { margin: 0 0 var(--sp-3); font-size: var(--fs-h3); line-height: var(--lh-head); font-weight: 650; }
+@media (min-width: 1000px) {
+  .demo-split { grid-template-columns: minmax(0, 46rem) minmax(0, 1fr); gap: var(--sp-8); align-items: center; }
+  .demo-split .demos.demos--one { grid-template-columns: minmax(0, 1fr); }
+}
+
+/* Мобільний: таблиця «страх → відповідь» без повторюваного підпису в кожному рядку; посилання в рядку дій мають зручну ціль дотику */
+@media (max-width: 719px) {
+  .cmp--pairs td { display: block; padding-top: 0; }
+  .cmp--pairs td::before { display: none; }
+  .cmp--pairs tbody th { width: auto; padding-bottom: 0.2rem; }
+}
+.pactions .plink { display: inline-flex; align-items: center; min-height: var(--tap); }
+

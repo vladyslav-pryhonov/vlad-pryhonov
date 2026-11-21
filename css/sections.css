@@ -498,3 +498,14 @@
 /* ---------- Підтримка після запуску (блок у «Ціні» на головній): три плани в ряд ---------- */
 .support { margin-top: var(--sp-9); }
 @media (min-width: 960px) { .plans--3 { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--sp-5); } }
+
+/* ---------- Підвал колонками: усі сторінки сайту (внутрішнє перелінкування) ---------- */
+.footer__cols { display: grid; grid-template-columns: repeat(auto-fit, minmax(11rem, max-content)); gap: var(--sp-5) var(--sp-8); }
+.footer__col { display: grid; align-content: start; }
+.footer__h { margin: 0 0 var(--sp-2); font-size: var(--fs-label); font-weight: 600; color: var(--ink-mute); }
+.footer__cols a { min-height: 36px; }
+.about__more { margin: var(--sp-5) 0 0; }
+.demos__more { margin: var(--sp-6) 0 0; max-width: 56rem; color: var(--ink-soft); font-size: var(--fs-small); line-height: 1.5; }
+.demos__more a { color: var(--ink); text-decoration: underline; text-underline-offset: 0.2em; }
+@media (hover: hover) { .demos__more a:hover { color: var(--jungle); } }
+
