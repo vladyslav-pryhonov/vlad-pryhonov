@@ -287,46 +287,128 @@
 @media (hover: hover) { .fan:hover .fan__item--0 { translate: -4% 2%; } .fan:hover .fan__item--2 { translate: 4% 2%; } .fan:hover .fan__item--1 { translate: 0 -3%; } }
 .fan .dev__badge { top: 0; left: 0; z-index: 5; }
 
-/* ---------- Hero «Про мене»: фото в стилі hero головної (світіння, велике прізвище перед фото) ---------- */
+/* ---------- Hero «Про мене»: велике фото по центру правої колонки, без прізвища ---------- */
 .phero--photo { padding-bottom: var(--sp-8); }
 .phero--photo .phero__grid { align-items: end; }
-@media (min-width: 980px) { .phero--photo .phero__grid { grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr); } .phero--photo { padding-bottom: var(--sp-7); } }
-.pstage { position: relative; isolation: isolate; justify-self: center; width: min(100%, 27rem); }
-.pstage__photo { aspect-ratio: 1086 / 1190; overflow: hidden; -webkit-mask-image: linear-gradient(to bottom, #000 72%, transparent 100%); mask-image: linear-gradient(to bottom, #000 72%, transparent 100%); }
+@media (min-width: 980px) { .phero--photo .phero__grid { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); align-items: center; } .phero--photo { padding-bottom: var(--sp-7); } }
+.pstage { position: relative; isolation: isolate; justify-self: center; width: min(100%, 36rem); }
+.pstage .dev__glow { inset: 0 -6% -4%; }
+.pstage__photo { aspect-ratio: 1086 / 1230; overflow: hidden; -webkit-mask-image: linear-gradient(to bottom, #000 80%, transparent 100%); mask-image: linear-gradient(to bottom, #000 80%, transparent 100%); }
 .pstage__photo img { display: block; width: 100%; height: auto; }
-.pstage__mark { position: absolute; z-index: 3; left: 50%; bottom: -0.08em; translate: -50% 0; margin: 0; width: max-content; padding: 0.1em 0.08em; font-size: clamp(2.6rem, 6.6vw, 5.4rem); font-weight: 700; line-height: 0.78; letter-spacing: -0.045em; white-space: nowrap; user-select: none; pointer-events: none;
-  background: linear-gradient(to bottom, color-mix(in srgb, var(--ink) 80%, var(--forest)) 10%, color-mix(in srgb, var(--ink) 28%, var(--forest)) 100%); -webkit-background-clip: text; background-clip: text; color: transparent; -webkit-text-fill-color: transparent; }
 
-/* ---------- Кейс: «було → стало» ---------- */
+/* ---------- «Тариф Особистий»: платформи плитками замість рядка тегів ---------- */
+.plat { display: grid; gap: var(--sp-6); }
+@media (min-width: 980px) { .plat { grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr); align-items: start; gap: var(--sp-8); } .plat__lead { position: sticky; top: 6rem; } }
+.plat__note { margin-top: var(--sp-5); }
+.ptools { display: grid; grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr)); gap: var(--sp-3); margin: 0; padding: 0; list-style: none; }
+.ptool { --c: var(--chamfer-sm); display: grid; gap: 4px; align-content: start; padding: var(--sp-5); background: var(--forest-raised); border-top: 2px solid var(--jungle);
+  clip-path: polygon(var(--c) 0, calc(100% - var(--c)) 0, 100% var(--c), 100% calc(100% - var(--c)), calc(100% - var(--c)) 100%, var(--c) 100%, 0 calc(100% - var(--c)), 0 var(--c)); transition: opacity 600ms var(--ease-out), translate 600ms var(--ease-out); transition-delay: calc(var(--i) * 90ms); }
+.ptool__ic { display: grid; place-items: center; width: 44px; height: 44px; margin-bottom: var(--sp-2); font-size: 1.5rem; color: var(--jungle); background: var(--forest-deep); border: 1px solid var(--line-strong); clip-path: polygon(9px 0, calc(100% - 9px) 0, 100% 9px, 100% calc(100% - 9px), calc(100% - 9px) 100%, 9px 100%, 0 calc(100% - 9px), 0 9px); }
+.ptool svg { width: 1em; height: 1em; }
+.ptool b { font-size: 1.25rem; font-weight: 650; line-height: 1.2; }
+.ptool > span:last-child { color: var(--ink-soft); font-size: var(--fs-small); }
+.ptool--more { grid-column: 1 / -1; grid-template-columns: auto 1fr; align-items: center; column-gap: var(--sp-4); background: transparent; border-top: 2px dashed var(--line-strong); }
+.ptool--more .ptool__ic { grid-row: span 2; margin: 0; }
+html.js .ptools.reveal:not(.is-in) .ptool { opacity: 0; translate: 0 14px; }
+
+/* ---------- Кейс: «було → стало» (реалістична схема: директ без відповіді → магазин із кошиком) ---------- */
 .case-wrap .case__grid { grid-template-columns: minmax(0, 1fr); }
 .case-wrap .case__info { max-width: 58rem; }
 .ba { display: grid; gap: var(--sp-5); align-items: stretch; margin: 0; }
 @media (min-width: 760px) { .ba { grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr); } }
-.ba__pane { --c: var(--chamfer); display: grid; gap: var(--sp-4); align-content: start; min-height: 15rem; padding: var(--sp-5); background: var(--forest-raised); border-top: 1px solid var(--line-strong);
+.ba__pane { --c: var(--chamfer); display: grid; gap: var(--sp-4); align-content: start; padding: var(--sp-5); background: var(--forest-raised); border-top: 1px solid var(--line-strong);
   clip-path: polygon(var(--c) 0, calc(100% - var(--c)) 0, 100% var(--c), 100% calc(100% - var(--c)), calc(100% - var(--c)) 100%, var(--c) 100%, 0 calc(100% - var(--c)), 0 var(--c)); }
 .ba__pane--after { border-top: 2px solid var(--jungle); background: linear-gradient(160deg, color-mix(in srgb, var(--jungle) 18%, var(--forest-raised)), var(--forest-raised)); }
 .ba__cap { margin: 0; font-weight: 650; }
-.ba__chat { display: grid; gap: var(--sp-3); }
-.ba__chat i { display: block; height: 36px; border-radius: 18px; background: var(--forest-line); }
-.ba__chat .b1 { width: 58%; } .ba__chat .b2 { width: 74%; justify-self: end; background: color-mix(in srgb, var(--jungle) 34%, var(--forest-line)); }
-.ba__chat .b3 { width: 84px; display: flex; align-items: center; justify-content: center; gap: 6px; }
-.ba__chat s { width: 7px; height: 7px; border-radius: 50%; background: var(--ink-mute); animation: typeDot 1.2s ease-in-out infinite; }
-.ba__chat s:nth-child(2) { animation-delay: 0.18s; } .ba__chat s:nth-child(3) { animation-delay: 0.36s; }
-@keyframes typeDot { 0%, 60%, 100% { opacity: 0.25; translate: 0 0; } 30% { opacity: 1; translate: 0 -4px; } }
 .ba__arrow { display: grid; place-items: center; }
 .ba__arrow i { width: 44px; height: 44px; background: var(--jungle); clip-path: polygon(50% 0, 100% 50%, 50% 100%, 0 50%); position: relative; animation: arrowNudge 2s ease-in-out infinite; }
 .ba__arrow i::after { content: ""; position: absolute; inset: 0; margin: auto; width: 14px; height: 14px; border-top: 2.5px solid var(--on-jungle); border-right: 2.5px solid var(--on-jungle); rotate: 45deg; translate: -2px 0; }
 @media (max-width: 759px) { .ba__arrow i { rotate: 90deg; } }
 @keyframes arrowNudge { 0%, 100% { translate: 0 0; } 50% { translate: 5px 0; } }
-.ba__shop { display: grid; gap: var(--sp-3); }
-.ba__img { height: 92px; background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='168' height='291' viewBox='0 0 168 291'%3E%3Cpath d='M84 0L168 48.5V145.5L84 194L0 145.5V48.5L84 0M84 194V291' fill='none' stroke='%2302B16E' stroke-opacity='.4' stroke-width='1.8'/%3E%3C/svg%3E") 0 0 / 56px 97px, linear-gradient(160deg, color-mix(in srgb, var(--jungle) 28%, var(--forest-deep)), var(--forest-deep)); clip-path: polygon(10px 0, 100% 0, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0 100%, 0 10px); }
-.ba__sizes { display: flex; gap: var(--sp-2); }
-.ba__sizes b { min-width: 42px; padding: 0.4rem 0.6rem; text-align: center; font-family: var(--font-mono); font-weight: 500; background: var(--forest-deep); border: 1px solid var(--line-strong); animation: sizeOn 6s ease-in-out infinite; }
-.ba__sizes b:nth-child(2) { animation-delay: 1.5s; } .ba__sizes b:nth-child(3) { animation-delay: 3s; } .ba__sizes b:nth-child(4) { animation-delay: 4.5s; }
-@keyframes sizeOn { 0%, 22%, 100% { background: var(--forest-deep); color: var(--ink); border-color: var(--line-strong); } 4%, 20% { background: var(--jungle); color: var(--on-jungle); border-color: var(--jungle); } }
-.ba__btn { justify-self: start; padding: 0.55rem 1.2rem; font-weight: 650; color: var(--on-jungle); background: var(--jungle); animation: btnBeat 6s ease-in-out infinite; }
-@keyframes btnBeat { 0%, 90%, 100% { filter: none; } 94% { filter: brightness(1.25) drop-shadow(0 0 10px var(--glow-jungle)); } }
 .ba figcaption { grid-column: 1 / -1; color: var(--ink-mute); font-size: var(--fs-small); }
+.ba svg { width: 1em; height: 1em; flex: none; }
+
+/* Ліворуч: переписка в директі, відповіді немає */
+.dm { display: grid; grid-template-rows: auto 1fr; min-height: 23rem; background: var(--forest-deep); border: 1px solid var(--line-strong); overflow: hidden; }
+.dm__bar { display: flex; align-items: center; gap: var(--sp-3); padding: 0.7rem var(--sp-4); background: color-mix(in srgb, var(--forest-line) 55%, var(--forest-deep)); border-bottom: 1px solid var(--line-strong); }
+.dm__ava { display: grid; place-items: center; width: 34px; height: 34px; border-radius: 50%; background: var(--forest-line); color: var(--ink-soft); font-size: 1.25rem; }
+.dm__bar b { font-size: var(--fs-small); font-weight: 650; }
+.dm__bar small { margin-left: auto; color: var(--ink-mute); font-size: var(--fs-label); }
+.dm__msgs { display: flex; flex-direction: column; align-items: flex-end; justify-content: flex-end; gap: var(--sp-2); padding: var(--sp-4); }
+.dm .m { margin: 0; max-width: 86%; padding: 0.55rem 0.9rem; font-size: 0.9375rem; line-height: 1.35; color: var(--ink); background: color-mix(in srgb, var(--jungle) 38%, var(--forest-line)); border-radius: 18px 18px 4px 18px; }
+.dm__gap { display: inline-flex; align-items: center; gap: 0.4rem; align-self: center; margin-block: var(--sp-1); padding: 0.25rem 0.75rem; font-size: var(--fs-label); color: var(--ink-soft); background: var(--forest-line); border-radius: 999px; }
+.dm__seen { color: var(--ink-mute); font-size: var(--fs-label); }
+.ms1 { animation: ms1 10s ease-in-out infinite; } .ms2 { animation: ms2 10s ease-in-out infinite; } .ms3 { animation: ms3 10s ease-in-out infinite; } .ms4 { animation: ms4 10s ease-in-out infinite; } .ms5 { animation: ms5 10s ease-in-out infinite; }
+@keyframes ms1 { 0%, 2% { opacity: 0; translate: 0 10px; } 6%, 92% { opacity: 1; translate: 0 0; } 97%, 100% { opacity: 0; translate: 0 0; } }
+@keyframes ms2 { 0%, 14% { opacity: 0; translate: 0 10px; } 18%, 92% { opacity: 1; translate: 0 0; } 97%, 100% { opacity: 0; translate: 0 0; } }
+@keyframes ms3 { 0%, 30% { opacity: 0; translate: 0 10px; } 34%, 92% { opacity: 1; translate: 0 0; } 97%, 100% { opacity: 0; translate: 0 0; } }
+@keyframes ms4 { 0%, 47% { opacity: 0; translate: 0 10px; } 51%, 92% { opacity: 1; translate: 0 0; } 97%, 100% { opacity: 0; translate: 0 0; } }
+@keyframes ms5 { 0%, 63% { opacity: 0; } 67%, 92% { opacity: 1; } 97%, 100% { opacity: 0; } }
+
+/* Праворуч: картка товару, розмір, доставка, кошик, замовлення */
+.shop { position: relative; display: grid; gap: var(--sp-3); align-content: start; min-height: 23rem; padding: var(--sp-4) var(--sp-4) 4.4rem; background: var(--forest-deep); border: 1px solid var(--line-strong); overflow: hidden; }
+.shop__bar { display: flex; align-items: center; justify-content: space-between; padding-bottom: var(--sp-3); border-bottom: 1px solid var(--line); }
+.shop__bar b { font-size: var(--fs-small); font-weight: 650; }
+.shop__cart { position: relative; display: grid; place-items: center; width: 34px; height: 34px; font-size: 1.25rem; color: var(--ink-soft); }
+.shop__cart i { position: absolute; right: -4px; top: -4px; display: grid; place-items: center; min-width: 17px; height: 17px; padding: 0 3px; font: 500 0.6875rem var(--font-mono); font-style: normal; color: var(--on-jungle); background: var(--jungle); border-radius: 999px; animation: cartBadge 10s ease-in-out infinite; }
+@keyframes cartBadge { 0%, 32% { scale: 0; } 36% { scale: 1.3; } 40%, 92% { scale: 1; } 97%, 100% { scale: 0; } }
+.shop__main { display: grid; grid-template-columns: 7.5rem minmax(0, 1fr); gap: var(--sp-4); align-items: start; }
+.shop__img { display: grid; place-items: center; aspect-ratio: 3 / 4; font-size: 3.4rem; color: color-mix(in srgb, var(--jungle) 70%, var(--ink)); background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='168' height='291' viewBox='0 0 168 291'%3E%3Cpath d='M84 0L168 48.5V145.5L84 194L0 145.5V48.5L84 0M84 194V291' fill='none' stroke='%2302B16E' stroke-opacity='.35' stroke-width='1.8'/%3E%3C/svg%3E") 0 0 / 56px 97px, linear-gradient(160deg, color-mix(in srgb, var(--jungle) 24%, var(--forest-deep)), var(--forest)); clip-path: polygon(10px 0, 100% 0, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0 100%, 0 10px); }
+.shop__img svg { width: 1em; height: 1em; stroke-width: 1.2; }
+.shop__info { display: grid; gap: var(--sp-2); min-width: 0; }
+.shop__info > b { font-size: 1.0625rem; font-weight: 650; }
+.shop__info > small { color: var(--ink-mute); font-size: var(--fs-label); }
+.ba__sizes { display: flex; flex-wrap: wrap; gap: var(--sp-2); }
+.ba__sizes b { min-width: 40px; padding: 0.35rem 0.55rem; text-align: center; font-family: var(--font-mono); font-weight: 500; font-size: 0.9375rem; background: var(--forest); border: 1px solid var(--line-strong); }
+.ba__sizes .is-pick { color: var(--on-jungle); background: var(--jungle); border-color: var(--jungle); animation: sizePick 10s ease-in-out infinite; }
+@keyframes sizePick { 0%, 10% { background: var(--forest); color: var(--ink); border-color: var(--line-strong); } 14%, 90% { background: var(--jungle); color: var(--on-jungle); border-color: var(--jungle); } 96%, 100% { background: var(--forest); color: var(--ink); border-color: var(--line-strong); } }
+.shop__opts { display: grid; gap: var(--sp-2); }
+.shop__opts span { display: flex; align-items: center; gap: 0.5rem; padding: 0.4rem 0.6rem; font-size: 0.875rem; color: var(--ink); background: var(--forest); border: 1px solid var(--jungle); animation: optOn 10s ease-in-out infinite; }
+.shop__opts span:nth-child(2) { animation-delay: 0.6s; }
+.shop__opts svg { color: var(--jungle); font-size: 1.1rem; }
+@keyframes optOn { 0%, 42% { border-color: var(--line-strong); color: var(--ink-soft); } 46%, 92% { border-color: var(--jungle); color: var(--ink); } 97%, 100% { border-color: var(--line-strong); color: var(--ink-soft); } }
+.ba__btn { justify-self: start; padding: 0.5rem 1.2rem; font-weight: 650; color: var(--on-jungle); background: var(--jungle); animation: btnPress 10s ease-in-out infinite; }
+@keyframes btnPress { 0%, 28%, 36%, 100% { scale: 1; filter: none; } 31% { scale: 0.94; filter: brightness(1.25) drop-shadow(0 0 10px var(--glow-jungle)); } }
+.shop__done { position: absolute; left: 0; right: 0; bottom: 0; display: flex; align-items: center; justify-content: center; gap: 0.5rem; padding: 0.85rem var(--sp-4); font-weight: 650; font-size: 0.9375rem; color: var(--on-jungle); background: var(--jungle); animation: shopDone 10s ease-in-out infinite; }
+.shop__done svg { font-size: 1.2rem; }
+@keyframes shopDone { 0%, 58% { translate: 0 100%; } 64%, 92% { translate: 0 0; } 97%, 100% { translate: 0 100%; } }
+@media (max-width: 420px) { .shop__main { grid-template-columns: 5.5rem minmax(0, 1fr); } .shop__img { font-size: 2.4rem; } }
+
+/* ---------- Кейс: три сцени «було → зробив → результат» і плитки магазину ---------- */
+.story { margin-bottom: 0; }
+.story__track { position: relative; display: grid; gap: var(--sp-5); margin: 0; padding: 0; list-style: none; }
+.scene { --c: var(--chamfer); position: relative; display: grid; gap: var(--sp-3); align-content: start; padding: var(--sp-6) var(--sp-5) var(--sp-5); background: var(--forest-raised); border-top: 1px solid var(--line-strong);
+  clip-path: polygon(var(--c) 0, calc(100% - var(--c)) 0, 100% var(--c), 100% calc(100% - var(--c)), calc(100% - var(--c)) 100%, var(--c) 100%, 0 calc(100% - var(--c)), 0 var(--c)); }
+.scene--did { border-top: 2px solid color-mix(in srgb, var(--jungle) 60%, var(--line-strong)); }
+.scene--now { border-top: 2px solid var(--jungle); background: linear-gradient(160deg, color-mix(in srgb, var(--jungle) 20%, var(--forest-raised)), var(--forest-raised)); }
+.scene__ic { display: grid; place-items: center; width: 52px; height: 52px; font-size: 1.6rem; color: var(--jungle); background: var(--forest-deep); border: 1px solid var(--line-strong); clip-path: polygon(10px 0, calc(100% - 10px) 0, 100% 10px, 100% calc(100% - 10px), calc(100% - 10px) 100%, 10px 100%, 0 calc(100% - 10px), 0 10px); }
+.scene--now .scene__ic { color: var(--on-jungle); background: var(--jungle); border-color: var(--jungle); }
+.scene svg { width: 1em; height: 1em; }
+.scene__n { position: absolute; right: var(--sp-5); top: var(--sp-4); font: 500 2.6rem/1 var(--font-mono); color: color-mix(in srgb, var(--ink) 9%, transparent); }
+.scene h3 { font-size: 1.375rem; font-weight: 650; line-height: 1.2; }
+.scene p { margin: 0; color: var(--ink-soft); }
+.scene p strong { color: var(--ink); font-weight: 600; }
+.viz { display: flex; flex-wrap: wrap; align-items: center; gap: var(--sp-2); margin-top: var(--sp-2); padding-top: var(--sp-4); border-top: 1px dashed var(--line-strong); min-height: 3.6rem; }
+.viz--lost i { display: grid; place-items: center; width: 38px; height: 38px; font-size: 1.25rem; font-style: normal; color: var(--ink-soft); background: var(--forest-line); border-radius: 50%; }
+.viz--lost .gone { animation: lostGo 6s ease-in-out infinite; }
+.viz--lost .gone:last-child { animation-delay: 0.7s; }
+@keyframes lostGo { 0%, 30% { opacity: 1; translate: 0 0; } 55%, 85% { opacity: 0.12; translate: 0 10px; } 100% { opacity: 1; translate: 0 0; } }
+.viz--flow b { padding: 0.35rem 0.8rem; font-size: 0.875rem; font-weight: 600; color: var(--ink-soft); background: var(--forest-deep); border: 1px solid var(--line-strong); animation: flowOn 6s ease-in-out infinite; animation-delay: calc(var(--i) * 0.9s); }
+@keyframes flowOn { 0%, 6% { color: var(--ink-soft); border-color: var(--line-strong); background: var(--forest-deep); } 10%, 22% { color: var(--on-jungle); border-color: var(--jungle); background: var(--jungle); } 28%, 100% { color: var(--ink-soft); border-color: var(--line-strong); background: var(--forest-deep); } }
+.viz--live { flex-direction: column; align-items: flex-start; gap: var(--sp-3); }
+.viz__status, .viz__ad { display: inline-flex; align-items: center; gap: 0.55rem; font-size: 0.9375rem; font-weight: 600; color: var(--ink); }
+.viz__status i { width: 10px; height: 10px; border-radius: 50%; background: var(--jungle); animation: pingDot 2s ease-out infinite; }
+.viz__ad { color: var(--ink-soft); } .viz__ad svg { color: var(--jungle); font-size: 1.25rem; }
+@media (min-width: 900px) {
+  .story__track { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--sp-6); }
+}
+.feat__title { margin: var(--sp-6) 0 var(--sp-3); font-size: var(--fs-label); font-weight: 700; letter-spacing: 0.02em; color: var(--jungle); }
+.feat { display: grid; grid-template-columns: repeat(auto-fit, minmax(11.5rem, 1fr)); gap: var(--sp-3); margin: 0; padding: 0; list-style: none; }
+.feat li { --c: var(--chamfer-sm); display: flex; align-items: center; gap: var(--sp-3); padding: var(--sp-3) var(--sp-4); font-weight: 600; background: var(--forest-raised); border-top: 2px solid var(--jungle);
+  clip-path: polygon(var(--c) 0, calc(100% - var(--c)) 0, 100% var(--c), 100% calc(100% - var(--c)), calc(100% - var(--c)) 100%, var(--c) 100%, 0 calc(100% - var(--c)), 0 var(--c)); }
+.feat li > span { display: grid; place-items: center; flex: none; width: 40px; height: 40px; font-size: 1.3rem; color: var(--jungle); background: var(--forest-deep); border-radius: 50%; }
+.feat li svg { width: 1em; height: 1em; }
+.feat__act { margin: var(--sp-5) 0 0; }
 
 /* ---------- Лендінг для реклами: шлях «оголошення → лендінг → заявка» ---------- */
 .funnel { display: grid; grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr) auto minmax(0, 1fr); align-items: center; gap: var(--sp-2); margin-top: var(--sp-6); }
@@ -431,26 +513,42 @@
 .fscreen__copy .b { animation: btnBeat 3.6s ease-in-out infinite; }
 @media (hover: hover) { .fscreen-wrap:has(.legend li:nth-child(1):hover) .pin--1, .fscreen-wrap:has(.legend li:nth-child(2):hover) .pin--2, .fscreen-wrap:has(.legend li:nth-child(3):hover) .pin--3, .fscreen-wrap:has(.legend li:nth-child(4):hover) .pin--4, .fscreen-wrap:has(.legend li:nth-child(5):hover) .pin--5 { animation: none; scale: 1.6; } }
 
-/* ---------- «Про мене»: шлях ---------- */
+/* ---------- «Про мене»: шлях (восьмикутні вузли з іконками, лінія з імпульсом, послідовна поява) ---------- */
 .path { position: relative; display: grid; gap: var(--sp-6); margin: 0; padding: 0; list-style: none; }
-.path::before { content: ""; position: absolute; left: 19px; top: 8px; bottom: 8px; width: 2px; background: linear-gradient(to bottom, var(--jungle), color-mix(in srgb, var(--jungle) 15%, transparent)); transform-origin: top; transition: transform 1.4s var(--ease-inout); }
+.path::before { content: ""; position: absolute; left: 35px; top: 36px; bottom: 36px; width: 2px; background: linear-gradient(to bottom, var(--jungle), color-mix(in srgb, var(--jungle) 18%, transparent)); transform-origin: top; transition: transform 1.6s var(--ease-inout); }
+.path::after { content: ""; position: absolute; left: 35px; top: 36px; bottom: 36px; width: 2px; background: linear-gradient(to bottom, transparent, var(--ink), transparent) 0 -90px / 2px 90px no-repeat; animation: pathSpark 6s ease-in-out 1.8s infinite; }
+@keyframes pathSpark { 0% { background-position: 0 -90px; } 100% { background-position: 0 calc(100% + 90px); } }
 html.js .path.reveal:not(.is-in)::before { transform: scaleY(0); }
-.path__item { position: relative; display: grid; gap: var(--sp-2); align-content: start; padding-left: 4rem; }
-.path__node { position: absolute; left: 0; top: 0; width: 40px; height: 40px; display: grid; place-items: center; font-family: var(--font-mono); font-weight: 500; color: var(--on-jungle); background: var(--jungle); clip-path: polygon(50% 0, 100% 50%, 50% 100%, 0 50%); }
-.path__item:last-child .path__node { animation: nodeGlow 2.6s ease-in-out infinite; }
-@keyframes nodeGlow { 0%, 100% { filter: none; } 50% { filter: drop-shadow(0 0 8px var(--jungle)); } }
-.path__item h3 { font-size: 1.1875rem; line-height: 1.25; font-weight: 650; }
+html.js .path.reveal:not(.is-in)::after { visibility: hidden; }
+.path__item { position: relative; display: grid; gap: var(--sp-2); align-content: start; padding-left: 6rem; min-height: 4.5rem; }
+.path__node { position: absolute; left: 0; top: 0; z-index: 1; display: grid; place-items: center; width: 72px; height: 72px; font-size: 1.9rem; color: var(--jungle); transition: opacity 600ms var(--ease-out), scale 600ms var(--ease-out); transition-delay: calc(var(--i) * 260ms); }
+.path__node::before, .path__node::after { content: ""; position: absolute; }
+.path__node::before { inset: 0; background: linear-gradient(135deg, var(--jungle), color-mix(in srgb, var(--jungle) 20%, var(--forest-line)));
+  clip-path: polygon(20px 0, calc(100% - 20px) 0, 100% 20px, 100% calc(100% - 20px), calc(100% - 20px) 100%, 20px 100%, 0 calc(100% - 20px), 0 20px); }
+.path__node::after { inset: 2px; background: radial-gradient(circle at 30% 25%, color-mix(in srgb, var(--jungle) 26%, var(--forest-raised)), var(--forest-deep) 75%);
+  clip-path: polygon(18px 0, calc(100% - 18px) 0, 100% 18px, 100% calc(100% - 18px), calc(100% - 18px) 100%, 18px 100%, 0 calc(100% - 18px), 0 18px); }
+.path__node svg { position: relative; z-index: 1; width: 1em; height: 1em; stroke-width: 1.5; filter: drop-shadow(0 0 8px color-mix(in srgb, var(--jungle) 55%, transparent)); }
+.path__item:last-child .path__node { color: var(--on-jungle); }
+.path__item:last-child .path__node::after { background: linear-gradient(160deg, var(--jungle), color-mix(in srgb, var(--jungle) 65%, var(--forest))); }
+.path__item:last-child .path__node svg { filter: none; }
+.path__item:last-child::before { content: ""; position: absolute; left: -14px; top: -14px; width: 100px; height: 100px; background: radial-gradient(closest-side, var(--glow-jungle), transparent); animation: nodeGlow 2.6s ease-in-out infinite; }
+html.js .path.reveal:not(.is-in) .path__node { opacity: 0; scale: 0.6; }
+@keyframes nodeGlow { 0%, 100% { opacity: 0.35; } 50% { opacity: 1; } }
+.path__item h3 { font-size: 1.1875rem; line-height: 1.25; font-weight: 650; padding-top: 0.2rem; }
 .path__item p { color: var(--ink-soft); font-size: var(--fs-small); max-width: 24rem; }
 @media (min-width: 900px) {
   .path { grid-template-columns: repeat(5, minmax(0, 1fr)); gap: var(--sp-5); }
-  .path::before { left: 20px; right: 20px; top: 19px; bottom: auto; width: auto; height: 2px; background: linear-gradient(to right, var(--jungle), color-mix(in srgb, var(--jungle) 15%, transparent)); transform-origin: left; }
+  .path::before { left: 36px; right: 36px; top: 35px; bottom: auto; width: auto; height: 2px; background: linear-gradient(to right, var(--jungle), color-mix(in srgb, var(--jungle) 18%, transparent)); transform-origin: left; }
+  .path::after { left: 36px; right: 36px; top: 35px; bottom: auto; width: auto; height: 2px; background: linear-gradient(to right, transparent, var(--ink), transparent) -90px 0 / 90px 2px no-repeat; animation-name: pathSparkX; }
+  @keyframes pathSparkX { 0% { background-position: -90px 0; } 100% { background-position: calc(100% + 90px) 0; } }
   html.js .path.reveal:not(.is-in)::before { transform: scaleX(0); }
-  .path__item { padding: 3.6rem 0 0; }
+  .path__item { padding: 5.6rem 0 0; }
+  .path__item h3 { padding-top: 0; }
 }
 
 /* ---------- Зменшений рух: без циклів, кінцевий стан показано одразу ---------- */
 @media (prefers-reduced-motion: reduce) {
-  [data-live], [data-live] *, [data-live] *::before, [data-live] *::after, .dev__glow, .dev__laptop, .dev__phone, .dev__badge::before, .fan__item, .ping i, .dpin { animation: none !important; }
+  [data-live], [data-live] *, [data-live] *::before, [data-live] *::after, .dev__glow, .dev__laptop, .dev__phone, .dev__badge::before, .fan__item, .ping i, .dpin, [data-live]::before, [data-live]::after { animation: none !important; }
   .gauge__arc { stroke-dasharray: var(--p) 100; transition: none; }
   .ladder__row i { width: calc(var(--w) * 1%); transition: none; }
   .dev__tilt { transform: none !important; }

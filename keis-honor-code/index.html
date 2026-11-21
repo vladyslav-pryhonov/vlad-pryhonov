@@ -33,15 +33,15 @@
 <meta name="twitter:image" content="https://pryhonov.com/img/og-case-1.jpg">
 <script src="/js/boot.js"></script>
 <link rel="preload" as="font" type="font/woff2" href="/fonts/onest-400-cyrillic.woff2" crossorigin>
-<link rel="stylesheet" href="/css/fonts.css?v=20261120l">
-<link rel="stylesheet" href="/css/tokens.css?v=20261120l">
-<link rel="stylesheet" href="/css/base.css?v=20261120l">
-<link rel="stylesheet" href="/css/components.css?v=20261120l">
-<link rel="stylesheet" href="/css/header.css?v=20261120l">
-<link rel="stylesheet" href="/css/case.css?v=20261120l">
-<link rel="stylesheet" href="/css/sections.css?v=20261120l">
-<link rel="stylesheet" href="/css/process.css?v=20261120l">
-<link rel="stylesheet" href="/css/pages.css?v=20261120l">
+<link rel="stylesheet" href="/css/fonts.css?v=20261121b">
+<link rel="stylesheet" href="/css/tokens.css?v=20261121b">
+<link rel="stylesheet" href="/css/base.css?v=20261121b">
+<link rel="stylesheet" href="/css/components.css?v=20261121b">
+<link rel="stylesheet" href="/css/header.css?v=20261121b">
+<link rel="stylesheet" href="/css/case.css?v=20261121b">
+<link rel="stylesheet" href="/css/sections.css?v=20261121b">
+<link rel="stylesheet" href="/css/process.css?v=20261121b">
+<link rel="stylesheet" href="/css/pages.css?v=20261121b">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -186,14 +186,36 @@
     <figure class="ba reveal" data-live>
       <div class="ba__pane" aria-hidden="true">
         <p class="ba__cap">Було: тільки директ</p>
-        <div class="ba__chat"><i class="b1"></i><i class="b2"></i><i class="b3"><s></s><s></s><s></s></i></div>
+        <div class="dm">
+          <div class="dm__bar"><span class="dm__ava"><svg class="" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0116 0"/></svg></span><b>Бренд одягу</b><small>Direct</small></div>
+          <div class="dm__msgs">
+            <p class="m ms1">Добрий день! Є ця футболка в розмірі L?</p>
+            <p class="m ms2">І чи можна відправити Новою Поштою?</p>
+            <span class="dm__gap ms3"><svg class="" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>Минуло кілька годин</span>
+            <p class="m ms4">Ви ще на зв’язку?</p>
+            <span class="dm__seen ms5">Переглянуто, відповіді немає</span>
+          </div>
+        </div>
       </div>
       <div class="ba__arrow" aria-hidden="true"><i></i></div>
       <div class="ba__pane ba__pane--after" aria-hidden="true">
         <p class="ba__cap">Стало: власний магазин</p>
-        <div class="ba__shop"><div class="ba__img"></div><div class="ba__sizes"><b>S</b><b>M</b><b>L</b><b>XL</b></div><div class="ba__btn">У кошик</div></div>
+        <div class="shop">
+          <div class="shop__bar"><b>Магазин</b><span class="shop__cart"><svg class="" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="20" r="1.4"/><circle cx="17" cy="20" r="1.4"/><path d="M3 4h2.5l2.2 11h10l2-8H6.5"/></svg><i>1</i></span></div>
+          <div class="shop__main">
+            <div class="shop__img"><svg class="" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 4L3 7l2 4 3-1.5V20h8V9.5L19 11l2-4-5-3a4 4 0 01-8 0z"/></svg></div>
+            <div class="shop__info">
+              <b>Футболка</b>
+              <small>Розмір</small>
+              <div class="ba__sizes"><b>S</b><b>M</b><b class="is-pick">L</b><b>XL</b></div>
+              <div class="shop__opts"><span><svg class="" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 6h11v9H3zM14 9h4l3 3v3h-7"/><circle cx="7" cy="17.5" r="1.8"/><circle cx="17" cy="17.5" r="1.8"/></svg>Нова Пошта</span><span><svg class="" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 10h18M7 15h3"/></svg>Оплата при отриманні</span></div>
+              <div class="ba__btn">У кошик</div>
+            </div>
+          </div>
+          <div class="shop__done"><svg class="" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M8 12.5l2.8 2.8L16 9.5"/></svg>Замовлення оформлено без переписки</div>
+        </div>
       </div>
-      <figcaption>Схема, а не скріншот: як змінився шлях покупця. Раніше людина чекала відповіді в директі, тепер сама обирає розмір і замовляє.</figcaption>
+      <figcaption>Схема, а не скріншот: як змінився шлях покупця. Раніше людина писала в директ і чекала відповіді, тепер сама обирає розмір, доставку й оплату та оформлює замовлення.</figcaption>
     </figure>
   </div>
 </section>
@@ -201,24 +223,31 @@
 <section class="section psec section--deep" id="project">
   <div class="wrap">
     <div class="case-wrap">
-<div class="case__grid">
-        <!-- Мокап стоїть у DOM першим: на мобільному порядок «заголовок, підзаголовок, мокап, розбір»; на десктопі колонки задано в case.css -->
-        <div class="case__info reveal">
-          <dl class="case__rows">
-            <div><dt>Що було</dt><dd>У бренду не було свого магазину: продавали тільки через соцмережі, і частина людей губилась, не дочекавшись відповіді в директ.</dd></div>
-            <div><dt>Що зробив</dt><dd>Інтернет-магазин, де людина сама обирає розмір, кладе товар у кошик і оформлює замовлення без переписки з менеджером.</dd></div>
-            <div><dt>Результат</dt><dd><strong>Магазин працює і приймає реальні замовлення клієнтів.</strong> Власник запускає на нього рекламу.</dd></div>
-          </dl>
-          <ul class="case__tags" aria-label="Що є в магазині">
-            <li class="chip">Вибір розміру</li>
-            <li class="chip">Кошик і оформлення</li>
-            <li class="chip">Нова Пошта</li>
-            <li class="chip">Оплата онлайн або при отриманні</li>
-            <li class="chip">Зв'язок у Telegram</li>
-          </ul>
-          <a class="btn btn--ghost" href="https://honorcode.com.ua" target="_blank" rel="noopener">Переглянути сайт ↗</a>
-        </div>
+      <div class="story reveal" data-live>
+        <ol class="story__track">
+          <li class="scene scene--was">
+            <span class="scene__ic"><svg class="" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h12M6 21h12M7 3v3.5a5 5 0 001.8 3.8L12 12l-3.2 1.7A5 5 0 007 17.5V21M17 3v3.5a5 5 0 01-1.8 3.8L12 12l3.2 1.7A5 5 0 0117 17.5V21"/></svg></span><span class="scene__n" aria-hidden="true">01</span>
+            <h3>Що було</h3>
+            <p>У бренду не було свого магазину: продавали тільки через соцмережі, і частина людей губилась, не дочекавшись відповіді в директі.</p>
+            <div class="viz viz--lost" aria-hidden="true"><i><svg class="" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0116 0"/></svg></i><i><svg class="" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0116 0"/></svg></i><i class="gone"><svg class="" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0116 0"/></svg></i><i><svg class="" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0116 0"/></svg></i><i class="gone"><svg class="" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0116 0"/></svg></i></div>
+          </li>
+          <li class="scene scene--did">
+            <span class="scene__ic"><svg class="" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 8h14l-1 12H6L5 8z"/><path d="M9 8V6a3 3 0 016 0v2"/></svg></span><span class="scene__n" aria-hidden="true">02</span>
+            <h3>Що зробив</h3>
+            <p>Інтернет-магазин, де людина сама обирає розмір, кладе товар у кошик і оформлює замовлення без переписки з менеджером.</p>
+            <div class="viz viz--flow" aria-hidden="true"><b style="--i:0">Розмір</b><b style="--i:1">Кошик</b><b style="--i:2">Доставка</b><b style="--i:3">Замовлення</b></div>
+          </li>
+          <li class="scene scene--now">
+            <span class="scene__ic"><svg class="" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M8 12.5l2.8 2.8L16 9.5"/></svg></span><span class="scene__n" aria-hidden="true">03</span>
+            <h3>Результат</h3>
+            <p><strong>Магазин працює і приймає реальні замовлення клієнтів.</strong> Власник запускає на нього рекламу.</p>
+            <div class="viz viz--live" aria-hidden="true"><span class="viz__status"><i></i>Магазин працює</span><span class="viz__ad"><svg class="" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 10v4h3l8 4V6L7 10H4z"/><path d="M18 9a4 4 0 010 6"/></svg>Реклама на магазин</span></div>
+          </li>
+        </ol>
       </div>
+      <p class="feat__title reveal">Що є в магазині</p>
+      <ul class="feat reveal" aria-label="Що є в магазині"><li><span><svg class="" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 4L3 7l2 4 3-1.5V20h8V9.5L19 11l2-4-5-3a4 4 0 01-8 0z"/></svg></span>Вибір розміру</li><li><span><svg class="" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="20" r="1.4"/><circle cx="17" cy="20" r="1.4"/><path d="M3 4h2.5l2.2 11h10l2-8H6.5"/></svg></span>Кошик і оформлення</li><li><span><svg class="" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 6h11v9H3zM14 9h4l3 3v3h-7"/><circle cx="7" cy="17.5" r="1.8"/><circle cx="17" cy="17.5" r="1.8"/></svg></span>Нова Пошта</li><li><span><svg class="" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 10h18M7 15h3"/></svg></span>Оплата онлайн або при отриманні</li><li><span><svg class="" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12l18-8-5 16-4-6.5L3 12zM12 13.5L21 4"/></svg></span>Зв’язок у Telegram</li></ul>
+      <p class="feat__act reveal"><a class="btn btn--ghost" href="https://honorcode.com.ua" target="_blank" rel="noopener">Переглянути сайт ↗</a></p>
 
       <div class="proof">
         <blockquote class="quote chamfer reveal">
@@ -467,8 +496,8 @@
   <button class="lightbox__close" type="button" aria-label="Закрити">&times;</button>
   <img alt="">
 </dialog>
-<script src="/js/page.js?v=20261120l" defer></script>
-<script src="/js/case.js?v=20261120l" defer></script>
-<script src="/js/site.js?v=20261120l" defer></script>
+<script src="/js/page.js?v=20261121b" defer></script>
+<script src="/js/case.js?v=20261121b" defer></script>
+<script src="/js/site.js?v=20261121b" defer></script>
 </body>
 </html>
