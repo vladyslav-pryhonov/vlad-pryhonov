@@ -73,6 +73,17 @@
     });
   }
 
+  /* ---------- Спільний фон форми й підвалу: фон завжди сягає низу підвалу (висота підвалу залежить від ширини екрана й кількості посилань) ---------- */
+  (function footerBg() {
+    var foot = document.querySelector('.footer');
+    if (!foot || !document.querySelector('.finale__bg')) return;
+    function sync() { root.style.setProperty('--footer-real', Math.ceil(foot.getBoundingClientRect().height) + 'px'); }
+    sync();
+    window.addEventListener('resize', sync);
+    window.addEventListener('load', sync);
+    if ('ResizeObserver' in window) new ResizeObserver(sync).observe(foot);
+  })();
+
   /* ---------- Плаваюча кнопка Telegram, фон форми, висота cookie-банера ---------- */
   (function floating() {
     var tg = $('tgFloat'), heroEl = document.querySelector('.hero'), contactEl = $('contact'), bar = $('cookieBar');

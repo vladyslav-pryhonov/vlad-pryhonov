@@ -204,9 +204,9 @@
 /* ---------- Форма ---------- */
 /* Спільний фон «форма + підвал»: шар лежить у #contact і продовжується вниз на висоту підвалу (--footer-h),
    підвал прозорий і має мінімальну висоту --footer-h, тому фон безшовно переходить із блока в підвал */
-:root { --footer-h: 21rem; }
+:root { --footer-h: 23rem; }   /* запасне значення; js/site.js ставить --footer-real = фактична висота підвалу (він може бути вищим за --footer-h), інакше внизу лишається смуга без фону */
 #contact { overflow-x: clip; overflow-y: visible; }
-.finale__bg { position: absolute; z-index: 0; left: 0; right: 0; top: 0; bottom: calc(var(--footer-h) * -1); overflow: hidden; pointer-events: none; background: var(--forest-deep); }
+.finale__bg { position: absolute; z-index: 0; left: 0; right: 0; top: 0; bottom: calc(var(--footer-real, var(--footer-h)) * -1); overflow: hidden; pointer-events: none; background: var(--forest-deep); }
 .finale__lattice {
   position: absolute; inset: -2px;
   /* решітка в 2/3 від попереднього розміру (гексагон 112 px замість 168); товщина лінії 1.8 у viewBox ≈ 1.2 px на екрані */
