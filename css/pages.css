@@ -145,8 +145,8 @@
   .cmp thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
   .cmp tr { margin-bottom: var(--sp-3); padding: var(--sp-3) 0; background: var(--forest-raised); }
   .cmp tbody th { width: auto; padding: 0.4rem var(--sp-4); border: 0; font-weight: 600; color: var(--ink); }
-  .cmp td { display: flex; justify-content: space-between; gap: var(--sp-4); padding: 0.45rem var(--sp-4); border: 0; }
-  .cmp td::before { content: attr(data-label); color: var(--ink-mute); }
+  .cmp td { display: flex; justify-content: space-between; align-items: baseline; gap: var(--sp-4); padding: 0.45rem var(--sp-4); border: 0; text-align: right; text-wrap: balance; }
+  .cmp td::before { content: attr(data-label); flex: none; text-align: left; color: var(--ink-mute); }
   .cmp .is-cur { background: color-mix(in srgb, var(--jungle) 12%, transparent); }
 }
 
