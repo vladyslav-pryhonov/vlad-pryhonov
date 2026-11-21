@@ -186,7 +186,7 @@
 
 /* ---------- Питання ---------- */
 .faq__list { display: grid; gap: var(--sp-3); }               /* текст усередині карток не змінюється; ширину колонки задає .faq__layout */
-/* Головна: вузька колонка питань + липкий блок корисних посилань праворуч (від 960 px); на мобільному блок іде під списком */
+/* Головна: вузька колонка питань + липкий блок корисних посилань праворуч (від 1100 px); на вужчих екранах блок іде під списком */
 .faq__layout { display: grid; gap: var(--sp-7); }
 .faqside { display: grid; gap: var(--sp-4); align-content: start; }
 .faqside h3 { margin: 0; font-size: var(--fs-h3); line-height: var(--lh-head); font-weight: 650; }
@@ -200,7 +200,7 @@
 .faqside__ask { margin: 0; color: var(--ink-soft); font-size: var(--fs-small); }
 .faqside__ask a { color: var(--jungle); text-decoration: underline; text-underline-offset: 3px; }
 @media (hover: hover) { .faqside__ask a:hover { color: var(--ink); } }
-@media (min-width: 960px) {
+@media (min-width: 1100px) {
   .faq__layout { grid-template-columns: minmax(0, 52rem) minmax(0, 24rem); justify-content: space-between; gap: var(--sp-8); align-items: start; }
   .faqside { position: sticky; top: calc(var(--header-h) + var(--sp-6)); }
 }
