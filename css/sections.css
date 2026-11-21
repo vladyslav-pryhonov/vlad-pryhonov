@@ -509,3 +509,11 @@
 .demos__more a { color: var(--ink); text-decoration: underline; text-underline-offset: 0.2em; }
 @media (hover: hover) { .demos__more a:hover { color: var(--jungle); } }
 
+
+/* ---------- Підвал: гасло праворуч від логотипу, назви колонок виділені ---------- */
+.footer__top { display: flex; flex-wrap: wrap; align-items: center; gap: var(--sp-3) var(--sp-5); }
+.footer__top .footer__tagline { margin: 0; padding-left: var(--sp-5); border-left: 1px solid var(--line-strong); }
+@media (max-width: 559px) { .footer__top .footer__tagline { padding-left: 0; border-left: 0; flex-basis: 100%; } }
+.footer__cols { margin-top: var(--sp-6); gap: var(--sp-6) var(--sp-8); }
+.footer__h { display: flex; align-items: center; gap: 0.55rem; margin: 0 0 var(--sp-2); padding-bottom: var(--sp-2); border-bottom: 1px solid var(--line-strong); font-size: var(--fs-label); font-weight: 700; letter-spacing: 0.02em; color: var(--jungle); }
+.footer__h::before { content: ""; flex: none; width: 7px; height: 7px; background: var(--jungle); clip-path: polygon(50% 0, 100% 50%, 50% 100%, 0 50%); }

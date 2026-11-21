@@ -33,15 +33,15 @@
 <meta name="twitter:image" content="https://pryhonov.com/img/og-case-1.jpg">
 <script src="/js/boot.js"></script>
 <link rel="preload" as="font" type="font/woff2" href="/fonts/onest-400-cyrillic.woff2" crossorigin>
-<link rel="stylesheet" href="/css/fonts.css?v=20261120i">
-<link rel="stylesheet" href="/css/tokens.css?v=20261120i">
-<link rel="stylesheet" href="/css/base.css?v=20261120i">
-<link rel="stylesheet" href="/css/components.css?v=20261120i">
-<link rel="stylesheet" href="/css/header.css?v=20261120i">
-<link rel="stylesheet" href="/css/case.css?v=20261120i">
-<link rel="stylesheet" href="/css/sections.css?v=20261120i">
-<link rel="stylesheet" href="/css/process.css?v=20261120i">
-<link rel="stylesheet" href="/css/pages.css?v=20261120i">
+<link rel="stylesheet" href="/css/fonts.css?v=20261120l">
+<link rel="stylesheet" href="/css/tokens.css?v=20261120l">
+<link rel="stylesheet" href="/css/base.css?v=20261120l">
+<link rel="stylesheet" href="/css/components.css?v=20261120l">
+<link rel="stylesheet" href="/css/header.css?v=20261120l">
+<link rel="stylesheet" href="/css/case.css?v=20261120l">
+<link rel="stylesheet" href="/css/sections.css?v=20261120l">
+<link rel="stylesheet" href="/css/process.css?v=20261120l">
+<link rel="stylesheet" href="/css/pages.css?v=20261120l">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -100,14 +100,6 @@
           "acceptedAnswer": {
             "@type": "Answer",
             "text": "Так. Honor Code це український бренд одягу, його засновник Богдан дав згоду показати проєкт і відгук. Сайт можна відкрити й перевірити: honorcode.com.ua."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Це ваш єдиний проєкт?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "На цей момент це єдиний реальний кейс. Решта прикладів на сайті позначені як «Демо»: це навчальні проєкти без клієнта, а не виконані замовлення."
           }
         },
         {
@@ -175,24 +167,42 @@
       <div class="pactions"><a class="btn btn--primary" href="#contact" data-track="cta_case">Отримати перший екран</a><a class="btn btn--ghost" href="https://honorcode.com.ua">Переглянути сайт ↗</a></div>
       <p class="pnote">Клієнт дав згоду показати проєкт і відгук.</p>
     </div>
-    <aside class="spec chamfer reveal" aria-label="Специфікація">
-      <div class="spec__head"><b>Проєкт</b><span>Honor Code</span></div>
-      <dl class="spec__rows"><div><dt>Клієнт</dt><dd class="is-text">Honor Code, бренд одягу</dd></div><div><dt>Ніша</dt><dd class="is-text">Одяг</dd></div><div><dt>Задача</dt><dd class="is-text">Власний інтернет-магазин</dd></div><div><dt>Старт</dt><dd class="is-text">Безкоштовний перший екран</dd></div><div><dt>Статус</dt><dd class="is-text">Працює, приймає замовлення</dd></div></dl>
-      <p class="spec__note">Єдиний реальний кейс на цей момент. Цифр замовлень немає свідомо.</p>
-    </aside>
+    <div class="dev dev--case reveal" data-live data-tilt>
+      <span class="dev__glow" aria-hidden="true"></span>
+      <div class="dev__tilt">
+        <img class="dev__laptop" src="/img/case/honor-laptop.webp" width="1000" height="574" alt="Сайт Honor Code на ноутбуці: перший екран із заголовком «Носи те, у що віриш»">
+        <img class="dev__phone" src="/img/case/honor-phone.webp" width="300" height="612" alt="Сайт Honor Code на телефоні">
+      </div>
+      <span class="dev__badge">Працює зараз</span>
+    </div>
   </div>
 </section>
 
-<section class="section psec" id="project">
+<section class="psec fband-sec" aria-label="Коротко"><div class="wrap"><dl class="fband reveal"><div><dt>Клієнт</dt><dd class="is-text">Honor Code, бренд одягу</dd></div><div><dt>Ніша</dt><dd class="is-text">Одяг</dd></div><div><dt>Задача</dt><dd class="is-text">Власний інтернет-магазин</dd></div><div><dt>Старт</dt><dd class="is-text">Безкоштовний перший екран</dd></div><div><dt>Статус</dt><dd class="is-text">Працює, приймає замовлення</dd></div></dl></div></section>
+
+<section class="section psec" id="ba" aria-labelledby="ba-title">
+  <div class="wrap">
+    <header class="section-head reveal"><h2 id="ba-title">Що змінилось <em>для покупця</em></h2><p class="section-head__lead">Одна схема замість сотні слів.</p></header>
+    <figure class="ba reveal" data-live>
+      <div class="ba__pane" aria-hidden="true">
+        <p class="ba__cap">Було: тільки директ</p>
+        <div class="ba__chat"><i class="b1"></i><i class="b2"></i><i class="b3"><s></s><s></s><s></s></i></div>
+      </div>
+      <div class="ba__arrow" aria-hidden="true"><i></i></div>
+      <div class="ba__pane ba__pane--after" aria-hidden="true">
+        <p class="ba__cap">Стало: власний магазин</p>
+        <div class="ba__shop"><div class="ba__img"></div><div class="ba__sizes"><b>S</b><b>M</b><b>L</b><b>XL</b></div><div class="ba__btn">У кошик</div></div>
+      </div>
+      <figcaption>Схема, а не скріншот: як змінився шлях покупця. Раніше людина чекала відповіді в директі, тепер сама обирає розмір і замовляє.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section class="section psec section--deep" id="project">
   <div class="wrap">
     <div class="case-wrap">
 <div class="case__grid">
         <!-- Мокап стоїть у DOM першим: на мобільному порядок «заголовок, підзаголовок, мокап, розбір»; на десктопі колонки задано в case.css -->
-        <figure class="case__visual reveal">
-          <img class="case__laptop" src="/img/case/honor-laptop.webp" width="1000" height="574" loading="lazy" alt="Сайт Honor Code на ноутбуці: перший екран із заголовком «Носи те, у що віриш»">
-          <img class="case__phone" src="/img/case/honor-phone.webp" width="300" height="612" loading="lazy" alt="Сайт Honor Code на телефоні">
-        </figure>
-
         <div class="case__info reveal">
           <dl class="case__rows">
             <div><dt>Що було</dt><dd>У бренду не було свого магазину: продавали тільки через соцмережі, і частина людей губилась, не дочекавшись відповіді в директ.</dd></div>
@@ -207,7 +217,6 @@
             <li class="chip">Зв'язок у Telegram</li>
           </ul>
           <a class="btn btn--ghost" href="https://honorcode.com.ua" target="_blank" rel="noopener">Переглянути сайт ↗</a>
-          <a class="btn btn--ghost" href="keis-honor-code/" data-track="case_more">Докладніше про кейс</a>
         </div>
       </div>
 
@@ -239,7 +248,7 @@
   </div>
 </section>
 
-<section class="section psec section--deep" id="why" aria-labelledby="why-title">
+<section class="section psec" id="why" aria-labelledby="why-title">
   <div class="wrap">
     <div class="split">
     <header class="section-head reveal"><h2 id="why-title">Чому цей кейс <em>важливий для вас</em></h2><p class="section-head__lead">Три речі, які клієнт назвав у відгуку, і які ви отримаєте на будь-якому проєкті.</p></header>
@@ -248,7 +257,7 @@
   </div>
 </section>
 
-<section class="section psec" id="flow" aria-labelledby="flow-title">
+<section class="section psec section--deep" id="flow" aria-labelledby="flow-title">
   <div class="wrap">
     <header class="section-head reveal"><h2 id="flow-title">Як ми <em>працювали</em></h2><p class="section-head__lead">Той самий процес, що й для кожного клієнта.</p></header>
     <ol class="steps reveal"><li class="step"><span class="step__node" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 4h14a2 2 0 012 2v9a2 2 0 01-2 2h-8l-5 4v-4H5a2 2 0 01-2-2V6a2 2 0 012-2z"/><path d="M8 9h8M8 12.5h5"/></svg></span><h3>Бриф</h3><p>Розпитав про бренд, клієнтів і те, як люди купують зараз.</p><p class="step__meta">День 0</p></li><li class="step step--hook"><span class="step__node" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M9 9v11"/></svg></span><h3>Перший екран</h3><span class="step__tag">Безкоштовно · 24 години</span><p>Показав стиль до оплати, і клієнт ухвалив рішення.</p><p class="step__meta">1–2 раунди правок</p></li><li class="step"><span class="step__node" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 7l-5 5 5 5M16 7l5 5-5 5M14 4l-4 16"/></svg></span><h3>Розробка</h3><p>Зібрав магазин: вибір розміру, кошик, оформлення, доставка й оплата.</p><p class="step__meta">Узгоджені етапи</p></li><li class="step"><span class="step__node" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="8" cy="15" r="4"/><path d="M11 12l9-9M17 6l3 3M14 9l2 2"/></svg></span><h3>Запуск</h3><p>Опублікував, передав доступи, лишився на зв’язку для правок.</p><p class="step__meta">Власник запускає рекламу</p></li></ol>
@@ -256,17 +265,13 @@
   </div>
 </section>
 
-<section class="section psec section--deep" id="faq" aria-labelledby="faq-title">
+<section class="section psec" id="faq" aria-labelledby="faq-title">
   <div class="wrap">
     <header class="section-head reveal"><h2 id="faq-title">Питання <em>про кейс</em></h2></header>
     <div class="faq__list reveal">
       <details name="faq" class="qa chamfer chamfer-sm" open>
         <summary>Це реальний клієнт?</summary>
         <p>Так. Honor Code це український бренд одягу, його засновник Богдан дав згоду показати проєкт і відгук. Сайт можна відкрити й перевірити: honorcode.com.ua.</p>
-      </details>
-      <details name="faq" class="qa chamfer chamfer-sm">
-        <summary>Це ваш єдиний проєкт?</summary>
-        <p>На цей момент це єдиний реальний кейс. Решта прикладів на сайті позначені як «Демо»: це навчальні проєкти без клієнта, а не виконані замовлення.</p>
       </details>
       <details name="faq" class="qa chamfer chamfer-sm">
         <summary>Чому на сторінці немає цифр замовлень і трафіку?</summary>
@@ -284,7 +289,7 @@
   </div>
 </section>
 
-<section class="section psec" aria-labelledby="rel-title">
+<section class="section psec section--deep" aria-labelledby="rel-title">
   <div class="wrap">
     <header class="section-head reveal"><h2 id="rel-title">Читайте також</h2></header>
     <nav class="related reveal" aria-label="Пов'язані сторінки"><a href="/pro-mene/"><b>Про мене</b><span>Хто я, як працюю й чому це чесно про досвід.</span><em>Прочитати →</em></a><a href="/osobystyi-tarif/"><b>Тариф «Особистий»</b><span>Сайт на конструкторі, який ви редагуєте самі.</span><em>Про тариф →</em></a><a href="/skilky-koshtuye-sait/"><b>Скільки коштує сайт</b><span>Із чого складається ціна й як не переплатити.</span><em>Про ціни →</em></a></nav>
@@ -432,10 +437,9 @@
 <footer class="footer">
   <div class="wrap footer__row">
     <div>
-      <a class="footer__brand" href="/" aria-label="Vlad Pryhonov: на головну"><img src="/img/logo.svg" alt="Vlad Pryhonov" width="111" height="38"></a>
-      <p class="footer__tagline">Сайти для малого бізнесу</p>
+      <div class="footer__top"><a class="footer__brand" href="/" aria-label="Vlad Pryhonov: на головну"><img src="/img/logo.svg" alt="Vlad Pryhonov" width="111" height="38"></a><p class="footer__tagline">Сайти для малого бізнесу</p></div>
       <nav class="footer__pages footer__cols" aria-label="Сторінки сайту">
-        <div class="footer__col"><p class="footer__h">Послуги</p><a href="/shvydkyi-tarif/">Тариф «Швидкий»</a><a href="/osobystyi-tarif/">Тариф «Особистий»</a><a href="/pidtrymka-saitu/">Підтримка сайту</a><a href="/skilky-koshtuye-sait/">Скільки коштує сайт</a></div><div class="footer__col"><p class="footer__h">Для кого</p><a href="/lending-dlya-reklamy/">Лендінг для реклами</a><a href="/sait-dlya-barbershopu/">Сайт для барбершопу</a><a href="/sait-dlya-fitnes-trenera/">Сайт для фітнес-тренера</a></div><div class="footer__col"><p class="footer__h">Про мене</p><a href="/pro-mene/">Про мене</a><a href="/keis-honor-code/">Кейс Honor Code</a><a href="/pershyi-ekran/">Безкоштовний перший екран</a></div>
+        <div class="footer__col"><p class="footer__h">Послуги</p><a href="/shvydkyi-tarif/">Тариф «Швидкий»</a><a href="/osobystyi-tarif/">Тариф «Особистий»</a><a href="/pidtrymka-saitu/">Підтримка сайту</a><a href="/skilky-koshtuye-sait/">Скільки коштує сайт</a></div><div class="footer__col"><p class="footer__h">Для кого</p><a href="/lending-dlya-reklamy/">Лендінг для реклами</a><a href="/sait-dlya-barbershopu/">Сайт для барбершопу</a><a href="/sait-dlya-fitnes-trenera/">Сайт для фітнес-тренера</a></div><div class="footer__col"><p class="footer__h">Довіра</p><a href="/pro-mene/">Про мене</a><a href="/keis-honor-code/">Кейс Honor Code</a><a href="/pershyi-ekran/">Безкоштовний перший екран</a></div>
       </nav>
     </div>
     <ul class="social" aria-label="Де мене знайти">
@@ -463,8 +467,8 @@
   <button class="lightbox__close" type="button" aria-label="Закрити">&times;</button>
   <img alt="">
 </dialog>
-<script src="/js/page.js?v=20261120i" defer></script>
-<script src="/js/case.js?v=20261120i" defer></script>
-<script src="/js/site.js?v=20261120i" defer></script>
+<script src="/js/page.js?v=20261120l" defer></script>
+<script src="/js/case.js?v=20261120l" defer></script>
+<script src="/js/site.js?v=20261120l" defer></script>
 </body>
 </html>

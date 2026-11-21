@@ -34,6 +34,43 @@
     } else { phero.classList.add('is-live'); }
   }
 
+  /* ---------- Візуальні «підписи» сторінок: цикли грають, лише поки блок у кадрі; лічильник і нахил пристроїв ---------- */
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var liveEls = document.querySelectorAll('[data-live]');
+  function countUp(el) {
+    var to = parseFloat(el.getAttribute('data-count-to')), t0 = null, dur = 1500;
+    if (!isFinite(to) || reduce) return;
+    el.textContent = '0';
+    function step(ts) {
+      if (t0 === null) t0 = ts;
+      var k = Math.min(1, (ts - t0) / dur), e = 1 - Math.pow(1 - k, 3);
+      el.textContent = String(Math.round(to * e));
+      if (k < 1) requestAnimationFrame(step); else el.textContent = String(to);
+    }
+    requestAnimationFrame(step);
+  }
+  if (liveEls.length) {
+    if ('IntersectionObserver' in window) {
+      var counted = new WeakSet();
+      var lio = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          e.target.classList.toggle('is-live', e.isIntersecting);
+          if (e.isIntersecting && !counted.has(e.target)) { counted.add(e.target); e.target.querySelectorAll('[data-count-to]').forEach(countUp); }
+        });
+      }, { threshold: 0.2 });
+      liveEls.forEach(function (el) { lio.observe(el); });
+    } else { liveEls.forEach(function (el) { el.classList.add('is-live'); }); }
+  }
+  if (!reduce && window.matchMedia && window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+    document.querySelectorAll('[data-tilt]').forEach(function (box) {
+      var tilt = box.querySelector('.dev__tilt'), raf = 0, px = 0.5, py = 0.5;
+      if (!tilt) return;
+      function paint() { raf = 0; tilt.style.setProperty('--ry', ((px - 0.5) * 9).toFixed(2) + 'deg'); tilt.style.setProperty('--rx', ((0.5 - py) * 6).toFixed(2) + 'deg'); }
+      box.addEventListener('pointermove', function (e) { var r = box.getBoundingClientRect(); px = (e.clientX - r.left) / r.width; py = (e.clientY - r.top) / r.height; if (!raf) raf = requestAnimationFrame(paint); });
+      box.addEventListener('pointerleave', function () { px = 0.5; py = 0.5; if (!raf) raf = requestAnimationFrame(paint); });
+    });
+  }
+
   /* ---------- Тариф за замовчуванням у формі: сторінка тарифу → її тариф (site.js читає sessionStorage.tariff при старті) ---------- */
   var contactEl = document.getElementById('contact');
   var defTariff = contactEl && contactEl.getAttribute('data-tariff-default');

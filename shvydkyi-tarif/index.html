@@ -33,15 +33,15 @@
 <meta name="twitter:image" content="https://pryhonov.com/img/og-shvydkyi-1.jpg">
 <script src="/js/boot.js"></script>
 <link rel="preload" as="font" type="font/woff2" href="/fonts/onest-400-cyrillic.woff2" crossorigin>
-<link rel="stylesheet" href="/css/fonts.css?v=20261120i">
-<link rel="stylesheet" href="/css/tokens.css?v=20261120i">
-<link rel="stylesheet" href="/css/base.css?v=20261120i">
-<link rel="stylesheet" href="/css/components.css?v=20261120i">
-<link rel="stylesheet" href="/css/header.css?v=20261120i">
-<link rel="stylesheet" href="/css/case.css?v=20261120i">
-<link rel="stylesheet" href="/css/sections.css?v=20261120i">
-<link rel="stylesheet" href="/css/process.css?v=20261120i">
-<link rel="stylesheet" href="/css/pages.css?v=20261120i">
+<link rel="stylesheet" href="/css/fonts.css?v=20261120l">
+<link rel="stylesheet" href="/css/tokens.css?v=20261120l">
+<link rel="stylesheet" href="/css/base.css?v=20261120l">
+<link rel="stylesheet" href="/css/components.css?v=20261120l">
+<link rel="stylesheet" href="/css/header.css?v=20261120l">
+<link rel="stylesheet" href="/css/case.css?v=20261120l">
+<link rel="stylesheet" href="/css/sections.css?v=20261120l">
+<link rel="stylesheet" href="/css/process.css?v=20261120l">
+<link rel="stylesheet" href="/css/pages.css?v=20261120l">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -279,13 +279,24 @@
 <section class="section psec section--deep" id="speed" aria-labelledby="speed-title">
   <div class="wrap">
     <header class="section-head reveal"><h2 id="speed-title">Швидкість, яку <em>можна перевірити</em></h2><p class="section-head__lead">Цей сайт зроблено кодом, за тим самим підходом, що й тариф «Швидкий». Ось його результат у Google PageSpeed Insights (вимірювання листопада 2026).</p></header>
+    <div class="speedwrap">    <div class="gauge reveal" data-live>
+      <div class="gauge__dial" role="img" aria-label="Оцінка PageSpeed цього сайту на мобільному: 92 зі 100">
+        <svg viewBox="0 0 200 200" aria-hidden="true">
+          <circle class="gauge__track" cx="100" cy="100" r="84" pathLength="100"/>
+          <circle class="gauge__arc" cx="100" cy="100" r="84" pathLength="100" style="--p:92"/>
+          <line class="gauge__goal" x1="100" y1="6" x2="100" y2="22" transform="rotate(306 100 100)"/>
+        </svg>
+        <div class="gauge__in"><b data-count-to="92">92</b><span>із 100</span></div>
+      </div>
+      <p class="gauge__cap"><b>PageSpeed на мобільному</b>: результат цього сайту, зробленого за тим самим підходом. Позначка на колі це ціль тарифу «Швидкий»: <em>85+</em>.</p>
+    </div>
     <ul class="speed__grid reveal">
       <li class="speed__item chamfer chamfer-sm"><b class="speed__num">92</b><span class="speed__name">Мобільний: продуктивність</span></li>
       <li class="speed__item chamfer chamfer-sm"><b class="speed__num">99</b><span class="speed__name">Комп'ютер: продуктивність</span></li>
       <li class="speed__item chamfer chamfer-sm"><b class="speed__num">100</b><span class="speed__name">Доступність</span></li>
       <li class="speed__item chamfer chamfer-sm"><b class="speed__num">100</b><span class="speed__name">Найкращі практики</span></li>
       <li class="speed__item chamfer chamfer-sm"><b class="speed__num">100</b><span class="speed__name">SEO</span></li>
-    </ul>
+    </ul></div>
     <p class="speed__note reveal">Результат трохи коливається від запуску до запуску, а чат, піксель чи важкі фото на сайті його знижують. Тому ціль тарифу 85+ на мобільному: перед здачею вимірюю й показую звіт. Обсяг анімацій і ефектів узгоджуємо заздалегідь. <a href="https://pagespeed.web.dev/analysis?url=https%3A%2F%2Fpryhonov.com%2F" target="_blank" rel="noopener noreferrer" data-track="speed_check">Перевірити самому</a></p>
   </div>
 </section>
@@ -502,10 +513,9 @@
 <footer class="footer">
   <div class="wrap footer__row">
     <div>
-      <a class="footer__brand" href="/" aria-label="Vlad Pryhonov: на головну"><img src="/img/logo.svg" alt="Vlad Pryhonov" width="111" height="38"></a>
-      <p class="footer__tagline">Сайти для малого бізнесу</p>
+      <div class="footer__top"><a class="footer__brand" href="/" aria-label="Vlad Pryhonov: на головну"><img src="/img/logo.svg" alt="Vlad Pryhonov" width="111" height="38"></a><p class="footer__tagline">Сайти для малого бізнесу</p></div>
       <nav class="footer__pages footer__cols" aria-label="Сторінки сайту">
-        <div class="footer__col"><p class="footer__h">Послуги</p><a href="/shvydkyi-tarif/">Тариф «Швидкий»</a><a href="/osobystyi-tarif/">Тариф «Особистий»</a><a href="/pidtrymka-saitu/">Підтримка сайту</a><a href="/skilky-koshtuye-sait/">Скільки коштує сайт</a></div><div class="footer__col"><p class="footer__h">Для кого</p><a href="/lending-dlya-reklamy/">Лендінг для реклами</a><a href="/sait-dlya-barbershopu/">Сайт для барбершопу</a><a href="/sait-dlya-fitnes-trenera/">Сайт для фітнес-тренера</a></div><div class="footer__col"><p class="footer__h">Про мене</p><a href="/pro-mene/">Про мене</a><a href="/keis-honor-code/">Кейс Honor Code</a><a href="/pershyi-ekran/">Безкоштовний перший екран</a></div>
+        <div class="footer__col"><p class="footer__h">Послуги</p><a href="/shvydkyi-tarif/">Тариф «Швидкий»</a><a href="/osobystyi-tarif/">Тариф «Особистий»</a><a href="/pidtrymka-saitu/">Підтримка сайту</a><a href="/skilky-koshtuye-sait/">Скільки коштує сайт</a></div><div class="footer__col"><p class="footer__h">Для кого</p><a href="/lending-dlya-reklamy/">Лендінг для реклами</a><a href="/sait-dlya-barbershopu/">Сайт для барбершопу</a><a href="/sait-dlya-fitnes-trenera/">Сайт для фітнес-тренера</a></div><div class="footer__col"><p class="footer__h">Довіра</p><a href="/pro-mene/">Про мене</a><a href="/keis-honor-code/">Кейс Honor Code</a><a href="/pershyi-ekran/">Безкоштовний перший екран</a></div>
       </nav>
     </div>
     <ul class="social" aria-label="Де мене знайти">
@@ -530,8 +540,8 @@
   </div>
 </div>
 
-<script src="/js/page.js?v=20261120i" defer></script>
-<script src="/js/case.js?v=20261120i" defer></script>
-<script src="/js/site.js?v=20261120i" defer></script>
+<script src="/js/page.js?v=20261120l" defer></script>
+<script src="/js/case.js?v=20261120l" defer></script>
+<script src="/js/site.js?v=20261120l" defer></script>
 </body>
 </html>

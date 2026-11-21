@@ -33,15 +33,15 @@
 <meta name="twitter:image" content="https://pryhonov.com/img/og-osobystyi-1.jpg">
 <script src="/js/boot.js"></script>
 <link rel="preload" as="font" type="font/woff2" href="/fonts/onest-400-cyrillic.woff2" crossorigin>
-<link rel="stylesheet" href="/css/fonts.css?v=20261120i">
-<link rel="stylesheet" href="/css/tokens.css?v=20261120i">
-<link rel="stylesheet" href="/css/base.css?v=20261120i">
-<link rel="stylesheet" href="/css/components.css?v=20261120i">
-<link rel="stylesheet" href="/css/header.css?v=20261120i">
-<link rel="stylesheet" href="/css/case.css?v=20261120i">
-<link rel="stylesheet" href="/css/sections.css?v=20261120i">
-<link rel="stylesheet" href="/css/process.css?v=20261120i">
-<link rel="stylesheet" href="/css/pages.css?v=20261120i">
+<link rel="stylesheet" href="/css/fonts.css?v=20261120l">
+<link rel="stylesheet" href="/css/tokens.css?v=20261120l">
+<link rel="stylesheet" href="/css/base.css?v=20261120l">
+<link rel="stylesheet" href="/css/components.css?v=20261120l">
+<link rel="stylesheet" href="/css/header.css?v=20261120l">
+<link rel="stylesheet" href="/css/case.css?v=20261120l">
+<link rel="stylesheet" href="/css/sections.css?v=20261120l">
+<link rel="stylesheet" href="/css/process.css?v=20261120l">
+<link rel="stylesheet" href="/css/pages.css?v=20261120l">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -273,7 +273,17 @@
   <div class="wrap">
     <div class="split">
     <header class="section-head reveal"><h2 id="edit-title">Як ви <em>редагуєте самі</em></h2><p class="section-head__lead">Конструктор обирається для того, щоб зміни не залежали від розробника. При передачі проєкту я покажу кожен крок.</p></header>
-      <div class="split__body reveal"><div class="rows"><article class="row"><h3>Відкриваєте редактор</h3><p>Заходите в панель вашої платформи зі своїми доступами: вони передаються вам повністю.</p></article><article class="row"><h3>Змінюєте текст, ціну чи фото</h3><p>Правите потрібний блок у візуальному редакторі, без коду.</p></article><article class="row"><h3>Публікуєте</h3><p>Зміни одразу з’являються на сайті. Нове (сторінки, функції) ми обговорюємо окремо.</p></article></div></div>
+      <div class="split__body reveal"><div class="rows"><article class="row"><h3>Відкриваєте редактор</h3><p>Заходите в панель вашої платформи зі своїми доступами: вони передаються вам повністю.</p></article><article class="row"><h3>Змінюєте текст, ціну чи фото</h3><p>Правите потрібний блок у візуальному редакторі, без коду.</p></article><article class="row"><h3>Публікуєте</h3><p>Зміни одразу з’являються на сайті. Нове (сторінки, функції) ми обговорюємо окремо.</p></article></div>      <figure class="editor" data-live>
+        <div class="editor__bar" aria-hidden="true"><i></i><i></i><i></i><span>Редактор платформи (схема)</span></div>
+        <div class="editor__body" aria-hidden="true">
+          <small>Текст акції</small>
+          <div class="editor__field"><span class="t1">Акція до п’ятниці</span><span class="t2">Акція до неділі</span><i class="caret"></i></div>
+          <div class="editor__btn">Опублікувати</div>
+          <span class="editor__ptr"></span>
+          <span class="editor__toast">Опубліковано на сайті</span>
+        </div>
+        <figcaption>Схема: так виглядає зміна тексту на конструкторі. Без коду й без звернення до розробника.</figcaption>
+      </figure></div>
     </div>
   </div>
 </section>
@@ -505,10 +515,9 @@
 <footer class="footer">
   <div class="wrap footer__row">
     <div>
-      <a class="footer__brand" href="/" aria-label="Vlad Pryhonov: на головну"><img src="/img/logo.svg" alt="Vlad Pryhonov" width="111" height="38"></a>
-      <p class="footer__tagline">Сайти для малого бізнесу</p>
+      <div class="footer__top"><a class="footer__brand" href="/" aria-label="Vlad Pryhonov: на головну"><img src="/img/logo.svg" alt="Vlad Pryhonov" width="111" height="38"></a><p class="footer__tagline">Сайти для малого бізнесу</p></div>
       <nav class="footer__pages footer__cols" aria-label="Сторінки сайту">
-        <div class="footer__col"><p class="footer__h">Послуги</p><a href="/shvydkyi-tarif/">Тариф «Швидкий»</a><a href="/osobystyi-tarif/">Тариф «Особистий»</a><a href="/pidtrymka-saitu/">Підтримка сайту</a><a href="/skilky-koshtuye-sait/">Скільки коштує сайт</a></div><div class="footer__col"><p class="footer__h">Для кого</p><a href="/lending-dlya-reklamy/">Лендінг для реклами</a><a href="/sait-dlya-barbershopu/">Сайт для барбершопу</a><a href="/sait-dlya-fitnes-trenera/">Сайт для фітнес-тренера</a></div><div class="footer__col"><p class="footer__h">Про мене</p><a href="/pro-mene/">Про мене</a><a href="/keis-honor-code/">Кейс Honor Code</a><a href="/pershyi-ekran/">Безкоштовний перший екран</a></div>
+        <div class="footer__col"><p class="footer__h">Послуги</p><a href="/shvydkyi-tarif/">Тариф «Швидкий»</a><a href="/osobystyi-tarif/">Тариф «Особистий»</a><a href="/pidtrymka-saitu/">Підтримка сайту</a><a href="/skilky-koshtuye-sait/">Скільки коштує сайт</a></div><div class="footer__col"><p class="footer__h">Для кого</p><a href="/lending-dlya-reklamy/">Лендінг для реклами</a><a href="/sait-dlya-barbershopu/">Сайт для барбершопу</a><a href="/sait-dlya-fitnes-trenera/">Сайт для фітнес-тренера</a></div><div class="footer__col"><p class="footer__h">Довіра</p><a href="/pro-mene/">Про мене</a><a href="/keis-honor-code/">Кейс Honor Code</a><a href="/pershyi-ekran/">Безкоштовний перший екран</a></div>
       </nav>
     </div>
     <ul class="social" aria-label="Де мене знайти">
@@ -533,8 +542,8 @@
   </div>
 </div>
 
-<script src="/js/page.js?v=20261120i" defer></script>
-<script src="/js/case.js?v=20261120i" defer></script>
-<script src="/js/site.js?v=20261120i" defer></script>
+<script src="/js/page.js?v=20261120l" defer></script>
+<script src="/js/case.js?v=20261120l" defer></script>
+<script src="/js/site.js?v=20261120l" defer></script>
 </body>
 </html>
